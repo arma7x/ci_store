@@ -16,10 +16,19 @@
             <div id="dashboard-menu" class="col col-12 col-lg-2 px-0 position-fixed dashboard-menu shadow">
             <?php echo isset($menu) ? $menu : null ?>
             </div>
-            <div class="col col-12 col-lg-10 offset-lg-2 dashboard-container">
+            <div id="dashboard-container" class="col col-12 col-lg-10 offset-lg-2 dashboard-container">
                 <?php echo isset($notification) ? $notification : null ?>
                 <?php echo isset($content) ? $content : null ?>
             </div>
+            <script>
+                $("#navbar-toggler").click(function() {
+                    if ($("#navCollapsed").hasClass('show')) {
+                        $('#dashboard-container').attr('style', 'opacity: 1');
+                    } else {
+                        $('#dashboard-container').attr('style', 'opacity: 0.5');
+                    }
+                })
+            </script>
         </div>
     </main>
     <?php echo isset($spinner) ? $spinner : null ?>
