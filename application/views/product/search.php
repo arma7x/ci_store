@@ -20,7 +20,7 @@
 						<?php echo $value['name'] ?>
 					</option>
 				<?php endforeach ?>
-			<select>
+			</select>
 		</div>
 
 		<div class="input-group rounded-0 col-sm-3 p-0 pr-0 pb-2 pr-sm-1 pb-sm-0">
@@ -32,7 +32,7 @@
 				<option value="created_asc">Earlier(Collection)</option>
 				<option value="price_desc">Expensive(Price)</option>
 				<option value="price_asc">Reasonable(Price)</option>
-			<select>
+			</select>
 		</div>
 
 		<button type="submit" class="btn btn-primary rounded-0 col-sm-2">
@@ -42,3 +42,52 @@
 	</div>
 </div>
 <?php echo isset($products) ? $products : NULL ?>
+<style>
+.pagination {
+	position: relative;
+	z-index: 1;
+}
+.pagination .page-item .page-link {
+	width: 40px;
+	height: 40px;
+	border: none;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 40px;
+	padding: 0;
+	text-align: center;
+	color: #242424;
+}
+.pagination .page-item .page-link:hover, .pagination .page-item .page-link:focus {
+	color: #fff;
+	box-shadow: none;
+	background-color: var(--pink)!important;
+}
+.pagination .page-item.active .page-link {
+	color: #fff;
+	box-shadow: none;
+	background-color: var(--pink)!important;
+}
+.pagination .page-item:first-child .page-link {
+	margin-left: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.pagination .page-item:last-child .page-link {
+	margin-left: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+</style>
+<div class="row starter-template mb-0 pb-0">
+	<div class="col-12">
+		<nav aria-label="navigation">
+			<ul class="pagination justify-content-end mt-50">
+				<li class="page-item active"><a class="page-link" href="#">01</a></li>
+				<li class="page-item"><a class="page-link" href="#">02</a></li>
+				<li class="page-item"><a class="page-link" href="#">03</a></li>
+				<li class="page-item"><a class="page-link" href="#">04</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
