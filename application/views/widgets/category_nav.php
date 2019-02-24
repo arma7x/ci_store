@@ -43,7 +43,7 @@
 <div class="nav-scroller">
     <nav class="nav mt-2">
     <?php foreach($cat_link as $key => $value): ?>
-        <a class="p-2 py-1 text-dark text-uppercase" href="/product/search?category=<?php echo $value['slug'] ?>">
+        <a class="p-2 py-1 text-dark text-uppercase" href="/product?category=<?php echo $value['slug'] ?>">
             <img id="cat_<?php echo $value['id'] ?>" class="rounded-circle logo icon-footer" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>"/>
             <?php echo $value['name'] ?>
         </a>

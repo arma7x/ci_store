@@ -14,7 +14,7 @@ class Product extends MY_Controller {
 		$this->data['page_name'] = str_replace('%s', $this->container['app_name'], lang('H_WELCOME'));
 		$this->data['cat_link'] = $this->Category->get_all_cache();
 		$this->widgets['products'] = 'product/widgets/list';
-		$this->widgets['content'] = 'product/index';
+		$this->widgets['content'] = 'product/view';
 		$this->_renderLayout();
 	}
 
