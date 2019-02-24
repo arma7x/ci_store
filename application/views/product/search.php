@@ -7,7 +7,7 @@
 			<div class="input-group-prepend">
 			  <div class="input-group-text rounded-0 border-0 bg-white"><i class="material-icons">&#xe264;</i></div>
 			</div>
-			<input id="keyword" type="text" class="form-control rounded-0 border-0 bg-white" id="inlineFormInputGroupUsername2" placeholder="Username">
+			<input id="keyword" type="text" class="form-control rounded-0 border-0 bg-white" id="inlineFormInputGroupUsername2" placeholder="Search keyword">
 		</div>
 
 		<div class="input-group rounded-0 col-sm-3 p-0 pr-0 pb-1 pr-sm-1 pb-sm-0">
