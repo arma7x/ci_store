@@ -9,6 +9,7 @@ class Product extends MY_Controller {
 
 	public function view() {
 		$this->AllowGetRequest();
+		$this->output->set_header('Sw-Offline-Cache: true');
 		$this->load->model('Category_Model', 'Category');
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_HOMEPAGE');
 		$this->data['page_name'] = str_replace('%s', $this->container['app_name'], lang('H_WELCOME'));
@@ -20,6 +21,7 @@ class Product extends MY_Controller {
 
 	public function search() {
 		$this->AllowGetRequest();
+		$this->output->set_header('Sw-Offline-Cache: true');
 		$this->load->model('Category_Model', 'Category');
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_HOMEPAGE');
 		$this->data['page_name'] = str_replace('%s', $this->container['app_name'], lang('H_WELCOME'));

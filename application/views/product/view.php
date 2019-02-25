@@ -36,7 +36,7 @@
 -->
 			</div>
 		</div>
-		<div>
+		<div class="mb-1">
 			<div class="row m-0">
 				<div id="thumb_0" class="col col-# p-0 border border-primary">
 					<a onClick="$('#carouselSlider').carousel(0)"><img src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg" class="d-block w-100"></a>
@@ -66,10 +66,16 @@
 		<hr class="star-primary" style="margin-top:8px;margin-bottom:25px;">
 		<h4 class="text-primary font-weight-bold">RM180</h4>
 		<h2 class="my-4">White Modern Chair</h2>
-		<h6 class="text-success font-weight-bold"><i class="material-icons">&#xe3fa;</i> In Stock</h6>
-<!--
-		<h6 class="text-danger font-weight-bold"><i class="material-icons">&#xe3fa;</i> Out Stock</h6>
--->
+		<div class="row">
+			<h6 class="ml-3 text-success font-weight-bold"><i class="material-icons">&#xe3fa;</i> In Stock</h6>
+			<!--
+				<h6 class="text-danger font-weight-bold"><i class="material-icons">&#xe3fa;</i> Out Stock</h6>
+			-->
+			<h6 class="ml-5 text-primary font-weight-bold"><a onClick="alert(1)"><i class="material-icons">&#xe87d;</i> Saved</a></h6>
+			<!--
+				<h6 class="ml-5 text-primary font-weight-bold"><a onClick="alert(2)"><i class="material-icons">&#xe87e; Unsaved</i></a></h6>
+			-->
+		</div>
 		<div class="my-3">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?</p>
 		</div>

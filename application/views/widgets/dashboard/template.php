@@ -24,10 +24,10 @@
                 $("#navbar-toggler").click(function() {
                     if ($("#navCollapsed").hasClass('show')) {
                         $("#dashboard-container").css('opacity', '1');
-                        $("#dashboard-container").off('touchmove wheel');
+                        $("#dashboard-container").off('touchmove wheel click');
                     } else {
                         $("#dashboard-container").css('opacity', '0.5');
-                        $("#dashboard-container").on('touchmove wheel', function(e) {
+                        $("#dashboard-container").on('touchmove wheel click', function(e) {
                             e.preventDefault();
                         }, false);
                     }

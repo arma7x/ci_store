@@ -17,7 +17,7 @@
 		}
 	</style>
 	<div class="container pt-3 col col-12 col-lg-10 offset-lg-2">
-	<div class="col col-12 col-lg-11 offset-lg-1">
+	<div class="col col-12">
 		<div class="row">
 			<div class="col col-12 col-sm-3 mb-3 mb-sm-0">
 				<h6 class="font-weight-bold text-primary text-center text-sm-left">

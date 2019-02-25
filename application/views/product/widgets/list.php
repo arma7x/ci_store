@@ -39,11 +39,34 @@
   color: #000000;
 }
 
-.img-container .text {
+.img-container .title {
   font-size: 20px;
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.img-container .price {
+  font-size: 20px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.img-container .favourite {
+  font-size: 20px;
+  color: var(--pink);
+  position: absolute;
+  top: 10%;
+  left: 90%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -54,7 +77,12 @@
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<h5 class="text">TEXT HERE</h5>
+			<div class="title">
+				<hr class="star-primary">
+				<h4 class="font-weight-bold">TEXT HERE</h4>
+			</div>
+			<h3 class="price font-weight-bold">RM100</h3>
+			<i class="material-icons favourite">&#xe87d;</i>
 			<div class="overlay"></div>
 			</a>
 		</div>
@@ -62,7 +90,12 @@
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<h5 class="text">TEXT HERE</h5>
+			<div class="title">
+				<hr class="star-primary">
+				<h4 class="font-weight-bold">TEXT HERE</h4>
+			</div>
+			<h3 class="price font-weight-bold">RM100</h3>
+			<i class="material-icons favourite">&#xe87d;</i>
 			<div class="overlay"></div>
 			</a>
 		</div>
@@ -70,7 +103,12 @@
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<h5 class="text">TEXT HERE</h5>
+			<div class="title">
+				<hr class="star-primary">
+				<h4 class="font-weight-bold">TEXT HERE</h4>
+			</div>
+			<h3 class="price font-weight-bold">RM100</h3>
+			<i class="material-icons favourite">&#xe87d;</i>
 			<div class="overlay"></div>
 			</a>
 		</div>
@@ -78,7 +116,12 @@
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<h5 class="text">TEXT HERE</h5>
+			<div class="title">
+				<hr class="star-primary">
+				<h4 class="font-weight-bold">TEXT HERE</h4>
+			</div>
+			<h3 class="price font-weight-bold">RM100</h3>
+			<i class="material-icons favourite">&#xe87d;</i>
 			<div class="overlay"></div>
 			</a>
 		</div>
@@ -86,7 +129,12 @@
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<h5 class="text">TEXT HERE</h5>
+			<div class="title">
+				<hr class="star-primary">
+				<h4 class="font-weight-bold">TEXT HERE</h4>
+			</div>
+			<h3 class="price font-weight-bold">RM100</h3>
+			<i class="material-icons favourite">&#xe87d;</i>
 			<div class="overlay"></div>
 			</a>
 		</div>
@@ -94,7 +142,12 @@
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<h5 class="text">TEXT HERE</h5>
+			<div class="title">
+				<hr class="star-primary">
+				<h4 class="font-weight-bold">TEXT HERE</h4>
+			</div>
+			<h3 class="price font-weight-bold">RM100</h3>
+			<i class="material-icons favourite">&#xe87d;</i>
 			<div class="overlay"></div>
 			</a>
 		</div>
@@ -102,7 +155,12 @@
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<h5 class="text">TEXT HERE</h5>
+			<div class="title">
+				<hr class="star-primary">
+				<h4 class="font-weight-bold">TEXT HERE</h4>
+			</div>
+			<h3 class="price font-weight-bold">RM100</h3>
+			<i class="material-icons favourite">&#xe87d;</i>
 			<div class="overlay"></div>
 			</a>
 		</div>
@@ -110,7 +168,12 @@
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<h5 class="text">TEXT HERE</h5>
+			<div class="title">
+				<hr class="star-primary">
+				<h4 class="font-weight-bold">TEXT HERE</h4>
+			</div>
+			<h3 class="price font-weight-bold">RM100</h3>
+			<i class="material-icons favourite">&#xe87d;</i>
 			<div class="overlay"></div>
 			</a>
 		</div>
@@ -118,7 +181,12 @@
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<h5 class="text">TEXT HERE</h5>
+			<div class="title">
+				<hr class="star-primary">
+				<h4 class="font-weight-bold">TEXT HERE</h4>
+			</div>
+			<h3 class="price font-weight-bold">RM100</h3>
+			<i class="material-icons favourite">&#xe87d;</i>
 			<div class="overlay"></div>
 			</a>
 		</div>
