@@ -53,7 +53,7 @@
 <div class="row starter-template">
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
-			<a href="#"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<h5 class="text">TEXT HERE</h5>
 			<div class="overlay"></div>
 			</a>
@@ -61,7 +61,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
-			<a href="#"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<h5 class="text">TEXT HERE</h5>
 			<div class="overlay"></div>
 			</a>
@@ -69,7 +69,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
-			<a href="#"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<h5 class="text">TEXT HERE</h5>
 			<div class="overlay"></div>
 			</a>
@@ -77,7 +77,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
-			<a href="#"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<h5 class="text">TEXT HERE</h5>
 			<div class="overlay"></div>
 			</a>
@@ -85,7 +85,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
-			<a href="#"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<h5 class="text">TEXT HERE</h5>
 			<div class="overlay"></div>
 			</a>
@@ -93,7 +93,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
-			<a href="#"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<h5 class="text">TEXT HERE</h5>
 			<div class="overlay"></div>
 			</a>
@@ -101,7 +101,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
-			<a href="#"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<h5 class="text">TEXT HERE</h5>
 			<div class="overlay"></div>
 			</a>
@@ -109,7 +109,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
-			<a href="#"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<h5 class="text">TEXT HERE</h5>
 			<div class="overlay"></div>
 			</a>
@@ -117,7 +117,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container">
-			<a href="#"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<h5 class="text">TEXT HERE</h5>
 			<div class="overlay"></div>
 			</a>

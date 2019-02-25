@@ -8,6 +8,45 @@
     <meta name="turbolinks-cache-control" content="no-cache">
     <title><?php echo isset($title) ? $title : 'Codeigniter' ?></title>
     <?php echo isset($header) ? $header : null ?>
+    <style>
+        hr.star-dark,
+        hr.star-primary {
+          max-width: 15rem;
+          padding: 0;
+          text-align: center;
+          border: none;
+          border-top: solid 0.25rem;
+          margin-top: 2.5rem;
+          margin-bottom: 2.5rem;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        hr.star-dark:after,
+        hr.star-primary:after {
+          position: relative;
+          top: -.8em;
+          display: inline-block;
+          padding: 0 0.25em;
+          content: '\e3e4';
+          font-family: "Material Icons";
+          font-weight: 900;
+          font-size: 1.5em;
+        }
+        hr.star-dark {
+          border-color: #fff;
+        }
+        hr.star-dark:after {
+          color: #000;
+          background-color: transparent;
+        }
+        hr.star-primary {
+          border-color: var(--pink);
+        }
+        hr.star-primary:after {
+          color: var(--pink);
+          background-color: transparent;
+        }
+    </style>
   </head>
   <body class="p-0">
     <?php echo isset($nav) ? $nav : null ?>

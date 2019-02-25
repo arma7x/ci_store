@@ -23,9 +23,13 @@
             <script>
                 $("#navbar-toggler").click(function() {
                     if ($("#navCollapsed").hasClass('show')) {
-                        $('#dashboard-container').attr('style', 'opacity: 1');
+                        $("#dashboard-container").css('opacity', '1');
+                        $("#dashboard-container").off('touchmove wheel');
                     } else {
-                        $('#dashboard-container').attr('style', 'opacity: 0.5');
+                        $("#dashboard-container").css('opacity', '0.5');
+                        $("#dashboard-container").on('touchmove wheel', function(e) {
+                            e.preventDefault();
+                        }, false);
                     }
                 })
             </script>
