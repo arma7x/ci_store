@@ -25,6 +25,7 @@
 
 .nav-scroller a {
   font-size: 13px;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -40,7 +41,7 @@
   transition: all 500ms ease 100ms;
 }
 </style>
-<div class="nav-scroller">
+<div class="nav-scroller d-flex justify-content-center">
     <nav class="nav mt-2">
     <?php foreach($cat_link as $key => $value): ?>
         <a class="p-2 py-1 text-dark text-uppercase" href="/product?category=<?php echo $value['slug'] ?>">
