@@ -23,16 +23,7 @@
   width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: var(--pink);
-}
-
-.img-container:hover .overlay {
-  opacity: 0.3;
-}
-
-.img-container:hover .img {
-  opacity: 0.5;
-  
+  background-color: var(--dark);
 }
 
 .img-container a {
@@ -63,7 +54,7 @@
 
 .img-container .favourite {
   font-size: 20px;
-  color: var(--pink);
+  color: var(--dark);
   position: absolute;
   top: 10%;
   left: 90%;
@@ -72,10 +63,27 @@
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
+.img-container:hover .overlay {
+  opacity: 0.7;
+}
+
+.img-container:hover .img {
+  opacity: 0.5;
+  
+}
+
+.img-container:hover .title,
+.img-container:hover .price,
+.img-container:hover .favourite {
+  color: #ffffff;
+  opacity: 1;
+  z-index: 2;
+}
 </style>
 <div class="row starter-template">
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container">
+		<div class="img-container" data-placement="top" title="description">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
@@ -88,7 +96,7 @@
 		</div>
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container">
+		<div class="img-container" data-placement="top" title="description">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
@@ -101,7 +109,7 @@
 		</div>
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container">
+		<div class="img-container" data-placement="top" title="description">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
@@ -114,7 +122,7 @@
 		</div>
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container">
+		<div class="img-container" data-placement="top" title="description">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
@@ -127,7 +135,7 @@
 		</div>
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container">
+		<div class="img-container" data-placement="top" title="description">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
@@ -140,7 +148,7 @@
 		</div>
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container">
+		<div class="img-container" data-placement="top" title="description">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
@@ -153,7 +161,7 @@
 		</div>
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container">
+		<div class="img-container" data-placement="top" title="description">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
@@ -166,7 +174,7 @@
 		</div>
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container">
+		<div class="img-container" data-placement="top" title="description">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
@@ -179,7 +187,7 @@
 		</div>
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container">
+		<div class="img-container" data-placement="top" title="description">
 			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
