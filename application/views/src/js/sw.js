@@ -49,33 +49,19 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    const u = new URL(event.request.url);
-    if (u.origin !== origin) {
-        const corsRequest = new Request(event.request.url, {mode: 'cors'});
-        event.respondWith(fromCacheCORS(corsRequest).then((result) => {
+    const targetRequest = event.request.url.replace(origin, '');
+    if (staticCacheFiles.indexOf(targetRequest) !== -1) {
+        event.respondWith(fromCache(event.request));
+    } else {
+        event.respondWith(fromNetwork(event.request, 15000).then((result) => {
             return result;
         })
         .catch(() => {
             if (event.request.method === 'POST') {
                 return 'fail';
             }
-            return fetch(corsRequest)
+            return fromCache(event.request);
         }));
-    } else {
-        const targetRequest = event.request.url.replace(origin, '');
-        if (staticCacheFiles.indexOf(targetRequest) !== -1) {
-            event.respondWith(fromCache(event.request));
-        } else {
-            event.respondWith(fromNetwork(event.request, 15000).then((result) => {
-                return result;
-            })
-            .catch(() => {
-                if (event.request.method === 'POST') {
-                    return 'fail';
-                }
-                return fromCache(event.request);
-            }));
-        }
     }
 });
 
@@ -115,15 +101,6 @@ function fromCache(request) {
     return caches.open(cacheName).then((cache) => {
         return cache.match(request).then((matching) => {
             return matching || caches.match(offline);
-        });
-    });
-}
- 
-function fromCacheCORS(request) {
-    const offline = new Request(offlinePage);
-    return caches.open(cacheName).then((cache) => {
-        return cache.match(request).then((matching) => {
-            return matching || Promise.reject('fail');
         });
     });
 }
