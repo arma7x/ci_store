@@ -2,7 +2,7 @@
 
 <div class="row starter-template">
 	<div class="col col-12 col-md-6 p-1">
-		<div class="mb-2">
+		<div class="mb-4">
 			<div id="carouselSlider" class="carousel slide" data-ride="carousel">
 <!--
 				<ol class="carousel-indicators">
@@ -51,9 +51,7 @@
 			})
 			$('#carouselSlider').on('slide.bs.carousel', function (e) {
 				$('#thumb_'+e.from).removeClass('border border-primary')
-				$('#thumb_'+e.from).attr('style', 'opacity: 1');
 				$('#thumb_'+e.to).addClass('border border-primary')
-				$('#thumb_'+e.to).attr('style', 'opacity: 0.5');
 			})
 		</script>
 	</div>
