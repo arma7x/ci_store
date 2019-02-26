@@ -81,6 +81,7 @@
   z-index: 2;
 }
 </style>
+<hr class="star-primary d-none d-sm-block" style="margin-top:0.4em;margin-bottom:0.4em">
 <div class="row starter-template">
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container" data-placement="top" title="description">

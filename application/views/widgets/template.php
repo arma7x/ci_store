@@ -33,7 +33,7 @@
           font-size: 1.5em;
         }
         hr.star-dark {
-          border-color: #fff;
+          border-color: #000;
         }
         hr.star-dark:after {
           color: #000;

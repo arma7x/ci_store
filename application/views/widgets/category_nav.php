@@ -35,7 +35,7 @@
 
 .nav-scroller a:hover {
   color: var(--pink) !important;
-  font-size: 15px;
+  font-size: 13px;
   text-decoration: none;
   -webkit-transition: all 500ms ease 100ms;
   transition: all 500ms ease 100ms;
