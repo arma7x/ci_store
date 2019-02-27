@@ -81,11 +81,16 @@
   z-index: 2;
 }
 </style>
-<hr class="star-primary d-none d-sm-block" style="margin-top:0.4em;margin-bottom:0.4em">
+<hr class="star-primary d-none d-sm-block" style="margin-top:0.7em;margin-bottom:0.4em">
 <div class="row starter-template">
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container" data-placement="top" title="description">
-			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/store/test"><img id="demo" class="img img-fluid" src=""/>
+			<script>
+				$(document).ready(function() {
+				resizePicture('https://colorlib.com/preview/theme/amado/img/bg-img/2.jpg', null, 533, 533, .50, 'image/webp', renderImg, '#demo')
+				})
+			</script>
 			<div class="title">
 				<hr class="star-primary">
 				<h4 class="font-weight-bold">TEXT HERE</h4>
@@ -98,7 +103,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container" data-placement="top" title="description">
-			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
 				<h4 class="font-weight-bold">TEXT HERE</h4>
@@ -111,7 +116,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container" data-placement="top" title="description">
-			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
 				<h4 class="font-weight-bold">TEXT HERE</h4>
@@ -124,7 +129,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container" data-placement="top" title="description">
-			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
 				<h4 class="font-weight-bold">TEXT HERE</h4>
@@ -137,7 +142,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container" data-placement="top" title="description">
-			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
 				<h4 class="font-weight-bold">TEXT HERE</h4>
@@ -150,7 +155,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container" data-placement="top" title="description">
-			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
 				<h4 class="font-weight-bold">TEXT HERE</h4>
@@ -163,7 +168,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container" data-placement="top" title="description">
-			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
 				<h4 class="font-weight-bold">TEXT HERE</h4>
@@ -176,7 +181,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container" data-placement="top" title="description">
-			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
 				<h4 class="font-weight-bold">TEXT HERE</h4>
@@ -189,7 +194,7 @@
 	</div>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container" data-placement="top" title="description">
-			<a href="/product/test"><img class="img" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
+			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
 			<div class="title">
 				<hr class="star-primary">
 				<h4 class="font-weight-bold">TEXT HERE</h4>

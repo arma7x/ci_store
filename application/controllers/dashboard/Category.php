@@ -44,13 +44,11 @@ class Category extends MY_Controller {
 		$data = array(
 			'name' => $this->input->post_get('name'),
 			'icon' => $this->input->post_get('icon'),
-			'slug' => $this->input->post_get('slug'),
 			'ordering' => (int) $this->input->post_get('ordering'),
 		);
 		$this->form_validation->set_data($data);
 		$this->form_validation->set_rules('name', lang('L_CAT_NAME'), 'required');
 		$this->form_validation->set_rules('icon', lang('L_CAT_ICON'), 'required');
-		$this->form_validation->set_rules('slug', lang('L_CAT_URL'), 'required|alpha_dash|is_unique[categories.slug]');
 		$this->form_validation->set_rules('ordering', lang('L_CAT_ORDERING'), 'required|is_natural_no_zero');
 		if ($this->form_validation->run() === FALSE) {
 			$data = array(
@@ -82,14 +80,12 @@ class Category extends MY_Controller {
 			'id' => $this->input->post_get('id'),
 			'name' => $this->input->post_get('name'),
 			'icon' => $this->input->post_get('icon'),
-			//'slug' => $this->input->post_get('slug'),
 			'ordering' => (int) $this->input->post_get('ordering'),
 		);
 		$this->form_validation->set_data($data);
 		$this->form_validation->set_rules('id', lang('L_ID'), 'required|is_natural_no_zero');
 		$this->form_validation->set_rules('name', lang('L_CAT_NAME'), 'required');
 		$this->form_validation->set_rules('icon', lang('L_CAT_ICON'), 'required');
-		//$this->form_validation->set_rules('slug', lang('L_CAT_URL'), 'required|alpha_dash|is_unique[categories.slug]');
 		$this->form_validation->set_rules('ordering', lang('L_CAT_ORDERING'), 'required|is_natural_no_zero');
 		if ($this->form_validation->run() === FALSE) {
 			$data = array(

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Category_Model extends MY_Model {
 
-	private CONST PUBLIC_FOOTER_FIELD = 'id, icon, name, slug';
+	private CONST PUBLIC_FOOTER_FIELD = 'id, icon, name';
 	public CONST CACHE_PREFIX = 'CAT_';
 	public CONST ALL_CACHE = 'CACHE_CAT';
 	public $table = 'categories';

@@ -15,9 +15,9 @@
 				<div class="input-group-text rounded-0 border-0 bg-white"><i class="material-icons">&#xe54e;</i></div>
 			</div>
 			<select id="category" class="form-control rounded-0 border-0 bg-white">
-				<option value="">Non-Categorize</option>
+				<option value="">All Category</option>
 				<?php foreach($cat_link as $key => $value): ?>
-					<option value="<?php echo $value['slug'] ?>">
+					<option value="<?php echo $value['id'] ?>">
 						<?php echo $value['name'] ?>
 					</option>
 				<?php endforeach ?>
@@ -29,8 +29,8 @@
 				<div class="input-group-text rounded-0 border-0 bg-white"><i class="material-icons">&#xe164;</i></div>
 			</div>
 			<select id="ordering" class="form-control rounded-0 border-0 bg-white">
-				<option value="created_desc">Latest(Collection)</option>
-				<option value="created_asc">Earlier(Collection)</option>
+				<option value="created_desc">Latest(Release)</option>
+				<option value="created_asc">Earlier(Release)</option>
 				<option value="price_desc">Expensive(Price)</option>
 				<option value="price_asc">Reasonable(Price)</option>
 			</select>
@@ -41,9 +41,8 @@
 				<div class="input-group-text rounded-0 border-0 bg-white"><i class="material-icons">&#xe838;</i></div>
 			</div>
 			<select id="ordering" class="form-control rounded-0 border-0 bg-white">
-				<option value="created_desc">All</option>
-				<option value="created_asc">Non-Highlight</option>
-				<option value="price_desc">Highlight</option>
+				<option value="">All</option>
+				<option value="1">Spotlight</option>
 			</select>
 		</div>
 

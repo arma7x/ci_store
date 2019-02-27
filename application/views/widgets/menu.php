@@ -27,7 +27,7 @@
                     </div>
                     <div id="accordionDashboard" class="accordion bg-light">
                     <div class="autoscroll">
-                    <a class="dropdown-item p-3<?php echo $this->uri->segment(1) == 'product' ? ' text-primary active' : ''?>" onclick="navigate('/product')"><i class="material-icons">&#xe8d1;</i> <?php echo 'Store';?></a>
+                    <a class="dropdown-item p-3<?php echo $this->uri->segment(1) == 'store' ? ' text-primary active' : ''?>" onclick="navigate('/store')"><i class="material-icons">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
                       <?php foreach($this->container['ei_link'] as $key => $value): ?>
                         <?php if ((int) $value['position'] !== 1): ?>
                             <a class="dropdown-item p-3<?php echo '/'.$this->uri->uri_string() == '/'.$value['slug'] ? ' text-primary active' : ''?>" onclick="navigate('/<?php echo $value['slug'] ?>')"><i class="material-icons"><?php echo $value['material_icon'] ?></i> <?php echo $value['title'] ?></a>

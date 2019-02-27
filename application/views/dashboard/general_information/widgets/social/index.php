@@ -12,7 +12,7 @@
 						<tr>
 							<!-- <th scope="col"><?php echo lang('L_ID'); ?></th> -->
 							<th scope="col"><?php echo lang('L_S_C_NAME'); ?></th>
-							<th scope="col"><?php echo lang('L_S_C_ICON'); ?></th>
+							<!-- <th scope="col"><?php echo lang('L_S_C_ICON'); ?></th> -->
 							<th scope="col"><?php echo lang('L_S_C_URL'); ?></th>
 							<th scope="col"><?php echo lang('L_S_C_ORDERING'); ?></th>
 							<th scope="col"><?php echo lang('L_ACTION'); ?></th>
@@ -22,8 +22,11 @@
 						<?php foreach($sc_list as $index => $item): ?>
 						<tr>
 							<!-- <td><?php echo $item['id'] ;?></td> -->
-							<td><strong><?php echo $item['name'] ;?></strong></td>
-							<td class="text-center pt-3"><img class="rounded-circle logo" style="width:50px;height:50px" src="<?php echo $item['icon'] ?>" alt="<?php echo $item['name'] ?>"/></td>
+							<td class="pt-3">
+								<img class="rounded-circle logo" style="width:50px;height:50px" src="<?php echo $item['icon'] ?>" alt="<?php echo $item['name'] ?>"/>
+								<strong><?php echo $item['name'] ;?></strong>
+							</td>
+							<!-- <td class="text-center pt-3"><img class="rounded-circle logo" style="width:50px;height:50px" src="<?php echo $item['icon'] ?>" alt="<?php echo $item['name'] ?>"/></td> -->
 							<td><?php echo $item['url'] ;?></td>
 							<td style="width:150px;">
 								<form>

@@ -13,43 +13,27 @@
           <form id="addForm">
             <div class="row">
                 <div class="col col-12">
-                    <div class="row">
-                        <div class="col col-12 col-sm-8">
-                            <div class="form-group">
-                              <label for="inputName" class="sr-only-rm"><?php echo lang('L_CAT_NAME');?></label>
-                              <div id="inputNameError" class="input-group border rounded">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="material-icons">&#xe264;</i></span>
-                                </div>
-                                <input type="text" id="inputName" class="form-control" placeholder="<?php echo lang('L_CAT_NAME');?>" required>
-                              </div>
-                              <div id="inputNameErrorText" class="form-control-feedback text-danger"></div>
-                            </div>
+                    <div class="form-group">
+                      <label for="inputName" class="sr-only-rm"><?php echo lang('L_CAT_NAME');?></label>
+                      <div id="inputNameError" class="input-group border rounded">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="material-icons">&#xe264;</i></span>
                         </div>
-                        <div class="col col-12 col-sm-4">
-                            <div class="form-group">
-                              <label for="inputOrdering" class="sr-only-rm"><?php echo lang('L_CAT_ORDERING');?></label>
-                              <div id="inputOrderingError" class="input-group border rounded">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="material-icons">&#xe242;</i></div>
-                                </div>
-                                <input type="number" id="inputOrdering" class="form-control" placeholder="<?php echo lang('L_CAT_ORDERING');?>" required>
-                              </div>
-                              <div id="inputOrderingErrorText" class="form-control-feedback text-danger"></div>
-                            </div>
-                        </div>
+                        <input type="text" id="inputName" class="form-control" placeholder="<?php echo lang('L_CAT_NAME');?>" required>
+                      </div>
+                      <div id="inputNameErrorText" class="form-control-feedback text-danger"></div>
                     </div>
                 </div>
                 <div class="col col-12">
                     <div class="form-group">
-                      <label for="inputSlug" class="sr-only-rm"><?php echo lang('L_CAT_SLUG');?></label>
-                      <div id="inputSlugError" class="input-group border rounded">
+                      <label for="inputOrdering" class="sr-only-rm"><?php echo lang('L_CAT_ORDERING');?></label>
+                      <div id="inputOrderingError" class="input-group border rounded">
                         <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="material-icons">&#xe157;</i></div>
+                            <div class="input-group-text"><i class="material-icons">&#xe242;</i></div>
                         </div>
-                        <input type="text" id="inputSlug" class="form-control" placeholder="<?php echo lang('L_CAT_SLUG');?>" required>
+                        <input type="number" id="inputOrdering" class="form-control" placeholder="<?php echo lang('L_CAT_ORDERING');?>" required>
                       </div>
-                      <div id="inputSlugErrorText" class="form-control-feedback text-danger"></div>
+                      <div id="inputOrderingErrorText" class="form-control-feedback text-danger"></div>
                     </div>
                 </div>
                 <div class="col col-12">

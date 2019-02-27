@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Product extends MY_Controller {
+class Store extends MY_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -14,8 +14,8 @@ class Product extends MY_Controller {
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_HOMEPAGE');
 		$this->data['page_name'] = str_replace('%s', $this->container['app_name'], lang('H_WELCOME'));
 		$this->data['cat_link'] = $this->Category->get_all_cache();
-		$this->widgets['products'] = 'product/widgets/list';
-		$this->widgets['content'] = 'product/view';
+		$this->widgets['products'] = 'store/widgets/list';
+		$this->widgets['content'] = 'store/view';
 		$this->_renderLayout();
 	}
 
@@ -25,8 +25,8 @@ class Product extends MY_Controller {
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_HOMEPAGE');
 		$this->data['page_name'] = str_replace('%s', $this->container['app_name'], lang('H_WELCOME'));
 		$this->data['cat_link'] = $this->Category->get_all_cache();
-		$this->widgets['products'] = 'product/widgets/list';
-		$this->widgets['content'] = 'product/search';
+		$this->widgets['products'] = 'store/widgets/list';
+		$this->widgets['content'] = 'store/search';
 		$this->_renderLayout();
 	}
 

@@ -40,7 +40,6 @@ function findCategory(id) {
         if (data.id != undefined) {
             $('#inputIdEdit').attr('value', data.id)
             $('#inputNameEdit').attr('value', data.name)
-            $('#inputSlugEdit').attr('value', data.slug)
             $('#inputOrderingEdit').attr('value', data.ordering)
             $('#inputIconEdit').text(data.icon)
             $('#iconHolderEdit').attr('src', data.icon)
@@ -61,15 +60,12 @@ function addCategory() {
     hideDangerMessage()
     $('#inputNameError').removeClass('border-danger')
     $('#inputNameErrorText').text('')
-    $('#inputSlugError').removeClass('border-danger')
-    $('#inputSlugErrorText').text('')
     $('#inputOrderingError').removeClass('border-danger')
     $('#inputOrderingErrorText').text('')
     $('#inputIconError').removeClass('border-danger')
     $('#inputIconErrorText').text('')
     var data = {
         'name': $('#inputName').val(),
-        'slug': $('#inputSlug').val(),
         'ordering': $('#inputOrdering').val(),
         'icon': $('#inputIcon').val(),
     }
@@ -104,10 +100,6 @@ function addCategory() {
                     $('#inputOrderingError').addClass('border-danger')
                     $('#inputOrderingErrorText').text(jqXHR.responseJSON.errors.ordering)
                 }
-                if (jqXHR.responseJSON.errors.slug != undefined) {
-                    $('#inputSlugError').addClass('border-danger')
-                    $('#inputSlugErrorText').text(jqXHR.responseJSON.errors.slug)
-                }
                 if (jqXHR.responseJSON.errors.name != undefined) {
                     $('#inputNameError').addClass('border-danger')
                     $('#inputNameErrorText').text(jqXHR.responseJSON.errors.name)
@@ -126,8 +118,6 @@ function updateCategory() {
     hideDangerMessage()
     $('#inputTitleEditError').removeClass('border-danger')
     $('#inputTitleEditErrorText').text('')
-    $('#inputSlugEditError').removeClass('border-danger')
-    $('#inputSlugEditErrorText').text('')
     $('#inputOrderingEditError').removeClass('border-danger')
     $('#inputOrderingEditErrorText').text('')
     $('#inputBriefDescriptionEditError').removeClass('border-danger')
@@ -137,7 +127,6 @@ function updateCategory() {
     var data = {
         'id': $('#inputIdEdit').val(),
         'name': $('#inputNameEdit').val(),
-        'slug': $('#inputSlugEdit').val(),
         'ordering': $('#inputOrderingEdit').val(),
         'icon': $('#inputIconEdit').val(),
     }
@@ -175,10 +164,6 @@ function updateCategory() {
                 if (jqXHR.responseJSON.errors.ordering != undefined) {
                     $('#inputOrderingEditError').addClass('border-danger')
                     $('#inputOrderingEditErrorText').text(jqXHR.responseJSON.errors.ordering)
-                }
-                if (jqXHR.responseJSON.errors.slug != undefined) {
-                    $('#inputSlugEditError').addClass('border-danger')
-                    $('#inputSlugEditErrorText').text(jqXHR.responseJSON.errors.slug)
                 }
                 if (jqXHR.responseJSON.errors.title != undefined) {
                     $('#inputTitleEditError').addClass('border-danger')

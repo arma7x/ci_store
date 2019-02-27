@@ -15,7 +15,7 @@
               <div id="inputNameErrorText" class="form-control-feedback text-danger"></div>
             </div>
             <div class="form-group">
-              <label for="inputEmailAddress" class="sr-only-rm"><?php echo lang('L_EMAIL');?></label>
+              <label for="inputEmailAddress" class="sr-only-rm"><?php echo lang('L_EMAIL');?>(<?php echo lang('H_G_INBOX_CHANNEL') ;?>)</label>
               <div id="inputEmailAddressError" class="input-group border rounded">
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="material-icons">&#xe0be;</i></div>
@@ -26,7 +26,7 @@
             </div>
 
             <div class="form-group">
-              <label for="inputOfficeNumber" class="sr-only-rm"><?php echo lang('L_G_OFFICE_NUMBER');?></label>
+              <label for="inputOfficeNumber" class="sr-only-rm"><?php echo lang('L_G_OFFICE_NUMBER');?>(<?php echo lang('H_G_INBOX_CHANNEL') ;?>)</label>
               <div id="inputOfficeNumberError" class="input-group border rounded">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="material-icons">&#xe0b0;</i></span>
@@ -37,7 +37,7 @@
             </div>
             
             <div class="form-group">
-              <label for="inputMobileNumber" class="sr-only-rm"><?php echo lang('L_G_MOBILE_NUMBER');?></label>
+              <label for="inputMobileNumber" class="sr-only-rm"><?php echo lang('L_G_MOBILE_NUMBER');?>(<?php echo lang('H_G_INBOX_CHANNEL') ;?>)</label>
               <div id="inputMobileNumberError" class="input-group border rounded">
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="material-icons">&#xe32c;</i></div>
