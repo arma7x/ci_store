@@ -53,7 +53,7 @@
 			  box-shadow: none;
 		}
 	</style>
-	<div class="col col-12 col-md-9 py-2 p-md-2 order-last order-md-first">
+	<div class="col col-12 col-md-9 px-0 pt-2 p-md-2 order-last order-md-first">
 		<?php echo isset($products) ? $products : NULL ?>
 		<div class="row">
 			<div class="col col-12 px-0 py-2 p-md-2">
