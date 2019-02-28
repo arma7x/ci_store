@@ -33,7 +33,7 @@
 .img-container .title {
   font-size: 20px;
   position: absolute;
-  top: 20%;
+  top: 25%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -81,14 +81,13 @@
   z-index: 2;
 }
 </style>
-<hr class="star-primary d-none d-sm-block" style="margin-top:0.7em;margin-bottom:0.4em">
-<div class="row starter-template">
+<div class="row">
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container" data-placement="top" title="description">
 			<a href="/store/test"><img id="demo" class="img img-fluid" src=""/>
 			<script>
 				$(document).ready(function() {
-				resizePicture('https://colorlib.com/preview/theme/amado/img/bg-img/2.jpg', null, 533, 533, .50, 'image/webp', renderImg, '#demo')
+					resizePicture('https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg', null, 533, 533, .50, 'image/webp', renderImg, '#demo')
 				})
 			</script>
 			<div class="title">

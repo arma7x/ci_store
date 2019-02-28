@@ -81,7 +81,7 @@
     <?php echo isset($spinner) ? $spinner : null ?>
     <footer class="footer bg-light border-top border-primary">
       <?php echo isset($bottom) ? $bottom : null ?>
-      <div class="container text-sm-right">
+      <div class="container text-md-right">
         <span class="text-dark small"><?php echo str_replace('%s', $this->benchmark->elapsed_time(), lang('L_F_RENDER_ELAPSED')).'|'.$this->benchmark->memory_usage().'|'.strtoupper(ENVIRONMENT) ?></span>
       </div>
     </footer>

@@ -19,12 +19,12 @@
 	<div class="container pt-3 col col-12 col-lg-10 offset-lg-2">
 	<div class="col col-12">
 		<div class="row">
-			<div class="col col-12 col-sm-3 mb-3 mb-sm-0">
-				<h6 class="font-weight-bold text-primary text-center text-sm-left">
+			<div class="col col-12 col-md-3 mb-3 mb-md-0">
+				<h6 class="font-weight-bold text-primary text-center text-md-left">
 					<img class="logo icon-footer" src="/static/img/android-chrome-192x192.png" alt="logo"/>
 					<?php echo $this->container['app_name'] ?>
 				</h6>
-				<div class="small text-center text-sm-left">
+				<div class="small text-center text-md-left">
 					<?php if (isset($this->container['gi_link']['address'])): ?>
 					<?php if ($this->container['gi_link']['address'] !== ''): ?>
 					<?php echo $this->container['gi_link']['address'].'<br>' ?>
@@ -37,7 +37,7 @@
 					<?php endif ?>
 				</div>
 			</div>
-			<div class="col col-12 col-sm-3 mb-2 mb-sm-0">
+			<div class="col col-12 col-md-3 mb-2 mb-md-0">
 				<h6 class="font-weight-bold"><?php echo lang('H_ESSENTIAL_INFORMATION') ;?></h6>
 				<ul class="list-inline small">
 				<?php foreach($this->container['ei_link'] as $key => $value): ?>
@@ -50,7 +50,7 @@
 				<?php endforeach ?>
 				</ul>
 			</div>
-			<div class="col col-12 col-sm-3 mb-2 mb-sm-0">
+			<div class="col col-12 col-md-3 mb-2 mb-md-0">
 				<h6 class="font-weight-bold"><?php echo lang('H_G_CONTACT_US') ;?></h6>
 				<ul class="list-inline small">
 					<?php if (isset($this->container['gi_link']['email'])): ?>
@@ -83,7 +83,7 @@
 					<?php endif ?>
 				</ul>
 			</div>
-			<div class="col col-12 col-sm-3 mb-2 mb-sm-0">
+			<div class="col col-12 col-md-3 mb-2 mb-md-0">
 				<h6 class="font-weight-bold"><?php echo lang('H_G_SOCIAL_CHANNEL') ;?></h6>
 				<ul class="list-inline small">
 				<?php foreach($this->container['sc_link'] as $key => $value): ?>

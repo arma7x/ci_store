@@ -21,8 +21,8 @@ function findEI(id) {
             $('#inputTitleEdit').attr('value', data.title)
             $('#inputSlugEdit').attr('value', data.slug)
             $('#inputOrderingEdit').attr('value', data.ordering)
-            $('#inputPositionEdit option[value='+data.position+']').attr('selected','selected');
-            $('#inputVisibilityEdit option[value='+data.visibility+']').attr('selected','selected');
+            $('#inputPositionEdit option[value="'+data.position+'"]').attr('selected','selected')
+            $('#inputVisibilityEdit option[value="'+data.visibility+'"]').attr('selected','selected')
             $('#inputMaterialIconEdit').attr('value', data.material_icon)
             $('#edit_mi').html(data.material_icon).text()
             $('#inputBriefDescriptionEdit').text(data.brief_description)

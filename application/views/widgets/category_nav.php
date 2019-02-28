@@ -41,7 +41,7 @@
   transition: all 500ms ease 100ms;
 }
 </style>
-<div class="nav-scroller d-flex justify-content-center">
+<div class="nav-scroller d-flex justify-content-center mx-2">
     <nav class="nav mt-2">
     <?php foreach($cat_link as $key => $value): ?>
         <a class="p-2 py-1 text-dark text-uppercase" href="/store?category=<?php echo $value['id'] ?>">
