@@ -82,17 +82,18 @@
 }
 </style>
 <div class="row">
+	<?php for($i=1;$i<10;$i++):?>
 	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
 		<div class="img-container" data-placement="top" title="description">
-			<a href="/store/test"><img id="demo" class="img img-fluid" src=""/>
+			<a href="/store/<?php echo $i?>"><img id="demo<?php echo $i?>" class="img img-fluid" src="/static/img/android-chrome-192x192.png"/>
 			<script>
 				$(document).ready(function() {
-					resizePicture('https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg', null, 533, 533, .50, 'image/webp', renderImg, '#demo')
+					resizePicture('https://colorlib.com/preview/theme/amado/img/bg-img/<?php echo $i?>.jpg', null, 533, 533, .50, 'image/webp', renderImg, '#demo<?php echo $i?>')
 				})
 			</script>
 			<div class="title">
 				<hr class="star-primary">
-				<h4 class="font-weight-bold">TEXT HERE</h4>
+				<h5 class="font-weight-bold">TEXT HERE</h5>
 			</div>
 			<h3 class="price font-weight-bold">RM100</h3>
 			<i class="material-icons favourite">&#xe87d;</i>
@@ -100,108 +101,5 @@
 			</a>
 		</div>
 	</div>
-	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container" data-placement="top" title="description">
-			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<div class="title">
-				<hr class="star-primary">
-				<h4 class="font-weight-bold">TEXT HERE</h4>
-			</div>
-			<h3 class="price font-weight-bold">RM100</h3>
-			<i class="material-icons favourite">&#xe87d;</i>
-			<div class="overlay"></div>
-			</a>
-		</div>
-	</div>
-	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container" data-placement="top" title="description">
-			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<div class="title">
-				<hr class="star-primary">
-				<h4 class="font-weight-bold">TEXT HERE</h4>
-			</div>
-			<h3 class="price font-weight-bold">RM100</h3>
-			<i class="material-icons favourite">&#xe87d;</i>
-			<div class="overlay"></div>
-			</a>
-		</div>
-	</div>
-	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container" data-placement="top" title="description">
-			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<div class="title">
-				<hr class="star-primary">
-				<h4 class="font-weight-bold">TEXT HERE</h4>
-			</div>
-			<h3 class="price font-weight-bold">RM100</h3>
-			<i class="material-icons favourite">&#xe87d;</i>
-			<div class="overlay"></div>
-			</a>
-		</div>
-	</div>
-	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container" data-placement="top" title="description">
-			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<div class="title">
-				<hr class="star-primary">
-				<h4 class="font-weight-bold">TEXT HERE</h4>
-			</div>
-			<h3 class="price font-weight-bold">RM100</h3>
-			<i class="material-icons favourite">&#xe87d;</i>
-			<div class="overlay"></div>
-			</a>
-		</div>
-	</div>
-	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container" data-placement="top" title="description">
-			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<div class="title">
-				<hr class="star-primary">
-				<h4 class="font-weight-bold">TEXT HERE</h4>
-			</div>
-			<h3 class="price font-weight-bold">RM100</h3>
-			<i class="material-icons favourite">&#xe87d;</i>
-			<div class="overlay"></div>
-			</a>
-		</div>
-	</div>
-	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container" data-placement="top" title="description">
-			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<div class="title">
-				<hr class="star-primary">
-				<h4 class="font-weight-bold">TEXT HERE</h4>
-			</div>
-			<h3 class="price font-weight-bold">RM100</h3>
-			<i class="material-icons favourite">&#xe87d;</i>
-			<div class="overlay"></div>
-			</a>
-		</div>
-	</div>
-	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container" data-placement="top" title="description">
-			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<div class="title">
-				<hr class="star-primary">
-				<h4 class="font-weight-bold">TEXT HERE</h4>
-			</div>
-			<h3 class="price font-weight-bold">RM100</h3>
-			<i class="material-icons favourite">&#xe87d;</i>
-			<div class="overlay"></div>
-			</a>
-		</div>
-	</div>
-	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container" data-placement="top" title="description">
-			<a href="/store/test"><img class="img img-fluid" src="https://colorlib.com/preview/theme/amado/img/bg-img/1.jpg"/>
-			<div class="title">
-				<hr class="star-primary">
-				<h4 class="font-weight-bold">TEXT HERE</h4>
-			</div>
-			<h3 class="price font-weight-bold">RM100</h3>
-			<i class="material-icons favourite">&#xe87d;</i>
-			<div class="overlay"></div>
-			</a>
-		</div>
-	</div>
+	<?php endfor; ?>
 </div>

@@ -3,7 +3,7 @@
 <style>
 .nav-scroller {
   overflow-y: hidden;
-  height: 50px;
+  height: 45px;
 }
 
 .nav-scroller .nav {
@@ -44,7 +44,7 @@
 <div class="nav-scroller d-flex justify-content-center mx-2">
     <nav class="nav mt-2">
     <?php foreach($cat_link as $key => $value): ?>
-        <a class="p-2 py-1 text-dark text-uppercase" href="/store?category=<?php echo $value['id'] ?>">
+        <a class="p-2 py-1 text-muted" href="/store?category=<?php echo $value['id'] ?>">
             <img id="cat_<?php echo $value['id'] ?>" class="rounded-circle logo icon-footer" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>"/>
             <?php echo $value['name'] ?>
         </a>

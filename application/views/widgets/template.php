@@ -46,6 +46,16 @@
           color: var(--pink);
           background-color: transparent;
         }
+        .btn-primary {
+            background: var(--pink);
+            border-color: var(--pink);
+        }
+        .btn-primary:hover,
+        .btn-primary:active,
+        .btn-primary:focus {
+            background: var(--red)!important;
+            border-color: var(--red)!important;
+        }
     </style>
   </head>
   <body class="p-0">

@@ -168,6 +168,8 @@ class Category extends MY_Controller {
 		} else {
 			$result = $this->Category->delete_category(array('id' => $this->input->post_get('id')));
 			if ($result) {
+				$this->load->model('Product_Category_Model', 'PCM');
+				$this->PCM->remove_by_product_or_category(array('category' => $this->input->post_get('id')));
 				$data = array(
 					'message' => lang('M_SUCCESS_DELETE_CATEGORY'),
 				);

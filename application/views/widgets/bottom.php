@@ -77,7 +77,7 @@
 					</li>
 					<li class="list-inline-item mb-2">
 						<i class="material-icons" style="font-size:1em;margin-top:0px;">&#xe0d8;</i>
-						<a href="sms://<?php echo $this->container['gi_link']['mobile_number'] ?>"><?php echo $this->container['gi_link']['mobile_number'] ?></a>
+						<a href="sms:<?php echo $this->container['gi_link']['mobile_number'] ?>"><?php echo $this->container['gi_link']['mobile_number'] ?></a>
 					</li>
 					<?php endif ?>
 					<?php endif ?>
@@ -108,8 +108,8 @@
 			<ul class="list-inline text-center">
 			<?php foreach($this->container['ic_link'] as $key => $value): ?>
 				<li class="list-inline-item mb-2">
-					<a target="_blank" href="<?php echo $value['url'] ?>">
-						<img id="ic_<?php echo $value['id'] ?>" class="btn-circle" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>" data-toggle="tooltip" data-placement="right" title="<?php echo $value['name'] ?>"/>
+					<a target="_blank" href="<?php echo str_replace('%param', 'Hi', $value['url']) ?>">
+						<img id="ic_<?php echo $value['id'] ?>" class="btn-circle shadow-sm" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>" data-toggle="tooltip" data-placement="right" title="<?php echo $value['name'] ?>"/>
 					</a>
 				</li>
 			<?php endforeach ?>
@@ -117,7 +117,7 @@
 				<?php if ($this->container['gi_link']['email'] !== ''): ?>
 				<li class="list-inline-item mb-2">
 					<a href="mailto:<?php echo $this->container['gi_link']['email'] ?>" data-toggle="tooltip" data-placement="right" title="<?php echo $this->container['gi_link']['email'] ?>">
-					<button class="btn btn-light shadow-sm btn-circle">
+					<button class="btn btn-primary shadow-sm btn-circle">
 						<i class="material-icons mi_fab">&#xe0be;</i>
 					</button>
 					</a>
@@ -128,7 +128,7 @@
 				<?php if ($this->container['gi_link']['office_number'] !== ''): ?>
 				<li class="list-inline-item mb-2">
 					<a href="tel:<?php echo $this->container['gi_link']['office_number'] ?>" data-toggle="tooltip" data-placement="right" title="<?php echo $this->container['gi_link']['office_number'] ?>">
-					<button class="btn btn-light shadow-sm btn-circle">
+					<button class="btn btn-primary shadow-sm btn-circle">
 						<i class="material-icons mi_fab">&#xe0b0;</i>
 					</button>
 					</a>
@@ -139,14 +139,14 @@
 				<?php if ($this->container['gi_link']['mobile_number'] !== ''): ?>
 				<li class="list-inline-item mb-2">
 					<a href="tel:<?php echo $this->container['gi_link']['mobile_number'] ?>" data-toggle="tooltip" data-placement="right" title="<?php echo $this->container['gi_link']['mobile_number'] ?>">
-						<button class="btn btn-light shadow-sm btn-circle">
+						<button class="btn btn-primary shadow-sm btn-circle">
 							<i class="material-icons mi_fab">&#xe32c;</i>
 						</button>
 					</a>
 				</li>
 				<li class="list-inline-item mb-2">
-					<a href="sms://<?php echo $this->container['gi_link']['mobile_number'] ?>" data-toggle="tooltip" data-placement="right" title="<?php echo $this->container['gi_link']['mobile_number'] ?>">
-						<button class="btn btn-light shadow-sm btn-circle">
+					<a href="sms:<?php echo $this->container['gi_link']['mobile_number'] ?>?body=Hi" data-toggle="tooltip" data-placement="right" title="<?php echo $this->container['gi_link']['mobile_number'] ?>">
+						<button class="btn btn-primary shadow-sm btn-circle">
 							<i class="material-icons mi_fab">&#xe0d8;</i>
 						</button>
 					</a>

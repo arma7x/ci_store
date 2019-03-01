@@ -122,6 +122,21 @@ function resizePicture(element, ratio, width, height, quality, mime, cb, data) {
             //    }
             //}, fileType, 1)
         }
+        img.onerror = function(e) {
+            var img = new Image()
+            img.src = '/static/img/android-chrome-192x192.png'
+            img.onload = function() {
+                var elem = document.createElement('canvas')
+                var scale = img.naturalWidth/(ratio||1)
+                elem.width = (width||(img.naturalWidth/scale))
+                elem.height = (height||(img.naturalHeight/scale))
+                var ctx = elem.getContext('2d')
+                ctx.drawImage(img, 0, 0, elem.width, elem.height)
+                if (cb != undefined && typeof cb == 'function') {
+                    cb(ctx.canvas.toDataURL(fileType, quality), data)
+                }
+            }
+        }
     }
 }
 
