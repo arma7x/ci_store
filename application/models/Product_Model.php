@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Product_Model extends MY_Model {
 
 	private CONST PUBLIC_DISPLAY_FIELD = '*';
+	private CONST PUCLIC_SEARCH_FIELD = 'id, name, slug, price, spotlight, availability, first_photo';
+	private CONST ADMIN_SEARCH_FIELD = 'id, name, slug, price, visibility, spotlight, availability, first_photo, second_photo, third_photo, fourth_photo, created_at, updated_at';
 	public CONST CACHE_PREFIX = 'PM_';
 	public $table = 'products';
 
