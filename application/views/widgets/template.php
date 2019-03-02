@@ -24,13 +24,13 @@
         hr.star-dark:after,
         hr.star-primary:after {
           position: relative;
-          top: -.8em;
+          top: -.83em;
           display: inline-block;
           padding: 0 0.25em;
-          content: '\e3e4';
+          content: '\e047';
           font-family: "Material Icons";
           font-weight: 900;
-          font-size: 1.5em;
+          font-size: 1em;
         }
         hr.star-dark {
           border-color: #000;
@@ -40,10 +40,10 @@
           background-color: transparent;
         }
         hr.star-primary {
-          border-color: var(--pink);
+          border-color: var(--red);
         }
         hr.star-primary:after {
-          color: var(--pink);
+          color: var(--red);
           background-color: transparent;
         }
         .btn-primary {
@@ -55,6 +55,12 @@
         .btn-primary:focus {
             background: var(--red)!important;
             border-color: var(--red)!important;
+        }
+        .no-border:focus{
+            outline: none!important;
+            border-color: inherit;
+            -webkit-box-shadow: none;
+            box-shadow: none;
         }
     </style>
   </head>

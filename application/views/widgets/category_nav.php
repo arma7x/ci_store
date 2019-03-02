@@ -18,8 +18,6 @@
 }
 
 .nav-scroller .nav-link {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
   font-size: .875rem;
 }
 
