@@ -3,14 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Product_Model extends MY_Model {
 
-	private CONST PUBLIC_DISPLAY_FIELD = '*';
+	private CONST PUBLIC_VIEW_FIELD = '*';
 	private CONST PUCLIC_SEARCH_FIELD = 'id, name, slug, price, spotlight, availability, first_photo';
 	private CONST ADMIN_SEARCH_FIELD = 'id, name, slug, price, visibility, spotlight, availability, first_photo, second_photo, third_photo, fourth_photo, created_at, updated_at';
 	public CONST CACHE_PREFIX = 'PM_';
+	public CONST SPOTLIGHT_PREFIX = 'HIGHLIGHT';
 	public $table = 'products';
 
 	public function get_product_cache($slug) {
-		return $this->cache->get(SELF::CACHE_PREFIX.SELF::$slug);
+		return $this->cache->get(SELF::CACHE_PREFIX.$slug);
 	}
 
 	public function set_product_cache($slug, $cache) {
@@ -23,6 +24,22 @@ class Product_Model extends MY_Model {
 
 	public function remove_product_cache($slug) {
 		return $this->cache->delete(SELF::CACHE_PREFIX.$slug);
+	}
+
+	public function get_spotlight_cache() {
+		$cached = this->cache->get(SELF::CACHE_PREFIX.SELF::SPOTLIGHT_PREFIX);
+		if ($cached === FALSE) {
+			return $this->set_spotlight_cache();
+		}
+		return $cached;
+	}
+
+	public function set_spotlight_cache() {
+		$result = $this->db->select(SELF::PUCLIC_SEARCH_FIELD)->get_where($this->table, array('spotlight' => 1, 'visibility' => 1))->result_array();
+		if (COUNT($result) < 0) {
+			$result = $this->db->select(SELF::PUCLIC_SEARCH_FIELD)->get_where($this->table, array('visibility' => 1), 9)->result_array();
+		}
+		return $this->cache->save(SELF::CACHE_PREFIX.SELF::SPOTLIGHT_PREFIX, $result, 18144000);
 	}
 
 	public function get_product_list($filter, $base_url, $per_page, $page_num, $num_links) {
@@ -79,7 +96,7 @@ class Product_Model extends MY_Model {
 
 	public function add_product($data) {
 		$result = $this->db->insert($this->table, $data);
-		$exist = $this->find_product(SELF::PUBLIC_DISPLAY_FIELD, array('id' => $data['id']));
+		$exist = $this->find_product(SELF::PUBLIC_VIEW_FIELD, array('id' => $data['id']));
 		if ($exist !== NULL) {
 			$this->set_product_cache($exist['slug'], $exist);
 		}
@@ -88,7 +105,7 @@ class Product_Model extends MY_Model {
 
 	public function update_product($data, $index) {
 		$result = $this->db->update($this->table, $data, $index);
-		$exist = $this->find_product(SELF::PUBLIC_DISPLAY_FIELD, array('id' => $data['id']));
+		$exist = $this->find_product(SELF::PUBLIC_VIEW_FIELD, array('id' => $data['id']));
 		if ($exist !== NULL) {
 			$this->set_product_cache($exist['slug'], $exist);
 		}
@@ -99,8 +116,7 @@ class Product_Model extends MY_Model {
 		$exist = $this->find_product('slug', $index);
 		if ($exist !== NULL) {
 			$this->remove_product_cache($exist['slug']);
-			$result = $this->db->delete($this->table, $index);
-			return $result;
+			return $this->db->delete($this->table, $index);
 		}
 		return FALSE;
 	}

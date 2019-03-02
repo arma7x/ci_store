@@ -3,13 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Category_Model extends MY_Model {
 
-	private CONST PUBLIC_FOOTER_FIELD = 'id, icon, name';
+	private CONST PUBLIC_FIELD = 'id, icon, name';
 	public CONST CACHE_PREFIX = 'CAT_';
 	public CONST ALL_CACHE = 'CACHE_CAT';
 	public $table = 'categories';
 
 	public function set_all_cache() {
-		$this->db->select(SELF::PUBLIC_FOOTER_FIELD);
+		$this->db->select(SELF::PUBLIC_FIELD);
 		$this->db->order_by('ordering', 'ASC');
 		$this->cache->save(SELF::CACHE_PREFIX.SELF::ALL_CACHE, $this->db->get($this->table)->result_array(), 18144000);
 		return $this->get_all_cache();

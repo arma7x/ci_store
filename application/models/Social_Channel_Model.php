@@ -3,13 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Social_Channel_Model extends MY_Model {
 
-	private CONST PUBLIC_FOOTER_FIELD = 'id, icon, name, url';
+	private CONST PUBLIC_FIELD = 'id, icon, name, url';
 	public CONST CACHE_PREFIX = 'SC_';
 	public CONST ALL_CACHE = 'CACHE_SC';
 	public $table = 'social_channels';
 
 	public function set_all_cache() {
-		$this->db->select(SELF::PUBLIC_FOOTER_FIELD);
+		$this->db->select(SELF::PUBLIC_FIELD);
 		$this->db->order_by('ordering', 'ASC');
 		$this->cache->save(SELF::CACHE_PREFIX.SELF::ALL_CACHE, $this->db->get($this->table)->result_array(), 18144000);
 		return $this->get_all_cache();

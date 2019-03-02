@@ -3,14 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Essential_Information_Model extends MY_Model {
 
-	private CONST PUBLIC_DISPLAY_FIELD = 'slug, title, position, visibility, material_icon, brief_description, full_description, updated_at';
-	private CONST PUBLIC_FOOTER_FIELD = 'title, slug, position, material_icon';
+	private CONST PUBLIC_VIEW_FIELD = 'slug, title, position, visibility, material_icon, brief_description, full_description, updated_at';
+	private CONST PUBLIC_FIELD = 'title, slug, position, material_icon';
 	public CONST CACHE_PREFIX = 'EI_';
 	public CONST ALL_CACHE = 'CACHE_SLUG';
 	public $table = 'essential_informations';
 
 	public function set_all_cache() {
-		$this->db->select(SELF::PUBLIC_FOOTER_FIELD);
+		$this->db->select(SELF::PUBLIC_FIELD);
 		$this->db->where('visibility', 1);
 		$this->db->order_by('ordering', 'ASC');
 		$this->cache->save(SELF::CACHE_PREFIX.SELF::ALL_CACHE, $this->db->get($this->table)->result_array(), 18144000);
@@ -38,7 +38,7 @@ class Essential_Information_Model extends MY_Model {
 		if ($cached !== FALSE) {
 			return $cached;
 		} else {
-			$exist = $this->find_information(SELF::PUBLIC_DISPLAY_FIELD, array('slug' => $slug, 'visibility' => 1));
+			$exist = $this->find_information(SELF::PUBLIC_VIEW_FIELD, array('slug' => $slug, 'visibility' => 1));
 			if ($exist !== NULL) {
 				$this->set_slug_cache($exist['slug'], $exist);
 				$this->set_all_cache();
@@ -75,7 +75,7 @@ class Essential_Information_Model extends MY_Model {
 
 	public function save_information($data) {
 		$result = $this->db->insert($this->table, $data);
-		$exist = $this->find_information(SELF::PUBLIC_DISPLAY_FIELD, array('slug' => $data['slug']));
+		$exist = $this->find_information(SELF::PUBLIC_VIEW_FIELD, array('slug' => $data['slug']));
 		if ($exist !== NULL) {
 			$this->set_slug_cache($exist['slug'], $exist);
 		}
@@ -85,7 +85,7 @@ class Essential_Information_Model extends MY_Model {
 
 	public function update_information($data, $index) {
 		$result = $this->db->update($this->table, $data, $index);
-		$exist = $this->find_information(SELF::PUBLIC_DISPLAY_FIELD, $index);
+		$exist = $this->find_information(SELF::PUBLIC_VIEW_FIELD, $index);
 		if ($exist !== NULL) {
 			$this->set_slug_cache($exist['slug'], $exist);
 		}
