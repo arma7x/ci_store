@@ -99,7 +99,13 @@ class Store extends MY_Controller {
 			);
 			$this->_renderJSON(400, $data);
 		} else {
+			$categories = array();
 			$category = $data['category'];
+			$raw = explode('&', $category);
+			foreach($raw as $index => $item) {
+				$raw_item = explode('=', $item);
+				array_push($categories, $raw_item[1]);
+			}
 			unset($data['category']);
 			$data['price'] = round((float) $data['price'], 2);
 			$data['visibility'] = (int) $data['visibility'];
@@ -109,6 +115,10 @@ class Store extends MY_Controller {
 			$data['updated_at'] = time();
 			$result = $this->PM->add_product($data);
 			if ($result) {
+				if (COUNT($categories) > 0) {
+					$this->load->model('Product_Category_Model', 'PCM');
+					$this->PCM->add_product_categories($data['id'], $categories);
+				}
 				$data = array(
 					'message' => lang('M_SUCCESS_ADD_PRODUCT'),
 				);

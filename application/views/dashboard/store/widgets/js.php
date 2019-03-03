@@ -2,6 +2,10 @@
 
 <script>
 
+function renderIcon(src, holder) {
+    $(holder).html($(src).val()).text()
+}
+
 function findEI(id) {
     var request = $.ajax({
         url: "/dashboard/store/find",
