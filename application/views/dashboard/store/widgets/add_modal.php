@@ -74,8 +74,8 @@
                                     <div class="input-group-text"><i class="material-icons">&#xe8f4;</i></div>
                                 </div>
                                 <select type="text" id="inputVisibility" class="form-control" placeholder="<?php echo lang('L_P_VISIBILITY');?>" required>
-                                    <option value="0"><?php echo lang('L_P_VISIBILITY_HIDE');?></option>
                                     <option value="1"><?php echo lang('L_P_VISIBILITY_SHOW');?></option>
+                                    <option value="0"><?php echo lang('L_P_VISIBILITY_HIDE');?></option>
                                 </select>
                               </div>
                               <div id="inputVisibilityErrorText" class="form-control-feedback text-danger"></div>
@@ -86,7 +86,7 @@
                               <label for="inputAvailability" class="sr-only-rm"><?php echo lang('L_P_AVAILABILITY');?></label>
                               <div id="inputAvailabilityError" class="input-group border rounded">
                                 <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="material-icons">&#xe051;</i></div>
+                                    <div class="input-group-text"><i class="material-icons">&#xe614;</i></div>
                                 </div>
                                 <select type="text" id="inputAvailability" class="form-control" placeholder="<?php echo lang('L_P_AVAILABILITY');?>" required>
                                     <option value="1"><?php echo lang('L_P_AVAILABILITY_TRUE');?></option>
