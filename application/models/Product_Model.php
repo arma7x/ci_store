@@ -27,7 +27,7 @@ class Product_Model extends MY_Model {
 	}
 
 	public function get_spotlight_cache() {
-		$cached = this->cache->get(SELF::CACHE_PREFIX.SELF::SPOTLIGHT_PREFIX);
+		$cached = $this->cache->get(SELF::CACHE_PREFIX.SELF::SPOTLIGHT_PREFIX);
 		if ($cached === FALSE) {
 			return $this->set_spotlight_cache();
 		}

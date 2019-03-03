@@ -6,7 +6,7 @@
 		<h2 class="text-center text-primary"><?php echo isset($page_name) ? strtoupper($page_name) : strtoupper('Codeigniter') ;?></h2>
 		<div class="row mb-1">
 			<button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#addModal">
-			  <?php echo lang('BTN_ADD_E_INFORMATION') ?>
+			  <?php echo lang('BTN_ADD_PRODUCT') ?>
 			</button>
 		</div>
 		<div class="row">
@@ -15,9 +15,9 @@
 					<thead>
 						<tr>
 							<!-- <th scope="col"><?php echo lang('L_ID'); ?></th> -->
-							<th scope="col"><?php echo lang('L_E_TITLE'); ?></th>
-							<th scope="col"><?php echo lang('L_E_SLUG'); ?></th>
-							<th scope="col"><?php echo lang('L_E_ORDERING'); ?> & <?php echo lang('L_E_MATERIAL_ICON'); ?></th>
+							<th scope="col"><?php echo lang('L_P_NAME'); ?></th>
+							<th scope="col"><?php echo lang('L_P_SLUG'); ?></th>
+							<th scope="col"><?php echo lang('L_P_PRICE'); ?> & <?php echo lang('L_ID'); ?></th>
 							<th scope="col"><?php echo lang('L_E_POSITION'); ?> & <?php echo lang('L_E_VISIBILITY'); ?></th>
 							<th scope="col"><?php echo lang('L_E_BRIEF_DESC'); ?></th>
 							<th scope="col"><?php echo lang('L_INFO');?></th>
@@ -36,12 +36,12 @@
 							<td style="width:150px;">
 								<form class="mb-2">
 									<div class="form-group mb-1">
-										<label class="sr-only-rm m-0"><?php echo lang('L_E_ORDERING');?></label>
+										<label class="sr-only-rm m-0"><?php echo lang('L_P_PRICE');?></label>
 										<div class="input-group input-group-sm border rounded">
 											<div class="input-group-prepend">
 												<div class="input-group-text"><i class="material-icons">&#xe242;</i></div>
 											</div>
-											<input id="inputOrdering<?php echo $item['id'] ?>" value="<?php echo $item['ordering'] ?>" type="number" class="form-control" placeholder="<?php echo lang('L_E_ORDERING');?>">
+											<input id="inputPrice<?php echo $item['id'] ?>" value="<?php echo $item['ordering'] ?>" type="number" class="form-control" placeholder="<?php echo lang('L_P_PRICE');?>">
 										</div>
 									</div>
 									<button class="btn btn-block btn-sm btn-outline-success" onclick="updateOrderEI('<?php echo $item['id'] ;?>', '<?php echo $item['title'] ;?>')">
@@ -52,14 +52,14 @@
 									<div class="form-group mb-1">
 										<label class="sr-only-rm m-0">
 											<a href="https://material.io/tools/icons/?style=baseline" target="_blank">
-												<?php echo lang('L_E_MATERIAL_ICON');?>
+												<?php echo lang('L_ID');?>
 											</a>
 										</label>
 										<div class="input-group input-group-sm border rounded">
 											<div class="input-group-prepend">
 												<div class="input-group-text"><i id="edit_mi<?php echo $item['id'] ?>" class="material-icons"><?php echo $item['material_icon'] ;?></i></div>
 											</div>
-											<input id="inputMaterialIcon<?php echo $item['id'] ?>" value="<?php echo $item['material_icon'] ?>" type="text" class="form-control" placeholder="<?php echo lang('L_E_MATERIAL_ICON');?>"  onInput="renderIcon('#inputMaterialIcon<?php echo $item['id'] ?>', '#edit_mi<?php echo $item['id'] ?>')" >
+											<input id="inputID<?php echo $item['id'] ?>" value="<?php echo $item['material_icon'] ?>" type="text" class="form-control" placeholder="<?php echo lang('L_ID');?>"  onInput="renderIcon('#inputID<?php echo $item['id'] ?>', '#edit_mi<?php echo $item['id'] ?>')" >
 										</div>
 									</div>
 									<button class="btn btn-block btn-sm btn-outline-success" onclick="updateIconEI('<?php echo $item['id'] ;?>', '<?php echo $item['title'] ;?>')">

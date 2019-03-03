@@ -1,15 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <div class="row starter-template mx-2">
-<div class="row col col-12 px-0 px-md-2">
-	<form class="form-inline">
+<div class="col col-12 px-0 px-md-2">
+	<form class="row form-inline">
 		<label class="sr-only"><?php echo lang('L_P_S_SEARCH');?></label>
-		<div class="input-group">
+		<div class="input-group mb-2 mb-md-0">
 			<div class="input-group-prepend">
 			  <div class="input-group-text rounded-0 border-0 bg-white"><i class="material-icons">&#xe264;</i></div>
 			</div>
 			<input id="search_keyword" type="text" class="form-control form-control-sm rounded-0 border-0 bg-white no-border" id="inlineFormInputGroupUsername2" placeholder="<?php echo lang('L_P_S_KEYWORD') ?>">
 		</div>
-		<div class="input-group rounded-0">
+		<div class="input-group">
 			<button type="submit" class="btn btn-sm btn-primary rounded-0 btn-block" onClick="searchStore()">
 				<i class="material-icons">&#xe8b6;</i>
 			</button>
@@ -31,7 +31,7 @@
 				if (query.length > 0) {
 					Turbolinks.visit('/store'+'?'+query.join('&'), { action: "replace" })
 				} else {
-					Turbolinks.visit(document.location.pathname, { action: "replace" })
+					Turbolinks.visit('/store', { action: "replace" })
 				}
 			}
 		</script>

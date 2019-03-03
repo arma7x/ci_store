@@ -1,10 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 
-<div class="modal fade col col-12 col-lg-10 offset-lg-2" id="updateModal" tabindex="-1" style="z-index:999999;" role="dialog" aria-labelledby="updateModalTitle" aria-hidden="true">
+<div class="modal fade col col-12 col-lg-10 offset-lg-2" id="updateModal" tabindex="-1" style="z-index:999999;" role="dialog" aria-labelledby="updateModalName" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="updateModalTitle"><?php echo lang('BTN_UPDATE_E_INFORMATION') ?></h5>
+        <h5 class="modal-title" id="updateModalName"><?php echo lang('BTN_UPDATE_E_INFORMATION') ?></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -15,14 +15,14 @@
             <div class="row">
                 <div class="col col-12">
                     <div class="form-group">
-                      <label for="inputTitleEdit" class="sr-only-rm"><?php echo lang('L_E_TITLE');?></label>
-                      <div id="inputTitleEditError" class="input-group border rounded">
+                      <label for="inputNameEdit" class="sr-only-rm"><?php echo lang('L_E_TITLE');?></label>
+                      <div id="inputNameEditError" class="input-group border rounded">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="material-icons">&#xe264;</i></span>
                         </div>
-                        <input type="text" id="inputTitleEdit" class="form-control" placeholder="<?php echo lang('L_E_TITLE');?>" required>
+                        <input type="text" id="inputNameEdit" class="form-control" placeholder="<?php echo lang('L_E_TITLE');?>" required>
                       </div>
-                      <div id="inputTitleEditErrorText" class="form-control-feedback text-danger"></div>
+                      <div id="inputNameEditErrorText" class="form-control-feedback text-danger"></div>
                     </div>
                 </div>
                 <div class="col col-12">

@@ -59,7 +59,7 @@
 											<div class="input-group-prepend">
 												<div class="input-group-text"><i id="edit_mi<?php echo $item['id'] ?>" class="material-icons"><?php echo $item['material_icon'] ;?></i></div>
 											</div>
-											<input id="inputMaterialIcon<?php echo $item['id'] ?>" value="<?php echo $item['material_icon'] ?>" type="text" class="form-control" placeholder="<?php echo lang('L_E_MATERIAL_ICON');?>"  onInput="renderIcon('#inputMaterialIcon<?php echo $item['id'] ?>', '#edit_mi<?php echo $item['id'] ?>')" >
+											<input id="inputMaterialIcon<?php echo $item['id'] ?>" value="<?php echo htmlentities($item['material_icon']) ?>" type="text" class="form-control" placeholder="<?php echo lang('L_E_MATERIAL_ICON');?>" onInput="renderIcon('#inputMaterialIcon<?php echo $item['id'] ?>', '#edit_mi<?php echo $item['id'] ?>')" >
 										</div>
 									</div>
 									<button class="btn btn-block btn-sm btn-outline-success" onclick="updateIconEI('<?php echo $item['id'] ;?>', '<?php echo $item['title'] ;?>')">

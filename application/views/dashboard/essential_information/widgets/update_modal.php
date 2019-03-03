@@ -85,7 +85,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="material-icons">&#xe165;</i></div>
                             </div>
-                            <input type="text" id="inputSlugEdit" class="form-control" placeholder="<?php echo lang('L_E_SLUG');?>" disabled required>
+                            <input type="text" id="inputSlugEdit" class="form-control" placeholder="<?php echo lang('L_E_SLUG');?>" readonly required>
                           </div>
                           <div id="inputSlugEditErrorText" class="form-control-feedback text-danger"></div>
                         </div>
