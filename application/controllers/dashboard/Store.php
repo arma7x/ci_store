@@ -25,9 +25,23 @@ class Store extends MY_Controller {
 		$this->AllowGetRequest();
 		$this->load->model('Category_Model', 'Category');
 		$this->load->helper('url');
+		$category = $this->input->get('category');
+		$ordering = explode('@', $this->input->get('ordering'));
+		if (COUNT($ordering) === 1) {
+			$order_by = array('order_by' => 'created_at', 'sort' => 'desc');
+		} else {
+			$order_by = array('order_by' => $ordering[0], 'sort' => $ordering[1]);
+		}
+		$filters = $this->input->get();
+		foreach($filters as $index => $value) {
+			if(in_array($index, array('keyword', 'visibility', 'spotlight')) === FALSE) {
+				unset($filters[$index]);
+			}
+		}
+
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_STORE');
 		$this->data['page_name'] = str_replace('%s', $this->container['app_name'], lang('H_STORE'));
-		$this->data['list'] = $this->PM->get_product_list(NULL, array(), array('order_by' => 'created_at', 'sort' => 'desc'), current_url(), 10, (int) $this->input->get('page'), FALSE);
+		$this->data['list'] = $this->PM->get_product_list($category, $filters, $order_by, current_url(), 10, (int) $this->input->get('page'), TRUE);
 		$this->data['cat_list'] = $this->Category->get_all();
 		$this->widgets['add_modal'] = 'dashboard/store/widgets/add_modal';
 		$this->widgets['update_modal'] = 'dashboard/store/widgets/update_modal';

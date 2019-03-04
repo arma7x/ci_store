@@ -135,4 +135,7 @@
 		<?php echo isset($ei_js) ? $ei_js :null ?>
 	</div>
 	</div>
+	<div class="row justify-content-sm-center align-items-center" >
+	<?php echo $this->pagination->create_links(); ?>
+	</div>
 </div>

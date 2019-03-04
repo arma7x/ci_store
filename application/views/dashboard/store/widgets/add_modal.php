@@ -33,7 +33,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i id="add_mi" class="material-icons">&#xe866;</i></div>
                                 </div>
-                                <input type="text" id="inputID" class="form-control" placeholder="<?php echo lang('L_ID');?>" onInput="renderIcon('#inputID', '#add_mi')" required>
+                                <input type="text" id="inputID" class="form-control" placeholder="<?php echo lang('L_ID');?>" required>
                               </div>
                               <div id="inputIDErrorText" class="form-control-feedback text-danger"></div>
                             </div>

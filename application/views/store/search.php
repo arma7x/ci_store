@@ -56,7 +56,7 @@
 		<form class="form text-md-right pt-2">
 
 			<label class="sr-only"><?php echo lang('L_P_S_SEARCH');?></label>
-			<div class="input-group mb-2">
+			<div class="input-group rounded-0 mb-2">
 				<div class="input-group-prepend">
 				  <div class="input-group-text rounded-0 border-0 bg-white"><i class="material-icons">&#xe264;</i></div>
 				</div>
@@ -83,7 +83,7 @@
 				<div class="input-group-prepend">
 					<div class="input-group-text rounded-0 border-0 bg-white"><i class="material-icons">&#xe838;</i></div>
 				</div>
-				<select id="search_highlight" class="form-control form-control-sm rounded-0 border-0 bg-white no-border">
+				<select id="search_spotlight" class="form-control form-control-sm rounded-0 border-0 bg-white no-border">
 					<option value=""><?php echo lang('L_P_S_SPOTLIGHT_ALL') ?></option>
 					<option value="0"><?php echo lang('L_P_S_SPOTLIGHT_EXCLUDE') ?></option>
 					<option value="1"><?php echo lang('L_P_S_SPOTLIGHT_INCLUDE') ?></option>
@@ -113,14 +113,14 @@
 					$('#search_keyword').attr('value', getQueryStringValue('keyword'))
 					$('#search_category option[value="'+getQueryStringValue('category')+'"]').attr('selected','selected')
 					$('#search_ordering option[value="'+getQueryStringValue('ordering')+'"]').attr('selected','selected')
-					$('#search_highlight option[value="'+getQueryStringValue('highlight')+'"]').attr('selected','selected')
+					$('#search_spotlight option[value="'+getQueryStringValue('spotlight')+'"]').attr('selected','selected')
 				})
 				function searchStore() {
 					var data = {
 						'keyword': $("#search_keyword").val(),
 						'category': $("#search_category").val(),
 						'ordering': $("#search_ordering").val(),
-						'highlight': $("#search_highlight").val(),
+						'spotlight': $("#search_spotlight").val(),
 					}
 					var query = []
 					for (key in data) {
