@@ -4,8 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Product_Model extends MY_Model {
 
 	private CONST PUBLIC_VIEW_FIELD = '*';
-	private CONST PUCLIC_SEARCH_FIELD = 'id, name, slug, price, spotlight, availability, first_photo';
-	private CONST ADMIN_SEARCH_FIELD = 'id, name, slug, price, visibility, spotlight, availability, first_photo, second_photo, third_photo, fourth_photo, created_at, updated_at';
+	private CONST PUCLIC_SEARCH_FIELD = 'id, name, slug, price, spotlight, availability, main_photo';
+	private CONST PUCLIC_SEARCH_FIELD_JOIN = 'products.id, products.name, products.slug, products.price, products.spotlight, products.availability, products.main_photo';
+	private CONST ADMIN_SEARCH_FIELD = 'id, name, slug, price, visibility, spotlight, availability, main_photo, created_at, updated_at';
+	private CONST ADMIN_SEARCH_FIELD_JOIN = 'products.id, products.name, products.slug, products.price, products.visibility, products.spotlight, products.availability, products.main_photo, products.created_at, products.updated_at';
 	public CONST CACHE_PREFIX = 'PM_';
 	public CONST SPOTLIGHT_PREFIX = 'HIGHLIGHT';
 	public $table = 'products';
@@ -35,59 +37,115 @@ class Product_Model extends MY_Model {
 	}
 
 	public function set_spotlight_cache() {
-		$result = $this->db->select(SELF::PUCLIC_SEARCH_FIELD)->get_where($this->table, array('spotlight' => 1, 'visibility' => 1))->result_array();
+		$result = $this->db->select(SELF::PUCLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('spotlight' => 1, 'visibility' => 1))->result_array();
 		if (COUNT($result) < 0) {
-			$result = $this->db->select(SELF::PUCLIC_SEARCH_FIELD)->get_where($this->table, array('visibility' => 1), 9)->result_array();
+			$result = $this->db->select(SELF::PUCLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('visibility' => 1), 9)->result_array();
 		}
 		return $this->cache->save(SELF::CACHE_PREFIX.SELF::SPOTLIGHT_PREFIX, $result, 18144000);
 	}
 
-	public function get_product_list($filter, $base_url, $per_page, $page_num, $num_links) {
-		$total_rows = $this->get_total_row($filter);
-		$skip = $this->paginate($base_url, $per_page, $page_num, $num_links, $total_rows);
-		$select = 'id, username, email, role, access_level, status, avatar,created_at, updated_at, last_logged_in';
-		$this->db->select($select);
-		foreach($filter as $index => $value) {
-			if ($value !== NULL) {
-				if ($index === 'keyword') {
-					$this->db->group_start();
-					$this->db->like('id', $value);
-					$this->db->or_like('username', $value);
-					$this->db->or_like('email', $value);
-					$this->db->group_end();
-				} else {
-					$this->db->group_start();
-					$this->db->where($index, $value);
-					$this->db->group_end();
+	public function get_product_list($category, $filter, $order, $base_url, $per_page, $page_num, $num_links) {
+		if($category === NULL) {
+			$total_rows = $this->get_total_row($category, $filter);
+			$skip = $this->paginate($base_url, $per_page, $page_num, $num_links, $total_rows);
+			$this->db->select(SELF::ADMIN_SEARCH_FIELD);
+			foreach($filter as $index => $value) {
+				if ($value !== NULL) {
+					if ($index === 'keyword') {
+						$this->db->group_start();
+						$this->db->like('id', $value);
+						$this->db->or_like('name', $value);
+						$this->db->or_like('slug', $value);
+						$this->db->group_end();
+					} else {
+						$this->db->group_start();
+						$this->db->where($index, $value);
+						$this->db->group_end();
+					}
 				}
 			}
+			$this->db->limit($per_page, $skip);
+			$this->db->order_by($order['order_by'], $order['sort']);
+			$result = $this->db->get($this->table)->result_array();
+			return $result;
+		} else {
+			$this->load->model('Product_Category_Model', 'PCM');
+			$this->load->model('Category_Model', 'Category');
+			$total_rows = $this->get_total_row($category, $filter);
+			$skip = $this->paginate($base_url, $per_page, $page_num, $num_links, $total_rows);
+			$this->db->select(SELF::ADMIN_SEARCH_FIELD_JOIN);
+			foreach($filter as $index => $value) {
+				if ($value !== NULL) {
+					if ($index === 'keyword') {
+						$this->db->group_start();
+						$this->db->like($this->table.'.id', $value);
+						$this->db->or_like($this->table.'.name', $value);
+						$this->db->or_like($this->table.'.slug', $value);
+						$this->db->group_end();
+					} else {
+						$this->db->group_start();
+						$this->db->where($this->table.'.'.$index, $value);
+						$this->db->group_end();
+					}
+				}
+			}
+			$this->db->group_start();
+			$this->db->where($this->PCM->table.'.category', $category);
+			$this->db->group_end();
+			$this->db->join($this->Category->table, $this->Category->table.'.id = '.$this->PCM->table.'.category');
+			$this->db->join($this->table, $this->table.'.id = '.$this->PCM->table.'.product');
+			$this->db->limit($per_page, $skip);
+			$this->db->order_by($this->table.'.'.$order['order_by'], $order['sort']);
+			$result = $this->db->get($this->PCM->table)->result_array();
+			return $result;
 		}
-		$this->db->limit($per_page, $skip);
-		$this->db->order_by('role', 'ASC');
-		$this->db->order_by('access_level', 'ASC');
-		$this->db->order_by('status', 'ASC');
-		$result = $this->db->get($this->table)->result_array();
-		return $result;
 	}
 
-	public function get_total_row($filter) {
-		foreach($filter as $index => $value) {
-			if ($value !== NULL) {
-				if ($index === 'keyword') {
-					$this->db->group_start();
-					$this->db->like('id', $value);
-					$this->db->or_like('username', $value);
-					$this->db->or_like('email', $value);
-					$this->db->group_end();
-				} else {
-					$this->db->group_start();
-					$this->db->where($index, $value);
-					$this->db->group_end();
+	public function get_total_row($category, $filter) {
+		if($category === NULL) {
+			foreach($filter as $index => $value) {
+				if ($value !== NULL) {
+					if ($index === 'keyword') {
+						$this->db->group_start();
+						$this->db->like('id', $value);
+						$this->db->or_like('name', $value);
+						$this->db->or_like('slug', $value);
+						$this->db->group_end();
+					} else {
+						$this->db->group_start();
+						$this->db->where($index, $value);
+						$this->db->group_end();
+					}
 				}
 			}
+			$this->db->from($this->table);
+			return $this->db->count_all_results();
+		} else {
+			$this->load->model('Product_Category_Model', 'PCM');
+			$this->load->model('Category_Model', 'Category');
+			foreach($filter as $index => $value) {
+				if ($value !== NULL) {
+					if ($index === 'keyword') {
+						$this->db->group_start();
+						$this->db->like($this->table.'.id', $value);
+						$this->db->or_like($this->table.'.name', $value);
+						$this->db->or_like($this->table.'.slug', $value);
+						$this->db->group_end();
+					} else {
+						$this->db->group_start();
+						$this->db->where($this->table.'.'.$index, $value);
+						$this->db->group_end();
+					}
+				}
+			}
+			$this->db->group_start();
+			$this->db->where($this->PCM->table.'.category', $category);
+			$this->db->group_end();
+			$this->db->join($this->Category->table, $this->Category->table.'.id = '.$this->PCM->table.'.category');
+			$this->db->join($this->table, $this->table.'.id = '.$this->PCM->table.'.product');
+			$this->db->from($this->PCM->table);
+			return $this->db->count_all_results();
 		}
-		$this->db->from($this->table);
-		return $this->db->count_all_results();
 	}
 
 	public function find_product($select, $index) {

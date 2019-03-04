@@ -18,7 +18,6 @@ class Store extends MY_Controller {
 		$this->template = 'widgets/dashboard/template';
 		$this->widgets['nav'] = 'widgets/dashboard/nav';
 		$this->widgets['menu'] = 'widgets/dashboard/menu';
-		$this->load->model('Essential_Information_Model', 'EI');
 		$this->load->model('Product_Model', 'PM');
 	}
 
@@ -28,7 +27,7 @@ class Store extends MY_Controller {
 		$this->load->helper('url');
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_STORE');
 		$this->data['page_name'] = str_replace('%s', $this->container['app_name'], lang('H_STORE'));
-		$this->data['list'] = $this->EI->get_paginate(current_url(), 10, (int) $this->input->get('page'), TRUE);
+		$this->data['list'] = $this->PM->get_product_list(NULL, array(), array('order_by' => 'created_at', 'sort' => 'desc'), current_url(), 10, (int) $this->input->get('page'), FALSE);
 		$this->data['cat_list'] = $this->Category->get_all();
 		$this->widgets['add_modal'] = 'dashboard/store/widgets/add_modal';
 		$this->widgets['update_modal'] = 'dashboard/store/widgets/update_modal';
