@@ -187,15 +187,15 @@ class Store extends MY_Controller {
 			$result = $this->EI->update_information($data, array('id' => $this->input->post_get('id')));
 			if ($result) {
 				$data = array(
-					'message' => lang('M_SUCCESS_UPDATE_E_INFORMATION'),
+					'message' => lang('M_SUCCESS_UPDATE_PRODUCT'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
+				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_PRODUCT')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
-					'message' => lang('M_FAIL_UPDATE_E_INFORMATION'),
+					'message' => lang('M_FAIL_UPDATE_PRODUCT'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
+				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_PRODUCT')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -228,15 +228,15 @@ class Store extends MY_Controller {
 			$result = $this->EI->update_information($data, array('id' => $this->input->post_get('id')));
 			if ($result) {
 				$data = array(
-					'message' => lang('M_SUCCESS_UPDATE_E_INFORMATION'),
+					'message' => lang('M_SUCCESS_UPDATE_PRODUCT'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
+				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_PRODUCT')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
-					'message' => lang('M_FAIL_UPDATE_E_INFORMATION'),
+					'message' => lang('M_FAIL_UPDATE_PRODUCT'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
+				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_PRODUCT')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -269,15 +269,15 @@ class Store extends MY_Controller {
 			$result = $this->EI->update_information($data, array('id' => $this->input->post_get('id')));
 			if ($result) {
 				$data = array(
-					'message' => lang('M_SUCCESS_UPDATE_E_INFORMATION'),
+					'message' => lang('M_SUCCESS_UPDATE_PRODUCT'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
+				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_PRODUCT')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
-					'message' => lang('M_FAIL_UPDATE_E_INFORMATION'),
+					'message' => lang('M_FAIL_UPDATE_PRODUCT'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
+				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_PRODUCT')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -310,15 +310,15 @@ class Store extends MY_Controller {
 			$result = $this->EI->update_information($data, array('id' => $this->input->post_get('id')));
 			if ($result) {
 				$data = array(
-					'message' => lang('M_SUCCESS_UPDATE_E_INFORMATION'),
+					'message' => lang('M_SUCCESS_UPDATE_PRODUCT'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
+				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_PRODUCT')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
-					'message' => lang('M_FAIL_UPDATE_E_INFORMATION'),
+					'message' => lang('M_FAIL_UPDATE_PRODUCT'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
+				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_PRODUCT')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -351,15 +351,15 @@ class Store extends MY_Controller {
 			$result = $this->EI->update_information($data, array('id' => $this->input->post_get('id')));
 			if ($result) {
 				$data = array(
-					'message' => lang('M_SUCCESS_UPDATE_E_INFORMATION'),
+					'message' => lang('M_SUCCESS_UPDATE_PRODUCT'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
+				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_PRODUCT')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
-					'message' => lang('M_FAIL_UPDATE_E_INFORMATION'),
+					'message' => lang('M_FAIL_UPDATE_PRODUCT'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
+				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_PRODUCT')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -372,25 +372,27 @@ class Store extends MY_Controller {
 			'id' => $this->input->post_get('id'),
 		);
 		$this->form_validation->set_data($data);
-		$this->form_validation->set_rules('id', lang('L_ID'), 'required|is_natural_no_zero');
+		$this->form_validation->set_rules('id', lang('L_ID'), 'required');
 		if ($this->form_validation->run() === FALSE) {
 			$data = array(
 				'message' => $error = $this->form_validation->error_array()['id']
 			);
 			$this->_renderJSON(400, $data);
 		} else {
-			$result = $this->EI->delete_information(array('id' => $this->input->post_get('id')));
+			$result = $this->PM->remove_product(array('id' => $this->input->post_get('id')));
 			if ($result) {
+				$this->load->model('Product_Category_Model', 'PCM');
+				$this->PCM->remove_by_product_or_category(array('product' => $this->input->post_get('id')));
 				$data = array(
-					'message' => lang('M_SUCCESS_DELETE_E_INFORMATION'),
+					'message' => lang('M_SUCCESS_DELETE_PRODUCT'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_DELETE_E_INFORMATION')));
+				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_DELETE_PRODUCT')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
-					'message' => lang('M_FAIL_DELETE_E_INFORMATION'),
+					'message' => lang('M_FAIL_DELETE_PRODUCT'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_DELETE_E_INFORMATION')));
+				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_DELETE_PRODUCT')));
 				$this->_renderJSON(400, $data);
 			}
 		}

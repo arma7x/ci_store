@@ -130,88 +130,88 @@
                 <div class="col col-12 mb-2">
                     <div class="row">
                         <div class="col col-12 col-sm-3">
-                            <label for="inputPhotoMain" class="sr-only-rm"><?php echo lang('L_P_1_PHOTO');?></label>
+                            <label for="inputMainPhoto" class="sr-only-rm"><?php echo lang('L_P_1_PHOTO');?></label>
                             <div class="custom-file">
-                              <input id="inputPhotoMainBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputPhotoMainBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#mainPhotoPreview|#inputPhotoMain', uploadPhoto)"/>
+                              <input id="inputMainPhotoBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputMainPhotoBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#mainPhotoPreview|#inputMainPhoto', uploadPhoto)"/>
                               <label class="custom-file-label"><?php echo lang('L_P_1_PHOTO') ;?></label>
                             </div>
                             <div class="text-center"><?php echo lang('L_P_OR_PHOTO');?></div>
                             <div class="form-group">
-                              <div id="inputPhotoMainError" class="input-group border rounded">
+                              <div id="inputMainPhotoError" class="input-group border rounded">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="material-icons">&#xe439;</i></div>
                                 </div>
-                                <input type="text" id="inputPhotoMain" class="form-control" placeholder="<?php echo lang('L_P_1_PHOTO_URL');?>" onInput="renderPreview('#inputPhotoMain', '#mainPhotoPreview')" required>
+                                <input type="text" id="inputMainPhoto" class="form-control" placeholder="<?php echo lang('L_P_1_PHOTO_URL');?>" onInput="renderPreview('#inputMainPhoto', '#mainPhotoPreview')" required>
                               </div>
                             </div>
                             <div>
-                                <img id="mainPhotoPreview" src="/static/img/android-chrome-192x192.png" class="d-block w-100">
+                                <img id="mainPhotoPreview" src="" class="d-block w-100" width="200px" height="200px">
                             </div>
-                            <div id="inputPhotoMainErrorText" class="form-control-feedback text-danger"></div>
+                            <div id="inputMainPhotoErrorText" class="form-control-feedback text-danger"></div>
                         </div>
                         
                         <div class="col col-12 col-sm-3">
-                            <label for="inputPhotoSecond" class="sr-only-rm"><?php echo lang('L_P_2_PHOTO');?></label>
+                            <label for="inputSecondPhoto" class="sr-only-rm"><?php echo lang('L_P_2_PHOTO');?></label>
                             <div class="custom-file">
-                              <input id="inputPhotoSecondBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputPhotoSecondBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#secondPhotoPreview|#inputPhotoSecond', uploadPhoto)"/>
+                              <input id="inputSecondPhotoBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputSecondPhotoBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#secondPhotoPreview|#inputSecondPhoto', uploadPhoto)"/>
                               <label class="custom-file-label"><?php echo lang('L_P_2_PHOTO') ;?></label>
                             </div>
                             <div class="text-center"><?php echo lang('L_P_OR_PHOTO');?></div>
                             <div class="form-group">
-                              <div id="inputPhotoSecondError" class="input-group border rounded">
+                              <div id="inputSecondPhotoError" class="input-group border rounded">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="material-icons">&#xe439;</i></div>
                                 </div>
-                                <input type="text" id="inputPhotoSecond" class="form-control" placeholder="<?php echo lang('L_P_2_PHOTO_URL');?>" required>
+                                <input type="text" id="inputSecondPhoto" class="form-control" placeholder="<?php echo lang('L_P_2_PHOTO_URL');?>" onInput="renderPreview('#inputSecondPhoto', '#secondPhotoPreview')" required>
                               </div>
                             </div>
                             <div>
-                                <img id="secondPhotoPreview" src="/static/img/android-chrome-192x192.png" class="d-block w-100">
+                                <img id="secondPhotoPreview" src="" class="d-block w-100" width="200px" height="200px">
                             </div>
-                            <div id="inputPhotoSecondErrorText" class="form-control-feedback text-danger"></div>
+                            <div id="inputSecondPhotoErrorText" class="form-control-feedback text-danger"></div>
                         </div>
                         
                         <div class="col col-12 col-sm-3">
-                            <label for="inputPhotoThird" class="sr-only-rm"><?php echo lang('L_P_3_PHOTO');?></label>
+                            <label for="inputThirdPhoto" class="sr-only-rm"><?php echo lang('L_P_3_PHOTO');?></label>
                             <div class="custom-file">
-                              <input id="inputPhotoThirdBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputPhotoThirdBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#thirdPhotoPreview|#inputPhotoThird', uploadPhoto)"/>
+                              <input id="inputThirdPhotoBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputThirdPhotoBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#thirdPhotoPreview|#inputThirdPhoto', uploadPhoto)"/>
                               <label class="custom-file-label"><?php echo lang('L_P_3_PHOTO') ;?></label>
                             </div>
                             <div class="text-center"><?php echo lang('L_P_OR_PHOTO');?></div>
                             <div class="form-group">
-                              <div id="inputPhotoThirdError" class="input-group border rounded">
+                              <div id="inputThirdPhotoError" class="input-group border rounded">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="material-icons">&#xe439;</i></div>
                                 </div>
-                                <input type="text" id="inputPhotoThird" class="form-control" placeholder="<?php echo lang('L_P_3_PHOTO_URL');?>" required>
+                                <input type="text" id="inputThirdPhoto" class="form-control" placeholder="<?php echo lang('L_P_3_PHOTO_URL');?>" onInput="renderPreview('#inputThirdPhoto', '#thirdPhotoPreview')" required>
                               </div>
                             </div>
                             <div>
-                                <img id="thirdPhotoPreview" src="/static/img/android-chrome-192x192.png" class="d-block w-100">
+                                <img id="thirdPhotoPreview" src="" class="d-block w-100" width="200px" height="200px">
                             </div>
-                            <div id="inputPhotoThirdErrorText" class="form-control-feedback text-danger"></div>
+                            <div id="inputThirdPhotoErrorText" class="form-control-feedback text-danger"></div>
                         </div>
                         
                         <div class="col col-12 col-sm-3">
-                            <label for="inputPhotoFourth" class="sr-only-rm"><?php echo lang('L_P_4_PHOTO');?></label>
+                            <label for="inputFourthPhoto" class="sr-only-rm"><?php echo lang('L_P_4_PHOTO');?></label>
                             <div class="custom-file">
-                              <input id="inputPhotoFourthBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputPhotoFourthBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#fourthPhotoPreview|#inputPhotoFourth', uploadPhoto)"/>
+                              <input id="inputFourthPhotoBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputFourthPhotoBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#fourthPhotoPreview|#inputFourthPhoto', uploadPhoto)"/>
                               <label class="custom-file-label"><?php echo lang('L_P_4_PHOTO') ;?></label>
                             </div>
                             <div class="text-center"><?php echo lang('L_P_OR_PHOTO');?></div>
                             <div class="form-group">
-                              <div id="inputPhotoFourthError" class="input-group border rounded">
+                              <div id="inputFourthPhotoError" class="input-group border rounded">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="material-icons">&#xe439;</i></div>
                                 </div>
-                                <input type="text" id="inputPhotoFourth" class="form-control" placeholder="<?php echo lang('L_P_4_PHOTO_URL');?>" required>
+                                <input type="text" id="inputFourthPhoto" class="form-control" placeholder="<?php echo lang('L_P_4_PHOTO_URL');?>" onInput="renderPreview('#inputFourthPhoto', '#fourthPhotoPreview')" required>
                               </div>
-                              <div id="inputPhotoFourthErrorText" class="form-control-feedback text-danger"></div>
+                              <div id="inputFourthPhotoErrorText" class="form-control-feedback text-danger"></div>
                             </div>
                             <div>
-                                <img id="fourthPhotoPreview" src="/static/img/android-chrome-192x192.png" class="d-block w-100">
+                                <img id="fourthPhotoPreview" src="" class="d-block w-100" width="200px" height="200px">
                             </div>
-                            <div id="inputPhotoFourthErrorText" class="form-control-feedback text-danger"></div>
+                            <div id="inputFourthPhotoErrorText" class="form-control-feedback text-danger"></div>
                         </div>
                     </div>
                 </div>

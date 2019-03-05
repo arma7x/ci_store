@@ -156,7 +156,14 @@
 									<script>parse_date('<?php echo "ua_".$item['id'] ?>', '<?php echo $item['updated_at'] ;?>')</script>
 								</span>
 							</td>
-							<td></td>
+							<td>
+								<button class="btn btn-block btn-sm btn-outline-info" onclick="findProduct('<?php echo $item['id'] ;?>')">
+									<?php echo lang('BTN_EDIT') ?>
+								</button>
+								<button class="btn btn-block btn-sm btn-outline-danger" onclick="deleteProduct('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+									<?php echo lang('BTN_REMOVE') ?>
+								</button>
+							</td>
 						</tr>
 						<?php endforeach ?>
 					</tbody>

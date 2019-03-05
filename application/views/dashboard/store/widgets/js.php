@@ -6,7 +6,7 @@ function renderIcon(src, holder) {
     $(holder).html($(src).val()).text()
 }
 
-function findEI(id) {
+function findProduct(id) {
     var request = $.ajax({
         url: "/dashboard/store/find",
         method: "GET",
@@ -16,17 +16,33 @@ function findEI(id) {
     })
     request.done(function(data) {
         loadingSpinner(false)
-        if (data.id != undefined) {
-            $('#inputIdEdit').attr('value', data.id)
-            $('#inputTitleEdit').attr('value', data.title)
-            $('#inputNameEdit').attr('value', data.slug)
-            $('#inputSlugEdit').attr('value', data.ordering)
-            $('#inputPriceEdit option[value='+data.position+']').attr('selected','selected');
-            $('#inputVisibilityEdit option[value='+data.visibility+']').attr('selected','selected');
-            $('#inputSpotlightEdit').attr('value', data.material_icon)
-            $('#edit_mi').html(data.material_icon).text()
-            $('#inputBriefDescriptionEdit').text(data.brief_description)
-            $('#inputFullDescriptionEdit').trumbowyg('html', data.full_description);
+        if (data.product != undefined) {
+            $('#inputIDEdit').attr('value', data.product.id)
+            $('#inputNameEdit').attr('value', data.product.name)
+            $('#inputSlugEdit').attr('value', data.product.slug)
+            $('#inputPriceEdit').attr('value', data.product.price)
+            $('#inputMainPhotoEdit').attr('value', data.product.main_photo)
+            renderPreview('#inputMainPhotoEdit', '#mainPhotoPreviewEdit')
+            $('#inputSecondPhotoEdit').attr('value', data.product.second_photo)
+            renderPreview('#inputSecondPhotoEdit', '#secondPhotoPreviewEdit')
+            $('#inputThirdPhotoEdit').attr('value', data.product.third_photo)
+            renderPreview('#inputThirdPhotoEdit', '#thirdPhotoPreviewEdit')
+            $('#inputFourthPhotoEdit').attr('value', data.product.fourth_photo)
+            renderPreview('#inputFourthPhotoEdit', '#fourthPhotoPreviewEdit')
+            $('#inputVisibilityEdit option[value='+data.product.visibility+']').attr('selected','selected');
+            $('#inputAvailabilityEdit option[value='+data.product.availability+']').attr('selected','selected');
+            $('#inputSpotlightEdit option[value='+data.product.spotlight+']').attr('selected','selected');
+            for(var x in data.category) {
+                for(var y in $("input[name='categoryEdit']")) {
+                    if ($("input[name='categoryEdit']")[y].value == data.category[x].id) {
+                        $("input[name='categoryEdit']")[y].checked = true
+                    } else {
+                        //$("input[name='categoryEdit']")[y].checked = false
+                    }
+                }
+            }
+            $('#inputBriefDescriptionEdit').text(data.product.brief_description)
+            $('#inputFullDescriptionEdit').trumbowyg('html', data.product.full_description);
             $('#updateModal').modal('show')
         }
     })
@@ -77,7 +93,7 @@ function uploadPhoto(photo, selector) {
 }
 
 function addProduct() {
-    if (!confirm('<?php echo lang('L_CONFIRM_ADD_E_INFORMATION')?>')) {
+    if (!confirm('<?php echo lang('L_CONFIRM_ADD_PRODUCT')?>')) {
         return;
     }
     $('#add_product').attr("disabled", "disabled")
@@ -96,14 +112,14 @@ function addProduct() {
     $('#inputSpotlightErrorText').text('')
     $('#inputAvailabilityError').removeClass('border-danger')
     $('#inputAvailabilityErrorText').text('')
-    $('#inputPhotoMainError').removeClass('border-danger')
-    $('#inputPhotoMainErrorText').text('')
-    $('#inputPhotoSecondError').removeClass('border-danger')
-    $('#inputPhotoSecondErrorText').text('')
-    $('#inputPhotoThirdError').removeClass('border-danger')
-    $('#inputPhotoThirdErrorText').text('')
-    $('#inputPhotoFourthError').removeClass('border-danger')
-    $('#inputPhotoFourthErrorText').text('')
+    $('#inputMainPhotoError').removeClass('border-danger')
+    $('#inputMainPhotoErrorText').text('')
+    $('#inputSecondPhotoError').removeClass('border-danger')
+    $('#inputSecondPhotoErrorText').text('')
+    $('#inputThirdPhotoError').removeClass('border-danger')
+    $('#inputThirdPhotoErrorText').text('')
+    $('#inputFourthPhotoError').removeClass('border-danger')
+    $('#inputFourthPhotoErrorText').text('')
     $('#inputBriefDescriptionError').removeClass('border-danger')
     $('#inputBriefDescriptionErrorText').text('')
     $('#inputFullDescriptionError').removeClass('border-danger')
@@ -118,10 +134,10 @@ function addProduct() {
         'spotlight': $('#inputSpotlight').val(),
         'availability': $('#inputAvailability').val(),
         'category': $("input[name='category']").serialize(),
-        'main_photo': $('#inputPhotoMain').val(),
-        'second_photo': $('#inputPhotoSecond').val(),
-        'third_photo': $('#inputPhotoThird').val(),
-        'fourth_photo': $('#inputPhotoFourth').val(),
+        'main_photo': $('#inputMainPhoto').val(),
+        'second_photo': $('#inputSecondPhoto').val(),
+        'third_photo': $('#inputThirdPhoto').val(),
+        'fourth_photo': $('#inputFourthPhoto').val(),
         'brief_description': $('#inputBriefDescription').val(),
         'full_description': $('#inputFullDescription').val(),
     }
@@ -177,20 +193,20 @@ function addProduct() {
                     $('#inputAvailabilityErrorText').text(jqXHR.responseJSON.errors.availability)
                 }
                 if (jqXHR.responseJSON.errors.main_photo != undefined) {
-                    $('#inputPhotoMainError').addClass('border-danger')
-                    $('#inputPhotoMainErrorText').text(jqXHR.responseJSON.errors.main_photo)
+                    $('#inputMainPhotoError').addClass('border-danger')
+                    $('#inputMainPhotoErrorText').text(jqXHR.responseJSON.errors.main_photo)
                 }
                 if (jqXHR.responseJSON.errors.second_photo != undefined) {
-                    $('#inputPhotoSecondError').addClass('border-danger')
-                    $('#inputPhotoSecondErrorText').text(jqXHR.responseJSON.errors.second_photo)
+                    $('#inputSecondPhotoError').addClass('border-danger')
+                    $('#inputSecondPhotoErrorText').text(jqXHR.responseJSON.errors.second_photo)
                 }
                 if (jqXHR.responseJSON.errors.third_photo != undefined) {
-                    $('#inputPhotoThirdError').addClass('border-danger')
-                    $('#inputPhotoThirdErrorText').text(jqXHR.responseJSON.errors.third_photo)
+                    $('#inputThirdPhotoError').addClass('border-danger')
+                    $('#inputThirdPhotoErrorText').text(jqXHR.responseJSON.errors.third_photo)
                 }
                 if (jqXHR.responseJSON.errors.fourth_photo != undefined) {
-                    $('#inputPhotoFourthError').addClass('border-danger')
-                    $('#inputPhotoFourthErrorText').text(jqXHR.responseJSON.errors.fourth_photo)
+                    $('#inputFourthPhotoError').addClass('border-danger')
+                    $('#inputFourthPhotoErrorText').text(jqXHR.responseJSON.errors.fourth_photo)
                 }
                 if (jqXHR.responseJSON.errors.brief_description != undefined) {
                     $('#inputBriefDescriptionError').addClass('border-danger')
@@ -206,11 +222,11 @@ function addProduct() {
 }
 
 function updateEI() {
-    var text = '<?php echo lang('L_CONFIRM_UPDATE_E_INFORMATION')?>'
+    var text = '<?php echo lang('L_CONFIRM_UPDATE_PRODUCT')?>'
     if (!confirm(text.replace('%s', $('#inputTitleEdit').val()))) {
         return;
     }
-    $('#update_essential_information').attr("disabled", "disabled")
+    $('#update_product').attr("disabled", "disabled")
     hideDangerMessage()
     $('#inputTitleEditError').removeClass('border-danger')
     $('#inputTitleEditErrorText').text('')
@@ -256,7 +272,7 @@ function updateEI() {
     })
     request.fail(function(jqXHR) {
         loadingSpinner(false)
-        $('#update_essential_information').removeAttr("disabled")
+        $('#update_product').removeAttr("disabled")
         if (jqXHR.responseJSON != undefined) {
             if (jqXHR.responseJSON.message != undefined) {
                 showDangerMessage(jqXHR.responseJSON.message)
@@ -300,7 +316,7 @@ function updateEI() {
 }
 
 function updateOrderEI(id, title) {
-    var text = '<?php echo lang('L_CONFIRM_UPDATE_E_INFORMATION')?>'
+    var text = '<?php echo lang('L_CONFIRM_UPDATE_PRODUCT')?>'
     if (!confirm(text.replace('%s', title))) {
         return;
     }
@@ -345,7 +361,7 @@ function updateOrderEI(id, title) {
 }
 
 function updatePositionEI(id, title) {
-    var text = '<?php echo lang('L_CONFIRM_UPDATE_E_INFORMATION')?>'
+    var text = '<?php echo lang('L_CONFIRM_UPDATE_PRODUCT')?>'
     if (!confirm(text.replace('%s', title))) {
         return;
     }
@@ -390,7 +406,7 @@ function updatePositionEI(id, title) {
 }
 
 function updateVisibilityEI(id, title) {
-    var text = '<?php echo lang('L_CONFIRM_UPDATE_E_INFORMATION')?>'
+    var text = '<?php echo lang('L_CONFIRM_UPDATE_PRODUCT')?>'
     if (!confirm(text.replace('%s', title))) {
         return;
     }
@@ -435,7 +451,7 @@ function updateVisibilityEI(id, title) {
 }
 
 function updateIconEI(id, title) {
-    var text = '<?php echo lang('L_CONFIRM_UPDATE_E_INFORMATION')?>'
+    var text = '<?php echo lang('L_CONFIRM_UPDATE_PRODUCT')?>'
     if (!confirm(text.replace('%s', title))) {
         return;
     }
@@ -483,8 +499,8 @@ function updateIconEI(id, title) {
     })
 }
 
-function deleteEI(id, title) {
-    var text = '<?php echo lang('L_CONFIRM_DELETE_E_INFORMATION')?>'
+function deleteProduct(id, title) {
+    var text = '<?php echo lang('L_CONFIRM_DELETE_PRODUCT')?>'
     if (!confirm(text.replace('%s', title))) {
         return;
     }

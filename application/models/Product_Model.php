@@ -170,7 +170,7 @@ class Product_Model extends MY_Model {
 		return $result;
 	}
 
-	public function remove_product($data) {
+	public function remove_product($index) {
 		$exist = $this->find_product('slug', $index);
 		if ($exist !== NULL) {
 			$this->remove_product_cache($exist['slug']);
