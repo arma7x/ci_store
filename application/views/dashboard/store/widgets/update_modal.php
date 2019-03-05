@@ -145,7 +145,7 @@
                               </div>
                             </div>
                             <div>
-                                <img id="mainPhotoPreviewEdit" src="" class="d-block w-100" width="200px" height="200px">
+                                <img id="mainPhotoPreviewEdit" src="" class="d-block w-100">
                             </div>
                             <div id="inputMainPhotoEditErrorText" class="form-control-feedback text-danger"></div>
                         </div>
@@ -166,7 +166,7 @@
                               </div>
                             </div>
                             <div>
-                                <img id="secondPhotoPreviewEdit" src="" class="d-block w-100" width="200px" height="200px">
+                                <img id="secondPhotoPreviewEdit" src="" class="d-block w-100">
                             </div>
                             <div id="inputSecondPhotoEditErrorText" class="form-control-feedback text-danger"></div>
                         </div>
@@ -187,7 +187,7 @@
                               </div>
                             </div>
                             <div>
-                                <img id="thirdPhotoPreviewEdit" src="" class="d-block w-100" width="200px" height="200px">
+                                <img id="thirdPhotoPreviewEdit" src="" class="d-block w-100">
                             </div>
                             <div id="inputThirdPhotoEditErrorText" class="form-control-feedback text-danger"></div>
                         </div>
@@ -209,7 +209,7 @@
                               <div id="inputFourthPhotoEditErrorText" class="form-control-feedback text-danger"></div>
                             </div>
                             <div>
-                                <img id="fourthPhotoPreviewEdit" src="" class="d-block w-100" width="200px" height="200px">
+                                <img id="fourthPhotoPreviewEdit" src="" class="d-block w-100">
                             </div>
                             <div id="inputFourthPhotoEditErrorText" class="form-control-feedback text-danger"></div>
                         </div>

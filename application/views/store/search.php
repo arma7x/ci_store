@@ -96,10 +96,10 @@
 					<div class="input-group-text rounded-0 border-0 bg-white"><i class="material-icons">&#xe242;</i></div>
 				</div>
 				<select id="search_ordering" class="form-control form-control-sm rounded-0 border-0 bg-white no-border">
-					<option value="created_desc"><?php echo lang('L_P_S_LATEST_RELEASE') ?></option>
-					<option value="created_asc"><?php echo lang('L_P_S_EARLIER_RELEASE') ?></option>
-					<option value="price_desc"><?php echo lang('L_P_S_EXPENSIVE_PRICE') ?></option>
-					<option value="price_asc"><?php echo lang('L_P_S_REASONABLE_PRICE') ?></option>
+					<option value="created_at@desc"><?php echo lang('L_P_S_LATEST_RELEASE') ?></option>
+					<option value="created_at@asc"><?php echo lang('L_P_S_EARLIER_RELEASE') ?></option>
+					<option value="price@desc"><?php echo lang('L_P_S_EXPENSIVE_PRICE') ?></option>
+					<option value="price@asc"><?php echo lang('L_P_S_REASONABLE_PRICE') ?></option>
 				</select>
 			</div>
 
