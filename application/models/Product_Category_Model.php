@@ -7,8 +7,8 @@ class Product_Category_Model extends MY_Model {
 
 	public function get_categories_of_product($product) {
 		$this->load->model('Category_Model', 'Category');
-		$this->db->select($this->Category->table.'.*');
-		$this->db->where('product', $product);
+		$this->db->select($this->Category->table.'.id, '.$this->Category->table.'.name');
+		$this->db->where($this->table.'.product', $product);
 		$this->db->from($this->table);
 		$this->db->join($this->Category->table, $this->Category->table.'.id = '.$this->table.'.category');
 		return $this->db->get()->result_array();

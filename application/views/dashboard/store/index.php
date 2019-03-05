@@ -69,7 +69,7 @@
 			</div>
 
 			<div class="input-group mr-sm-1 mb-2">
-				<button type="submit" class="btn btn-sm btn-primary btn-block" onClick="searchStore()">
+				<button type="submit" class="btn btn-sm btn-primary" onClick="searchStore()">
 					<i class="material-icons">&#xe8b6;</i>
 				</button>
 			</div>
@@ -112,7 +112,56 @@
 		</form>
 		</div>
 		<div class="row">
-			<?php var_dump($list)?>
+			<?php //var_dump($list)?>
+			<div class="table-responsive">
+				<table class="table table-sm table-bordered">
+					<thead>
+						<tr>
+							<th scope="col"><?php echo lang('L_ID'); ?></th>
+							<th scope="col"><?php echo lang('L_P_NAME'); ?></th>
+							<th scope="col"><?php echo lang('L_P_SLUG'); ?></th>
+							<th scope="col"><?php echo lang('L_P_PRICE'); ?></th>
+							<th scope="col"><?php echo lang('L_P_VISIBILITY'); ?></th>
+							<th scope="col"><?php echo lang('L_P_SPOTLIGHT'); ?></th>
+							<th scope="col"><?php echo lang('L_P_AVAILABILITY'); ?></th>
+							<th scope="col"><?php echo lang('L_INFO');?></th>
+							<th scope="col"><?php echo lang('L_ACTION'); ?></th>
+						</tr>
+					</thead>
+					<tbody class="small">
+						<?php foreach($list as $index => $item): ?>
+						<tr>
+							<td class="text-center">
+								<strong><?php echo $item['id'] ?></strong><br>
+								<img id="thumb_<?php echo $item['id'] ?>" class="img img-fluid" src="/static/img/loading.gif" width="100px" height="100px"/>
+								<script>
+									$(document).ready(function() {
+										resizePicture('<?php echo $item['main_photo'] ?>', null, 100, 100, .50, 'image/webp', renderImg, '#thumb_<?php echo $item['id'] ?>')
+									})
+								</script>
+							</td>
+							<td><?php echo $item['name'] ?></td>
+							<td><?php echo $item['slug'] ?></td>
+							<td><?php echo $item['price'] ?></td>
+							<td><?php echo $item['visibility'] ?></td>
+							<td><?php echo $item['spotlight'] ?></td>
+							<td><?php echo $item['availability'] ?></td>
+							<td>
+								<b><?php echo lang('L_UPDATED_AT');?></b></br>
+								<span id="ca_<?php echo $item['id'] ;?>">
+									<script>parse_date('<?php echo "ca_".$item['id'] ?>', '<?php echo $item['created_at'] ;?>')</script>
+								</span></br>
+								<b><?php echo lang('L_UPDATED_AT'); ?></b></br>
+								<span id="ua_<?php echo $item['id'] ;?>">
+									<script>parse_date('<?php echo "ua_".$item['id'] ?>', '<?php echo $item['updated_at'] ;?>')</script>
+								</span>
+							</td>
+							<td></td>
+						</tr>
+						<?php endforeach ?>
+					</tbody>
+				</table>
+			</div>
 		</div>
 		<script>$.trumbowyg.svgPath = '/static/img/icons.svg';</script>
 		<?php echo isset($add_modal) ? $add_modal :null ?>

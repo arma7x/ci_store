@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Product_Model extends MY_Model {
 
-	private CONST PUBLIC_VIEW_FIELD = '*';
-	private CONST PUCLIC_SEARCH_FIELD = 'id, name, slug, price, spotlight, availability, main_photo';
-	private CONST PUCLIC_SEARCH_FIELD_JOIN = 'products.id, products.name, products.slug, products.price, products.spotlight, products.availability, products.main_photo';
-	private CONST ADMIN_SEARCH_FIELD = 'id, name, slug, price, visibility, spotlight, availability, main_photo, created_at, updated_at';
-	private CONST ADMIN_SEARCH_FIELD_JOIN = 'products.id, products.name, products.slug, products.price, products.visibility, products.spotlight, products.availability, products.main_photo, products.created_at, products.updated_at';
+	public CONST PUBLIC_VIEW_FIELD = '*';
+	public CONST PUCLIC_SEARCH_FIELD = 'id, name, slug, price, spotlight, availability, main_photo';
+	public CONST PUCLIC_SEARCH_FIELD_JOIN = 'products.id, products.name, products.slug, products.price, products.spotlight, products.availability, products.main_photo';
+	public CONST ADMIN_SEARCH_FIELD = 'id, name, slug, price, visibility, spotlight, availability, main_photo, created_at, updated_at';
+	public CONST ADMIN_SEARCH_FIELD_JOIN = 'products.id, products.name, products.slug, products.price, products.visibility, products.spotlight, products.availability, products.main_photo, products.created_at, products.updated_at';
 	public CONST CACHE_PREFIX = 'PM_';
 	public CONST SPOTLIGHT_PREFIX = 'HIGHLIGHT';
 	public $table = 'products';
@@ -44,11 +44,11 @@ class Product_Model extends MY_Model {
 		return $this->cache->save(SELF::CACHE_PREFIX.SELF::SPOTLIGHT_PREFIX, $result, 18144000);
 	}
 
-	public function get_product_list($category, $filter, $order, $base_url, $per_page, $page_num, $num_links) {
+	public function get_product_list($select, $select_join, $category, $filter, $order, $base_url, $per_page, $page_num, $num_links) {
 		if($category === NULL) {
 			$total_rows = $this->get_total_row($category, $filter);
 			$skip = $this->paginate($base_url, $per_page, $page_num, $num_links, $total_rows);
-			$this->db->select(SELF::ADMIN_SEARCH_FIELD);
+			$this->db->select($select);
 			foreach($filter as $index => $value) {
 				if ($value !== NULL) {
 					if ($index === 'keyword') {
@@ -73,7 +73,7 @@ class Product_Model extends MY_Model {
 			$this->load->model('Category_Model', 'Category');
 			$total_rows = $this->get_total_row($category, $filter);
 			$skip = $this->paginate($base_url, $per_page, $page_num, $num_links, $total_rows);
-			$this->db->select(SELF::ADMIN_SEARCH_FIELD_JOIN);
+			$this->db->select($select_join);
 			foreach($filter as $index => $value) {
 				if ($value !== NULL) {
 					if ($index === 'keyword') {

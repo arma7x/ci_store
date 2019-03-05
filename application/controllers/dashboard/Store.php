@@ -41,7 +41,7 @@ class Store extends MY_Controller {
 
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_STORE');
 		$this->data['page_name'] = str_replace('%s', $this->container['app_name'], lang('H_STORE'));
-		$this->data['list'] = $this->PM->get_product_list($category, $filters, $order_by, current_url(), 10, (int) $this->input->get('page'), TRUE);
+		$this->data['list'] = $this->PM->get_product_list($this->PM::ADMIN_SEARCH_FIELD, $this->PM::ADMIN_SEARCH_FIELD_JOIN, $category, $filters, $order_by, current_url(), 10, (int) $this->input->get('page'), TRUE);
 		$this->data['cat_list'] = $this->Category->get_all();
 		$this->widgets['add_modal'] = 'dashboard/store/widgets/add_modal';
 		$this->widgets['update_modal'] = 'dashboard/store/widgets/update_modal';
@@ -51,11 +51,13 @@ class Store extends MY_Controller {
 	}
 
 	public function find() {
-		$exist = $this->EI->find_information('*', array('id' => $this->input->post_get('id')));
+		$exist = $this->PM->find_product('*', array('id' => $this->input->post_get('id')));
 		if ($exist === NULL) {
 			show_404();
 		}
-		$this->_renderJSON(200, $exist);
+		$this->load->model('Product_Category_Model', 'PCM');
+		$category = $this->PCM->get_categories_of_product($this->input->post_get('id'));
+		$this->_renderJSON(200, array('product' => $exist, 'category' => $category));
 	}
 
 	public function upload() {
