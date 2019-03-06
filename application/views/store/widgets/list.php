@@ -52,12 +52,24 @@
   text-align: center;
 }
 
-.img-container .favourite {
+.img-container .stock {
   font-size: 20px;
   color: var(--dark);
   position: absolute;
   top: 10%;
   left: 90%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.img-container .favourite {
+  font-size: 20px;
+  color: var(--dark);
+  position: absolute;
+  top: 10%;
+  left: 10%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -75,32 +87,37 @@
 
 .img-container:hover .title,
 .img-container:hover .price,
-.img-container:hover .favourite {
+.img-container:hover .favourite,
+.img-container:hover .stock {
   color: #ffffff;
   opacity: 1;
   z-index: 2;
 }
 </style>
 <div class="row">
-	<?php //var_dump($list) ?>
-	<?php for($i=1;$i<10;$i++):?>
-	<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-		<div class="img-container" data-placement="top" title="description">
-			<a href="/store/<?php echo $i?>"><img id="demo<?php echo $i?>" class="img img-fluid" src="/static/img/loading.gif"/>
-			<script>
-				$(document).ready(function() {
-					resizePicture('https://colorlib.com/preview/theme/amado/img/bg-img/<?php echo $i?>.jpg', null, 533, 533, .50, 'image/webp', renderImg, '#demo<?php echo $i?>')
-				})
-			</script>
-			<div class="title">
-				<hr class="star-primary">
-				<h5 class="font-weight-bold">TEXT HERE</h5>
+	<?php if (isset($list)): ?>
+	<?php foreach($list as $index => $item): ?>
+		<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
+			<div class="img-container" data-placement="top" title="<?php echo $item['brief_description'] ?>">
+				<a href="/store/<?php echo $item['slug'] ?>"><img id="product_<?php echo $item['id'] ?>" class="img img-fluid" src="/static/img/loading.gif"/>
+				<script>
+					$(document).ready(function() {
+						resizePicture('<?php echo $item['main_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#product_<?php echo $item['id'] ?>')
+					})
+				</script>
+				<i class="material-icons stock <?php echo ($item['availability'] === '1') ? 'text-success' : 'text-danger' ?>"><?php echo ($item['availability'] === '1') ? '&#xe1a3;' : '&#xe19c;' ?></i>
+				<div class="title">
+					<hr class="star-primary">
+					<h5 class="font-weight-bold text-uppercase"><?php echo $item['name'] ?></h5>
+				</div>
+				<h3 class="price font-weight-bold">RM<?php echo number_format((float) $item['price'], 2, '.', '') ?></h3>
+				<?php if ($item['spotlight'] === '1'): ?>
+				<i class="material-icons favourite">&#xe87d;</i>
+				<?php endif ?>
+				<div class="overlay"></div>
+				</a>
 			</div>
-			<h3 class="price font-weight-bold">RM100</h3>
-			<i class="material-icons favourite">&#xe87d;</i>
-			<div class="overlay"></div>
-			</a>
 		</div>
-	</div>
-	<?php endfor; ?>
+	<?php endforeach ?>
+	<?php endif ?>
 </div>

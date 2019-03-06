@@ -68,9 +68,11 @@ class Welcome extends MY_Controller {
 	public function index() {
 		$this->AllowGetRequest();
 		$this->load->model('Category_Model', 'Category');
+		$this->load->model('Product_Model', 'PM');
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_HOMEPAGE');
 		$this->data['page_name'] = str_replace('%s', $this->container['app_name'], lang('H_WELCOME'));
 		$this->data['cat_link'] = $this->Category->get_all_cache();
+		$this->data['list'] = $this->PM->get_spotlight_cache();
 		$this->widgets['category_nav'] = 'widgets/category_nav';
 		$this->widgets['products'] = 'store/widgets/list';
 		$this->widgets['content'] = 'welcome';

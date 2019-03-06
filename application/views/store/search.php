@@ -3,8 +3,10 @@
 	.pagination {
 		position: relative;
 		z-index: 1;
+		justify-content: flex-end !important;
 	}
-	.pagination .page-item .page-link {
+	.pagination .page-item .page-link,
+	.pagination .page-item .page-link a {
 		width: 40px;
 		height: 40px;
 		border: none;
@@ -15,7 +17,10 @@
 		text-align: center;
 		color: #242424;
 	}
-	.pagination .page-item .page-link:hover, .pagination .page-item .page-link:focus {
+	.pagination .page-item .page-link:hover,
+	.pagination .page-item .page-link:focus,
+	.pagination .page-item .page-link:hover a,
+	.pagination .page-item .page-link:focus a {
 		color: #fff;
 		box-shadow: none;
 		background-color: var(--pink)!important;
@@ -42,12 +47,7 @@
 		<div class="row">
 			<div class="col col-12 px-0 py-2 p-md-2">
 				<nav aria-label="navigation">
-					<ul class="pagination justify-content-end">
-						<li class="page-item active"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item"><a class="page-link" href="#">4</a></li>
-					</ul>
+					<?php echo $this->pagination->create_links(); ?>
 				</nav>
 			</div>
 		</div>
