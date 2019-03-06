@@ -30,7 +30,7 @@ class Product_Model extends MY_Model {
 
 	public function get_spotlight_cache() {
 		$cached = $this->cache->get(SELF::CACHE_PREFIX.SELF::SPOTLIGHT_PREFIX);
-		if ($cached === FALSE) {
+		if ($cached === FALSE || COUNT($cached) <= 0) {
 			return $this->set_spotlight_cache();
 		}
 		return $cached;
@@ -38,7 +38,7 @@ class Product_Model extends MY_Model {
 
 	public function set_spotlight_cache() {
 		$result = $this->db->select(SELF::PUBLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('spotlight' => 1, 'visibility' => 1))->result_array();
-		if (COUNT($result) < 0) {
+		if (COUNT($result) <= 0) {
 			$result = $this->db->select(SELF::PUBLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('visibility' => 1), 9)->result_array();
 			return $result;
 		}
@@ -159,6 +159,7 @@ class Product_Model extends MY_Model {
 		$exist = $this->find_product(SELF::PUBLIC_VIEW_FIELD, array('id' => $data['id']));
 		if ($exist !== NULL) {
 			$this->set_product_cache($exist['slug'], $exist);
+			$this->set_spotlight_cache();
 		}
 		return $result;
 	}
@@ -168,6 +169,7 @@ class Product_Model extends MY_Model {
 		$exist = $this->find_product(SELF::PUBLIC_VIEW_FIELD, $index);
 		if ($exist !== NULL) {
 			$this->set_product_cache($exist['slug'], $exist);
+			$this->set_spotlight_cache();
 		}
 		return $result;
 	}

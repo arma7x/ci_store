@@ -2,10 +2,6 @@
 
 <script>
 
-function renderIcon(src, holder) {
-    $(holder).html($(src).val()).text()
-}
-
 function findProduct(id) {
     var request = $.ajax({
         url: "/dashboard/store/find",
@@ -351,67 +347,22 @@ function updateProduct() {
     })
 }
 
-function updateOrderEI(id, title) {
+function updateSpotlight(id, title) {
     var text = '<?php echo lang('L_CONFIRM_UPDATE_PRODUCT')?>'
     if (!confirm(text.replace('%s', title))) {
         return;
     }
     $('button').attr("disabled", "disabled")
     hideDangerMessage()
-    $('#inputSlug'+id).removeClass('border-danger')
-    $('#inputSlugErrorText'+id).text('')
+    $('#inputSpotlight'+id).removeClass('border-danger')
+    $('#inputSpotlightErrorText'+id).text('')
     var data = {
         'id': id,
-        'ordering': $('#inputSlug'+id).val(),
+        'spotlight': $('#inputSpotlight'+id).val(),
     }
     data[window.csrf_token_name] = window.csrf_hash
     var request = $.ajax({
-        url: "/dashboard/store/update_order",
-        method: "POST",
-        data: data,
-        dataType: "json"
-    })
-    request.done(function(data) {
-        console.log(data.message)
-        if (data.redirect != undefined) {
-            Turbolinks.visit(data.redirect, { action: "replace" })
-        } else {
-            document.location.reload()
-        }
-    })
-    request.fail(function(jqXHR) {
-        loadingSpinner(false)
-        $('button').removeAttr("disabled")
-        if (jqXHR.responseJSON != undefined) {
-            if (jqXHR.responseJSON.message != undefined) {
-                showDangerMessage(jqXHR.responseJSON.message)
-            }
-            if (jqXHR.responseJSON.errors != undefined) {
-                if (jqXHR.responseJSON.errors.ordering != undefined) {
-                    $('#inputSlugError'+id).addClass('border-danger')
-                    $('#inputSlugErrorText'+id).text(jqXHR.responseJSON.errors.ordering)
-                }
-            }
-        }
-    })
-}
-
-function updatePositionEI(id, title) {
-    var text = '<?php echo lang('L_CONFIRM_UPDATE_PRODUCT')?>'
-    if (!confirm(text.replace('%s', title))) {
-        return;
-    }
-    $('button').attr("disabled", "disabled")
-    hideDangerMessage()
-    $('#inputPrice'+id).removeClass('border-danger')
-    $('#inputPriceErrorText'+id).text('')
-    var data = {
-        'id': id,
-        'position': $('#inputPrice'+id).val(),
-    }
-    data[window.csrf_token_name] = window.csrf_hash
-    var request = $.ajax({
-        url: "/dashboard/store/update_position",
+        url: "/dashboard/store/update_spotlight",
         method: "POST",
         data: data,
         dataType: "json"
@@ -433,15 +384,15 @@ function updatePositionEI(id, title) {
             }
             if (jqXHR.responseJSON.errors != undefined) {
                 if (jqXHR.responseJSON.errors.position != undefined) {
-                    $('#inputPriceError'+id).addClass('border-danger')
-                    $('#inputPriceErrorText'+id).text(jqXHR.responseJSON.errors.position)
+                    $('#inputSpotlightError'+id).addClass('border-danger')
+                    $('#inputSpotlightErrorText'+id).text(jqXHR.responseJSON.errors.position)
                 }
             }
         }
     })
 }
 
-function updateVisibilityEI(id, title) {
+function updateVisibility(id, title) {
     var text = '<?php echo lang('L_CONFIRM_UPDATE_PRODUCT')?>'
     if (!confirm(text.replace('%s', title))) {
         return;
@@ -486,22 +437,22 @@ function updateVisibilityEI(id, title) {
     })
 }
 
-function updateIconEI(id, title) {
+function updateAvailability(id, title) {
     var text = '<?php echo lang('L_CONFIRM_UPDATE_PRODUCT')?>'
     if (!confirm(text.replace('%s', title))) {
         return;
     }
     $('button').attr("disabled", "disabled")
     hideDangerMessage()
-    $('#inputSpotlight'+id).removeClass('border-danger')
-    $('#inputSpotlightErrorText'+id).text('')
+    $('#inputAvailability'+id).removeClass('border-danger')
+    $('#inputAvailabilityErrorText'+id).text('')
     var data = {
         'id': id,
-        'material_icon': $('#inputSpotlight'+id).val(),
+        'availability': $('#inputAvailability'+id).val(),
     }
     data[window.csrf_token_name] = window.csrf_hash
     var request = $.ajax({
-        url: "/dashboard/store/update_icon",
+        url: "/dashboard/store/update_availability",
         method: "POST",
         data: data,
         dataType: "json"
@@ -522,13 +473,9 @@ function updateIconEI(id, title) {
                 showDangerMessage(jqXHR.responseJSON.message)
             }
             if (jqXHR.responseJSON.errors != undefined) {
-                if (jqXHR.responseJSON.errors.visibility != undefined) {
-                    $('#inputVisibilityError'+id).addClass('border-danger')
-                    $('#inputVisibilityErrorText'+id).text(jqXHR.responseJSON.errors.visibility)
-                }
-                if (jqXHR.responseJSON.errors.material_icon != undefined) {
-                    $('#inputSpotlightError'+id).addClass('border-danger')
-                    $('#inputSpotlightErrorText'+id).text(jqXHR.responseJSON.errors.material_icon)
+                if (jqXHR.responseJSON.errors.ordering != undefined) {
+                    $('#inputAvailabilityError'+id).addClass('border-danger')
+                    $('#inputAvailabilityErrorText'+id).text(jqXHR.responseJSON.errors.ordering)
                 }
             }
         }

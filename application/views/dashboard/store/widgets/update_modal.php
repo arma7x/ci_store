@@ -115,7 +115,7 @@
                 </div>
                 <div class="col col-12">
                     <div class="form-group">
-                    <label for="inputCategoryEdit" class="sr-only-rm"><?php echo lang('H_CATEGORY');?></label>
+                    <label for="inputCategoryEdit" class="sr-only-rm"><i class="material-icons">&#xe54e;</i> <?php echo lang('H_CATEGORY');?></label>
                     <div class="clear-fix"></div>
                     <?php foreach($cat_list as $key => $value): ?>
                     <div class="form-check form-check-inline">

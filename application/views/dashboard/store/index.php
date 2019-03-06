@@ -112,7 +112,6 @@
 		</form>
 		</div>
 		<div class="row">
-			<?php //var_dump($list)?>
 			<div class="table-responsive">
 				<table class="table table-sm table-bordered">
 					<thead>
@@ -143,9 +142,63 @@
 							<td><?php echo $item['name'] ?></td>
 							<td><?php echo $item['slug'] ?></td>
 							<td>RM<?php echo number_format((float) $item['price'], 2, '.', '') ?></td>
-							<td><?php echo $item['visibility'] ?></td>
-							<td><?php echo $item['spotlight'] ?></td>
-							<td><?php echo $item['availability'] ?></td>
+							<td>
+								<form>
+									<div class="form-group mb-1">
+										<label class="sr-only m-0"><?php echo lang('L_P_VISIBILITY');?></label>
+										<div class="input-group input-group-sm border rounded">
+											<div class="input-group-prepend">
+												<div class="input-group-text"><i class="material-icons">&#xe8f4;</i></div>
+											</div>
+											<select type="text" id="inputVisibility<?php echo $item['id'] ?>" class="form-control" required>
+												<option value="0"<?php echo (int) $item['visibility'] === 0 ? ' selected' : '' ;?>><?php echo lang('L_P_VISIBILITY_HIDE');?></option>
+												<option value="1"<?php echo (int) $item['visibility'] === 1 ? ' selected' : '' ;?>><?php echo lang('L_P_VISIBILITY_SHOW');?></option>
+											</select>
+										</div>
+									</div>
+									<button class="btn btn-block btn-sm btn-outline-success" onclick="updateVisibility('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+										<?php echo lang('BTN_EDIT') ?>
+									</button>
+								</form>
+							</td>
+							<td>
+								<form>
+									<div class="form-group mb-1">
+										<label class="sr-only m-0"><?php echo lang('L_P_SPOTLIGHT');?></label>
+										<div class="input-group input-group-sm border rounded">
+											<div class="input-group-prepend">
+												<div class="input-group-text"><i class="material-icons">&#xe838;</i></div>
+											</div>
+											<select type="text" id="inputSpotlight<?php echo $item['id'] ?>" class="form-control" placeholder="<?php echo lang('L_P_SPOTLIGHT');?>" required>
+												<option value="0"<?php echo (int) $item['spotlight'] === 0 ? ' selected' : '' ;?>><?php echo lang('L_P_SPOTLIGHT_NO');?></option>
+												<option value="1"<?php echo (int) $item['spotlight'] === 1 ? ' selected' : '' ;?>><?php echo lang('L_P_SPOTLIGHT_YES');?></option>
+											</select>
+										</div>
+									</div>
+									<button class="btn btn-block btn-sm btn-outline-success" onclick="updateSpotlight('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+										<?php echo lang('BTN_EDIT') ?>
+									</button>
+								</form>
+							</td>
+							<td>
+								<form>
+									<div class="form-group mb-1">
+										<label class="sr-only"><?php echo lang('L_P_AVAILABILITY');?></label>
+										<div class="input-group input-group-sm border rounded">
+											<div class="input-group-prepend">
+												<div class="input-group-text"><i class="material-icons">&#xe614;</i></div>
+											</div>
+											<select type="text" id="inputAvailability<?php echo $item['id'] ?>" class="form-control" placeholder="<?php echo lang('L_P_AVAILABILITY');?>" required>
+												<option value="0"<?php echo (int) $item['availability'] === 0 ? ' selected' : '' ;?>><?php echo lang('L_P_AVAILABILITY_FALSE');?></option>
+												<option value="1"<?php echo (int) $item['availability'] === 1 ? ' selected' : '' ;?>><?php echo lang('L_P_AVAILABILITY_TRUE');?></option>
+											</select>
+										</div>
+									</div>
+									<button class="btn btn-block btn-sm btn-outline-success" onclick="updateAvailability('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+										<?php echo lang('BTN_EDIT') ?>
+									</button>
+								</form>
+							</td>
 							<td>
 								<b><?php echo lang('L_UPDATED_AT');?></b></br>
 								<span id="ca_<?php echo $item['id'] ;?>">

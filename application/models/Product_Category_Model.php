@@ -37,7 +37,6 @@ class Product_Category_Model extends MY_Model {
 		}
 		foreach($remove_list as $index => $category) {
 			$this->remove_by_product_or_category(array('product' => $product, 'category' => $category));
-			var_dump(array('product' => $product, 'category' => $category));
 		}
 	}
 

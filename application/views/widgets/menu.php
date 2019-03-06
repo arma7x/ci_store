@@ -27,14 +27,14 @@
                     </div>
                     <div id="accordionDashboard" class="accordion bg-light">
                     <div class="autoscroll">
-                    <a class="dropdown-item p-3<?php echo $this->uri->segment(1) == 'store' ? ' text-primary active' : ''?>" onclick="navigate('/store')"><i class="material-icons text-primary">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
+                    <a class="dropdown-item text-uppercase font-weight-bold p-3<?php echo $this->uri->segment(1) == 'store' ? ' text-primary active' : ''?>" onclick="navigate('/store')"><i class="material-icons text-primary">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
                       <?php foreach($this->container['ei_link'] as $key => $value): ?>
                         <?php if ((int) $value['position'] !== 1): ?>
-                            <a class="dropdown-item p-3<?php echo '/'.$this->uri->uri_string() == '/'.$value['slug'] ? ' text-primary active' : ''?>" onclick="navigate('/<?php echo $value['slug'] ?>')"><i class="material-icons text-primary"><?php echo $value['material_icon'] ?></i> <?php echo $value['title'] ?></a>
+                            <a class="dropdown-item text-uppercase font-weight-bold p-3<?php echo '/'.$this->uri->uri_string() == '/'.$value['slug'] ? ' text-primary active' : ''?>" onclick="navigate('/<?php echo $value['slug'] ?>')"><i class="material-icons text-primary"><?php echo $value['material_icon'] ?></i> <?php echo $value['title'] ?></a>
                         <?php endif ?>
                       <?php endforeach ?>
                       <?php if($this->container['user'] !== NULL): ?>
-                      <div class="dropdown-item p-3<?php echo $this->uri->segment(2) == 'ui_update_password' || $this->uri->segment(2) == 'manage_token' ? ' active' : ''?>">
+                      <div class="dropdown-item text-uppercase font-weight-bold p-3<?php echo $this->uri->segment(2) == 'ui_update_password' || $this->uri->segment(2) == 'manage_token' ? ' active' : ''?>">
                         <div id="heading_profile" data-toggle="collapse" data-target="#collapse_profile" aria-expanded="false" aria-controls="collapse_profile">
                             <i class="material-icons text-primary">&#xe853;</i> <?php echo lang('H_PROFILE') ?>
                             <i class="material-icons float-right" style="margin-top:2px;">&#xe313;</i> 
@@ -54,10 +54,10 @@
                       </div>
                       <?php endif; ?>
                       <?php if($this->container['user'] === NULL): ?>
-                        <a class="dropdown-item p-3<?php echo '/'.$this->uri->uri_string() == '/authentication/ui_login' ? ' text-primary active' : ''?>" onclick="navigate('/authentication/ui_login')"><i class="material-icons text-primary">&#xe879;</i> <?php echo lang('H_LOGIN');?></a>
+                        <a class="dropdown-item text-uppercase font-weight-bold p-3<?php echo '/'.$this->uri->uri_string() == '/authentication/ui_login' ? ' text-primary active' : ''?>" onclick="navigate('/authentication/ui_login')"><i class="material-icons text-primary">&#xe879;</i> <?php echo lang('H_LOGIN');?></a>
                         <?php if(APP_REGISTRATION === TRUE): ?>
-                        <a class="dropdown-item p-3<?php echo '/'.$this->uri->uri_string() == '/authentication/ui_register' ? ' text-primary active' : ''?>" onclick="navigate('/authentication/ui_register')"><i class="material-icons text-primary">&#xe7fe;</i> <?php echo lang('H_REGISTER');?></a>
-                        <div class="dropdown-item p-3<?php echo $this->uri->segment(2) == 'ui_activate_account' || $this->uri->segment(2) == 'ui_forgot_password' ? ' active' : ''?>">
+                        <a class="dropdown-item text-uppercase font-weight-bold p-3<?php echo '/'.$this->uri->uri_string() == '/authentication/ui_register' ? ' text-primary active' : ''?>" onclick="navigate('/authentication/ui_register')"><i class="material-icons text-primary">&#xe7fe;</i> <?php echo lang('H_REGISTER');?></a>
+                        <div class="dropdown-item text-uppercase font-weight-bold p-3<?php echo $this->uri->segment(2) == 'ui_activate_account' || $this->uri->segment(2) == 'ui_forgot_password' ? ' active' : ''?>">
                           <div id="heading_help" data-toggle="collapse" data-target="#collapse_help" aria-expanded="false" aria-controls="collapse_help">
                             <i class="material-icons text-primary">&#xe887;</i> <?php echo lang('L_HELP');?>
                             <i class="material-icons float-right" style="margin-top:2px;">&#xe313;</i> 
@@ -79,10 +79,10 @@
                       <?php endif; ?>
                       <?php if($this->container['user'] !== NULL): ?>
                         <?php if($this->container['user']['role'] <= 1): ?>
-                        <a class="dropdown-item p-3 text-primary font-weight-bold" onclick="navigate('/dashboard')"><i class="material-icons text-primary">&#xe30d;</i> <?php echo lang('H_DASHBOARD');?></a>
+                        <a class="dropdown-item text-uppercase font-weight-bold p-3 text-primary font-weight-bold" onclick="navigate('/dashboard')"><i class="material-icons text-primary">&#xe30d;</i> <?php echo lang('H_DASHBOARD');?></a>
                         <?php endif; ?>
                       <?php endif; ?>
-                      <div class="dropdown-item p-3">
+                      <div class="dropdown-item text-uppercase font-weight-bold p-3">
                         <div id="headingLang" data-toggle="collapse" data-target="#collapseLang" aria-expanded="false" aria-controls="collapseLang">
                             <i class="material-icons text-primary">&#xe8e2;</i> <?php echo lang('L_LANGUAGE') ?>
                             <i class="material-icons float-right" style="margin-top:2px;">&#xe313;</i> 
@@ -101,7 +101,7 @@
                         </div>
                       </div>
                       <?php if($this->container['user'] !== NULL): ?>
-                        <a class="dropdown-item p-3" onclick="logout()"data-turbolinks="false"><i class="material-icons text-primary">&#xe879;</i> <?php echo lang('H_LOGOUT');?></a>
+                        <a class="dropdown-item text-uppercase font-weight-bold p-3" onclick="logout()"data-turbolinks="false"><i class="material-icons text-primary">&#xe879;</i> <?php echo lang('H_LOGOUT');?></a>
                       <?php endif; ?>
                     </div>
                     </div>
