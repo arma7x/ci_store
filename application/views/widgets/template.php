@@ -8,6 +8,8 @@
     <meta name="turbolinks-cache-control" content="no-cache">
     <title><?php echo isset($title) ? $title : 'Codeigniter' ?></title>
     <?php echo isset($header) ? $header : null ?>
+  </head>
+  <body class="p-0">
     <style>
         hr.star-dark,
         hr.star-primary {
@@ -63,8 +65,6 @@
             box-shadow: none;
         }
     </style>
-  </head>
-  <body class="p-0">
     <?php echo isset($nav) ? $nav : null ?>
     <main class="col bg-light" id="main" role="main">
         <?php if($this->container['user'] !== NULL): ?>

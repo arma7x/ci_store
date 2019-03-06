@@ -221,15 +221,15 @@ function addProduct() {
     })
 }
 
-function updateEI() {
+function updateProduct() {
     var text = '<?php echo lang('L_CONFIRM_UPDATE_PRODUCT')?>'
-    if (!confirm(text.replace('%s', $('#inputTitleEdit').val()))) {
+    if (!confirm(text.replace('%s', $('#inputNameEdit').val()))) {
         return;
     }
     $('#update_product').attr("disabled", "disabled")
     hideDangerMessage()
-    $('#inputTitleEditError').removeClass('border-danger')
-    $('#inputTitleEditErrorText').text('')
+    $('#inputIDEditError').removeClass('border-danger')
+    $('#inputIDEditErrorText').text('')
     $('#inputNameEditError').removeClass('border-danger')
     $('#inputNameEditErrorText').text('')
     $('#inputSlugEditError').removeClass('border-danger')
@@ -240,18 +240,34 @@ function updateEI() {
     $('#inputVisibilityEditErrorText').text('')
     $('#inputSpotlightEditError').removeClass('border-danger')
     $('#inputSpotlightEditErrorText').text('')
+    $('#inputAvailabilityEditError').removeClass('border-danger')
+    $('#inputAvailabilityEditErrorText').text('')
+    $('#inputMainPhotoEditError').removeClass('border-danger')
+    $('#inputMainPhotoEditErrorText').text('')
+    $('#inputSecondPhotoEditError').removeClass('border-danger')
+    $('#inputSecondPhotoEditErrorText').text('')
+    $('#inputThirdPhotoEditError').removeClass('border-danger')
+    $('#inputThirdPhotoEditErrorText').text('')
+    $('#inputFourthPhotoEditError').removeClass('border-danger')
+    $('#inputFourthPhotoEditErrorText').text('')
     $('#inputBriefDescriptionEditError').removeClass('border-danger')
     $('#inputBriefDescriptionEditErrorText').text('')
     $('#inputFullDescriptionEditError').removeClass('border-danger')
     $('#inputFullDescriptionEditErrorText').text('')
+
     var data = {
-        'id': $('#inputIdEdit').val(),
-        'title': $('#inputTitleEdit').val(),
-        'slug': $('#inputNameEdit').val(),
-        'ordering': $('#inputSlugEdit').val(),
-        'position': $('#inputPriceEdit').val(),
+        'id': $('#inputIDEdit').val(),
+        'name': $('#inputNameEdit').val(),
+        'slug': $('#inputSlugEdit').val(),
+        'price': $('#inputPriceEdit').val(),
         'visibility': $('#inputVisibilityEdit').val(),
-        'material_icon': $('#inputSpotlightEdit').val(),
+        'spotlight': $('#inputSpotlightEdit').val(),
+        'availability': $('#inputAvailabilityEdit').val(),
+        'category': $("input[name='categoryEdit']").serialize(),
+        'main_photo': $('#inputMainPhotoEdit').val(),
+        'second_photo': $('#inputSecondPhotoEdit').val(),
+        'third_photo': $('#inputThirdPhotoEdit').val(),
+        'fourth_photo': $('#inputFourthPhotoEdit').val(),
         'brief_description': $('#inputBriefDescriptionEdit').val(),
         'full_description': $('#inputFullDescriptionEdit').val(),
     }
@@ -278,37 +294,57 @@ function updateEI() {
                 showDangerMessage(jqXHR.responseJSON.message)
             }
             if (jqXHR.responseJSON.errors != undefined) {
-                if (jqXHR.responseJSON.errors.full_description != undefined) {
-                    $('#inputFullDescriptionEditError').addClass('border-danger')
-                    $('#inputFullDescriptionEditErrorText').text(jqXHR.responseJSON.errors.full_description)
+                if (jqXHR.responseJSON.errors.id != undefined) {
+                    $('#inputIDEditError').addClass('border-danger')
+                    $('#inputIDEditErrorText').text(jqXHR.responseJSON.errors.id)
                 }
-                if (jqXHR.responseJSON.errors.brief_description != undefined) {
-                    $('#inputBriefDescriptionEditError').addClass('border-danger')
-                    $('#inputBriefDescriptionEditErrorText').text(jqXHR.responseJSON.errors.brief_description)
-                }
-                if (jqXHR.responseJSON.errors.ordering != undefined) {
-                    $('#inputSlugEditError').addClass('border-danger')
-                    $('#inputSlugEditErrorText').text(jqXHR.responseJSON.errors.ordering)
+                if (jqXHR.responseJSON.errors.name != undefined) {
+                    $('#inputNameEditError').addClass('border-danger')
+                    $('#inputNameEditErrorText').text(jqXHR.responseJSON.errors.name)
                 }
                 if (jqXHR.responseJSON.errors.slug != undefined) {
-                    $('#inputNameEditError').addClass('border-danger')
-                    $('#inputNameEditErrorText').text(jqXHR.responseJSON.errors.slug)
+                    $('#inputSlugEditError').addClass('border-danger')
+                    $('#inputSlugEditErrorText').text(jqXHR.responseJSON.errors.slug)
                 }
-                if (jqXHR.responseJSON.errors.title != undefined) {
-                    $('#inputTitleEditError').addClass('border-danger')
-                    $('#inputTitleEditErrorText').text(jqXHR.responseJSON.errors.title)
-                }
-                if (jqXHR.responseJSON.errors.position != undefined) {
+                if (jqXHR.responseJSON.errors.price != undefined) {
                     $('#inputPriceEditError').addClass('border-danger')
-                    $('#inputPriceEditErrorText').text(jqXHR.responseJSON.errors.position)
+                    $('#inputPriceEditErrorText').text(jqXHR.responseJSON.errors.price)
                 }
                 if (jqXHR.responseJSON.errors.visibility != undefined) {
                     $('#inputVisibilityEditError').addClass('border-danger')
                     $('#inputVisibilityEditErrorText').text(jqXHR.responseJSON.errors.visibility)
                 }
-                if (jqXHR.responseJSON.errors.material_icon != undefined) {
+                if (jqXHR.responseJSON.errors.spotlight != undefined) {
                     $('#inputSpotlightEditError').addClass('border-danger')
-                    $('#inputSpotlightEditErrorText').text(jqXHR.responseJSON.errors.material_icon)
+                    $('#inputSpotlightEditErrorText').text(jqXHR.responseJSON.errors.spotlight)
+                }
+                if (jqXHR.responseJSON.errors.availability != undefined) {
+                    $('#inputAvailabilityEditError').addClass('border-danger')
+                    $('#inputAvailabilityEditErrorText').text(jqXHR.responseJSON.errors.availability)
+                }
+                if (jqXHR.responseJSON.errors.main_photo != undefined) {
+                    $('#inputMainPhotoEditError').addClass('border-danger')
+                    $('#inputMainPhotoEditErrorText').text(jqXHR.responseJSON.errors.main_photo)
+                }
+                if (jqXHR.responseJSON.errors.second_photo != undefined) {
+                    $('#inputSecondPhotoEditError').addClass('border-danger')
+                    $('#inputSecondPhotoEditErrorText').text(jqXHR.responseJSON.errors.second_photo)
+                }
+                if (jqXHR.responseJSON.errors.third_photo != undefined) {
+                    $('#inputThirdPhotoEditError').addClass('border-danger')
+                    $('#inputThirdPhotoEditErrorText').text(jqXHR.responseJSON.errors.third_photo)
+                }
+                if (jqXHR.responseJSON.errors.fourth_photo != undefined) {
+                    $('#inputFourthPhotoEditError').addClass('border-danger')
+                    $('#inputFourthPhotoEditErrorText').text(jqXHR.responseJSON.errors.fourth_photo)
+                }
+                if (jqXHR.responseJSON.errors.brief_description != undefined) {
+                    $('#inputBriefDescriptionEditError').addClass('border-danger')
+                    $('#inputBriefDescriptionEditErrorText').text(jqXHR.responseJSON.errors.brief_description)
+                }
+                if (jqXHR.responseJSON.errors.full_description != undefined) {
+                    $('#inputFullDescriptionEditError').addClass('border-danger')
+                    $('#inputFullDescriptionEditErrorText').text(jqXHR.responseJSON.errors.full_description)
                 }
             }
         }

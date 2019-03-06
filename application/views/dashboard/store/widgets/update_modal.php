@@ -244,7 +244,7 @@
           </form>
       </div>
       <div class="modal-footer">
-        <button id="update_product" type="button" class="btn btn-primary" onclick="updateEI()">
+        <button id="update_product" type="button" class="btn btn-primary" onclick="updateProduct()">
             <?php echo lang('BTN_UPDATE_PRODUCT') ?>
         </button>
       </div>

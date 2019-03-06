@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Product_Model extends MY_Model {
 
 	public CONST PUBLIC_VIEW_FIELD = '*';
-	public CONST PUCLIC_SEARCH_FIELD = 'id, name, slug, price, spotlight, availability, main_photo';
-	public CONST PUCLIC_SEARCH_FIELD_JOIN = 'products.id, products.name, products.slug, products.price, products.spotlight, products.availability, products.main_photo';
+	public CONST PUBLIC_SEARCH_FIELD = 'id, name, slug, price, spotlight, availability, main_photo';
+	public CONST PUBLIC_SEARCH_FIELD_JOIN = 'products.id, products.name, products.slug, products.price, products.spotlight, products.availability, products.main_photo';
 	public CONST ADMIN_SEARCH_FIELD = 'id, name, slug, price, visibility, spotlight, availability, main_photo, created_at, updated_at';
 	public CONST ADMIN_SEARCH_FIELD_JOIN = 'products.id, products.name, products.slug, products.price, products.visibility, products.spotlight, products.availability, products.main_photo, products.created_at, products.updated_at';
 	public CONST CACHE_PREFIX = 'PM_';
@@ -37,9 +37,9 @@ class Product_Model extends MY_Model {
 	}
 
 	public function set_spotlight_cache() {
-		$result = $this->db->select(SELF::PUCLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('spotlight' => 1, 'visibility' => 1))->result_array();
+		$result = $this->db->select(SELF::PUBLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('spotlight' => 1, 'visibility' => 1))->result_array();
 		if (COUNT($result) < 0) {
-			$result = $this->db->select(SELF::PUCLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('visibility' => 1), 9)->result_array();
+			$result = $this->db->select(SELF::PUBLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('visibility' => 1), 9)->result_array();
 		}
 		return $this->cache->save(SELF::CACHE_PREFIX.SELF::SPOTLIGHT_PREFIX, $result, 18144000);
 	}
@@ -163,7 +163,7 @@ class Product_Model extends MY_Model {
 
 	public function update_product($data, $index) {
 		$result = $this->db->update($this->table, $data, $index);
-		$exist = $this->find_product(SELF::PUBLIC_VIEW_FIELD, array('id' => $data['id']));
+		$exist = $this->find_product(SELF::PUBLIC_VIEW_FIELD, $index);
 		if ($exist !== NULL) {
 			$this->set_product_cache($exist['slug'], $exist);
 		}

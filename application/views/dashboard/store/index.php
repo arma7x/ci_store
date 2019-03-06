@@ -142,7 +142,7 @@
 							</td>
 							<td><?php echo $item['name'] ?></td>
 							<td><?php echo $item['slug'] ?></td>
-							<td><?php echo $item['price'] ?></td>
+							<td>RM<?php echo number_format((float) $item['price'], 2, '.', '') ?></td>
 							<td><?php echo $item['visibility'] ?></td>
 							<td><?php echo $item['spotlight'] ?></td>
 							<td><?php echo $item['availability'] ?></td>

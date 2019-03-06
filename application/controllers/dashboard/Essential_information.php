@@ -199,8 +199,8 @@ class Essential_information extends MY_Controller {
 			$error = '';
 			if (isset($this->form_validation->error_array()['id'])) {
 				$error = $this->form_validation->error_array()['id'];
-			} else if (isset($this->form_validation->error_array()['ordering'])) {
-				$error = $this->form_validation->error_array()['ordering'];
+			} else if (isset($this->form_validation->error_array()['position'])) {
+				$error = $this->form_validation->error_array()['position'];
 			}
 			$data = array(
 				'message' => $error
@@ -240,8 +240,8 @@ class Essential_information extends MY_Controller {
 			$error = '';
 			if (isset($this->form_validation->error_array()['id'])) {
 				$error = $this->form_validation->error_array()['id'];
-			} else if (isset($this->form_validation->error_array()['ordering'])) {
-				$error = $this->form_validation->error_array()['ordering'];
+			} else if (isset($this->form_validation->error_array()['visibility'])) {
+				$error = $this->form_validation->error_array()['visibility'];
 			}
 			$data = array(
 				'message' => $error
@@ -281,8 +281,8 @@ class Essential_information extends MY_Controller {
 			$error = '';
 			if (isset($this->form_validation->error_array()['id'])) {
 				$error = $this->form_validation->error_array()['id'];
-			} else if (isset($this->form_validation->error_array()['ordering'])) {
-				$error = $this->form_validation->error_array()['ordering'];
+			} else if (isset($this->form_validation->error_array()['material_icon'])) {
+				$error = $this->form_validation->error_array()['material_icon'];
 			}
 			$data = array(
 				'message' => $error
