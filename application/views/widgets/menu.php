@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 
                 <div id="navCollapsed" class="bg-light collapse navbar-collapse-dashboard shadow">
-                    <div class="bg-light">
+                    <div class="bg-light pl-5">
                       <div class="text-center pt-3">
                         <a onclick="goHome()" data-turbolinks="false">
                             <img class="logo" style="width:60px;height:60px" src="/static/img/android-chrome-192x192.png" alt="logo"/>
@@ -26,7 +26,7 @@
                       <?php endif; ?>
                     </div>
                     <div id="accordionDashboard" class="accordion bg-light">
-                    <div class="autoscroll">
+                    <div class="autoscroll pl-5">
                     <a class="dropdown-item text-uppercase font-weight-bold p-3<?php echo $this->uri->segment(1) == 'store' ? ' text-primary active' : ''?>" onclick="navigate('/store')"><i class="material-icons text-primary">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
                       <?php foreach($this->container['ei_link'] as $key => $value): ?>
                         <?php if ((int) $value['position'] !== 1): ?>

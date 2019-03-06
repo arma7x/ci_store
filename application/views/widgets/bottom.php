@@ -16,7 +16,7 @@
 			margin-top:0px;
 		}
 	</style>
-	<div class="container pt-3 col col-12 col-lg-10 offset-lg-2">
+	<div class="container pt-3 col col-12 col-lg-9 offset-lg-3">
 	<div class="col col-12">
 		<div class="row">
 			<div class="col col-12 col-md-3 mb-3 mb-md-0">

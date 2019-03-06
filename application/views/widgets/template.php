@@ -71,10 +71,10 @@
         <input id="upload-avatar" class="sr-only" type="file" accept="image/*" onChange="resizePicture('upload-avatar', null, 100, 100, .50, 'image/webp', uploadAvatar, null)"/>
         <?php endif; ?>
         <div class="row">
-            <div id="dashboard-menu" class="col col-12 col-lg-2 px-0 position-fixed dashboard-menu shadow-rm">
+            <div id="dashboard-menu" class="col col-12 col-lg-3 px-0 position-fixed dashboard-menu shadow-rm">
             <?php echo isset($menu) ? $menu : null ?>
             </div>
-            <div id="dashboard-container" class="col col-12 col-lg-10 offset-lg-2 dashboard-container pt-5 pt-lg-0">
+            <div id="dashboard-container" class="col col-12 col-lg-9 offset-lg-3 dashboard-container pt-5 pt-lg-0">
                 <?php echo isset($notification) ? $notification : null ?>
                 <?php echo isset($category_nav) ? $category_nav : null ?>
                 <?php echo isset($content) ? $content : null ?>
