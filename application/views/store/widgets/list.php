@@ -31,7 +31,6 @@
 }
 
 .img-container .title {
-  font-size: 20px;
   position: absolute;
   top: 25%;
   left: 50%;
@@ -42,10 +41,9 @@
 }
 
 .img-container .price {
-  font-size: 20px;
   position: absolute;
   top: 80%;
-  left: 50%;
+  left: 25%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -106,11 +104,8 @@
 					})
 				</script>
 				<i class="material-icons stock <?php echo ($item['availability'] === '1') ? 'text-success' : 'text-danger' ?>"><?php echo ($item['availability'] === '1') ? '&#xe1a3;' : '&#xe19c;' ?></i>
-				<div class="title">
-					<hr class="star-primary">
-					<h5 class="font-weight-bold text-uppercase"><?php echo $item['name'] ?></h5>
-				</div>
-				<h3 class="price font-weight-bold">RM<?php echo number_format((float) $item['price'], 2, '.', '') ?></h3>
+				<h5 class="font-weight-bold text-uppercase title"><?php echo $item['name'] ?></h5>
+				<h6 class="price font-weight-bold">RM<?php echo number_format((float) $item['price'], 2, '.', '') ?></h6>
 				<?php if ($item['spotlight'] === '1'): ?>
 				<i class="material-icons favourite">&#xe87d;</i>
 				<?php endif ?>
