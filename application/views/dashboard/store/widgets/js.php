@@ -66,7 +66,7 @@ function uploadPhoto(photo, selector) {
     data.append(window.csrf_token_name, window.csrf_hash)
 
     var request = $.ajax({
-        url: "/dashboard/store/upload",
+        url: "/dashboard/store/process_upload",
         method: "POST",
         data: data,
         contentType: false,

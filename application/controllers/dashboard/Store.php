@@ -5,7 +5,7 @@ class Store extends MY_Controller {
 
 	public $index = array('role' => 1, 'access_level' => 1);
 	public $find = array('role' => 1, 'access_level' => 1);
-	public $upload = array('role' => 1, 'access_level' => 1);
+	public $process_upload = array('role' => 1, 'access_level' => 1);
 	public $add = array('role' => 1, 'access_level' => 1);
 	public $update = array('role' => 1, 'access_level' => 1);
 	public $update_visibility = array('role' => 1, 'access_level' => 1);
@@ -60,7 +60,7 @@ class Store extends MY_Controller {
 		$this->_renderJSON(200, array('product' => $exist, 'category' => $category));
 	}
 
-	public function upload() {
+	public function process_upload() {
 		$config['upload_path'] = realpath(dirname(BASEPATH).'/public/static/img/product');
 		$config['allowed_types'] = 'gif|jpg|jpeg|png';
 		$config['max_size'] = 2048;
@@ -98,6 +98,15 @@ class Store extends MY_Controller {
 			'brief_description' => $this->input->post_get('brief_description'),
 			'full_description' => $this->input->post_get('full_description')
 		);
+		$second_photo_rule = '';
+		if ($this->input->post_get('third_photo') !== '' || $this->input->post_get('fourth_photo') !== '') {
+			$second_photo_rule = 'required';
+		}
+		$third_photo_rule = '';
+		if ($this->input->post_get('fourth_photo') !== '') {
+			$third_photo_rule = 'required';
+		}
+		$third_photo_rule = '';
 		$this->form_validation->set_data($data);
 		$this->form_validation->set_rules('id', lang('L_ID'), 'required|alpha_dash|is_unique[products.id]');
 		$this->form_validation->set_rules('name', lang('L_P_NAME'), 'required|max_length[255]');
@@ -107,6 +116,8 @@ class Store extends MY_Controller {
 		$this->form_validation->set_rules('spotlight', lang('L_P_SPOTLIGHT'), 'required|in_list[0,1]');
 		$this->form_validation->set_rules('availability', lang('L_P_AVAILABILITY'), 'required|in_list[0,1]');
 		$this->form_validation->set_rules('main_photo', lang('L_P_1_PHOTO'), 'required');
+		$this->form_validation->set_rules('second_photo', lang('L_P_2_PHOTO'), $second_photo_rule);
+		$this->form_validation->set_rules('third_photo', lang('L_P_3_PHOTO'), $third_photo_rule);
 		$this->form_validation->set_rules('brief_description', lang('L_P_BRIEF_DESC'), 'required|max_length[160]');
 		$this->form_validation->set_rules('full_description', lang('L_P_FULL_DESC'), 'required');
 		if ($this->form_validation->run() === FALSE) {
@@ -169,6 +180,14 @@ class Store extends MY_Controller {
 			'brief_description' => $this->input->post_get('brief_description'),
 			'full_description' => $this->input->post_get('full_description')
 		);
+		$second_photo_rule = '';
+		if ($this->input->post_get('third_photo') !== '' || $this->input->post_get('fourth_photo') !== '') {
+			$second_photo_rule = 'required';
+		}
+		$third_photo_rule = '';
+		if ($this->input->post_get('fourth_photo') !== '') {
+			$third_photo_rule = 'required';
+		}
 		$this->form_validation->set_data($data);
 		$this->form_validation->set_rules('id', lang('L_ID'), 'required');
 		$this->form_validation->set_rules('name', lang('L_P_NAME'), 'required|max_length[255]');
@@ -178,6 +197,8 @@ class Store extends MY_Controller {
 		$this->form_validation->set_rules('spotlight', lang('L_P_SPOTLIGHT'), 'required|in_list[0,1]');
 		$this->form_validation->set_rules('availability', lang('L_P_AVAILABILITY'), 'required|in_list[0,1]');
 		$this->form_validation->set_rules('main_photo', lang('L_P_1_PHOTO'), 'required');
+		$this->form_validation->set_rules('second_photo', lang('L_P_2_PHOTO'), $second_photo_rule);
+		$this->form_validation->set_rules('third_photo', lang('L_P_3_PHOTO'), $third_photo_rule);
 		$this->form_validation->set_rules('brief_description', lang('L_P_BRIEF_DESC'), 'required|max_length[160]');
 		$this->form_validation->set_rules('full_description', lang('L_P_FULL_DESC'), 'required');
 		if ($this->form_validation->run() === FALSE) {
