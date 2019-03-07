@@ -44,7 +44,7 @@ class Essential_Information_Model extends MY_Model {
 				$this->set_all_cache();
 				return $exist;
 			} else {
-				return NULL;
+				return FALSE;
 			}
 		}
 	}

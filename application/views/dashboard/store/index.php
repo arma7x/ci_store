@@ -141,7 +141,7 @@
 							</td>
 							<td><?php echo $item['name'] ?></td>
 							<td><?php echo $item['slug'] ?></td>
-							<td>RM<?php echo number_format((float) $item['price'], 2, '.', '') ?></td>
+							<td>RM <?php echo number_format((float) $item['price'], 2, '.', '') ?></td>
 							<td>
 								<form>
 									<div class="form-group mb-1">

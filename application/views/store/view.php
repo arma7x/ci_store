@@ -14,17 +14,23 @@
 				-->
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="https://colorlib.com/preview/theme/amado/img/bg-img/<?php echo $this->uri->segment(2) ?>.jpg" class="d-block w-100" alt="...">
+						<img src="<?php echo $product['main_photo'] ?>" class="d-block w-100" alt="...">
 					</div>
+					<?php if($product['second_photo'] !== ''): ?>
 					<div class="carousel-item">
-						<img src="https://colorlib.com/preview/theme/amado/img/bg-img/<?php echo $this->uri->segment(2) ?>.jpg" class="d-block w-100" alt="...">
+						<img src="<?php echo $product['second_photo'] ?>" class="d-block w-100" alt="...">
 					</div>
+					<?php endif ?>
+					<?php if($product['third_photo'] !== ''): ?>
 					<div class="carousel-item">
-						<img src="https://colorlib.com/preview/theme/amado/img/bg-img/<?php echo $this->uri->segment(2) ?>.jpg" class="d-block w-100" alt="...">
+						<img src="<?php echo $product['third_photo'] ?>" class="d-block w-100" alt="...">
 					</div>
+					<?php endif ?>
+					<?php if($product['fourth_photo'] !== ''): ?>
 					<div class="carousel-item">
-						<img src="https://colorlib.com/preview/theme/amado/img/bg-img/<?php echo $this->uri->segment(2) ?>.jpg" class="d-block w-100" alt="...">
+						<img src="<?php echo $product['fourth_photo'] ?>" class="d-block w-100" alt="...">
 					</div>
+					<?php endif ?>
 				</div>
 				<!--
 				<a class="carousel-control-prev" href="#carouselSlider" role="button" data-slide="prev">
@@ -38,18 +44,24 @@
 		</div>
 		<div class="mb-1">
 			<div class="row m-0">
-				<div id="thumb_0" class="col col-# p-0 border border-primary">
-					<a onClick="$('#carouselSlider').carousel(0)"><img src="https://colorlib.com/preview/theme/amado/img/bg-img/<?php echo $this->uri->segment(2) ?>.jpg" class="d-block w-100"></a>
+				<div id="thumb_0" class="col col-3 p-0 border border-primary">
+					<a onClick="$('#carouselSlider').carousel(0)"><img src="<?php echo $product['main_photo'] ?>" class="d-block w-100"></a>
 				</div>
+				<?php if($product['second_photo'] !== ''): ?>
 				<div id="thumb_1" class="col col-3 p-0">
-					<a onClick="$('#carouselSlider').carousel(1)"><img src="https://colorlib.com/preview/theme/amado/img/bg-img/<?php echo $this->uri->segment(2) ?>.jpg" class="d-block w-100"></a>
+					<a onClick="$('#carouselSlider').carousel(1)"><img src="<?php echo $product['second_photo'] ?>" class="d-block w-100"></a>
 				</div>
+				<?php endif ?>
+				<?php if($product['third_photo'] !== ''): ?>
 				<div id="thumb_2" class="col col-3 p-0">
-					<a onClick="$('#carouselSlider').carousel(2)"><img src="https://colorlib.com/preview/theme/amado/img/bg-img/<?php echo $this->uri->segment(2) ?>.jpg" class="d-block w-100"></a>
+					<a onClick="$('#carouselSlider').carousel(2)"><img src="<?php echo $product['third_photo'] ?>" class="d-block w-100"></a>
 				</div>
+				<?php endif ?>
+				<?php if($product['fourth_photo'] !== ''): ?>
 				<div id="thumb_3" class="col col-3 p-0">
-					<a onClick="$('#carouselSlider').carousel(3)"><img src="https://colorlib.com/preview/theme/amado/img/bg-img/<?php echo $this->uri->segment(2) ?>.jpg" class="d-block w-100"></a>
+					<a onClick="$('#carouselSlider').carousel(3)"><img src="<?php echo $product['fourth_photo'] ?>" class="d-block w-100"></a>
 				</div>
+				<?php endif ?>
 			</div>
 		</div>
 		<script>
@@ -63,23 +75,23 @@
 		</script>
 	</div>
 	<div class="col col-12 col-md-6 p-1 pt-0 px-md-4">
-		<h4 class="text-primary font-weight-bold">RM180</h4>
-		<h2 class="my-4">White Modern Chair</h2>
+		<h4 class="text-primary font-weight-bold">RM<?php echo $product['price'] ?></h4>
+		<h2 class="my-4"><?php echo $product['name'] ?></h2>
 		<div class="row mb-3">
-			<h6 class="ml-3 text-success font-weight-bold"><i class="material-icons">&#xe3fa;</i> In Stock</h6>
-			<!--
-				<h6 class="text-danger font-weight-bold"><i class="material-icons">&#xe3fa;</i> Out Stock</h6>
-			-->
-			<h6 class="ml-5 text-primary font-weight-bold"><a onClick="alert(1)"><i class="material-icons">&#xe87d;</i> Saved</a></h6>
-			<!--
-				<h6 class="ml-5 text-primary font-weight-bold"><a onClick="alert(2)"><i class="material-icons">&#xe87e; Unsaved</i></a></h6>
-			-->
+			<?php if($product['availability'] === '1'): ?>
+			<h6 class="ml-3 text-success font-weight-bold"><i class="material-icons">&#xe3fa;</i> <?php echo lang('L_P_AVAILABILITY_TRUE');?></h6>
+			<?php else :?>
+			<h6 class="ml-3 text-danger font-weight-bold"><i class="material-icons">&#xe3fa;</i> <?php echo lang('L_P_AVAILABILITY_FALSE');?></h6>
+			<?php endif?>
+			<?php if($product['spotlight'] === '1'): ?>
+			<h6 class="ml-5 text-primary font-weight-bold"><a onClick="alert(1)"><i class="material-icons">&#xe87d;</i> <?php echo lang('L_P_SPOTLIGHT');?></a></h6>
+			<?php endif?>
 		</div>
 		<div class="row mb-2">
 			<ul class="list-inline text-center ml-3">
 			<?php foreach($this->container['ic_link'] as $key => $value): ?>
 				<li class="list-inline-item mb-2">
-					<a target="_blank" href="<?php echo str_replace('%param', 'PRODUCT ID & NAME', $value['url']) ?>">
+					<a target="_blank" href="<?php echo str_replace('%param', $product['id'].', '.$product['name'], $value['url']) ?>">
 						<img id="ic_pm_<?php echo $value['id'] ?>" class="btn-circle shadow-sm" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>" data-toggle="tooltip" data-placement="right" title="<?php echo $value['name'] ?>" style="width:30px;height:30px"/>
 					</a>
 				</li>
@@ -87,7 +99,7 @@
 				<?php if (isset($this->container['gi_link']['mobile_number'])): ?>
 				<?php if ($this->container['gi_link']['mobile_number'] !== ''): ?>
 				<li class="list-inline-item mb-2">
-					<a href="sms:<?php echo $this->container['gi_link']['mobile_number'] ?>?body=PRODUCT ID & NAME" data-toggle="tooltip" data-placement="right" title="<?php echo $this->container['gi_link']['mobile_number'] ?>">
+					<a href="sms:<?php echo $this->container['gi_link']['mobile_number'] ?>?body=<?php echo $product['id'].', '.$product['name'] ?>" data-toggle="tooltip" data-placement="right" title="<?php echo $this->container['gi_link']['mobile_number'] ?>">
 						<button class="btn btn-primary btn-circle shadow-sm" style="width:30px;height:30px">
 							<i class="material-icons mi_fab" style="font-size:1em;margin:-8px 0 0 -6px;">&#xe0d8;</i>
 						</button>
@@ -99,7 +111,7 @@
 		</div>
 		<hr class="star-primary" style="margin-top:8px;margin-bottom:25px;">
 		<div class="mb-2">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?</p>
+			<?php echo $product['full_description'] ?>
 		</div>
 	</div>
 </div>

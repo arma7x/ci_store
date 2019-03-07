@@ -32,22 +32,20 @@
 
 .img-container .title {
   position: absolute;
-  top: 25%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  top: 20%;
+  left: 10%;
   text-align: center;
+  font-size: 1.5em;
 }
 
 .img-container .price {
+  border-top: 3px solid var(--pink)!important;
+  padding-top: 3px;
   position: absolute;
-  top: 80%;
-  left: 25%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
+  top: 7.5%;
+  left: 10%;
+  text-align: left;
+  font-size: 0.9em;
 }
 
 .img-container .stock {
@@ -55,10 +53,7 @@
   color: var(--dark);
   position: absolute;
   top: 10%;
-  left: 90%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  left: 80%;
   text-align: center;
 }
 
@@ -66,11 +61,8 @@
   font-size: 20px;
   color: var(--dark);
   position: absolute;
-  top: 10%;
+  top: 85%;
   left: 10%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   text-align: center;
 }
 
@@ -94,25 +86,38 @@
 </style>
 <div class="row">
 	<?php if (isset($list)): ?>
-	<?php foreach($list as $index => $item): ?>
-		<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
-			<div class="img-container" data-placement="top" title="<?php echo $item['brief_description'] ?>">
-				<a href="/store/<?php echo $item['slug'] ?>"><img id="product_<?php echo $item['id'] ?>" class="img img-fluid" src="/static/img/loading.gif"/>
-				<script>
-					$(document).ready(function() {
-						resizePicture('<?php echo $item['main_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#product_<?php echo $item['id'] ?>')
-					})
-				</script>
-				<i class="material-icons stock <?php echo ($item['availability'] === '1') ? 'text-success' : 'text-danger' ?>"><?php echo ($item['availability'] === '1') ? '&#xe1a3;' : '&#xe19c;' ?></i>
-				<h5 class="font-weight-bold text-uppercase title"><?php echo $item['name'] ?></h5>
-				<h6 class="price font-weight-bold">RM<?php echo number_format((float) $item['price'], 2, '.', '') ?></h6>
-				<?php if ($item['spotlight'] === '1'): ?>
-				<i class="material-icons favourite">&#xe87d;</i>
-				<?php endif ?>
-				<div class="overlay"></div>
-				</a>
+		<?php if(COUNT($list) === 0): ?>
+		<div class="col col-12 row justify-content-sm-center align-items-center" style="height:54vh;">
+			<div class="col col-12">
+				<h2 class="text-center text-primary"><i class="material-icons" style="font-size:5em;">&#xe7f3;</i></h2>
 			</div>
 		</div>
-	<?php endforeach ?>
+		<?php endif ?>
+		<?php foreach($list as $index => $item): ?>
+			<div class="col col-12 col-md-4 px-0 py-2 p-md-2">
+				<div class="img-container" data-placement="top" title="<?php echo $item['brief_description'] ?>">
+					<a href="/store/<?php echo $item['slug'] ?>"><img id="product_<?php echo $item['id'] ?>" class="img img-fluid" src="/static/img/loading.gif"/>
+					<script>
+						$(document).ready(function() {
+							resizePicture('<?php echo $item['main_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#product_<?php echo $item['id'] ?>')
+						})
+					</script>
+					<i class="material-icons stock"><?php echo ($item['availability'] === '1') ? '&#xe1a3;' : '&#xe19c;' ?></i>
+					<h4 class="title font-weight-bold"><?php echo $item['name'] ?></h4>
+					<h6 class="price font-weight-bold">RM <?php echo number_format((float) $item['price'], 2, '.', '') ?></h6>
+					<?php if ($item['spotlight'] === '1'): ?>
+					<i class="material-icons favourite">&#xe87d;</i>
+					<?php endif ?>
+					<div class="overlay"></div>
+					</a>
+				</div>
+			</div>
+		<?php endforeach ?>
+	<?php else: ?>
+	<div class="col col-12 row justify-content-sm-center align-items-center" style="height:54vh;">
+		<div class="col col-12">
+			<h2 class="text-center text-primary"><i class="material-icons" style="font-size:5em;">&#xe7f3;</i></h2>
+		</div>
+	</div>
 	<?php endif ?>
 </div>

@@ -13,7 +13,19 @@ class Product_Model extends MY_Model {
 	public $table = 'products';
 
 	public function get_product_cache($slug) {
-		return $this->cache->get(SELF::CACHE_PREFIX.$slug);
+		$cached = $this->cache->get(SELF::CACHE_PREFIX.$slug);
+		if ($cached !== FALSE) {
+			return $cached;
+		} else {
+			$exist = $this->find_product(SELF::PUBLIC_VIEW_FIELD, array('slug' => $slug, 'visibility' => 1));
+			if ($exist !== NULL) {
+				$this->set_product_cache($exist['slug'], $exist);
+				$this->set_spotlight_cache();
+				return $exist;
+			} else {
+				return FALSE;
+			}
+		}
 	}
 
 	public function set_product_cache($slug, $cache) {

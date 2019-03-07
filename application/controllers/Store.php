@@ -15,7 +15,12 @@ class Store extends MY_Controller {
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_HOMEPAGE');
 		$this->data['page_name'] = str_replace('%s', $this->container['app_name'], lang('H_WELCOME'));
 		$this->data['cat_link'] = $this->Category->get_all_cache();
-		$this->widgets['products'] = 'store/widgets/list';
+		$this->widgets['category_nav'] = 'widgets/category_nav';
+		$this->data['product'] = $this->PM->get_product_cache($this->uri->segment(2));
+		if ($this->data['product'] === FALSE) {
+			show_404();
+		}
+		$this->data['description'] = $this->data['product']['brief_description'];
 		$this->widgets['content'] = 'store/view';
 		$this->_renderLayout();
 	}
@@ -42,6 +47,7 @@ class Store extends MY_Controller {
 		$this->data['page_name'] = str_replace('%s', $this->container['app_name'], lang('H_WELCOME'));
 		$this->data['list'] = $this->PM->get_product_list($this->PM::PUBLIC_SEARCH_FIELD, $this->PM::PUBLIC_SEARCH_FIELD_JOIN, $category, $filters, $order_by, current_url(), 9, (int) $this->input->get('page'), TRUE);
 		$this->data['cat_link'] = $this->Category->get_all_cache();
+		$this->widgets['category_nav'] = 'widgets/category_nav';
 		$this->widgets['products'] = 'store/widgets/list';
 		$this->widgets['content'] = 'store/search';
 		$this->_renderLayout();
