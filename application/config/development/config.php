@@ -8,7 +8,7 @@ $EMAIL_URL = 'smtp://username@yahoo.com:password@smtp.mail.yahoo.com:587/tls';
 $APP_NAME = 'CI Store';
 $APP_URL = 'http://127.0.0.1:2000/';
 $APP_ADMIN_EMAIL = 'zeon_msi@yahoo.com';
-$ENABLE_REGISTRATION = TRUE;
+$ENABLE_REGISTRATION = FALSE;
 // CONFIG END HERE
 
 $DB_AUTH = parse_url($DATABASE_URL);

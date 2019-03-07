@@ -44,7 +44,7 @@
 					<?php if ((int) $value['position'] !== 0): ?>
 					<li class="list-inline-item mb-2">
 						<i class="material-icons"><?php echo $value['material_icon'] ?></i>
-						<a onclick="navigate('/<?php echo $value['slug'] ?>')"><?php echo $value['title'] ?></a>
+						<a class="text-primary" onclick="navigate('/<?php echo $value['slug'] ?>')"><?php echo $value['title'] ?></a>
 					</li>
 					<?php endif ?>
 				<?php endforeach ?>
@@ -57,7 +57,7 @@
 					<?php if ($this->container['gi_link']['email'] !== ''): ?>
 					<li class="list-inline-item mb-2">
 						<i class="material-icons" style="font-size:1em;margin-top:0px;">&#xe0be;</i>
-						<a href="mailto:<?php echo $this->container['gi_link']['email'] ?>"><?php echo $this->container['gi_link']['email'] ?></a>
+						<a class="text-primary" href="mailto:<?php echo $this->container['gi_link']['email'] ?>"><?php echo $this->container['gi_link']['email'] ?></a>
 					</li>
 					<?php endif ?>
 					<?php endif ?>
@@ -65,7 +65,7 @@
 					<?php if ($this->container['gi_link']['office_number'] !== ''): ?>
 					<li class="list-inline-item mb-2">
 						<i class="material-icons" style="font-size:1em;margin-top:0px;">&#xe0b0;</i>
-						<a href="tel:<?php echo $this->container['gi_link']['office_number'] ?>"><?php echo $this->container['gi_link']['office_number'] ?></a>
+						<a class="text-primary" href="tel:<?php echo $this->container['gi_link']['office_number'] ?>"><?php echo $this->container['gi_link']['office_number'] ?></a>
 					</li>
 					<?php endif ?>
 					<?php endif ?>
@@ -73,11 +73,11 @@
 					<?php if ($this->container['gi_link']['mobile_number'] !== ''): ?>
 					<li class="list-inline-item mb-2">
 						<i class="material-icons" style="font-size:1em;margin-top:0px;">&#xe32c;</i>
-						<a href="tel:<?php echo $this->container['gi_link']['mobile_number'] ?>"><?php echo $this->container['gi_link']['mobile_number'] ?></a>
+						<a class="text-primary" href="tel:<?php echo $this->container['gi_link']['mobile_number'] ?>"><?php echo $this->container['gi_link']['mobile_number'] ?></a>
 					</li>
 					<li class="list-inline-item mb-2">
 						<i class="material-icons" style="font-size:1em;margin-top:0px;">&#xe0d8;</i>
-						<a href="sms:<?php echo $this->container['gi_link']['mobile_number'] ?>"><?php echo $this->container['gi_link']['mobile_number'] ?></a>
+						<a class="text-primary" href="sms:<?php echo $this->container['gi_link']['mobile_number'] ?>"><?php echo $this->container['gi_link']['mobile_number'] ?></a>
 					</li>
 					<?php endif ?>
 					<?php endif ?>
@@ -89,7 +89,7 @@
 				<?php foreach($this->container['sc_link'] as $key => $value): ?>
 					<li class="list-inline-item mb-2">
 						<img id="sc_<?php echo $value['id'] ?>" class="rounded-circle logo icon-footer" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>"/>
-						<a target="_blank" href="<?php echo $value['url'] ?>">
+						<a class="text-primary" target="_blank" href="<?php echo $value['url'] ?>">
 						<?php echo $value['name'] ?>
 						</a>
 					</li>
