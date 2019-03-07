@@ -51,7 +51,7 @@ class Product_Model extends MY_Model {
 	public function set_spotlight_cache() {
 		$result = $this->db->select(SELF::PUBLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('spotlight' => 1, 'visibility' => 1))->result_array();
 		if (COUNT($result) <= 0) {
-			$result = $this->db->select(SELF::PUBLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('visibility' => 1), 9)->result_array();
+			$result = $this->db->select(SELF::PUBLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('visibility' => 1), 12)->result_array();
 			return $result;
 		}
 		$this->cache->save(SELF::CACHE_PREFIX.SELF::SPOTLIGHT_PREFIX, $result, 18144000);

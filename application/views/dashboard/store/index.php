@@ -143,6 +143,7 @@
 							<td><?php echo $item['slug'] ?></td>
 							<td>RM <?php echo number_format((float) $item['price'], 2, '.', '') ?></td>
 							<td>
+<!--
 								<form>
 									<div class="form-group mb-1">
 										<label class="sr-only m-0"><?php echo lang('L_P_VISIBILITY');?></label>
@@ -160,8 +161,10 @@
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
+-->
 							</td>
 							<td>
+<!--
 								<form>
 									<div class="form-group mb-1">
 										<label class="sr-only m-0"><?php echo lang('L_P_SPOTLIGHT');?></label>
@@ -179,8 +182,10 @@
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
+-->
 							</td>
 							<td>
+<!--
 								<form>
 									<div class="form-group mb-1">
 										<label class="sr-only"><?php echo lang('L_P_AVAILABILITY');?></label>
@@ -198,6 +203,7 @@
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
+-->
 							</td>
 							<td>
 								<b><?php echo lang('L_UPDATED_AT');?></b></br>

@@ -16,7 +16,7 @@
 			margin-top:0px;
 		}
 	</style>
-	<div class="container pt-3 col col-12 col-lg-9 offset-lg-3">
+	<div class="container pt-3 col col-12 col-lg-10 offset-lg-1">
 	<div class="col col-12">
 		<div class="row">
 			<div class="col col-12 col-md-3 mb-3 mb-md-0">
@@ -101,7 +101,7 @@
 	</div>
 	</div>
 	<button type="button" class="btn btn-dark btn-circle dropup shadow-sm mr-auto ml-3 mb-3 fixed-bottom d-none d-lg-block d-xl-block" data-toggle="modal" data-target="#ic-modal" data-placement="top" title="<?php echo lang('H_G_INBOX_CHANNEL') ;?>" style="z-index:99999!important;"><i class="material-icons mi_fab">&#xe311;</i></button>
-	<div id="ic-modal" class="modal fade border-0 col col-12 col-lg-10 offset-lg-2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div id="ic-modal" class="modal fade border-0" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-xl border-0">
 		<div class="modal-content border-0" style="background:transparent!important">
 			<h3 class="text-white text-uppercase font-weight-bold text-center mb-3"><?php echo lang('H_G_INBOX_CHANNEL') ;?></h3>

@@ -66,32 +66,16 @@
         }
     </style>
     <?php echo isset($nav) ? $nav : null ?>
-    <main class="col bg-light" id="main" role="main">
+    <main id="main" class="col bg-light pt-5" role="main">
         <?php if($this->container['user'] !== NULL): ?>
         <input id="upload-avatar" class="sr-only" type="file" accept="image/*" onChange="resizePicture('upload-avatar', null, 100, 100, .50, 'image/webp', uploadAvatar, null)"/>
         <?php endif; ?>
-        <div class="row">
-            <div id="dashboard-menu" class="col col-12 col-lg-3 px-0 position-fixed dashboard-menu shadow-rm">
-            <?php echo isset($menu) ? $menu : null ?>
-            </div>
-            <div id="dashboard-container" class="col col-12 col-lg-9 offset-lg-3 dashboard-container pt-5 pt-lg-0">
-                <?php echo isset($notification) ? $notification : null ?>
-                <?php echo isset($category_nav) ? $category_nav : null ?>
-                <?php echo isset($content) ? $content : null ?>
-            </div>
-            <script>
-                $("#navbar-toggler").click(function() {
-                    if ($("#navCollapsed").hasClass('show')) {
-                        $("#dashboard-container").css('opacity', '1');
-                        $("#dashboard-container").off('touchmove wheel click');
-                    } else {
-                        $("#dashboard-container").css('opacity', '0.5');
-                        $("#dashboard-container").on('touchmove wheel click', function(e) {
-                            e.preventDefault();
-                        }, false);
-                    }
-                })
-            </script>
+        <div class="mt-3">
+        <?php echo isset($notification) ? $notification : null ?>
+        <?php echo isset($category_nav) ? $category_nav : null ?>
+        <div class="p-0 col col-12 col-lg-10 offset-lg-1">
+        <?php echo isset($content) ? $content : null ?>
+        </div>
         </div>
     </main>
     <?php echo isset($spinner) ? $spinner : null ?>

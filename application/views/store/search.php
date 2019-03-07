@@ -42,29 +42,17 @@
 	}
 </style>
 <div class="row starter-template mb-0 pb-0">
-	<div class="col col-12 col-md-9 py-2 p-md-2 order-last order-md-first">
-		<?php echo isset($products) ? $products : NULL ?>
-		<div class="row">
-			<div class="col col-12 px-0 py-2 p-md-2">
-				<nav aria-label="navigation">
-					<?php echo $this->pagination->create_links(); ?>
-				</nav>
-			</div>
-		</div>
-	</div>
-	<div class="col col-12 col-md-3 px-0 pt-2 p-md-2">
-		<form class="form text-md-right pt-2">
+	<div class="col col-12 px-0 p-md-2" style="padding:0!important;">
+		<form class="form-inline text-md-right pt-2">
 
-			<label class="sr-only"><?php echo lang('L_P_S_SEARCH');?></label>
-			<div class="input-group rounded-0 mb-2">
+			<div class="input-group rounded-0 col col-12 col-md-3 mx-0 px-0 pr-0 pr-md-1 mb-1 mb-md-0">
 				<div class="input-group-prepend">
 				  <div class="input-group-text rounded-0 border-0 bg-white"><i class="material-icons">&#xe264;</i></div>
 				</div>
 				<input id="search_keyword" type="text" class="form-control form-control-sm rounded-0 border-0 bg-white no-border" id="inlineFormInputGroupUsername2" placeholder="<?php echo lang('L_P_S_KEYWORD') ?>">
 			</div>
 
-			<label class="sr-only"><?php echo lang('H_CATEGORY');?></label>
-			<div class="input-group rounded-0 mb-2">
+			<div class="input-group rounded-0 col col-12 col-md-3 mx-0 px-0 pr-0 pr-md-1 mb-1 mb-md-0">
 				<div class="input-group-prepend">
 					<div class="input-group-text rounded-0 border-0 bg-white"><i class="material-icons">&#xe54e;</i></div>
 				</div>
@@ -78,8 +66,7 @@
 				</select>
 			</div>
 
-			<label class="sr-only"><?php echo lang('L_P_SPOTLIGHT');?></label>
-			<div class="input-group rounded-0 mb-2">
+			<div class="input-group rounded-0 col col-12 col-md-3 mx-0 px-0 pr-0 pr-md-1 mb-1 mb-md-0">
 				<div class="input-group-prepend">
 					<div class="input-group-text rounded-0 border-0 bg-white"><i class="material-icons">&#xe838;</i></div>
 				</div>
@@ -90,8 +77,7 @@
 				</select>
 			</div>
 
-			<label class="sr-only"><?php echo lang('L_P_S_ORDERING');?></label>
-			<div class="input-group rounded-0 mb-2">
+			<div class="input-group rounded-0 col col-12 col-md-2 mx-0 px-0 pr-0 pr-md-1 mb-1 mb-md-0">
 				<div class="input-group-prepend">
 					<div class="input-group-text rounded-0 border-0 bg-white"><i class="material-icons">&#xe242;</i></div>
 				</div>
@@ -103,7 +89,7 @@
 				</select>
 			</div>
 
-			<div class="input-group rounded-0">
+			<div class="input-group rounded-0 col col-12 col-md-1 mx-0 px-0">
 				<button type="submit" class="btn btn-sm btn-primary rounded-0 btn-block" onClick="searchStore()">
 					<i class="material-icons">&#xe8b6;</i>
 				</button>
@@ -136,5 +122,15 @@
 				}
 			</script>
 		</form>
+	</div>
+	<div class="col col-12 py-2 p-md-2">
+		<?php echo isset($products) ? $products : NULL ?>
+		<div class="row">
+			<div class="col col-12 px-0 py-2 p-md-2">
+				<nav aria-label="navigation">
+					<?php echo $this->pagination->create_links(); ?>
+				</nav>
+			</div>
+		</div>
 	</div>
 </div>

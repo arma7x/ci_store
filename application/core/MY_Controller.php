@@ -14,7 +14,6 @@ class MY_Controller extends CI_Controller {
 		'spinner' => 'widgets/common/spinner',
 		'nav' => 'widgets/nav',
 		'bottom' => 'widgets/bottom',
-		'menu' => 'widgets/menu',
 	);
 	protected $data = [];
 

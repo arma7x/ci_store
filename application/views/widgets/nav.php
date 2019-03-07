@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-header-rm d-lg-none d-xl-none d-flex justify-content-between">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-header d-lg d-xl d-flex justify-content-between">
       <button class="navbar-toggler"data-toggle="modal" data-target="#ic-modal" data-placement="top" title="<?php echo lang('H_G_INBOX_CHANNEL') ;?>" style="border:0;">
         <i class="material-icons text-dark" style="font-size:1.4em;">&#xe311;</i>
       </button>
@@ -8,25 +8,27 @@
         <strong class="text-primary"><?php echo $this->container['app_name'] ?></strong>
         <img class="logo" src="/static/img/android-chrome-192x192.png" alt="logo"/>
       </a>
-<!--
       <?php if ($this->uri->segment(1) != NULL): ?>
+      <!--
       <button onclick="goHome()" class="navbar-toggler" type="button" style="border:0;padding-left:5px;padding-right:5px;">
         <i class="material-icons text-dark" style="font-size:1.5em;">home</i>
       </button>
+      -->
       <button onclick="goBack()" class="navbar-toggler" type="button" style="border:0;padding-left:5px;padding-right:5px;">
         <i class="material-icons text-dark" style="font-size:1.5em;">arrow_back</i>
       </button>
       <?php endif; ?>
--->
       <button id="navbar-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCollapsed" aria-controls="navCollapsed" aria-expanded="false" aria-label="Toggle navigation" style="border:0;">
         <i id="navmenu_icon" class="material-icons text-dark" style="font-size:1.4em;">menu</i>
       </button>
-      <div class="collapse navbar-collapse" id="navCollapsed-rm">
+      <div class="collapse navbar-collapse" id="navCollapsed">
         <ul class="navbar-nav ml-auto">
           <?php if ($this->uri->segment(1) != NULL): ?>
+          <!--
           <li class="nav-item">
             <a onclick="goHome()" class="nav-link d-none d-md-block" data-turbolinks="false"><i class="material-icons">home</i> <?php echo lang('H_HOMEPAGE');?></a>
           </li>
+          -->
           <li class="nav-item">
             <a onclick="goBack()" class="nav-link d-none d-md-block" data-turbolinks="false"><i class="material-icons">arrow_back</i> <?php echo lang('H_BACK');?></a>
           </li>
@@ -38,7 +40,10 @@
               <a class="dropdown-item" onclick="change_language('malay')" data-turbolinks="false"><?php echo lang('L_MALAY_LANG') ?></a>
             </div>
           </li>
+          <li class="nav-item<?php echo $this->uri->segment(1) == 'store' ? ' active' : ''?>">
+            <a class="nav-link<?php echo $this->uri->segment(1) == 'store' ? ' text-primary' : ''?>" onclick="navigate('/store')"><i class="material-icons text-primary">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
           <?php foreach($this->container['ei_link'] as $key => $value): ?>
+          </li>
             <?php if ((int) $value['position'] !== 1): ?>
             <li class="nav-item<?php echo '/'.$this->uri->uri_string() == '/'.$value['slug'] ? ' active' : ''?>">
                 <a class="nav-link<?php echo '/'.$this->uri->uri_string() == '/'.$value['slug'] ? ' text-primary' : ''?>" onclick="navigate('/<?php echo $value['slug'] ?>')"><i class="material-icons"><?php echo $value['material_icon'] ?></i> <?php echo $value['title'] ?></a>
@@ -46,7 +51,7 @@
             <?php endif ?>
           <?php endforeach ?>
           <?php if($this->container['user'] === NULL): ?>
-          <?php if(APP_REGISTRATION === TRUE): ?>
+          <?php if(APP_REGISTRATION === TRUE && $this->container['sw_offline_cache'] === NULL): ?>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">&#xe887;</i> <?php echo lang('L_HELP');?></a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -55,17 +60,18 @@
             </div>
           </li>
           <?php endif; ?>
+          <?php if($this->container['sw_offline_cache'] === NULL): ?>
           <li class="nav-item<?php echo '/'.$this->uri->uri_string() == '/authentication/ui_login' ? ' active' : ''?>">
             <a class="nav-link<?php echo '/'.$this->uri->uri_string() == '/authentication/ui_login' ? ' text-primary' : ''?>" onclick="navigate('/authentication/ui_login')"><i class="material-icons">&#xe879;</i> <?php echo lang('H_LOGIN');?></a>
           </li>
-          <?php if(APP_REGISTRATION === TRUE): ?>
+          <?php endif; ?>
+          <?php if(APP_REGISTRATION === TRUE && $this->container['sw_offline_cache'] === NULL): ?>
           <li class="nav-item<?php echo '/'.$this->uri->uri_string() == '/authentication/ui_register' ? ' active' : ''?>">
             <a class="nav-link<?php echo '/'.$this->uri->uri_string() == '/authentication/ui_register' ? ' text-primary' : ''?>" onclick="navigate('/authentication/ui_register')"><i class="material-icons">&#xe7fe;</i> <?php echo lang('H_REGISTER');?></a>
           </li>
           <?php endif; ?>
           <?php endif; ?>
           <?php if($this->container['user'] !== NULL): ?>
-<!--
           <li class="nav-item" onclick="selectPic()">
             <a id="avatar_pic" class="nav-link" data-turbolinks="false">
               <i class="material-icons">&#xe1bc;</i>
@@ -74,7 +80,6 @@
               <script src="/src/user.js" type="text/javascript" async></script>
             </a>
           </li>
--->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">&#xe853;</i> <?php echo lang('H_PROFILE') ?></a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
