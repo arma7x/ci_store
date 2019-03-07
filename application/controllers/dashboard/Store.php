@@ -5,12 +5,12 @@ class Store extends MY_Controller {
 
 	public $index = array('role' => 1, 'access_level' => 1);
 	public $find = array('role' => 1, 'access_level' => 1);
+	public $upload = array('role' => 1, 'access_level' => 1);
 	public $add = array('role' => 1, 'access_level' => 1);
 	public $update = array('role' => 1, 'access_level' => 1);
-	public $update_order = array('role' => 1, 'access_level' => 1);
-	public $update_position = array('role' => 1, 'access_level' => 1);
 	public $update_visibility = array('role' => 1, 'access_level' => 1);
-	public $update_icon = array('role' => 1, 'access_level' => 1);
+	public $update_spotlight = array('role' => 1, 'access_level' => 1);
+	public $update_availability = array('role' => 1, 'access_level' => 1);
 	public $delete = array('role' => 1, 'access_level' => 1);
 
 	public function __construct() {
