@@ -37,6 +37,7 @@
   text-decoration: none;
   transition: transform 250ms ease-in-out;
 }
+
 .nav-scroller a:after {
   display:block;
   content: '';
@@ -44,9 +45,11 @@
   transform: scaleX(0);  
   transition: transform 250ms ease-in-out;
 }
+
 .nav-scroller a:hover:after {
   transform: scaleX(1);
 }
+
 .nav-scroller .active {
   color: var(--pink) !important;
 }

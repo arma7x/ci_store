@@ -15,6 +15,13 @@
 			font-size:1.5em;
 			margin-top:0px;
 		}
+		.list-inline a:visited {
+			text-decoration: none;
+		}
+
+		.list-inline a:hover {
+			text-decoration: none;
+		}
 	</style>
 	<div class="container pt-3 col col-12 col-lg-10 offset-lg-1">
 	<div class="col col-12">
