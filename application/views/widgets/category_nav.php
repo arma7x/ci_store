@@ -47,15 +47,25 @@
 .nav-scroller a:hover:after {
   transform: scaleX(1);
 }
+.nav-scroller .active {
+  color: var(--pink) !important;
+}
 </style>
 <div class="nav-scroller d-flex justify-content-center mx-2">
     <nav class="nav mt-2">
     <?php foreach($cat_link as $key => $value): ?>
-        <a class="p-2 py-1 text-muted" href="/store?category=<?php echo $value['id'] ?>">
+        <a id="active_<?php echo $value['id'] ?>" class="p-2 py-1 text-muted" href="/store?category=<?php echo $value['id'] ?>">
             <img id="cat_<?php echo $value['id'] ?>" class="rounded-circle logo icon-footer" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>"/>
             <?php echo $value['name'] ?>
         </a>
     <?php endforeach ?>
     </nav>
+    <script>
+      $(document).ready(function() {
+        if (getQueryStringValue('category') != '') {
+          $('#active_'+getQueryStringValue('category')).addClass('active')
+        }
+      })
+    </script>
     <script src="/src/category.js" type="text/javascript" async></script>
 </div>
