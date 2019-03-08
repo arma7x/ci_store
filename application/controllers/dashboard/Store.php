@@ -118,7 +118,7 @@ class Store extends MY_Controller {
 		$this->form_validation->set_rules('main_photo', lang('L_P_1_PHOTO'), 'required');
 		$this->form_validation->set_rules('second_photo', lang('L_P_2_PHOTO'), $second_photo_rule);
 		$this->form_validation->set_rules('third_photo', lang('L_P_3_PHOTO'), $third_photo_rule);
-		$this->form_validation->set_rules('brief_description', lang('L_P_BRIEF_DESC'), 'required|max_length[160]');
+		$this->form_validation->set_rules('brief_description', lang('L_P_BRIEF_DESC'), 'max_length[160]');
 		$this->form_validation->set_rules('full_description', lang('L_P_FULL_DESC'), 'required');
 		if ($this->form_validation->run() === FALSE) {
 			$data = array(
@@ -199,7 +199,7 @@ class Store extends MY_Controller {
 		$this->form_validation->set_rules('main_photo', lang('L_P_1_PHOTO'), 'required');
 		$this->form_validation->set_rules('second_photo', lang('L_P_2_PHOTO'), $second_photo_rule);
 		$this->form_validation->set_rules('third_photo', lang('L_P_3_PHOTO'), $third_photo_rule);
-		$this->form_validation->set_rules('brief_description', lang('L_P_BRIEF_DESC'), 'required|max_length[160]');
+		$this->form_validation->set_rules('brief_description', lang('L_P_BRIEF_DESC'), 'max_length[160]');
 		$this->form_validation->set_rules('full_description', lang('L_P_FULL_DESC'), 'required');
 		if ($this->form_validation->run() === FALSE) {
 			$data = array(

@@ -70,7 +70,7 @@
         <?php if($this->container['user'] !== NULL): ?>
         <input id="upload-avatar" class="sr-only" type="file" accept="image/*" onChange="resizePicture('upload-avatar', null, 100, 100, .50, 'image/webp', uploadAvatar, null)"/>
         <?php endif; ?>
-        <div class="mt-3">
+        <div class="mt-0">
         <?php echo isset($notification) ? $notification : null ?>
         <?php echo isset($category_nav) ? $category_nav : null ?>
         <div class="p-0 col col-12 col-lg-10 offset-lg-1">

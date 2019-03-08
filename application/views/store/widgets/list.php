@@ -99,7 +99,12 @@
 					<a href="/store/<?php echo $item['slug'] ?>"><img id="product_<?php echo $item['id'] ?>" class="img img-fluid" src="/static/img/loading.gif"/>
 					<script>
 						$(document).ready(function() {
-							resizePicture('<?php echo $item['main_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#product_<?php echo $item['id'] ?>')
+							//renderImg('<?php echo $item['main_photo'] ?>', '#product_<?php echo $item['id'] ?>')
+							if (isCORS('<?php echo $item['main_photo'] ?>')) {
+								resizePicture('<?php echo $item['main_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#product_<?php echo $item['id'] ?>')
+							} else {
+								renderImg('<?php echo $item['main_photo'] ?>', '#product_<?php echo $item['id'] ?>')
+							}
 						})
 					</script>
 					<i class="material-icons stock"><?php echo ($item['availability'] === '1') ? '&#xe1a3;' : '&#xe19c;' ?></i>

@@ -118,7 +118,7 @@
 						<tr>
 							<th scope="col"><?php echo lang('L_ID'); ?></th>
 							<th scope="col"><?php echo lang('L_P_NAME'); ?></th>
-							<th scope="col"><?php echo lang('L_P_SLUG'); ?></th>
+							<!-- <th scope="col"><?php echo lang('L_P_SLUG'); ?></th> -->
 							<th scope="col"><?php echo lang('L_P_PRICE'); ?></th>
 							<th scope="col"><?php echo lang('L_P_VISIBILITY'); ?></th>
 							<th scope="col"><?php echo lang('L_P_SPOTLIGHT'); ?></th>
@@ -140,13 +140,12 @@
 								</script>
 							</td>
 							<td><?php echo $item['name'] ?></td>
-							<td><?php echo $item['slug'] ?></td>
+							<!-- <td><?php echo $item['slug'] ?></td> -->
 							<td>RM <?php echo number_format((float) $item['price'], 2, '.', '') ?></td>
 							<td>
-<!--
 								<form>
 									<div class="form-group mb-1">
-										<label class="sr-only m-0"><?php echo lang('L_P_VISIBILITY');?></label>
+										<label class="sr-only-rm m-0"><?php echo lang('L_P_VISIBILITY');?></label>
 										<div class="input-group input-group-sm border rounded">
 											<div class="input-group-prepend">
 												<div class="input-group-text"><i class="material-icons">&#xe8f4;</i></div>
@@ -161,13 +160,11 @@
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
--->
 							</td>
 							<td>
-<!--
 								<form>
 									<div class="form-group mb-1">
-										<label class="sr-only m-0"><?php echo lang('L_P_SPOTLIGHT');?></label>
+										<label class="sr-only-rm m-0"><?php echo lang('L_P_SPOTLIGHT');?></label>
 										<div class="input-group input-group-sm border rounded">
 											<div class="input-group-prepend">
 												<div class="input-group-text"><i class="material-icons">&#xe838;</i></div>
@@ -182,13 +179,11 @@
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
--->
 							</td>
 							<td>
-<!--
 								<form>
 									<div class="form-group mb-1">
-										<label class="sr-only"><?php echo lang('L_P_AVAILABILITY');?></label>
+										<label class="sr-only-rm m-0"><?php echo lang('L_P_AVAILABILITY');?></label>
 										<div class="input-group input-group-sm border rounded">
 											<div class="input-group-prepend">
 												<div class="input-group-text"><i class="material-icons">&#xe614;</i></div>
@@ -203,7 +198,6 @@
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
--->
 							</td>
 							<td>
 								<b><?php echo lang('L_UPDATED_AT');?></b></br>

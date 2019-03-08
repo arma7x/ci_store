@@ -35,8 +35,17 @@
   color: var(--pink) !important;
   font-size: 13px;
   text-decoration: none;
-  -webkit-transition: all 500ms ease 100ms;
-  transition: all 500ms ease 100ms;
+  transition: transform 250ms ease-in-out;
+}
+.nav-scroller a:after {
+  display:block;
+  content: '';
+  border-bottom: solid 3px var(--pink);
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+}
+.nav-scroller a:hover:after {
+  transform: scaleX(1);
 }
 </style>
 <div class="nav-scroller d-flex justify-content-center mx-2">

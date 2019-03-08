@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-header d-lg d-xl d-flex justify-content-between">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-header-rm d-lg d-xl d-flex justify-content-between">
       <button class="navbar-toggler"data-toggle="modal" data-target="#ic-modal" data-placement="top" title="<?php echo lang('H_G_INBOX_CHANNEL') ;?>" style="border:0;">
         <i class="material-icons text-dark" style="font-size:1.4em;">&#xe311;</i>
       </button>

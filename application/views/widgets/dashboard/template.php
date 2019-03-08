@@ -19,6 +19,11 @@
             <div id="dashboard-container" class="col col-12 col-lg-10 offset-lg-2 dashboard-container">
                 <?php echo isset($notification) ? $notification : null ?>
                 <?php echo isset($content) ? $content : null ?>
+                <style>
+                    .trumbowyg-modal {
+                        z-index: 9999999!important;
+                    }
+                </style>
             </div>
             <script>
                 $("#navbar-toggler").click(function() {
