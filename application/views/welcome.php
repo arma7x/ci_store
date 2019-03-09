@@ -41,3 +41,22 @@
 <div class="mx-4">
 <?php echo isset($products) ? $products : NULL ?>
 </div>
+<?php if ($this->container['sw_offline_cache'] !== NULL): ?>
+<script>
+caches.keys().then((c) => {
+	caches.open(c[0]).then((c) => {
+		c.keys().then(keys => {
+			keys.forEach(req => {
+				if (req.url.indexOf(window.location.origin+'/store/') == 0) {
+					console.log('------------------')
+					console.log(req.url)
+					console.log(req.url.replace(window.location.origin+'/store/', ''))
+					console.log(req.url.replace(window.location.origin+'/store/', '').replace('-', ' '))
+				}
+			})
+			console.log('------------------')
+		})
+	})
+})
+</script>
+<?php endif ?>

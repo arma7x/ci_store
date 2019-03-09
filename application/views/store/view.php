@@ -81,7 +81,7 @@
 			<ul class="list-inline text-center ml-3">
 			<?php foreach($this->container['ic_link'] as $key => $value): ?>
 				<li class="list-inline-item">
-					<a target="_blank" href="<?php echo str_replace('%param', $product['id'].', '.$product['name'], $value['url']) ?>">
+					<a target="_blank" href="<?php echo str_replace('%param', $product['id'].' - '.$product['name'], $value['url']) ?>">
 						<img id="ic_pm_<?php echo $value['id'] ?>" class="btn-circle shadow-sm" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $value['name'] ?>" style="width:30px;height:30px"/>
 					</a>
 				</li>
@@ -89,7 +89,7 @@
 				<?php if (isset($this->container['gi_link']['mobile_number'])): ?>
 				<?php if ($this->container['gi_link']['mobile_number'] !== ''): ?>
 				<li class="list-inline-item">
-					<a href="sms:<?php echo $this->container['gi_link']['mobile_number'] ?>?body=<?php echo $product['id'].', '.$product['name'] ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $this->container['gi_link']['mobile_number'] ?>">
+					<a href="sms:<?php echo $this->container['gi_link']['mobile_number'] ?>?body=<?php echo $product['id'].' - '.$product['name'] ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $this->container['gi_link']['mobile_number'] ?>">
 						<button class="btn btn-primary btn-circle shadow-sm" style="width:30px;height:30px">
 							<i class="material-icons mi_fab" style="font-size:1em;margin:-8px 0 0 -6px;">&#xe0d8;</i>
 						</button>
