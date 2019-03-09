@@ -2,6 +2,10 @@
 
 <script>
 
+function generateSlug(src, target) {
+    $(target).attr('value', $(src).val().toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,''))
+}
+
 function renderIcon(src, holder) {
     $(holder).html($(src).val()).text()
 }

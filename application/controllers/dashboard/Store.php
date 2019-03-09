@@ -111,7 +111,7 @@ class Store extends MY_Controller {
 		$this->form_validation->set_rules('id', lang('L_ID'), 'required|alpha_dash|is_unique[products.id]');
 		$this->form_validation->set_rules('name', lang('L_P_NAME'), 'required|max_length[255]');
 		$this->form_validation->set_rules('slug', lang('L_P_SLUG'), 'required|alpha_dash|is_unique[products.slug]');
-		$this->form_validation->set_rules('price', lang('L_P_PRICE'), 'required|decimal');
+		$this->form_validation->set_rules('price', lang('L_P_PRICE'), 'required|numeric');
 		$this->form_validation->set_rules('visibility', lang('L_P_VISIBILITY'), 'required|in_list[0,1]');
 		$this->form_validation->set_rules('spotlight', lang('L_P_SPOTLIGHT'), 'required|in_list[0,1]');
 		$this->form_validation->set_rules('availability', lang('L_P_AVAILABILITY'), 'required|in_list[0,1]');
@@ -192,7 +192,7 @@ class Store extends MY_Controller {
 		$this->form_validation->set_rules('id', lang('L_ID'), 'required');
 		$this->form_validation->set_rules('name', lang('L_P_NAME'), 'required|max_length[255]');
 		//$this->form_validation->set_rules('slug', lang('L_P_SLUG'), 'required|alpha_dash|is_unique[products.slug]');
-		$this->form_validation->set_rules('price', lang('L_P_PRICE'), 'required|decimal');
+		$this->form_validation->set_rules('price', lang('L_P_PRICE'), 'required|numeric');
 		$this->form_validation->set_rules('visibility', lang('L_P_VISIBILITY'), 'required|in_list[0,1]');
 		$this->form_validation->set_rules('spotlight', lang('L_P_SPOTLIGHT'), 'required|in_list[0,1]');
 		$this->form_validation->set_rules('availability', lang('L_P_AVAILABILITY'), 'required|in_list[0,1]');

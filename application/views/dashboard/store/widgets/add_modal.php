@@ -19,7 +19,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="material-icons">&#xe264;</i></span>
                         </div>
-                        <input type="text" id="inputName" class="form-control" placeholder="<?php echo lang('L_P_NAME');?>" required>
+                        <input type="text" id="inputName" class="form-control" placeholder="<?php echo lang('L_P_NAME');?>" onInput="generateSlug('#inputName', '#inputSlug')" required>
                       </div>
                       <div id="inputNameErrorText" class="form-control-feedback text-danger"></div>
                     </div>

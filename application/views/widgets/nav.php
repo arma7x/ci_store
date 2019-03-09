@@ -46,11 +46,11 @@
               <a class="dropdown-item" onclick="change_language('malay')" data-turbolinks="false"><?php echo lang('L_MALAY_LANG') ?></a>
             </div>
           </li>
-          <?php endif ?>
           <li class="nav-item<?php echo $this->uri->segment(1) == 'store' ? ' active' : ''?>">
             <a class="nav-link<?php echo $this->uri->segment(1) == 'store' ? ' text-primary' : ''?>" onclick="navigate('/store')"><i class="material-icons text-primary">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
-          <?php foreach($this->container['ei_link'] as $key => $value): ?>
           </li>
+          <?php endif ?>
+          <?php foreach($this->container['ei_link'] as $key => $value): ?>
             <?php if ((int) $value['position'] !== 1): ?>
             <li class="nav-item<?php echo '/'.$this->uri->uri_string() == '/'.$value['slug'] ? ' active' : ''?>">
                 <a class="nav-link<?php echo '/'.$this->uri->uri_string() == '/'.$value['slug'] ? ' text-primary' : ''?>" onclick="navigate('/<?php echo $value['slug'] ?>')"><i class="material-icons"><?php echo $value['material_icon'] ?></i> <?php echo $value['title'] ?></a>

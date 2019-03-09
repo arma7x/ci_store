@@ -73,9 +73,10 @@
 			<h6 class="ml-3 text-danger font-weight-bold"><i class="material-icons">&#xe3fa;</i> <?php echo lang('L_P_AVAILABILITY_FALSE');?></h6>
 			<?php endif?>
 			<?php if($product['spotlight'] === '1'): ?>
-			<h6 class="ml-5 text-primary font-weight-bold"><a onClick="alert(1)"><i class="material-icons">&#xe87d;</i> <?php echo lang('L_P_SPOTLIGHT');?></a></h6>
+			<h6 class="ml-5 text-primary font-weight-bold"><i class="material-icons">&#xe89a;</i> <?php echo lang('L_P_SPOTLIGHT');?></h6>
 			<?php endif?>
 		</div>
+		<h6 class="text-muted font-weight-bold"><?php echo lang('L_P_ORDER_HERE') ?></h6>
 		<div class="row mb-3">
 			<ul class="list-inline text-center ml-3">
 			<?php foreach($this->container['ic_link'] as $key => $value): ?>

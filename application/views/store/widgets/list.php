@@ -106,11 +106,11 @@
 							}
 						})
 					</script>
-					<i class="material-icons stock"><?php echo ($item['availability'] === '1') ? '&#xe1a3;' : '&#xe19c;' ?></i>
+					<i class="material-icons stock<?php echo ($item['availability'] === '1') ? ' text-success' : ' text-danger' ?>">&#xe3fa;</i>
 					<h4 class="title font-weight-bold"><?php echo $item['name'] ?></h4>
 					<h6 class="price font-weight-bold"><?php echo $this->container['currency_unit'].number_format((float) $item['price'], 2, '.', '') ?></h6>
 					<?php if ($item['spotlight'] === '1'): ?>
-					<i class="material-icons favourite">&#xe87d;</i>
+					<i class="material-icons favourite text-primary">&#xe89a;</i>
 					<?php endif ?>
 					<div class="overlay"></div>
 					</a>
