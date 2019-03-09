@@ -65,7 +65,7 @@
 	</div>
 	<div class="col col-12 col-md-6 p-1 pt-0 px-md-4">
 		<h4 class="text-primary font-weight-bold"><?php echo $this->container['currency_unit'].$product['price'] ?></h4>
-		<h2 class="my-3"><?php echo $product['name'] ?></h2>
+		<h2 class="my-3 font-weight-bold"><?php echo $product['name'] ?></h2>
 		<div class="row mb-3">
 			<?php if($product['availability'] === '1'): ?>
 			<h6 class="ml-3 text-success font-weight-bold"><i class="material-icons">&#xe3fa;</i> <?php echo lang('L_P_AVAILABILITY_TRUE');?></h6>

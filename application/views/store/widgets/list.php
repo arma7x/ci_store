@@ -34,7 +34,7 @@
   position: absolute;
   top: 20%;
   left: 10%;
-  text-align: center;
+  text-align: left;
   font-size: 1.5em;
 }
 
@@ -54,7 +54,7 @@
   position: absolute;
   top: 10%;
   left: 85%;
-  text-align: center;
+  text-align: left;
 }
 
 .img-container .favourite {
@@ -63,7 +63,7 @@
   position: absolute;
   top: 85%;
   left: 10%;
-  text-align: center;
+  text-align: left;
 }
 
 .img-container:hover .overlay {
