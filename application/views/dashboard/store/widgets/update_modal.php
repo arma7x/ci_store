@@ -101,7 +101,7 @@
                               <label for="inputSpotlightEdit" class="sr-only-rm"><?php echo lang('L_P_SPOTLIGHT');?></label>
                               <div id="inputSpotlightEditError" class="input-group border rounded">
                                 <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="material-icons">&#xe838;</i></div>
+                                    <div class="input-group-text"><i class="material-icons">&#xe89a;</i></div>
                                 </div>
                                 <select type="text" id="inputSpotlightEdit" class="form-control" required>
                                     <option value="0"><?php echo lang('L_P_SPOTLIGHT_NO');?></option>

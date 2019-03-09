@@ -34,7 +34,7 @@ class Store extends MY_Controller {
 		}
 		$filters = $this->input->get();
 		foreach($filters as $index => $value) {
-			if(in_array($index, array('keyword', 'visibility', 'spotlight')) === FALSE) {
+			if(in_array($index, array('keyword', 'visibility', 'spotlight', 'availability')) === FALSE) {
 				unset($filters[$index]);
 			}
 		}

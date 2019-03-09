@@ -46,7 +46,7 @@
 			<label class="sr-only"><?php echo lang('L_P_SPOTLIGHT');?></label>
 			<div class="input-group mr-sm-1 mb-2">
 				<div class="input-group-prepend">
-					<div class="input-group-text"><i class="material-icons">&#xe838;</i></div>
+					<div class="input-group-text"><i class="material-icons">&#xe89a;</i></div>
 				</div>
 				<select id="search_spotlight" class="form-control form-control-sm no-border">
 					<option value=""><?php echo lang('L_P_S_SPOTLIGHT_ALL') ?></option>
@@ -65,6 +65,18 @@
 					<option value="created_at@asc"><?php echo lang('L_P_S_EARLIER_RELEASE') ?></option>
 					<option value="price@desc"><?php echo lang('L_P_S_EXPENSIVE_PRICE') ?></option>
 					<option value="price@asc"><?php echo lang('L_P_S_REASONABLE_PRICE') ?></option>
+				</select>
+			</div>
+
+			<label class="sr-only"><?php echo lang('L_P_AVAILABILITY');?></label>
+			<div class="input-group mr-sm-1 mb-2">
+				<div class="input-group-prepend">
+					<div class="input-group-text"><i class="material-icons">&#xe614;</i></div>
+				</div>
+				<select id="search_availability" class="form-control form-control-sm no-border">
+					<option value=""><?php echo lang('L_P_AVAILABILITY');?></option>
+					<option value="1"><?php echo lang('L_P_AVAILABILITY_TRUE');?></option>
+					<option value="0"><?php echo lang('L_P_AVAILABILITY_FALSE');?></option>
 				</select>
 			</div>
 
@@ -87,6 +99,7 @@
 					$('#search_visibility option[value="'+getQueryStringValue('visibility')+'"]').attr('selected','selected')
 					$('#search_ordering option[value="'+getQueryStringValue('ordering')+'"]').attr('selected','selected')
 					$('#search_spotlight option[value="'+getQueryStringValue('spotlight')+'"]').attr('selected','selected')
+					$('#search_availability option[value="'+getQueryStringValue('availability')+'"]').attr('selected','selected')
 				})
 				function searchStore() {
 					var data = {
@@ -95,6 +108,7 @@
 						'visibility': $("#search_visibility").val(),
 						'ordering': $("#search_ordering").val(),
 						'spotlight': $("#search_spotlight").val(),
+						'availability': $("#search_availability").val(),
 					}
 					var query = []
 					for (key in data) {
@@ -167,7 +181,7 @@
 										<label class="sr-only-rm m-0"><?php echo lang('L_P_SPOTLIGHT');?></label>
 										<div class="input-group input-group-sm border rounded">
 											<div class="input-group-prepend">
-												<div class="input-group-text"><i class="material-icons">&#xe838;</i></div>
+												<div class="input-group-text"><i class="material-icons">&#xe89a;</i></div>
 											</div>
 											<select type="text" id="inputSpotlight<?php echo $item['id'] ?>" class="form-control" placeholder="<?php echo lang('L_P_SPOTLIGHT');?>" required>
 												<option value="0"<?php echo (int) $item['spotlight'] === 0 ? ' selected' : '' ;?>><?php echo lang('L_P_SPOTLIGHT_NO');?></option>
