@@ -51,20 +51,22 @@ class General_information extends MY_Controller {
 		$data = array(
 			'name' => $this->input->post_get('name'),
 			'description' => $this->input->post_get('description'),
+			'currency_unit' => $this->input->post_get('currency_unit'),
 			'address' => $this->input->post_get('address'),
 			'email' => $this->input->post_get('email'),
 			'office_number' => $this->input->post_get('office_number'),
 			'mobile_number' => $this->input->post_get('mobile_number'),
-			'working_hours' => $this->input->post_get('working_hours'),
+			//'working_hours' => $this->input->post_get('working_hours'),
 		);
 		$this->form_validation->set_data($data);
 		$this->form_validation->set_rules('name', lang('L_G_NAME'), 'required');
 		$this->form_validation->set_rules('description', lang('L_G_DESCRIPTION'), 'required|max_length[160]');
-		$this->form_validation->set_rules('address', lang('L_G_ADDRESS'), '');
+		$this->form_validation->set_rules('currency_unit', lang('L_G_CURRENCY_UNIT'), 'required');
+		$this->form_validation->set_rules('address', lang('L_G_ADDRESS').' & '.lang('L_G_ADDRESS'), '');
 		$this->form_validation->set_rules('email', lang('L_EMAIL'), 'valid_email');
 		$this->form_validation->set_rules('office_number', lang('L_G_OFFICE_NUMBER'), '');
 		$this->form_validation->set_rules('mobile_number', lang('L_G_MOBILE_NUMBER'), '');
-		$this->form_validation->set_rules('working_hours', lang('L_G_WORKING_HOUR'), '');
+		//$this->form_validation->set_rules('working_hours', lang('L_G_WORKING_HOUR'), '');
 		if ($this->form_validation->run() === FALSE) {
 			$data = array(
 				'errors' => $this->form_validation->error_array()

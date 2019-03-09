@@ -118,6 +118,7 @@ $lang['L_G_ADDRESS'] = 'Address';
 $lang['L_G_OFFICE_NUMBER'] = 'Office Number';
 $lang['L_G_MOBILE_NUMBER'] = 'Mobile Number';
 $lang['L_G_WORKING_HOUR'] = 'Operation Hours';
+$lang['L_G_CURRENCY_UNIT'] = 'Currency Unit';
 $lang['L_S_C_NAME'] = 'Name';
 $lang['L_S_C_ORDERING'] = 'Ordering';
 $lang['L_S_C_URL'] = 'URL';

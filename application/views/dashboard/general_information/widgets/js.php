@@ -19,8 +19,8 @@ function updateGeneralInformation() {
     $('#inputOfficeNumberErrorText').text('')
     $('#inputMobileNumberError').removeClass('border-danger')
     $('#inputMobileNumberErrorText').text('')
-    $('#inputWorkingHoursError').removeClass('border-danger')
-    $('#inputWorkingHoursErrorText').text('')
+    $('#inputCurrencyUnitError').removeClass('border-danger')
+    $('#inputCurrencyUnitErrorText').text('')
     var data = {
         'name': $('#inputName').val(),
         'description': $('#inputDescription').val(),
@@ -28,7 +28,7 @@ function updateGeneralInformation() {
         'email': $('#inputEmailAddress').val(),
         'office_number': $('#inputOfficeNumber').val(),
         'mobile_number': $('#inputMobileNumber').val(),
-        'working_hours': $('#inputWorkingHours').val(),
+        'currency_unit': $('#inputCurrencyUnit').val(),
     }
     data[window.csrf_token_name] = window.csrf_hash
     var request = $.ajax({
@@ -78,8 +78,8 @@ function updateGeneralInformation() {
                     $('#inputMobileNumberErrorText').text(jqXHR.responseJSON.errors.mobile_number)
                 }
                 if (jqXHR.responseJSON.errors.working_hours != undefined) {
-                    $('#inputWorkingHoursrError').addClass('border-danger')
-                    $('#inputWorkingHoursErrorText').text(jqXHR.responseJSON.errors.working_hours)
+                    $('#inputCurrencyUnitrError').addClass('border-danger')
+                    $('#inputCurrencyUnitErrorText').text(jqXHR.responseJSON.errors.working_hours)
                 }
             }
         }

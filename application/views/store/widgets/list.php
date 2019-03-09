@@ -99,7 +99,6 @@
 					<a href="/store/<?php echo $item['slug'] ?>"><img id="product_<?php echo $item['id'] ?>" class="img img-fluid" src="/static/img/loading.gif"/>
 					<script>
 						$(document).ready(function() {
-							//renderImg('<?php echo $item['main_photo'] ?>', '#product_<?php echo $item['id'] ?>')
 							if (isCORS('<?php echo $item['main_photo'] ?>')) {
 								resizePicture('<?php echo $item['main_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#product_<?php echo $item['id'] ?>')
 							} else {
@@ -109,7 +108,7 @@
 					</script>
 					<i class="material-icons stock"><?php echo ($item['availability'] === '1') ? '&#xe1a3;' : '&#xe19c;' ?></i>
 					<h4 class="title font-weight-bold"><?php echo $item['name'] ?></h4>
-					<h6 class="price font-weight-bold">RM <?php echo number_format((float) $item['price'], 2, '.', '') ?></h6>
+					<h6 class="price font-weight-bold"><?php echo $this->container['currency_unit'].number_format((float) $item['price'], 2, '.', '') ?></h6>
 					<?php if ($item['spotlight'] === '1'): ?>
 					<i class="material-icons favourite">&#xe87d;</i>
 					<?php endif ?>

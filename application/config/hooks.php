@@ -24,6 +24,7 @@ $hook['post_controller_constructor'][] = function() {
 	$CI->container['sc_link'] = $CI->SC->get_all_cache();
 	$CI->container['ic_link'] = $CI->IC->get_all_cache();
 	$CI->container['app_name'] = isset($CI->container['gi_link']['name']) ? $CI->container['gi_link']['name'] : APP_NAME;
+	$CI->container['currency_unit'] = isset($CI->container['gi_link']['currency_unit']) ? $CI->container['gi_link']['currency_unit'] : '$';
 };
 
 $hook['post_controller_constructor'][] = function() {

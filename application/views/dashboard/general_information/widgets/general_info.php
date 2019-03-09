@@ -47,6 +47,17 @@
               <div id="inputMobileNumberErrorText" class="form-control-feedback text-danger"></div>
             </div>
 
+            <div class="form-group">
+              <label for="inputCurrencyUnit" class="sr-only-rm"><?php echo lang('L_G_CURRENCY_UNIT');?></label>
+              <div id="inputCurrencyUnitError" class="input-group border rounded">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="material-icons">&#xe8b5;</i></div>
+                </div>
+                <input type="text" id="inputCurrencyUnit" value="<?php echo isset($gi_item['currency_unit']) ? $gi_item['currency_unit'] : '' ?>" class="form-control" placeholder="<?php echo lang('L_G_CURRENCY_UNIT');?>" required>
+              </div>
+              <div id="inputCurrencyUnitErrorText" class="form-control-feedback text-danger"></div>
+            </div>
+
         </div>
         <div class="col col-12 col-sm-6">
             
@@ -56,7 +67,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="material-icons">&#xe873;</i></span>
                 </div>
-                <textarea rows="3" type="text" id="inputDescription" class="form-control" placeholder="<?php echo lang('L_G_DESCRIPTION');?>" required><?php echo isset($gi_item['description']) ? $gi_item['description'] : '' ?></textarea>
+                <textarea rows="5" type="text" id="inputDescription" class="form-control" placeholder="<?php echo lang('L_G_DESCRIPTION');?>" required><?php echo isset($gi_item['description']) ? $gi_item['description'] : '' ?></textarea>
               </div>
               <div id="inputDescriptionErrorText" class="form-control-feedback text-danger"></div>
             </div>
@@ -67,20 +78,9 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="material-icons">&#xe52e;</i></span>
                 </div>
-                <textarea rows="4" type="text" id="inputAddress" class="form-control" placeholder="<?php echo lang('L_G_ADDRESS');?>" required><?php echo isset($gi_item['address']) ? $gi_item['address'] : '' ?></textarea>
+                <textarea rows="5" type="text" id="inputAddress" class="form-control" placeholder="<?php echo lang('L_G_ADDRESS');?>" required><?php echo isset($gi_item['address']) ? $gi_item['address'] : '' ?></textarea>
               </div>
               <div id="inputAddressErrorText" class="form-control-feedback text-danger"></div>
-            </div>
-
-            <div class="form-group sr-only">
-              <label for="inputWorkingHours" class="sr-only-rm"><?php echo lang('L_G_WORKING_HOUR');?></label>
-              <div id="inputWorkingHoursError" class="input-group border rounded">
-                <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="material-icons">&#xe8b5;</i></div>
-                </div>
-                <textarea rows="2" type="text" id="inputWorkingHours" class="form-control" placeholder="<?php echo lang('L_G_WORKING_HOUR');?>" required><?php echo isset($gi_item['working_hours']) ? $gi_item['working_hours'] : '' ?></textarea>
-              </div>
-              <div id="inputWorkingHoursErrorText" class="form-control-feedback text-danger"></div>
             </div>
 
             <div class="form-group">

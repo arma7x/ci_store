@@ -118,6 +118,7 @@ $lang['L_G_ADDRESS'] = 'Alamat';
 $lang['L_G_OFFICE_NUMBER'] = 'Nombor Pejabat';
 $lang['L_G_MOBILE_NUMBER'] = 'Nombor Mudah Alih';
 $lang['L_G_WORKING_HOUR'] = 'Waktu Operasi';
+$lang['L_G_CURRENCY_UNIT'] = 'Unit Matawang';
 $lang['L_S_C_NAME'] = 'Nama';
 $lang['L_S_C_ORDERING'] = 'Susunan';
 $lang['L_S_C_URL'] = 'Pautan';
