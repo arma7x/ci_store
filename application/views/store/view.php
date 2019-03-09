@@ -4,42 +4,62 @@
 	<div class="col col-12 col-md-6 p-1">
 		<div class="mb-4">
 			<div id="carouselSlider" class="carousel slide" data-ride="carousel">
-				<!--
-				<ol class="carousel-indicators">
-					<li data-target="#carouselSlider" data-slide-to="0" class="active"></li>
-					<li data-target="#carouselSlider" data-slide-to="1"></li>
-					<li data-target="#carouselSlider" data-slide-to="2"></li>
-					<li data-target="#carouselSlider" data-slide-to="3"></li>
-				</ol>
-				-->
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="<?php echo $product['main_photo'] ?>" class="d-block w-100" alt="...">
+						<img id="main_photo" src="/static/img/loading.gif" class="d-block w-100" alt="...">
+						<script>
+							$(document).ready(function() {
+								if (isCORS('<?php echo $product['main_photo'] ?>')) {
+									resizePicture('<?php echo $product['main_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#main_photo')
+								} else {
+									renderImg('<?php echo $product['main_photo'] ?>', '#main_photo')
+								}
+							})
+						</script>
 					</div>
 					<?php if($product['second_photo'] !== ''): ?>
 					<div class="carousel-item">
-						<img src="<?php echo $product['second_photo'] ?>" class="d-block w-100" alt="...">
+						<img id="second_photo" src="/static/img/loading.gif" class="d-block w-100" alt="...">
+						<script>
+							$(document).ready(function() {
+								if (isCORS('<?php echo $product['second_photo'] ?>')) {
+									resizePicture('<?php echo $product['second_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#second_photo')
+								} else {
+									renderImg('<?php echo $product['second_photo'] ?>', '#second_photo')
+								}
+							})
+						</script>
 					</div>
 					<?php endif ?>
 					<?php if($product['third_photo'] !== ''): ?>
 					<div class="carousel-item">
-						<img src="<?php echo $product['third_photo'] ?>" class="d-block w-100" alt="...">
+						<img id="third_photo" src="/static/img/loading.gif" class="d-block w-100" alt="...">
+						<script>
+							$(document).ready(function() {
+								if (isCORS('<?php echo $product['third_photo'] ?>')) {
+									resizePicture('<?php echo $product['third_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#third_photo')
+								} else {
+									renderImg('<?php echo $product['third_photo'] ?>', '#third_photo')
+								}
+							})
+						</script>
 					</div>
 					<?php endif ?>
 					<?php if($product['fourth_photo'] !== ''): ?>
 					<div class="carousel-item">
-						<img src="<?php echo $product['fourth_photo'] ?>" class="d-block w-100" alt="...">
+						<img id="fourth_photo" src="/static/img/loading.gif" class="d-block w-100" alt="...">
+						<script>
+							$(document).ready(function() {
+								if (isCORS('<?php echo $product['fourth_photo'] ?>')) {
+									resizePicture('<?php echo $product['fourth_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#fourth_photo')
+								} else {
+									renderImg('<?php echo $product['fourth_photo'] ?>', '#fourth_photo')
+								}
+							})
+						</script>
 					</div>
 					<?php endif ?>
 				</div>
-				<!--
-				<a class="carousel-control-prev" href="#carouselSlider" role="button" data-slide="prev">
-					<i class="material-icons" style="font-size:3em">&#xe408;</i>
-				</a>
-				<a class="carousel-control-next" href="#carouselSlider" role="button" data-slide="next">
-					<i class="material-icons" style="font-size:3em">&#xe409;</i>
-				</a>
-				-->
 			</div>
 		</div>
 	</div>
@@ -81,21 +101,65 @@
 		<div class="mb-3">
 			<div class="row m-0">
 				<div id="thumb_0" class="col col-3 p-0 border border-primary">
-					<a onClick="$('#carouselSlider').carousel(0)"><img src="<?php echo $product['main_photo'] ?>" class="d-block w-100"></a>
+					<a onClick="$('#carouselSlider').carousel(0)">
+						<img id="t_main_photo" src="/static/img/loading.gif" class="d-block w-100">
+					</a>
+					<script>
+						$(document).ready(function() {
+							if (isCORS('<?php echo $product['main_photo'] ?>')) {
+								resizePicture('<?php echo $product['main_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#t_main_photo')
+							} else {
+								renderImg('<?php echo $product['main_photo'] ?>', '#t_main_photo')
+							}
+						})
+					</script>
 				</div>
 				<?php if($product['second_photo'] !== ''): ?>
 				<div id="thumb_1" class="col col-3 p-0">
-					<a onClick="$('#carouselSlider').carousel(1)"><img src="<?php echo $product['second_photo'] ?>" class="d-block w-100"></a>
+					<a onClick="$('#carouselSlider').carousel(1)">
+						<img id="t_second_photo" src="/static/img/loading.gif" class="d-block w-100">
+					</a>
+					<script>
+						$(document).ready(function() {
+							if (isCORS('<?php echo $product['second_photo'] ?>')) {
+								resizePicture('<?php echo $product['second_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#t_second_photo')
+							} else {
+								renderImg('<?php echo $product['second_photo'] ?>', '#t_second_photo')
+							}
+						})
+					</script>
 				</div>
 				<?php endif ?>
 				<?php if($product['third_photo'] !== ''): ?>
 				<div id="thumb_2" class="col col-3 p-0">
-					<a onClick="$('#carouselSlider').carousel(2)"><img src="<?php echo $product['third_photo'] ?>" class="d-block w-100"></a>
+					<a onClick="$('#carouselSlider').carousel(2)">
+						<img id="t_third_photo" src="/static/img/loading.gif" class="d-block w-100">
+					</a>
+					<script>
+						$(document).ready(function() {
+							if (isCORS('<?php echo $product['third_photo'] ?>')) {
+								resizePicture('<?php echo $product['third_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#t_third_photo')
+							} else {
+								renderImg('<?php echo $product['third_photo'] ?>', '#t_third_photo')
+							}
+						})
+					</script>
 				</div>
 				<?php endif ?>
 				<?php if($product['fourth_photo'] !== ''): ?>
 				<div id="thumb_3" class="col col-3 p-0">
-					<a onClick="$('#carouselSlider').carousel(3)"><img src="<?php echo $product['fourth_photo'] ?>" class="d-block w-100"></a>
+					<a onClick="$('#carouselSlider').carousel(3)">
+						<img id="t_fourth_photo" src="/static/img/loading.gif" class="d-block w-100">
+					</a>
+					<script>
+						$(document).ready(function() {
+							if (isCORS('<?php echo $product['fourth_photo'] ?>')) {
+								resizePicture('<?php echo $product['fourth_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#t_fourth_photo')
+							} else {
+								renderImg('<?php echo $product['fourth_photo'] ?>', '#t_fourth_photo')
+							}
+						})
+					</script>
 				</div>
 				<?php endif ?>
 			</div>
