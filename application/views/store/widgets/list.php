@@ -84,7 +84,8 @@
   z-index: 2;
 }
 </style>
-<div class="row">
+<div id="product_list" class="row">
+<?php if ($this->container['sw_offline_cache'] === NULL): ?>
 	<?php if (isset($list)): ?>
 		<?php if(COUNT($list) === 0): ?>
 		<div class=" mx-0 my-2 col col-12 row justify-content-sm-center align-items-center" style="height:54vh;">
@@ -124,4 +125,5 @@
 		</div>
 	</div>
 	<?php endif ?>
+<?php endif ?>
 </div>

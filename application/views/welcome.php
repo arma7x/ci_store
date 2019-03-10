@@ -38,10 +38,11 @@
 		</form>
 	</div>
 </div>
+<?php endif ?>
 <div class="mx-4">
 <?php echo isset($products) ? $products : NULL ?>
 </div>
-<?php else: ?>
+<?php if ($this->container['sw_offline_cache'] !== NULL): ?>
 <script>
 //caches.keys().then((c) => {
 	//caches.open(c[0]).then((c) => {
