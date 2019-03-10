@@ -199,6 +199,7 @@ $lang['BTN_ADD_CATEGORY'] = 'Add Category';
 $lang['BTN_UPDATE_CATEGORY'] = 'Update Category';
 
 $lang['H_STORE'] = 'Store';
+$lang['H_OFFLINE_CATALOG'] = 'Offline Catalog';
 $lang['L_P_NAME'] = 'Name';
 $lang['L_P_SLUG'] = 'Slug';
 $lang['L_P_PRICE'] = 'Price';
