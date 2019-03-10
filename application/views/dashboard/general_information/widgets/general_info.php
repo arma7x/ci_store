@@ -51,7 +51,7 @@
               <label for="inputCurrencyUnit" class="sr-only-rm"><?php echo lang('L_G_CURRENCY_UNIT');?></label>
               <div id="inputCurrencyUnitError" class="input-group border rounded">
                 <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="material-icons">&#xe8b5;</i></div>
+                    <div class="input-group-text"><i class="material-icons">&#xe227;</i></div>
                 </div>
                 <input type="text" id="inputCurrencyUnit" value="<?php echo isset($gi_item['currency_unit']) ? $gi_item['currency_unit'] : '' ?>" class="form-control" placeholder="<?php echo lang('L_G_CURRENCY_UNIT');?>" required>
               </div>
