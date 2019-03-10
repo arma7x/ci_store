@@ -184,4 +184,13 @@
 			<?php echo $product['full_description'] ?>
 		</div>
 	</div>
+	<script>
+		$(document).ready(function() {
+			var product = <?php echo json_encode($product) ?>;
+			delete product['full_description'];
+			if (window.localStorage) {
+				window.localStorage.setItem(product.id, JSON.stringify(product))
+			}
+		})
+	</script>
 </div>

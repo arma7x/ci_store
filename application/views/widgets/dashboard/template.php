@@ -8,6 +8,8 @@
     <meta name="turbolinks-cache-control" content="no-cache">
     <title><?php echo isset($title) ? $title : 'Codeigniter' ?></title>
     <?php echo isset($header) ? $header : null ?>
+    <link href="/static/css/trumbowyg.min.css" type="text/css" rel="stylesheet">
+    <script src="/static/js/trumbowyg.min.js"></script>
   </head>
   <body class="p-0">
     <?php echo isset($nav) ? $nav : null ?>

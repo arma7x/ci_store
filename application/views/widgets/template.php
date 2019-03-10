@@ -72,7 +72,9 @@
         <?php endif; ?>
         <div class="mt-0">
         <?php echo isset($notification) ? $notification : null ?>
+        <?php if ($this->container['sw_offline_cache'] === NULL): ?>
         <?php echo isset($category_nav) ? $category_nav : null ?>
+        <?php endif ?>
         <div class="p-0 col col-12 col-lg-10 offset-lg-1">
         <?php echo isset($content) ? $content : null ?>
         </div>

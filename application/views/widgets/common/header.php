@@ -12,13 +12,11 @@
     <meta name="theme-color" content="#ffffff">
     <link href="/static/css/animate.min.css" type="text/css" rel="stylesheet">
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/css/trumbowyg.min.css" type="text/css" rel="stylesheet">
     <link href="/src/app.css" type="text/css" rel="stylesheet">
     <script src="/static/js/turbolinks.js"></script>
     <script src="/static/js/jquery-3.3.1.min.js"></script>
     <script src="/static/js/popper.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
-    <script src="/static/js/trumbowyg.min.js"></script>
     <script>
         window.csrf_token_name = "<?php echo $this->security->get_csrf_token_name(); ?>";
         window.csrf_hash = "<?php echo $this->security->get_csrf_hash(); ?>";
