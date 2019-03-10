@@ -85,8 +85,13 @@ for(var i in window.localStorage) {
 		list.push(_final)
 	}
 }
-for(var l in list) {
-	product_list.append(list[l])
+if (list.length == 0) {
+	var empty = '<div class="mx-0 my-2 col col-12 row justify-content-sm-center align-items-center" style="height:54vh;"><div class="col col-12"><h2 class="text-center text-primary"><i class="material-icons" style="font-size:5em;">&#xe7f3;</i></h2></div></div>'
+	product_list.append($.parseHTML(empty))
+} else {
+	for(var l in list) {
+		product_list.append(list[l])
+	}
 }
 </script>
 <?php endif ?>
