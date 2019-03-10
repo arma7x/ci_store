@@ -44,25 +44,57 @@
 </div>
 <?php if ($this->container['sw_offline_cache'] !== NULL): ?>
 <script>
-//caches.keys().then((c) => {
-	//caches.open(c[0]).then((c) => {
-		//c.keys().then(keys => {
-			//keys.forEach(req => {
-				//if (req.url.indexOf(window.location.origin+'/store/') == 0) {
-					//console.log('------------------')
-					//console.log(req.url)
-					//console.log(req.url.replace(window.location.origin+'/store/', ''))
-					//console.log(req.url.replace(window.location.origin+'/store/', '').replace('-', ' '))
-				//}
-			//})
-			//console.log('------------------')
-		//})
-	//})
-//})
-for(var k in window.localStorage) {
-	if (window.localStorage.getItem(k) != null) {
-		console.log(window.localStorage.getItem(k))
+var product_list = $("#product_list")
+var list = ''
+for(var v in window.localStorage) {
+	if (window.localStorage.getItem(v) != null) {
+		var k = JSON.parse(window.localStorage.getItem(v))
+
+		var wrapper = '<div class="col col-12 col-md-3 px-0 py-2 p-md-2">{wrapper}</div>'
+
+		var container = '<div class="img-container" data-placement="top" title="{k.brief_description}">{container}</div>'
+		container = container.replace('{k.brief_description}', k.brief_description)
+
+		var a = '<a href="/store/{k.slug}"><img id="{k.id}" class="img img-fluid" src="/static/img/loading.gif"/>{a}</a>'
+		a = a.replace('{k.slug}', k.slug).replace('{k.id}', k.id)
+
+		var script = '$(document).ready(function() { if (isCORS("{k.main_photo}")) { resizePicture("{k.main_photo}", null, 533, 533, .50, "image/webp", renderImg, "#{k.id}") } else { renderImg("{k.main_photo}", "#{k.id}") } })'
+		script = script.replace('{k.main_photo}', k.main_photo)
+		script = script.replace('{k.main_photo}', k.main_photo)
+		script = script.replace('{k.main_photo}', k.main_photo)
+		script = script.replace('{k.id}', k.id)
+		script = script.replace('{k.id}', k.id)
+
+		var availability = ''
+		if(k.availability == '1'){
+			availability = '<i class="material-icons stock text-success">&#xe3fa;</i>'
+		} else {
+			availability = '<i class="material-icons stock text-danger">&#xe3fa;</i>'
+		}
+
+		var name = '<h4 class="title font-weight-bold">{k.name}</h4>'
+		name = name.replace('{k.name}', k.name)
+
+		var spotlight = ''
+		if (k.spotlight == '1') {
+			spotlight = '<i class="material-icons favourite text-primary">&#xe89a;</i>'
+		}
+
+		var price = '<h6 class="price font-weight-bold"><?php echo $this->container["currency_unit"] ?>{k.price}</h6>'
+		price = price.replace('{k.price}', parseFloat(k.price).toFixed(2))
+
+		var overlay = '<div class="overlay"></div>'
+		
+		//console.log(a+'<script>'+script+'<//script>'+availability+name+spotlight+price+overlay)
+		a = a.replace('{a}', availability+name+spotlight+price+overlay)
+		container = container.replace('{container}', a)
+		wrapper = wrapper.replace('{wrapper}', container)
+		list += wrapper
 	}
 }
+html = $.parseHTML(list)
+product_list.append(html)
 </script>
 <?php endif ?>
+
+
