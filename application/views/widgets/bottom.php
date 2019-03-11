@@ -211,8 +211,12 @@
 						} else {
 							if ($('#navbar').hasClass('fadeIn')) {
 								$('#navbar').removeClass('fadeIn')
+								$('#navbar').addClass('fadeOut')
+								setTimeout(function() {
+									$('#navbar').removeClass('fadeOut')
+									$('#navbar').addClass('d-lg-none d-xl-none')
+								}, 500)
 							}
-							$('#navbar').addClass('d-lg-none d-xl-none')
 						}
 					},
 					init: function() {
