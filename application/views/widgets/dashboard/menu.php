@@ -30,12 +30,12 @@
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item p-2<?php echo $this->uri->segment(2) == 'manage_user' ? ' active' : ''?>" onclick="navigate('/dashboard/manage_user')"><i class="material-icons">&#xe2c9;</i> <?php echo lang('H_MANAGE_USERS');?></a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/store' ? ' active' : ''?>" onclick="navigate('/dashboard/store')"><i class="material-icons">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
+                      <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/general_information' ? ' active' : ''?>" onclick="navigate('/dashboard/general_information')"><i class="material-icons">&#xe88e;</i> <?php echo lang('H_GENERAL_INFORMATION');?></a>
+                      <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/essential_information' ? ' active' : ''?>" onclick="navigate('/dashboard/essential_information')"><i class="material-icons">&#xe873;</i> <?php echo lang('H_ESSENTIAL_INFORMATION');?></a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/category' ? ' active' : ''?>" onclick="navigate('/dashboard/category')"><i class="material-icons">&#xe54e;</i> <?php echo lang('H_CATEGORY');?></a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/general_information' ? ' active' : ''?>" onclick="navigate('/dashboard/general_information')"><i class="material-icons">&#xe88e;</i> <?php echo lang('H_GENERAL_INFORMATION');?></a>
-                      <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/essential_information' ? ' active' : ''?>" onclick="navigate('/dashboard/essential_information')"><i class="material-icons">&#xe873;</i> <?php echo lang('H_ESSENTIAL_INFORMATION');?></a>
+                      <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/store' ? ' active' : ''?>" onclick="navigate('/dashboard/store')"><i class="material-icons">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
                       <div class="dropdown-divider d-lg-none"></div>
                       <div class="dropdown-item p-0 d-lg-none">
                         <div id="headingLang" class="p-2" data-toggle="collapse" data-target="#collapseLang" aria-expanded="false" aria-controls="collapseLang">

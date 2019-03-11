@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col col-12">
                     <div class="row">
-                        <div class="col col-12 col-sm-8">
+                        <div class="col col-12 col-sm-6">
                             <div class="form-group">
                               <label for="inputNameICEdit" class="sr-only-rm"><?php echo lang('L_S_C_NAME');?></label>
                               <div id="inputNameICEditError" class="input-group border rounded">
@@ -27,7 +27,7 @@
                               <div id="inputNameICEditErrorText" class="form-control-feedback text-danger"></div>
                             </div>
                         </div>
-                        <div class="col col-12 col-sm-4">
+                        <div class="col col-12 col-sm-6">
                             <div class="form-group">
                               <label for="inputOrderingICEdit" class="sr-only-rm"><?php echo lang('L_S_C_ORDERING');?></label>
                               <div id="inputOrderingICEditError" class="input-group border rounded">

@@ -83,14 +83,13 @@
     <?php echo isset($spinner) ? $spinner : null ?>
     <footer class="footer bg-light border-top border-primary">
       <?php echo isset($bottom) ? $bottom : null ?>
-      <div class="container text-md-right small">
+      <div class="container text-md-right small text-muted">
         <!--
         <span class="text-dark small"><?php echo str_replace('%s', $this->benchmark->elapsed_time(), lang('L_F_RENDER_ELAPSED')).'|'.$this->benchmark->memory_usage().'|'.strtoupper(ENVIRONMENT) ?></span>
         -->
-        <i class="material-icons" style="font-size:1.1em;">&#xe90c;</i> <?php echo $this->container['app_name'].' '.date("Y"); ?>
+        <i class="material-icons" style="font-size:1.1em;">&#xe90c;</i> <?php echo date("Y").' '.$this->container['app_name'] ?> | Made By <a href="mailto:arma7x@live.com" class="text-primary">arma7x</a>
       </div>
     </footer>
     <?php echo isset($footer) ? $footer : null ?>
   </body>
 </html>
-
