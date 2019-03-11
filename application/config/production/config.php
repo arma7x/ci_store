@@ -8,7 +8,7 @@ $EMAIL_URL = getenv('EMAIL_URL');
 $APP_NAME = 'CI Store';
 $APP_URL = 'https://turboci.herokuapp.com/';
 $APP_ADMIN_EMAIL = 'zeon_msi@yahoo.com';
-$ENABLE_REGISTRATION = TRUE;
+$ENABLE_REGISTRATION = FALSE;
 // CONFIG END HERE
 
 $DB_AUTH = parse_url($DATABASE_URL);
