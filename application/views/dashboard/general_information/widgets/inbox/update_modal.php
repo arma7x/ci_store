@@ -75,5 +75,5 @@
       </div>
     </div>
   </div>
-  <input id="upload-icon-ic-edit" class="sr-only" type="file" accept="image/*" onChange="resizePicture('upload-icon-ic-edit', null, 50, 50, .50, 'image/webp', setIconCbICEdit, '#inputIconICEdit')"/>
+  <input id="upload-icon-ic-edit" class="sr-only" type="file" accept="image/*" onChange="resizePicture('upload-icon-ic-edit', null, 50, 50, 1, 'image/webp', setIconCbICEdit, '#inputIconICEdit')"/>
 </div>

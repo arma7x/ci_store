@@ -41,6 +41,7 @@
 .nav-scroller a:after {
   display:block;
   content: '';
+  border-top: solid 2px #ffffff;
   border-bottom: solid 3px var(--pink);
   transform: scaleX(0);  
   transition: transform 250ms ease-in-out;
