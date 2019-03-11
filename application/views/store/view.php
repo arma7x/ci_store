@@ -75,6 +75,9 @@
 			<?php if($product['spotlight'] === '1'): ?>
 			<h6 class="ml-5 text-primary font-weight-bold"><i class="material-icons">&#xe89a;</i> <?php echo lang('L_P_SPOTLIGHT');?></h6>
 			<?php endif?>
+			<?php if($this->container['sw_offline_cache'] !== NULL): ?>
+			<a onClick="removeCache('<?php echo $product['id'] ?>')"><h6 class="ml-5 text-danger font-weight-bold"><i class="material-icons">&#xe92b;</i> <?php echo lang('BTN_REMOVE');?></h6></a>
+			<?php endif?>
 		</div>
 		<h6 class="text-muted font-weight-bold"><?php echo lang('L_P_ORDER_HERE') ?></h6>
 		<div class="row mb-3">
@@ -185,6 +188,13 @@
 		</div>
 	</div>
 	<script>
+		function removeCache(id) {
+			if (window.localStorage) {
+				window.localStorage.removeItem(id)
+				goHome()
+			}
+		}
+
 		$(document).ready(function() {
 			var product = <?php echo json_encode($product) ?>;
 			delete product['full_description'];

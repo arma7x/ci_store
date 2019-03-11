@@ -22,7 +22,7 @@
         <i id="navmenu_icon" class="material-icons text-dark" style="font-size:1.4em;">menu</i>
       </button>
       <div class="collapse navbar-collapse" id="navCollapsed">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto text-uppercase">
           <?php if ($this->uri->segment(1) != NULL): ?>
           <!--
           <li class="nav-item">

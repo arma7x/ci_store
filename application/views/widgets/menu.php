@@ -10,8 +10,13 @@
                       </div>
                     </div>
                     
-                    <div class="d-flex justify-content-center bg-light">
-                        <a class="p-3<?php echo $this->uri->segment(1) == 'store' ? ' text-primary active' : ''?>" onclick="navigate('/store')"><i class="material-icons">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
+                    <div class="d-flex justify-content-center bg-light text-uppercase">
+                        <?php if ($this->container['sw_offline_cache'] !== NULL): ?>
+                        <a class="p-3 text-danger"><i class="material-icons">&#xe0ce;</i> <?php echo lang('H_Offline') ?></a>
+                        <?php endif ?>
+                        <?php if ($this->container['sw_offline_cache'] === NULL): ?>
+                        <a class="p-3<?php echo $this->uri->segment(1) == 'store' ? ' text-primary active' : ''?>" onclick="navigate('/store')"><i class="material-icons text-primary">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
+                        <?php endif ?>
 
                         <?php foreach($this->container['ei_link'] as $key => $value): ?>
                             <?php if ((int) $value['position'] !== 1): ?>
