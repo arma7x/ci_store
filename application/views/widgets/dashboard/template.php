@@ -46,8 +46,11 @@
     <footer class="footer bg-light border-top border-primary">
       <div class="container text-sm-right">
         <div class="col col-12 col-lg-10 offset-lg-2">
+        <!--
         <span class="text-dark small"><?php echo str_replace('%s', $this->benchmark->elapsed_time(), lang('L_F_RENDER_ELAPSED')).'|'.$this->benchmark->memory_usage().'|'.strtoupper(ENVIRONMENT) ?></span>
         </div>
+        -->
+        <i class="material-icons" style="font-size:1.1em;">&#xe90c;</i> <?php echo $this->container['app_name'].' '.date("Y"); ?>
       </div>
     </footer>
     <?php echo isset($footer) ? $footer : null ?>

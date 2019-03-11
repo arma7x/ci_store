@@ -8,7 +8,7 @@ $EMAIL_URL = 'smtp://username@yahoo.com:password@smtp.mail.yahoo.com:587/tls';
 $APP_NAME = 'CI Store';
 $APP_URL = 'http://127.0.0.1:2000/';
 $APP_ADMIN_EMAIL = 'zeon_msi@yahoo.com';
-$ENABLE_REGISTRATION = FALSE;
+$ENABLE_REGISTRATION = TRUE;
 // CONFIG END HERE
 
 $DB_AUTH = parse_url($DATABASE_URL);
@@ -106,7 +106,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']	= 'malay';
 
 /*
 |--------------------------------------------------------------------------

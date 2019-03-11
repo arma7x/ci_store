@@ -39,6 +39,7 @@
           </li>
           <?php endif ?>
           <?php if($this->container['sw_offline_cache'] === NULL): ?>
+          <!--
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">&#xe8e2;</i> <?php echo lang('L_LANGUAGE') ?></a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -46,6 +47,7 @@
               <a class="dropdown-item" onclick="change_language('malay')" data-turbolinks="false"><?php echo lang('L_MALAY_LANG') ?></a>
             </div>
           </li>
+          -->
           <li class="nav-item<?php echo $this->uri->segment(1) == 'store' ? ' active' : ''?>">
             <a class="nav-link<?php echo $this->uri->segment(1) == 'store' ? ' text-primary' : ''?>" onclick="navigate('/store')"><i class="material-icons text-primary">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
           </li>
