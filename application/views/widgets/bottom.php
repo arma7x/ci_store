@@ -207,10 +207,10 @@
 						}, this.setting.fadeduration[1]), this.state.isvisible = !1)
 						if (this.state.isvisible == true) {
 							$('#navbar').removeClass('d-lg-none d-xl-none')
-							$('#navbar').addClass('fadeIn')
+							$('#navbar').addClass('fadeInDown')
 						} else {
-							if ($('#navbar').hasClass('fadeIn')) {
-								$('#navbar').removeClass('fadeIn')
+							if ($('#navbar').hasClass('fadeInDown')) {
+								$('#navbar').removeClass('fadeInDown')
 								$('#navbar').addClass('fadeOut')
 								setTimeout(function() {
 									$('#navbar').removeClass('fadeOut')
