@@ -84,7 +84,7 @@
   z-index: 2;
 }
 </style>
-<div id="product_list" class="row">
+<div id="product_list" class="row mb-5">
 <?php if ($this->container['sw_offline_cache'] === NULL): ?>
 	<?php if (isset($list)): ?>
 		<?php if(COUNT($list) === 0): ?>
