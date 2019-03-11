@@ -33,6 +33,7 @@
                                   <a href="https://material.io/tools/icons/?style=baseline" target="_blank">
                                     <?php echo lang('L_E_MATERIAL_ICON');?>
                                   </a>
+                                  <small>&#38;&#35;xe[code];</small>
                               </label>
                               <div id="inputMaterialIconEditError" class="input-group border rounded">
                                 <div class="input-group-prepend">
@@ -67,8 +68,8 @@
                                     <div class="input-group-text"><i class="material-icons">&#xe8f4;</i></div>
                                 </div>
                                 <select type="text" id="inputVisibilityEdit" class="form-control" required>
-                                    <option value="0"><?php echo lang('L_E_VISIBILITY_HIDE');?></option>
                                     <option value="1"><?php echo lang('L_E_VISIBILITY_SHOW');?></option>
+                                    <option value="0"><?php echo lang('L_E_VISIBILITY_HIDE');?></option>
                                 </select>
                               </div>
                               <div id="inputVisibilityEditErrorText" class="form-control-feedback text-danger"></div>

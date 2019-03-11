@@ -5,7 +5,7 @@
                       <div class="text-center pt-3">
                         <a onclick="goHome()" data-turbolinks="false">
                             <img class="logo" style="width:60px;height:60px" src="/static/img/android-chrome-192x192.png" alt="logo"/>
-                            <h1 class="text-primary"><?php echo $this->container['app_name'] ?></h1>
+                            <h3 class="text-primary"><?php echo $this->container['app_name'] ?></h3>
                         </a>
                       </div>
                       <div class="row p-2">

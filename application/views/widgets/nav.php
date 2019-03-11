@@ -1,8 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-header-rm d-lg d-xl d-flex justify-content-between font-weight-bold">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-header-rm d-lg d-xl d-flex d-lg-none justify-content-between">
       <button class="navbar-toggler"data-toggle="modal" data-target="#ic-modal" data-placement="top" title="<?php echo lang('H_G_INBOX_CHANNEL') ;?>" style="border:0;">
-        <i class="material-icons text-dark" style="font-size:1.4em;">&#xe311;</i>
+        <i class="material-icons text-dark" style="font-size:1.4em;">&#xe0e1;</i>
       </button>
       <?php if ($this->uri->segment(1) != NULL): ?>
       <!--
@@ -69,11 +69,13 @@
             </div>
           </li>
           <?php endif; ?>
+          <!--
           <?php if($this->container['sw_offline_cache'] === NULL): ?>
           <li class="nav-item<?php echo '/'.$this->uri->uri_string() == '/authentication/ui_login' ? ' active' : ''?>">
             <a class="nav-link<?php echo '/'.$this->uri->uri_string() == '/authentication/ui_login' ? ' text-primary' : ''?>" onclick="navigate('/authentication/ui_login')"><i class="material-icons">&#xe879;</i> <?php echo lang('H_LOGIN');?></a>
           </li>
           <?php endif; ?>
+          -->
           <?php if(APP_REGISTRATION === TRUE && $this->container['sw_offline_cache'] === NULL): ?>
           <li class="nav-item<?php echo '/'.$this->uri->uri_string() == '/authentication/ui_register' ? ' active' : ''?>">
             <a class="nav-link<?php echo '/'.$this->uri->uri_string() == '/authentication/ui_register' ? ' text-primary' : ''?>" onclick="navigate('/authentication/ui_register')"><i class="material-icons">&#xe7fe;</i> <?php echo lang('H_REGISTER');?></a>

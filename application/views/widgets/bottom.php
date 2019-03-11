@@ -107,7 +107,7 @@
 		</div>
 	</div>
 	</div>
-	<button type="button" class="btn btn-dark btn-circle dropup shadow-sm mr-auto ml-3 mb-3 fixed-bottom d-none d-lg-block d-xl-block" data-toggle="modal" data-target="#ic-modal" data-placement="top" title="<?php echo lang('H_G_INBOX_CHANNEL') ;?>" style="z-index:99999!important;"><i class="material-icons mi_fab">&#xe311;</i></button>
+	<button type="button" class="btn btn-dark btn-circle dropup shadow-sm mr-auto ml-3 mb-3 fixed-bottom d-none d-lg-block d-xl-block" data-toggle="modal" data-target="#ic-modal" data-placement="top" title="<?php echo lang('H_G_INBOX_CHANNEL') ;?>" style="z-index:99999!important;"><i class="material-icons mi_fab">&#xe0e1;</i></button>
 	<div id="ic-modal" class="modal fade border-0" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-xl border-0">
 		<div class="modal-content border-0" style="background:transparent!important">

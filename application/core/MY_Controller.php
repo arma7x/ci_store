@@ -13,6 +13,7 @@ class MY_Controller extends CI_Controller {
 		'notification' => 'widgets/common/notification',
 		'spinner' => 'widgets/common/spinner',
 		'nav' => 'widgets/nav',
+		'menu' => 'widgets/menu',
 		'bottom' => 'widgets/bottom',
 	);
 	protected $data = [];
