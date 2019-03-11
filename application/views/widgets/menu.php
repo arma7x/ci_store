@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 
-                <div class="position-fixed bg-light d-none d-lg-block">
+                <div class="bg-light d-none d-lg-block">
                     <div class="bg-light pl-0 pl-lg-5">
                       <div class="text-center pt-3">
                         <a onclick="goHome()" data-turbolinks="false">
@@ -73,4 +73,5 @@
                             <a class="p-3" onclick="logout()"data-turbolinks="false"><i class="material-icons">&#xe879;</i> <?php echo lang('H_LOGOUT');?></a>
                         <?php endif; ?>
                     </div>
+                    <hr class="star-primary" style="margin-top:8px;margin-bottom:25px;">
                 </div>
