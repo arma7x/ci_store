@@ -190,7 +190,9 @@ class Product_Model extends MY_Model {
 		$exist = $this->find_product('slug', $index);
 		if ($exist !== NULL) {
 			$this->remove_product_cache($exist['slug']);
-			return $this->db->delete($this->table, $index);
+			$this->db->delete($this->table, $index);
+			$this->set_spotlight_cache();
+			return TRUE;
 		}
 		return FALSE;
 	}

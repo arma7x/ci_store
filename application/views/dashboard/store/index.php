@@ -153,7 +153,7 @@
 									})
 								</script>
 							</td>
-							<td><?php echo $item['name'] ?></td>
+							<td><strong><?php echo $item['name'] ?></strong></td>
 							<!-- <td><?php echo $item['slug'] ?></td> -->
 							<td><?php echo $this->container['currency_unit'].number_format((float) $item['price'], 2, '.', '') ?></td>
 							<td>
