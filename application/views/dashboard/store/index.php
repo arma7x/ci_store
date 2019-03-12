@@ -214,7 +214,7 @@
 								</form>
 							</td>
 							<td>
-								<b><?php echo lang('L_UPDATED_AT');?></b></br>
+								<b><?php echo lang('L_CREATED_AT');?></b></br>
 								<span id="ca_<?php echo $item['id'] ;?>">
 									<script>parse_date('<?php echo "ca_".$item['id'] ?>', '<?php echo $item['created_at'] ;?>')</script>
 								</span></br>

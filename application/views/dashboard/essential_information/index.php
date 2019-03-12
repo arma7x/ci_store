@@ -19,7 +19,7 @@
 							<th scope="col"><?php echo lang('L_E_SLUG'); ?></th>
 							<th scope="col"><?php echo lang('L_E_ORDERING'); ?> & <?php echo lang('L_E_MATERIAL_ICON'); ?></th>
 							<th scope="col"><?php echo lang('L_E_POSITION'); ?> & <?php echo lang('L_E_VISIBILITY'); ?></th>
-							<th scope="col"><?php echo lang('L_E_BRIEF_DESC'); ?></th>
+							<!-- <th scope="col"><?php echo lang('L_E_BRIEF_DESC'); ?></th>-->
 							<th scope="col"><?php echo lang('L_INFO');?></th>
 							<th scope="col"><?php echo lang('L_ACTION'); ?></th>
 						</tr>
@@ -104,9 +104,9 @@
 									</button>
 								</form>
 							</td>
-							<td><?php echo $item['brief_description'] ;?></td>
+							<!-- <td><?php echo $item['brief_description'] ;?></td> -->
 							<td>
-								<b><?php echo lang('L_UPDATED_AT');?></b></br>
+								<b><?php echo lang('L_CREATED_AT');?></b></br>
 								<span id="ca_<?php echo $item['id'] ;?>">
 									<script>parse_date('<?php echo "ca_".$item['id'] ?>', '<?php echo $item['created_at'] ;?>')</script>
 								</span></br>

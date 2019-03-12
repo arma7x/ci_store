@@ -33,7 +33,7 @@
                                   <a href="https://material.io/tools/icons/?style=baseline" target="_blank">
                                     <?php echo lang('L_E_MATERIAL_ICON');?>
                                   </a>
-                                  <small>&#38;&#35;xe[code];</small>
+                                  <small>&#38;&#35;x[code];</small>
                               </label>
                               <div id="inputMaterialIconEditError" class="input-group border rounded">
                                 <div class="input-group-prepend">

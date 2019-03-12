@@ -11,7 +11,7 @@
                     <?php endforeach ?>
                     </ul>
                     <div class="bg-light">
-                      <div class="text-center pt-3">
+                      <div class="text-center">
                         <a onclick="goHome()" data-turbolinks="false">
                             <img class="logo" style="width:60px;height:60px" src="/static/img/android-chrome-192x192.png" alt="logo"/>
                             <h1 class="text-primary"><?php echo $this->container['app_name'] ?></h1>
