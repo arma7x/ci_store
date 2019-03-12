@@ -95,7 +95,7 @@
 				<ul class="list-inline small">
 				<?php foreach($this->container['sc_link'] as $key => $value): ?>
 					<li class="list-inline-item mb-2">
-						<img id="sc_<?php echo $value['id'] ?>" class="rounded-circle logo icon-footer" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>"/>
+						<img id="btm_sc_<?php echo $value['id'] ?>" class="rounded-circle logo icon-footer" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>"/>
 						<a class="text-primary" target="_blank" href="<?php echo $value['url'] ?>">
 						<?php echo $value['name'] ?>
 						</a>
@@ -165,7 +165,7 @@
 			<script type="text/javascript">
 				var scrolltotop = {
 					setting: {
-						startline: 155,
+						startline: 163,
 						scrollto: 0,
 						scrollduration: 1e3,
 						fadeduration: [500, 100]

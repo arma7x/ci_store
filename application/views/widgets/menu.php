@@ -1,6 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 
-                <div class="bg-light d-none d-lg-block d-xl-block" style="font-size:0.8em!important;">
+                <div class="col col-12 col-lg-10 offset-lg-1 bg-light pt-2 d-none d-lg-block d-xl-block" style="font-size:0.8em!important;">
+                    <ul class="list-inline small">
+                    <?php foreach($this->container['sc_link'] as $key => $value): ?>
+                        <li class="list-inline-item mb-2">
+                            <a class="text-primary" target="_blank" href="<?php echo $value['url'] ?>">
+                            <img id="top_sc_<?php echo $value['id'] ?>" class="rounded-circle logo icon-footer" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>"/>
+                            </a>
+                        </li>
+                    <?php endforeach ?>
+                    </ul>
                     <div class="bg-light pl-0 pl-lg-5">
                       <div class="text-center pt-3">
                         <a onclick="goHome()" data-turbolinks="false">
