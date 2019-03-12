@@ -10,7 +10,7 @@
                         </li>
                     <?php endforeach ?>
                     </ul>
-                    <div class="bg-light pl-0 pl-lg-5">
+                    <div class="bg-light">
                       <div class="text-center pt-3">
                         <a onclick="goHome()" data-turbolinks="false">
                             <img class="logo" style="width:60px;height:60px" src="/static/img/android-chrome-192x192.png" alt="logo"/>
