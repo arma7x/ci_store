@@ -39,6 +39,9 @@
                         }, false);
                     }
                 })
+                function checkLength(src, placeholder) {
+                    $(placeholder).text($(src).val().length)
+                }
             </script>
         </div>
     </main>

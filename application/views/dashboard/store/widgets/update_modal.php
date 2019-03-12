@@ -217,12 +217,15 @@
                 </div>
                 <div class="col col-12">
                     <div class="form-group">
-                      <label for="inputBriefDescriptionEdit" class="sr-only-rm"><?php echo lang('L_E_BRIEF_DESC');?></label>
+                      <label for="inputBriefDescriptionEdit" class="sr-only-rm">
+                          <?php echo lang('L_E_BRIEF_DESC');?>
+                          <small><span id="inputBriefDescriptionEditLength">0</span>/160</small>
+                      </label>
                       <div id="inputBriefDescriptionEditError" class="input-group border rounded">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="material-icons">&#xe261;</i></span>
                         </div>
-                        <textarea rows="4" type="email" id="inputBriefDescriptionEdit" class="form-control" placeholder="<?php echo lang('L_E_BRIEF_DESC');?>" required></textarea>
+                        <textarea rows="4" type="email" id="inputBriefDescriptionEdit" class="form-control" placeholder="<?php echo lang('L_E_BRIEF_DESC');?>" onInput="checkLength('#inputBriefDescriptionEdit', '#inputBriefDescriptionEditLength')" maxlength="160" required></textarea>
                       </div>
                       <div id="inputBriefDescriptionEditErrorText" class="form-control-feedback text-danger"></div>
                     </div>

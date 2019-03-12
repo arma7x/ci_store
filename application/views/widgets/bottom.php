@@ -205,17 +205,19 @@
 						}, this.setting.fadeduration[0]), this.state.isvisible = !0) : 0 == this.state.shouldvisible && this.state.isvisible && (this.$control.stop().animate({
 							opacity: 0
 						}, this.setting.fadeduration[1]), this.state.isvisible = !1)
-						if (this.state.isvisible == true) {
-							$('#navbar').removeClass('d-lg-none d-xl-none')
-							$('#navbar').addClass('fadeInDown')
-						} else {
-							if ($('#navbar').hasClass('fadeInDown')) {
-								$('#navbar').removeClass('fadeInDown')
-								$('#navbar').addClass('fadeOut')
-								setTimeout(function() {
-									$('#navbar').removeClass('fadeOut')
-									$('#navbar').addClass('d-lg-none d-xl-none')
-								}, 500)
+						if (window.screen.availWidth >= 992) {
+							if (this.state.isvisible == true) {
+								$('#navbar').removeClass('d-lg-none d-xl-none')
+								$('#navbar').addClass('fadeInDown')
+							} else {
+								if ($('#navbar').hasClass('fadeInDown')) {
+									$('#navbar').removeClass('fadeInDown')
+									$('#navbar').addClass('fadeOut')
+									setTimeout(function() {
+										$('#navbar').removeClass('fadeOut')
+										$('#navbar').addClass('d-lg-none d-xl-none')
+									}, 500)
+								}
 							}
 						}
 					},

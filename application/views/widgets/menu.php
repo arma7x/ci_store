@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 
-                <div class="bg-light d-none d-lg-block">
+                <div class="bg-light d-none d-lg-block d-xl-block" style="font-size:0.8em!important;">
                     <div class="bg-light pl-0 pl-lg-5">
                       <div class="text-center pt-3">
                         <a onclick="goHome()" data-turbolinks="false">

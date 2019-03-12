@@ -106,12 +106,15 @@
                 </div>
                 <div class="col col-12">
                     <div class="form-group">
-                      <label for="inputBriefDescription" class="sr-only-rm"><?php echo lang('L_E_BRIEF_DESC');?></label>
+                      <label for="inputBriefDescription" class="sr-only-rm">
+                          <?php echo lang('L_E_BRIEF_DESC');?>
+                          <small><span id="inputBriefDescriptionLength">0</span>/160</small>
+                      </label>
                       <div id="inputBriefDescriptionError" class="input-group border rounded">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="material-icons">&#xe261;</i></span>
                         </div>
-                        <textarea rows="4" type="email" id="inputBriefDescription" class="form-control" placeholder="<?php echo lang('L_E_BRIEF_DESC');?>" required></textarea>
+                        <textarea rows="4" type="email" id="inputBriefDescription" class="form-control" placeholder="<?php echo lang('L_E_BRIEF_DESC');?>" onInput="checkLength('#inputBriefDescription', '#inputBriefDescriptionLength')" maxlength="160" required></textarea>
                       </div>
                       <div id="inputBriefDescriptionErrorText" class="form-control-feedback text-danger"></div>
                     </div>

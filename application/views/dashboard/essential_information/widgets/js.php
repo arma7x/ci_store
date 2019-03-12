@@ -30,6 +30,7 @@ function findEI(id) {
             $('#inputMaterialIconEdit').attr('value', data.material_icon)
             $('#edit_mi').html(data.material_icon).text()
             $('#inputBriefDescriptionEdit').text(data.brief_description)
+            $('#inputBriefDescriptionEditLength').text(data.brief_description.length)
             $('#inputFullDescriptionEdit').trumbowyg('html', data.full_description);
             $('#updateModal').modal('show')
         }

@@ -42,6 +42,7 @@ function findProduct(id) {
                 }
             }
             $('#inputBriefDescriptionEdit').text(data.product.brief_description)
+            $('#inputBriefDescriptionEditLength').text(data.product.brief_description.length)
             $('#inputFullDescriptionEdit').trumbowyg('html', data.product.full_description);
             $('#updateModal').modal('show')
         }

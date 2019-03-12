@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-header-rm d-lg-none d-xl-none justify-content-between animated ">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-header-rm d-lg-none d-xl-none justify-content-between animated">
       <button class="navbar-toggler"data-toggle="modal" data-target="#ic-modal" data-placement="top" title="<?php echo lang('H_G_INBOX_CHANNEL') ;?>" style="border:0;">
         <i class="material-icons text-dark" style="font-size:1.4em;">&#xe0e1;</i>
       </button>
@@ -22,7 +22,7 @@
         <i id="navmenu_icon" class="material-icons text-dark" style="font-size:1.4em;">menu</i>
       </button>
       <div class="collapse navbar-collapse" id="navCollapsed">
-        <ul class="navbar-nav ml-auto text-uppercase">
+        <ul class="navbar-nav ml-auto text-uppercase" style="font-size:0.8em!important;">
           <?php if ($this->uri->segment(1) != NULL): ?>
           <!--
           <li class="nav-item">

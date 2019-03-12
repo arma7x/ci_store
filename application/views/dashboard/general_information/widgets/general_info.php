@@ -62,12 +62,15 @@
         <div class="col col-12 col-sm-6">
             
             <div class="form-group">
-              <label for="inputDescription" class="sr-only-rm"><?php echo lang('L_G_DESCRIPTION');?></label>
+              <label for="inputDescription" class="sr-only-rm">
+                <?php echo lang('L_G_DESCRIPTION');?>
+                <small><span id="inputDescriptionLength"><?php echo isset($gi_item['description']) ? strlen($gi_item['description']) : '0' ?></span>/160</small>
+              </label>
               <div id="inputDescriptionError" class="input-group border rounded">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="material-icons">&#xe873;</i></span>
                 </div>
-                <textarea rows="5" type="text" id="inputDescription" class="form-control" placeholder="<?php echo lang('L_G_DESCRIPTION');?>" required><?php echo isset($gi_item['description']) ? $gi_item['description'] : '' ?></textarea>
+                <textarea rows="5" type="text" id="inputDescription" class="form-control" placeholder="<?php echo lang('L_G_DESCRIPTION');?>" onInput="checkLength('#inputDescription', '#inputDescriptionLength')" maxlength="160" required><?php echo isset($gi_item['description']) ? $gi_item['description'] : '' ?></textarea>
               </div>
               <div id="inputDescriptionErrorText" class="form-control-feedback text-danger"></div>
             </div>
