@@ -198,7 +198,7 @@ $lang['M_FAIL_DELETE_CATEGORY'] = 'Gagal menhapuskan kategori.';
 $lang['BTN_ADD_CATEGORY'] = 'Tambah Kategori';
 $lang['BTN_UPDATE_CATEGORY'] = 'Sunting Kategori';
 
-$lang['H_STORE'] = 'Kedai';
+$lang['H_STORE'] = 'Katalog';
 $lang['L_P_NAME'] = 'Nama';
 $lang['L_P_SLUG'] = 'Slug';
 $lang['L_P_PRICE'] = 'Harga';

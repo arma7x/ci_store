@@ -35,7 +35,6 @@
   top: 20%;
   left: 10%;
   text-align: left;
-  font-size: 1.5em;
 }
 
 .img-container .price {
@@ -45,7 +44,6 @@
   top: 7.5%;
   left: 10%;
   text-align: left;
-  font-size: 0.9em;
 }
 
 .img-container .stock {
