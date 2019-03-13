@@ -24,11 +24,9 @@
       <div class="collapse navbar-collapse" id="navCollapsed">
         <ul class="navbar-nav ml-auto text-uppercase" style="font-size:0.8em!important;">
           <?php if ($this->uri->segment(1) != NULL): ?>
-          <!--
           <li class="nav-item">
             <a onclick="goHome()" class="nav-link d-none d-md-block" data-turbolinks="false"><i class="material-icons">home</i> <?php echo lang('H_HOMEPAGE');?></a>
           </li>
-          -->
           <li class="nav-item">
             <a onclick="goBack()" class="nav-link d-none d-md-block" data-turbolinks="false"><i class="material-icons">arrow_back</i> <?php echo lang('H_BACK');?></a>
           </li>

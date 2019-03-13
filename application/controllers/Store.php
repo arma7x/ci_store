@@ -45,7 +45,7 @@ class Store extends MY_Controller {
 		$filters['visibility'] = '1';
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_HOMEPAGE');
 		$this->data['page_name'] = str_replace('%s', $this->container['app_name'], lang('H_WELCOME'));
-		$this->data['list'] = $this->PM->get_product_list($this->PM::PUBLIC_SEARCH_FIELD, $this->PM::PUBLIC_SEARCH_FIELD_JOIN, $category, $filters, $order_by, current_url(), 9, (int) $this->input->get('page'), TRUE);
+		$this->data['list'] = $this->PM->get_product_list($this->PM::PUBLIC_SEARCH_FIELD, $this->PM::PUBLIC_SEARCH_FIELD_JOIN, $category, $filters, $order_by, current_url(), 12, (int) $this->input->get('page'), TRUE);
 		$this->data['cat_link'] = $this->Category->get_all_cache();
 		$this->widgets['category_nav'] = 'widgets/category_nav';
 		$this->widgets['products'] = 'store/widgets/list';

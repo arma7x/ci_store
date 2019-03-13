@@ -20,6 +20,10 @@
                     </div>
                     
                     <div class="d-flex justify-content-center bg-light text-uppercase">
+                        <?php if ($this->uri->segment(1) != NULL): ?>
+                        <a onclick="goHome()" class="p-3" data-turbolinks="false"><i class="material-icons">home</i> <?php echo lang('H_HOMEPAGE');?></a>
+                        <a onclick="goBack()" class="p-3" data-turbolinks="false"><i class="material-icons">arrow_back</i> <?php echo lang('H_BACK');?></a>
+                        <?php endif; ?>
                         <?php if ($this->container['sw_offline_cache'] !== NULL): ?>
                         <a class="p-3 text-danger"><i class="material-icons">&#xe0ce;</i> <?php echo lang('H_Offline') ?></a>
                         <?php endif ?>
