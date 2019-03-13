@@ -5,8 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $DATABASE_URL = getenv('DATABASE_URL');
 $ENCRYPTION_KEY = getenv('ENCRYPTION_KEY');
 $EMAIL_URL = getenv('EMAIL_URL');
-$APP_NAME = 'CI Store';
-$APP_URL = 'https://turboci.herokuapp.com/';
+$APP_NAME = 'Lite Store';
+$APP_URL = 'https://pwalitestore.herokuapp.com/';
 $APP_ADMIN_EMAIL = 'zeon_msi@yahoo.com';
 $ENABLE_REGISTRATION = FALSE;
 // CONFIG END HERE
