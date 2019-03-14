@@ -16,6 +16,11 @@
                                 case 'activated':
                                     alert("<?php echo lang('M_SUCCESS_INSTALL_CACHE') ?>");
                                     console.log('Service worker was activated');
+                                    for(var i in window.localStorage) {
+                                        if (window.localStorage.getItem(i) != null) {
+                                            window.localStorage.removeItem(i)
+                                        }
+                                    }
                                     document.location.reload();
                                     break;
                                 case 'redundant':
