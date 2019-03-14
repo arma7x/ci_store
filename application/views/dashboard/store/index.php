@@ -127,7 +127,7 @@
 		</div>
 		<div class="row">
 			<div class="table-responsive">
-				<table class="table table-sm table-bordered">
+				<table class="table table-sm table-bordered table-striped">
 					<thead>
 						<tr>
 							<th scope="col"><?php echo lang('L_ID'); ?></th>

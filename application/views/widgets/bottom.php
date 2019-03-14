@@ -95,14 +95,13 @@
 				<ul class="list-inline small">
 				<?php foreach($this->container['sc_link'] as $key => $value): ?>
 					<li class="list-inline-item mb-2">
-						<img id="btm_sc_<?php echo $value['id'] ?>" class="rounded-circle logo icon-footer" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>"/>
+						<img id="btm_sc_<?php echo $value['id'] ?>" class="rounded-circle logo icon-footer" src="<?php echo $value['icon'] ?>" alt="<?php echo $value['name'] ?>"/>
 						<a class="text-primary" target="_blank" href="<?php echo $value['url'] ?>">
 						<?php echo $value['name'] ?>
 						</a>
 					</li>
 				<?php endforeach ?>
 				</ul>
-				<script src="/src/sc.js" type="text/javascript" async></script>
 			</div>
 		</div>
 	</div>
@@ -116,7 +115,7 @@
 			<?php foreach($this->container['ic_link'] as $key => $value): ?>
 				<li class="list-inline-item mb-2">
 					<a target="_blank" href="<?php echo str_replace('%param', 'Hi', $value['url']) ?>">
-						<img id="ic_<?php echo $value['id'] ?>" class="btn-circle shadow-sm" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $value['name'] ?>"/>
+						<img id="ic_<?php echo $value['id'] ?>" class="btn-circle shadow-sm" src="<?php echo $value['icon'] ?>" alt="<?php echo $value['name'] ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $value['name'] ?>"/>
 					</a>
 				</li>
 			<?php endforeach ?>
@@ -161,7 +160,6 @@
 				<?php endif ?>
 				<?php endif ?>
 			</ul>
-			<script src="/src/ic.js" type="text/javascript" async></script>
 			<script type="text/javascript">
 				var scrolltotop = {
 					setting: {

@@ -5,7 +5,7 @@
                     <?php foreach($this->container['sc_link'] as $key => $value): ?>
                         <li class="list-inline-item mb-2">
                             <a class="text-primary" target="_blank" href="<?php echo $value['url'] ?>">
-                            <img id="top_sc_<?php echo $value['id'] ?>" class="rounded-circle logo icon-footer" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>"/>
+                            <img id="top_sc_<?php echo $value['id'] ?>" class="rounded-circle logo icon-footer" src="<?php echo $value['icon'] ?>" alt="<?php echo $value['name'] ?>"/>
                             </a>
                         </li>
                     <?php endforeach ?>

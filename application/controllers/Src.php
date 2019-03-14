@@ -45,24 +45,4 @@ class Src extends MY_Controller {
 		$this->_renderJSON();
 	}
 
-	public function user() {
-		$this->_renderJS(array('src/js/user.js'));
-	}
-
-	public function sc() {
-		$this->output->set_header('Sw-Offline-Cache: true');
-		$this->_renderJS(array('src/js/sc.js'));
-	}
-
-	public function ic() {
-		$this->output->set_header('Sw-Offline-Cache: true');
-		$this->_renderJS(array('src/js/ic.js'));
-	}
-
-	public function category() {
-		$this->load->model('Category_Model', 'Category');
-		$this->output->set_header('Sw-Offline-Cache: true');
-		$this->_renderJS(array('src/js/category.js'));
-	}
-
 }

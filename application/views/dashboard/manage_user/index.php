@@ -55,7 +55,7 @@
 	</div>
 	<div class="row">
 		<div class="table-responsive">
-			<table id="token_list" class="table table-sm table-bordered">
+			<table id="token_list" class="table table-sm table-bordered table-striped">
 				<thead>
 					<tr>
 						<th scope="col">ID</th>

@@ -7,7 +7,7 @@
 			  <?php echo lang('BTN_ADD_INBOX_CHANNEL') ?>
 			</button>
 			<div class="table-responsive">
-				<table class="table table-sm table-bordered">
+				<table class="table table-sm table-bordered table-striped">
 					<thead>
 						<tr>
 							<!-- <th scope="col"><?php echo lang('L_ID'); ?></th> -->
