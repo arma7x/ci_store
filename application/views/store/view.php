@@ -85,7 +85,7 @@
 			<?php foreach($this->container['ic_link'] as $key => $value): ?>
 				<li class="list-inline-item">
 					<a target="_blank" href="<?php echo str_replace('%param', $product['id'].' - '.$product['name'], $value['url']) ?>">
-						<img id="pm_ic_<?php echo $value['id'] ?>" class="btn-circle shadow-sm" src="/static/img/favicon-32x32.png" alt="<?php echo $value['name'] ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $value['name'] ?>" style="width:30px;height:30px"/>
+						<img id="pm_ic_<?php echo $value['id'] ?>" class="btn-circle shadow-sm" src="<?php echo $value['icon'] ?>" alt="<?php echo $value['name'] ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $value['name'] ?>" style="width:30px;height:30px"/>
 					</a>
 				</li>
 			<?php endforeach ?>
