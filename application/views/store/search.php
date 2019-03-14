@@ -41,7 +41,7 @@
 		border-bottom-right-radius: 0;
 	}
 </style>
-<div class="row starter-template mb-0 pb-0">
+<div class="row starter-template mb-0 pb-0 bg-light">
 	<div class="col col-12 px-0 p-md-2" style="padding:0!important;">
 		<form class="form-inline text-md-right pt-2">
 
@@ -126,7 +126,7 @@
 	<div class="col col-12 py-2 p-md-2">
 		<?php echo isset($products) ? $products : NULL ?>
 		<div class="row">
-			<div class="col col-12 px-0 py-2 p-md-2">
+			<div class="col col-12 px-0 py-2 p-md-2 bg-light">
 				<nav aria-label="navigation">
 					<?php echo $this->pagination->create_links(); ?>
 				</nav>
