@@ -64,7 +64,10 @@
 		</div>
 	</div>
 	<div class="col col-12 col-md-6 p-1 pt-0 px-md-4">
-		<h4 class="text-primary font-weight-bold"><?php echo $this->container['currency_unit'].number_format((float) $product['price'], 2, '.', '') ?></h4>
+		<h4 class="font-weight-bold">
+			<span class="text-primary">#<?php echo $product['id'] ?></span> /
+			<span class="text-primary"><?php echo $this->container['currency_unit'].number_format((float) $product['price'], 2, '.', '') ?></span>
+		</h4>
 		<h2 class="my-3 font-weight-bold"><?php echo $product['name'] ?></h2>
 		<div class="row mb-3">
 			<?php if($product['availability'] === '1'): ?>
