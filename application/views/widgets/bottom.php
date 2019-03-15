@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 
-<div class="bg-light">
+<div class="bg-white">
 	<style>
 		.btn-circle {
 			width:50px;

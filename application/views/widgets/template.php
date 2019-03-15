@@ -82,7 +82,7 @@
         </div>
     </main>
     <?php echo isset($spinner) ? $spinner : null ?>
-    <footer class="footer bg-light border-top border-primary">
+    <footer class="footer bg-white border-top border-primary">
       <?php echo isset($bottom) ? $bottom : null ?>
       <div class="container text-md-right small text-muted">
         <!--
