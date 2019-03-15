@@ -1,15 +1,28 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 
                 <div class="col col-12 col-lg-10 offset-lg-1 bg-light pt-2 d-none d-lg-block d-xl-block" style="font-size:0.8em!important;">
-                    <ul class="list-inline small">
-                    <?php foreach($this->container['sc_link'] as $key => $value): ?>
-                        <li class="list-inline-item mb-2">
-                            <a class="text-primary" target="_blank" href="<?php echo $value['url'] ?>">
-                            <img id="top_sc_<?php echo $value['id'] ?>" class="rounded-circle logo icon-footer" src="<?php echo $value['icon'] ?>" alt="<?php echo $value['name'] ?>"/>
-                            </a>
-                        </li>
-                    <?php endforeach ?>
-                    </ul>
+                    <div class="row bg-light mx-2">
+                            <div>
+                            <ul class="list-inline small">
+                            <?php foreach($this->container['sc_link'] as $key => $value): ?>
+                                <li class="list-inline-item mb-2">
+                                    <a class="text-primary" target="_blank" href="<?php echo $value['url'] ?>">
+                                    <img id="top_sc_<?php echo $value['id'] ?>" class="rounded-circle logo icon-footer" src="<?php echo $value['icon'] ?>" alt="<?php echo $value['name'] ?>"/>
+                                    </a>
+                                </li>
+                            <?php endforeach ?>
+                            </ul>
+                            </div>
+                            <div>
+                                <?php if ($this->uri->segment(1) != NULL): ?>
+                                <a onclick="goHome()" class="p-3" data-turbolinks="false"><i class="material-icons">home</i> <?php echo lang('H_HOMEPAGE');?></a>
+                                <a onclick="goBack()" class="p-3" data-turbolinks="false"><i class="material-icons">arrow_back</i> <?php echo lang('H_BACK');?></a>
+                                <?php endif; ?>
+                                <?php if ($this->container['sw_offline_cache'] !== NULL): ?>
+                                <a class="p-3 text-danger"><i class="material-icons">&#xe0ce;</i> <?php echo lang('H_Offline') ?></a>
+                                <?php endif ?>
+                            </div>
+                    </div>
                     <div class="bg-light">
                       <div class="text-center">
                         <a onclick="goHome()" data-turbolinks="false">
@@ -20,13 +33,6 @@
                     </div>
                     
                     <div class="d-flex justify-content-center bg-light text-uppercase">
-                        <?php if ($this->uri->segment(1) != NULL): ?>
-                        <a onclick="goHome()" class="p-3" data-turbolinks="false"><i class="material-icons">home</i> <?php echo lang('H_HOMEPAGE');?></a>
-                        <a onclick="goBack()" class="p-3" data-turbolinks="false"><i class="material-icons">arrow_back</i> <?php echo lang('H_BACK');?></a>
-                        <?php endif; ?>
-                        <?php if ($this->container['sw_offline_cache'] !== NULL): ?>
-                        <a class="p-3 text-danger"><i class="material-icons">&#xe0ce;</i> <?php echo lang('H_Offline') ?></a>
-                        <?php endif ?>
                         <?php if ($this->container['sw_offline_cache'] === NULL): ?>
                         <a class="p-3<?php echo $this->uri->segment(1) == 'store' ? ' text-primary active' : ''?>" onclick="navigate('/store')"><i class="material-icons text-primary">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
                         <?php endif ?>
