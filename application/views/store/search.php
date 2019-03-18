@@ -45,14 +45,14 @@
 	<div class="col col-12 px-0 p-md-2" style="padding:0!important;">
 		<form class="form-inline text-md-right mt-2">
 
-			<div class="input-group rounded-0 col col-12 col-md-3 mx-0 px-0 pr-md-1 mb-md-0">
+			<div class="input-group rounded-0 col col-12 col-md-3 mx-0 px-0 pr-md-1 mb-1 mb-md-0">
 				<div class="input-group-prepend">
 				  <div class="bg-light input-group-text rounded-0 border-0"><i class="material-icons">&#xe264;</i></div>
 				</div>
 				<input id="search_keyword" type="text" class="bg-light form-control form-control-sm rounded-0 border-0 no-border" id="inlineFormInputGroupUsername2" placeholder="<?php echo lang('L_P_S_KEYWORD') ?>">
 			</div>
 
-			<div class="input-group rounded-0 col col-12 col-md-3 mx-0 px-0 pr-md-1 mb-md-0">
+			<div class="input-group rounded-0 col col-12 col-md-3 mx-0 px-0 pr-md-1 mb-1 mb-md-0">
 				<div class="input-group-prepend">
 					<div class="bg-light input-group-text rounded-0 border-0"><i class="material-icons">&#xe54e;</i></div>
 				</div>
@@ -66,7 +66,7 @@
 				</select>
 			</div>
 
-			<div class="input-group rounded-0 col col-12 col-md-3 mx-0 px-0 pr-md-1 mb-md-0">
+			<div class="input-group rounded-0 col col-12 col-md-3 mx-0 px-0 pr-md-1 mb-1 mb-md-0">
 				<div class="input-group-prepend">
 					<div class="bg-light input-group-text rounded-0 border-0"><i class="material-icons">&#xe838;</i></div>
 				</div>
@@ -77,7 +77,7 @@
 				</select>
 			</div>
 
-			<div class="input-group rounded-0 col col-12 col-md-2 mx-0 px-0 pr-md-1 mb-md-0">
+			<div class="input-group rounded-0 col col-12 col-md-2 mx-0 px-0 pr-md-1 mb-1 mb-md-0">
 				<div class="input-group-prepend">
 					<div class="bg-light input-group-text rounded-0 border-0"><i class="material-icons">&#xe242;</i></div>
 				</div>
