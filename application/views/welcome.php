@@ -3,7 +3,7 @@
 <div class="row starter-template mx-2 pb-2">
 	<div class="col col-12 px-0 px-md-2">
 		<form class="row form-inline">
-			<div class="input-group">
+			<div class="input-group mb-1 mb-md-0">
 				<div class="input-group-prepend">
 				  <div class="input-group-text rounded-0 border-0 bg-light"><i class="material-icons">&#xe264;</i></div>
 				</div>
