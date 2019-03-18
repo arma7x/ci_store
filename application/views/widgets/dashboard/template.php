@@ -46,7 +46,7 @@
         </div>
     </main>
     <?php echo isset($spinner) ? $spinner : null ?>
-    <footer class="footer bg-light border-top border-primary">
+    <footer class="footer border-top border-primary">
       <div class="container text-md-right small text-muted">
         <div class="col col-12 col-lg-10 offset-lg-2">
         <!--

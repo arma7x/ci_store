@@ -3,13 +3,13 @@
 <div class="row starter-template mx-2 pb-2">
 	<div class="col col-12 px-0 px-md-2">
 		<form class="row form-inline">
-			<div class="input-group p-1 pr-0 bg-white">
+			<div class="input-group">
 				<div class="input-group-prepend">
-				  <div class="input-group-text rounded-0 border-0 bg-white"><i class="material-icons">&#xe264;</i></div>
+				  <div class="input-group-text rounded-0 border-0 bg-light"><i class="material-icons">&#xe264;</i></div>
 				</div>
-				<input id="search_keyword" type="text" class="form-control form-control-sm rounded-0 border-0 bg-white no-border" id="inlineFormInputGroupUsername2" placeholder="<?php echo lang('L_P_S_KEYWORD') ?>">
+				<input id="search_keyword" type="text" class="form-control form-control-sm rounded-0 border-0 bg-light no-border" id="inlineFormInputGroupUsername2" placeholder="<?php echo lang('L_P_S_KEYWORD') ?>">
 			</div>
-			<div class="input-group p-1 pl-0 bg-white">
+			<div class="input-group">
 				<button type="submit" class="btn btn-sm btn-primary rounded-0 btn-block" onClick="searchStore()">
 					<i class="material-icons">&#xe8b6;</i>
 				</button>

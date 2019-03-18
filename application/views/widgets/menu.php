@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 
-                <div class="col col-12 col-lg-10 offset-lg-1 bg-light pt-2 d-none d-lg-block d-xl-block" style="font-size:0.8em!important;">
-                    <div class="row bg-light  mx-2 d-flex justify-content-between">
+                <div class="col col-12 col-lg-10 offset-lg-1 pt-2 d-none d-lg-block d-xl-block" style="font-size:0.8em!important;">
+                    <div class="row  mx-2 d-flex justify-content-between">
                         <ul class="list-inline small">
                         <?php foreach($this->container['sc_link'] as $key => $value): ?>
                             <li class="list-inline-item mb-2">
@@ -21,7 +21,7 @@
                             <?php endif ?>
                         </div>
                     </div>
-                    <div class="bg-light">
+                    <div class="bg-white">
                       <div class="text-center">
                         <a onclick="goHome()" data-turbolinks="false">
                             <img class="logo" style="width:60px;height:60px" src="/static/img/android-chrome-192x192.png" alt="logo"/>
@@ -30,7 +30,7 @@
                       </div>
                     </div>
                     
-                    <div class="d-flex justify-content-center bg-light text-uppercase">
+                    <div class="d-flex justify-content-center text-uppercase">
                         <?php if ($this->container['sw_offline_cache'] === NULL): ?>
                         <a class="p-3<?php echo $this->uri->segment(1) == 'store' ? ' text-primary active' : ''?>" onclick="navigate('/store')"><i class="material-icons text-primary">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
                         <?php endif ?>

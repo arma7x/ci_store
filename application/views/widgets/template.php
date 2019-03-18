@@ -66,7 +66,7 @@
         }
     </style>
     <?php echo isset($nav) ? $nav : null ?>
-    <main id="main" class="col bg-light pt-5 pt-lg-0" role="main">
+    <main id="main" class="col pt-5 pt-lg-0" role="main">
         <?php if($this->container['user'] !== NULL): ?>
         <input id="upload-avatar" class="sr-only" type="file" accept="image/*" onChange="resizePicture('upload-avatar', null, 100, 100, .50, 'image/webp', uploadAvatar, null)"/>
         <?php endif; ?>
@@ -82,7 +82,7 @@
         </div>
     </main>
     <?php echo isset($spinner) ? $spinner : null ?>
-    <footer class="footer bg-white border-top border-primary">
+    <footer class="footer border-top border-primary">
       <?php echo isset($bottom) ? $bottom : null ?>
       <div class="container text-md-right small text-muted">
         <!--
