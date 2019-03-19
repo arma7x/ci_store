@@ -35,7 +35,7 @@
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/category' ? ' active' : ''?>" onclick="navigate('/dashboard/category')"><i class="material-icons">&#xe54e;</i> <?php echo lang('H_CATEGORY');?></a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/store' ? ' active' : ''?>" onclick="navigate('/dashboard/store')"><i class="material-icons">&#xe41d;</i> <?php echo lang('H_STORE') ?></a>
+                      <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/store' ? ' active' : ''?>" onclick="navigate('/dashboard/store')"><i class="material-icons">&#xe8c9;</i> <?php echo lang('H_STORE') ?></a>
                       <div class="dropdown-divider d-lg-none"></div>
                       <div class="dropdown-item p-0 d-lg-none">
                         <div id="headingLang" class="p-2" data-toggle="collapse" data-target="#collapseLang" aria-expanded="false" aria-controls="collapseLang">
