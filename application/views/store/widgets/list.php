@@ -11,6 +11,7 @@
   height: auto;
   opacity: 1;
   transition: .5s ease;
+  padding: 10px;
 }
 
 .overlay {
@@ -69,7 +70,7 @@
 }
 
 .img-container:hover .img {
-  opacity: 0.5;
+  padding: 0;
   
 }
 
