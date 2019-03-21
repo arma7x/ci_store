@@ -10,10 +10,10 @@ Additional Setup
 - `Production Config <https://github.com/arma7x/ci_store/blob/master/application/config/production/config.php#L4-L9>`_
 - `Demo Website <https://pwalitestore.herokuapp.com/>`_
 
-- Email: ahmadmuhamad101@gmail.com(moderator)
+- Email: ahmadmuhamad101@gmail.com (moderator)
 - Password: aaaaaaaaaa
 
-- Email: zeon_msi@yahoo.com(admin)
+- Email: zeon_msi@yahoo.com (admin)
 - Password: aaaaaaaaaa
 
 *******************
