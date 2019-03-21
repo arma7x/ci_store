@@ -66,7 +66,7 @@
 }
 
 .img-container:hover .overlay {
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .img-container:hover .img {
