@@ -1,4 +1,3 @@
-
 ## CI STORE
 Simple product catalog built with Codeigniter 3
 
