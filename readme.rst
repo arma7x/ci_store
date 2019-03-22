@@ -1,5 +1,6 @@
 
 ## CI STORE
+Simple product catalog built with Codeigniter 3
 
 *******************
 ### Additional Setup 
@@ -9,6 +10,7 @@
 - `Demo Website <https://pwalitestore.herokuapp.com/>`_
 
 *******************
+### Demo Users
 
 ##### Admin
 - Email: zeon_msi@yahoo.com
@@ -28,7 +30,7 @@ It should work on 5.3.7 as well, but we strongly advise you NOT to run
 such old versions of PHP, because of potential security and performance
 issues, as well as missing features.
 
-**DO NOT USED PHP BUILT IN SERVER**
+**DO NOT USED PHP BUILT IN WEBSERVER**
 
 ************
 Installation
