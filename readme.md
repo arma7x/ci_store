@@ -2,6 +2,7 @@
 Simple product catalog built with Codeigniter 3
 
 *******************
+
 ### Additional Setup 
 
 - `Development Config <https://github.com/arma7x/ci_store/blob/master/application/config/development/config.php#L4-L9>`_
@@ -9,6 +10,7 @@ Simple product catalog built with Codeigniter 3
 - `Demo Website <https://pwalitestore.herokuapp.com/>`_
 
 *******************
+
 ### Demo Users
 
 ##### Admin
@@ -21,7 +23,7 @@ Simple product catalog built with Codeigniter 3
 
 *******************
 
-Server Requirements
+### Server Requirements
 
 PHP version 5.6 or newer is recommended.
 
@@ -32,7 +34,8 @@ issues, as well as missing features.
 **DO NOT USED PHP BUILT IN WEBSERVER**
 
 ************
-Installation
+
+### Installation
 
 Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
 of the CodeIgniter User Guide.
