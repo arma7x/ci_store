@@ -13,6 +13,8 @@ Simple product catalog built with Codeigniter 3
 
 ### Demo Users
 
+https://pwalitestore.herokuapp.com/authentication/ui_login
+
 ##### Admin
 - Email: zeon_msi@yahoo.com
 - Password: aaaaaaaaaa
