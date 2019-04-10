@@ -142,7 +142,7 @@
 						</tr>
 					</thead>
 					<tbody class="small">
-						<?php foreach($list as $index => $item): ?>
+						<?php foreach($list['result'] as $index => $item): ?>
 						<tr>
 							<td class="text-center">
 								<strong><?php echo $item['id'] ?></strong><br>

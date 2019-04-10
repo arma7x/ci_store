@@ -60,13 +60,13 @@ class Essential_Information_Model extends MY_Model {
 
 	public function get_paginate($base_url, $per_page, $page_num, $num_links) {
 		$total_rows = $this->get_total_row();
-		$skip = $this->paginate($base_url, $per_page, $page_num, $num_links, $total_rows);
+		$skip = $this->skip($per_page, $page_num);
 		$select = '*';
 		$this->db->select($select);
 		$this->db->limit($per_page, $skip);
 		$this->db->order_by('ordering', 'ASC');
 		$result = $this->db->get($this->table)->result_array();
-		return $result;
+		return $this->generate($result, $base_url, $per_page, $page_num, $total_rows, $skip, $num_links);
 	}
 
 	public function find_information($select, $index) {

@@ -61,13 +61,13 @@ class Category extends MY_Controller {
 				$data = array(
 					'message' => lang('M_SUCCESS_ADD_CATEGORY'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_ADD_CATEGORY')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_ADD_CATEGORY')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
 					'message' => lang('M_FAIL_ADD_CATEGORY'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_ADD_CATEGORY')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_ADD_CATEGORY')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -100,13 +100,13 @@ class Category extends MY_Controller {
 				$data = array(
 					'message' => lang('M_SUCCESS_UPDATE_CATEGORY'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_CATEGORY')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_CATEGORY')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
 					'message' => lang('M_FAIL_UPDATE_CATEGORY'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_CATEGORY')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_CATEGORY')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -140,13 +140,13 @@ class Category extends MY_Controller {
 				$data = array(
 					'message' => lang('M_SUCCESS_UPDATE_CATEGORY'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_CATEGORY')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_CATEGORY')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
 					'message' => lang('M_FAIL_UPDATE_CATEGORY'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_CATEGORY')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_CATEGORY')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -173,13 +173,13 @@ class Category extends MY_Controller {
 				$data = array(
 					'message' => lang('M_SUCCESS_DELETE_CATEGORY'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_DELETE_CATEGORY')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_DELETE_CATEGORY')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
 					'message' => lang('M_FAIL_DELETE_CATEGORY'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_DELETE_CATEGORY')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_DELETE_CATEGORY')));
 				$this->_renderJSON(400, $data);
 			}
 		}

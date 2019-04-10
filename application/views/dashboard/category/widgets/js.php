@@ -77,7 +77,7 @@ function addCategory() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -138,7 +138,7 @@ function updateCategory() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -195,7 +195,7 @@ function updateOrderCategory(id, name) {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -237,7 +237,7 @@ function deleteCategory(id, name) {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {

@@ -61,7 +61,7 @@ class Product_Model extends MY_Model {
 	public function get_product_list($select, $select_join, $category, $filter, $order, $base_url, $per_page, $page_num, $num_links) {
 		if($category === NULL) {
 			$total_rows = $this->get_total_row($category, $filter);
-			$skip = $this->paginate($base_url, $per_page, $page_num, $num_links, $total_rows);
+			$skip = $this->skip($per_page, $page_num);;
 			$this->db->select($select);
 			foreach($filter as $index => $value) {
 				if ($value !== NULL) {
@@ -81,12 +81,12 @@ class Product_Model extends MY_Model {
 			$this->db->limit($per_page, $skip);
 			$this->db->order_by($order['order_by'], $order['sort']);
 			$result = $this->db->get($this->table)->result_array();
-			return $result;
+			return $this->generate($result, $base_url, $per_page, $page_num, $total_rows, $skip, $num_links);
 		} else {
 			$this->load->model('Product_Category_Model', 'PCM');
 			$this->load->model('Category_Model', 'Category');
 			$total_rows = $this->get_total_row($category, $filter);
-			$skip = $this->paginate($base_url, $per_page, $page_num, $num_links, $total_rows);
+			$skip = $this->skip($per_page, $page_num);;
 			$this->db->select($select_join);
 			foreach($filter as $index => $value) {
 				if ($value !== NULL) {
@@ -111,7 +111,7 @@ class Product_Model extends MY_Model {
 			$this->db->limit($per_page, $skip);
 			$this->db->order_by($this->table.'.'.$order['order_by'], $order['sort']);
 			$result = $this->db->get($this->PCM->table)->result_array();
-			return $result;
+			return $this->generate($result, $base_url, $per_page, $page_num, $total_rows, $skip, $num_links);
 		}
 	}
 

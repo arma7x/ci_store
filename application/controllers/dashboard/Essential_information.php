@@ -80,13 +80,13 @@ class Essential_information extends MY_Controller {
 				$data = array(
 					'message' => lang('M_SUCCESS_ADD_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_ADD_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_ADD_E_INFORMATION')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
 					'message' => lang('M_FAIL_ADD_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_ADD_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_ADD_E_INFORMATION')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -132,13 +132,13 @@ class Essential_information extends MY_Controller {
 				$data = array(
 					'message' => lang('M_SUCCESS_UPDATE_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
 					'message' => lang('M_FAIL_UPDATE_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -173,13 +173,13 @@ class Essential_information extends MY_Controller {
 				$data = array(
 					'message' => lang('M_SUCCESS_UPDATE_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
 					'message' => lang('M_FAIL_UPDATE_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -214,13 +214,13 @@ class Essential_information extends MY_Controller {
 				$data = array(
 					'message' => lang('M_SUCCESS_UPDATE_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
 					'message' => lang('M_FAIL_UPDATE_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -255,13 +255,13 @@ class Essential_information extends MY_Controller {
 				$data = array(
 					'message' => lang('M_SUCCESS_UPDATE_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
 					'message' => lang('M_FAIL_UPDATE_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -296,13 +296,13 @@ class Essential_information extends MY_Controller {
 				$data = array(
 					'message' => lang('M_SUCCESS_UPDATE_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_UPDATE_E_INFORMATION')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
 					'message' => lang('M_FAIL_UPDATE_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_UPDATE_E_INFORMATION')));
 				$this->_renderJSON(400, $data);
 			}
 		}
@@ -327,13 +327,13 @@ class Essential_information extends MY_Controller {
 				$data = array(
 					'message' => lang('M_SUCCESS_DELETE_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_DELETE_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_SUCCESS_DELETE_E_INFORMATION')));
 				$this->_renderJSON(200, $data);
 			} else {
 				$data = array(
 					'message' => lang('M_FAIL_DELETE_E_INFORMATION'),
 				);
-				$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_DELETE_E_INFORMATION')));
+				//$this->session->set_flashdata('__notification', array('type' => 'success', 'message'=>lang('M_FAIL_DELETE_E_INFORMATION')));
 				$this->_renderJSON(400, $data);
 			}
 		}

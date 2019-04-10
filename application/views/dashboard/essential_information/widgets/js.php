@@ -81,7 +81,7 @@ function addEI() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -175,7 +175,7 @@ function updateEI() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -248,7 +248,7 @@ function updateOrderEI(id, title) {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -293,7 +293,7 @@ function updatePositionEI(id, title) {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -338,7 +338,7 @@ function updateVisibilityEI(id, title) {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -383,7 +383,7 @@ function updateIconEI(id, title) {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -429,7 +429,7 @@ function deleteEI(id, title) {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {

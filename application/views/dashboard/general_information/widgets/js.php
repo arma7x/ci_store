@@ -38,7 +38,7 @@ function updateGeneralInformation() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -176,7 +176,7 @@ function addSocialChannel() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -244,7 +244,7 @@ function updateSocialChannel() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -305,7 +305,7 @@ function updateOrderSocialChannel(id, name) {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -347,7 +347,7 @@ function deleteSocialChannel(id, name) {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -417,7 +417,7 @@ function addInboxChannel() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -485,7 +485,7 @@ function updateInboxChannel() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -546,7 +546,7 @@ function updateOrderInboxChannel(id, name) {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -588,7 +588,7 @@ function deleteInboxChannel(id, name) {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {

@@ -85,15 +85,15 @@
 </style>
 <div id="product_list" class="row mb-5">
 <?php if ($this->container['sw_offline_cache'] === NULL): ?>
-	<?php if (isset($list)): ?>
-		<?php if(COUNT($list) === 0): ?>
+	<?php if (isset($list['result'])): ?>
+		<?php if(COUNT($list['result']) === 0): ?>
 		<div class=" mx-0 my-2 col col-12 row justify-content-sm-center align-items-center" style="height:54vh;">
 			<div class="col col-12">
 				<h2 class="text-center text-primary"><i class="material-icons" style="font-size:5em;">&#xe7f3;</i></h2>
 			</div>
 		</div>
 		<?php endif ?>
-		<?php foreach($list as $index => $item): ?>
+		<?php foreach($list['result'] as $index => $item): ?>
 			<div class="col col-12 col-md-3 px-0 py-2 p-md-2">
 				<div class="img-container" data-placement="top" title="<?php echo $item['brief_description'] ?>">
 					<a href="/store/<?php echo $item['slug'] ?>"><img id="product_<?php echo $item['id'] ?>" class="img img-fluid" src="/static/img/loading.gif"/>

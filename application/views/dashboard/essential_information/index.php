@@ -25,7 +25,7 @@
 						</tr>
 					</thead>
 					<tbody class="small">
-						<?php foreach($list as $index => $item): ?>
+						<?php foreach($list['result'] as $index => $item): ?>
 						<tr>
 							<!-- <td><?php echo $item['id'] ;?></td> -->
 							<td>

@@ -55,7 +55,7 @@
 	</div>
 	<div class="row">
 		<div class="table-responsive">
-			<table id="token_list" class="table table-sm table-bordered table-striped">
+			<table id="token_list" class="table table-sm table-bordered">
 				<thead>
 					<tr>
 						<th scope="col">ID</th>
@@ -71,7 +71,7 @@
 					</tr>
 				</thead>
 				<tbody class="small">
-				<?php foreach($user_list as $index => $user): ?>
+				<?php foreach($user_list['result'] as $index => $user): ?>
 					<tr<?php echo $this->container['user']['id'] === $user['id'] ? ' class="table-primary"' : ''; ?>>
 						<th scope="row"><?php echo $user['id'] ?></th>
 						<td><img class="rounded-circle avatar" style="width:50px;height:50px;" src="<?php echo $user['avatar'] ?>"/></td>

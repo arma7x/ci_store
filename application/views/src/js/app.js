@@ -135,7 +135,7 @@ function uploadAvatar(data, extra) {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -151,13 +151,21 @@ function uploadAvatar(data, extra) {
     })
 }
 
-function deleteToken(id) {
+function promptconfirmPasswordToken(id) {
+    $('#confirmPasswordToken').modal()
+    $('#inputID').val(id)
+    $('#inputPassword').val('')
+}
+
+function deleteToken() {
     var text = '<?php echo lang('L_CONFIRM_REMOVE')?>'
-    if (confirm(text.replace('%s', id))) {
+    if (confirm(text.replace('%s', $('#inputID').val()))) {
+        $('#confirmPasswordToken').modal('hide')
         $('button.enabled').attr("disabled", "disabled")
         hideDangerMessage()
         var data = {
-            'id': id,
+            'id': $('#inputID').val(),
+            'password': $('#inputPassword').val(),
         }
         data[window.csrf_token_name] = window.csrf_hash
         var request = $.ajax({
@@ -167,7 +175,7 @@ function deleteToken(id) {
             dataType: "json"
         })
         request.done(function(data) {
-            console.log(data.message)
+            alert(data.message)
             if (data.redirect != undefined) {
                 Turbolinks.visit(data.redirect, { action: "replace" })
             } else {
@@ -221,7 +229,7 @@ function updateRole(id) {
             dataType: "json"
         })
         request.done(function(data) {
-            console.log(data.message)
+            alert(data.message)
             if (data.redirect != undefined) {
                 Turbolinks.visit(data.redirect, { action: "replace" })
             } else {
@@ -255,7 +263,7 @@ function updateAccessLevel(id) {
             dataType: "json"
         })
         request.done(function(data) {
-            console.log(data.message)
+            alert(data.message)
             if (data.redirect != undefined) {
                 Turbolinks.visit(data.redirect, { action: "replace" })
             } else {
@@ -289,7 +297,7 @@ function updateStatus(id) {
             dataType: "json"
         })
         request.done(function(data) {
-            console.log(data.message)
+            alert(data.message)
             if (data.redirect != undefined) {
                 Turbolinks.visit(data.redirect, { action: "replace" })
             } else {
@@ -322,7 +330,7 @@ function deleteUser(id) {
             dataType: "json"
         })
         request.done(function(data) {
-            console.log(data.message)
+            alert(data.message)
             if (data.redirect != undefined) {
                 Turbolinks.visit(data.redirect, { action: "replace" })
             } else {
@@ -373,7 +381,7 @@ function addUser() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -454,10 +462,15 @@ function loadingSpinner(status) {
 loadingSpinner(false)
 
 function showDangerMessage(text) {
-    $('#dangerMessage').text(text)
-    $('#dangerMessage').append('<button type="button" class="text-white ml-2 mb-1 close" aria-label="Close" onclick="hideDangerMessage()"><span aria-hidden="true">&times;</span></button>')
-    $('.toast').toast('show');
-    $(window).scrollTop(0);
+    if ($('.toast').hasClass('show')) {
+        hideDangerMessage()
+    }
+    setTimeout(function() {
+        $('#dangerMessage').text(text)
+        $('#dangerMessage').append('<button type="button" class="text-white ml-2 mb-1 close" aria-label="Close" onclick="hideDangerMessage()"><span aria-hidden="true">&times;</span></button>')
+        $('.toast').toast('show');
+        $(window).scrollTop(0);
+    }, 100);
 }
 
 function hideDangerMessage() {
@@ -510,7 +523,7 @@ function login(redirect) {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -563,7 +576,7 @@ function register() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -615,7 +628,7 @@ function forgot_password() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -655,7 +668,7 @@ function activate_account() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -699,7 +712,7 @@ function reset() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -752,7 +765,7 @@ function update_password() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {
@@ -797,7 +810,7 @@ function logout() {
         dataType: "json"
     })
     request.done(function(data) {
-        console.log(data.message)
+        alert(data.message)
         if (data.redirect != undefined) {
             Turbolinks.visit(data.redirect, { action: "replace" })
         } else {

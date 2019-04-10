@@ -71,7 +71,7 @@ class Welcome extends MY_Controller {
 		$this->load->model('Product_Model', 'PM');
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_HOMEPAGE');
 		$this->data['page_name'] = str_replace('%s', $this->container['app_name'], lang('H_WELCOME'));
-		$this->data['list'] = $this->PM->get_spotlight_cache();
+		$this->data['list']['result'] = $this->PM->get_spotlight_cache();
 		$this->data['cat_link'] = $this->Category->get_all_cache();
 		$this->data['description'] = isset($this->container['gi_link']['description']) ? $this->container['gi_link']['description'] : '';
 		$this->widgets['category_nav'] = 'widgets/category_nav';
