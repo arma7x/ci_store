@@ -266,11 +266,11 @@ a.text-primary:hover, a.text-primary:focus {
   color: #212529;
 }
 
-div.autoscroll {
-    height:370px;
+#accordionDashboard .menuscroll {
+    height: 370px;
 }
 
-div.autoscroll:hover {
+#accordionDashboard .menuscroll:hover {
     overflow-y:scroll!important;
 }
 
