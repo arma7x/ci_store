@@ -98,7 +98,7 @@
 					<script>
 						$(document).ready(function() {
 							if (isCORS('<?php echo $item['main_photo'] ?>')) {
-								resizePicture('<?php echo $item['main_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#product_<?php echo $item['id'] ?>')
+								resizePicture('<?php echo $item['main_photo'] ?>', 2, 0, 0, .50, 'image/webp', renderImg, '#product_<?php echo $item['id'] ?>')
 							} else {
 								renderImg('<?php echo $item['main_photo'] ?>', '#product_<?php echo $item['id'] ?>')
 							}

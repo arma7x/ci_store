@@ -132,7 +132,7 @@
                         <div class="col col-12 col-sm-3">
                             <label for="inputMainPhotoEdit" class="sr-only-rm"><?php echo lang('L_P_1_PHOTO');?></label>
                             <div class="custom-file">
-                              <input id="inputMainPhotoEditBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputMainPhotoEditBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#mainPhotoPreviewEdit|#inputMainPhotoEdit', uploadPhoto)"/>
+                              <input id="inputMainPhotoEditBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputMainPhotoEditBlob', 2, 0, 0, 0.1, null, setPhotoPreview, '#mainPhotoPreviewEdit|#inputMainPhotoEdit', uploadPhoto)"/>
                               <label class="custom-file-label"><?php echo lang('L_P_1_PHOTO') ;?></label>
                             </div>
                             <div class="text-center"><?php echo lang('L_P_OR_PHOTO');?></div>
@@ -153,7 +153,7 @@
                         <div class="col col-12 col-sm-3">
                             <label for="inputSecondPhotoEdit" class="sr-only-rm"><?php echo lang('L_P_2_PHOTO');?></label>
                             <div class="custom-file">
-                              <input id="inputSecondPhotoEditBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputSecondPhotoEditBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#secondPhotoPreviewEdit|#inputSecondPhotoEdit', uploadPhoto)"/>
+                              <input id="inputSecondPhotoEditBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputSecondPhotoEditBlob', 2, 0, 0, 0.1, null, setPhotoPreview, '#secondPhotoPreviewEdit|#inputSecondPhotoEdit', uploadPhoto)"/>
                               <label class="custom-file-label"><?php echo lang('L_P_2_PHOTO') ;?></label>
                             </div>
                             <div class="text-center"><?php echo lang('L_P_OR_PHOTO');?></div>
@@ -174,7 +174,7 @@
                         <div class="col col-12 col-sm-3">
                             <label for="inputThirdPhotoEdit" class="sr-only-rm"><?php echo lang('L_P_3_PHOTO');?></label>
                             <div class="custom-file">
-                              <input id="inputThirdPhotoEditBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputThirdPhotoEditBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#thirdPhotoPreviewEdit|#inputThirdPhotoEdit', uploadPhoto)"/>
+                              <input id="inputThirdPhotoEditBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputThirdPhotoEditBlob', 2, 0, 0, 0.1, null, setPhotoPreview, '#thirdPhotoPreviewEdit|#inputThirdPhotoEdit', uploadPhoto)"/>
                               <label class="custom-file-label"><?php echo lang('L_P_3_PHOTO') ;?></label>
                             </div>
                             <div class="text-center"><?php echo lang('L_P_OR_PHOTO');?></div>
@@ -195,7 +195,7 @@
                         <div class="col col-12 col-sm-3">
                             <label for="inputFourthPhotoEdit" class="sr-only-rm"><?php echo lang('L_P_4_PHOTO');?></label>
                             <div class="custom-file">
-                              <input id="inputFourthPhotoEditBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputFourthPhotoEditBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#fourthPhotoPreviewEdit|#inputFourthPhotoEdit', uploadPhoto)"/>
+                              <input id="inputFourthPhotoEditBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputFourthPhotoEditBlob', 2, 0, 0, 0.1, null, setPhotoPreview, '#fourthPhotoPreviewEdit|#inputFourthPhotoEdit', uploadPhoto)"/>
                               <label class="custom-file-label"><?php echo lang('L_P_4_PHOTO') ;?></label>
                             </div>
                             <div class="text-center"><?php echo lang('L_P_OR_PHOTO');?></div>

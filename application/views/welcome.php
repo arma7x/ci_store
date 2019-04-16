@@ -54,7 +54,7 @@ for(var i in window.localStorage) {
 		container = container.replace('{k.brief_description}', k.brief_description)
 		var a = '<a href="/store/{k.slug}"><img id="{k.id}" class="img img-fluid" src="/static/img/loading.gif"/>{a}</a>'
 		a = a.replace('{k.slug}', k.slug).replace('{k.id}', k.id)
-		var script = '$(document).ready(function() { if (isCORS("{k.main_photo}")) { resizePicture("{k.main_photo}", null, 533, 533, .50, "image/webp", renderImg, "#{k.id}") } else { renderImg("{k.main_photo}", "#{k.id}") } })'
+		var script = '$(document).ready(function() { if (isCORS("{k.main_photo}")) { resizePicture("{k.main_photo}", 2, 0, 0, .50, "image/webp", renderImg, "#{k.id}") } else { renderImg("{k.main_photo}", "#{k.id}") } })'
 		script = script.replace('{k.main_photo}', k.main_photo)
 		script = script.replace('{k.main_photo}', k.main_photo)
 		script = script.replace('{k.main_photo}', k.main_photo)

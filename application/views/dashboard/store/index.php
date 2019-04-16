@@ -83,6 +83,7 @@
 			<div class="input-group mr-sm-1 mb-2">
 				<button type="submit" class="btn btn-sm btn-primary" onClick="searchStore()">
 					<i class="material-icons">&#xe8b6;</i>
+					<?php echo lang('BTN_SEARCH') ?>
 				</button>
 			</div>
 
@@ -149,7 +150,7 @@
 								<img id="thumb_<?php echo $item['id'] ?>" class="img img-fluid" src="/static/img/loading.gif" width="100px" height="100px"/>
 								<script>
 									$(document).ready(function() {
-										resizePicture('<?php echo $item['main_photo'] ?>', null, 100, 100, .50, 'image/webp', renderImg, '#thumb_<?php echo $item['id'] ?>')
+										resizePicture('<?php echo $item['main_photo'] ?>', 4, 0, 0, .50, 'image/webp', renderImg, '#thumb_<?php echo $item['id'] ?>')
 									})
 								</script>
 							</td>

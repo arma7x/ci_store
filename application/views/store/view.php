@@ -10,7 +10,7 @@
 						<script>
 							$(document).ready(function() {
 								if (isCORS('<?php echo $product['main_photo'] ?>')) {
-									resizePicture('<?php echo $product['main_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#main_photo')
+									resizePicture('<?php echo $product['main_photo'] ?>', 2, 0, 0, .50, 'image/webp', renderImg, '#main_photo')
 								} else {
 									renderImg('<?php echo $product['main_photo'] ?>', '#main_photo')
 								}
@@ -23,7 +23,7 @@
 						<script>
 							$(document).ready(function() {
 								if (isCORS('<?php echo $product['second_photo'] ?>')) {
-									resizePicture('<?php echo $product['second_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#second_photo')
+									resizePicture('<?php echo $product['second_photo'] ?>', 2, 0, 0, .50, 'image/webp', renderImg, '#second_photo')
 								} else {
 									renderImg('<?php echo $product['second_photo'] ?>', '#second_photo')
 								}
@@ -37,7 +37,7 @@
 						<script>
 							$(document).ready(function() {
 								if (isCORS('<?php echo $product['third_photo'] ?>')) {
-									resizePicture('<?php echo $product['third_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#third_photo')
+									resizePicture('<?php echo $product['third_photo'] ?>', 2, 0, 0, .50, 'image/webp', renderImg, '#third_photo')
 								} else {
 									renderImg('<?php echo $product['third_photo'] ?>', '#third_photo')
 								}
@@ -51,7 +51,7 @@
 						<script>
 							$(document).ready(function() {
 								if (isCORS('<?php echo $product['fourth_photo'] ?>')) {
-									resizePicture('<?php echo $product['fourth_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#fourth_photo')
+									resizePicture('<?php echo $product['fourth_photo'] ?>', 2, 0, 0, .50, 'image/webp', renderImg, '#fourth_photo')
 								} else {
 									renderImg('<?php echo $product['fourth_photo'] ?>', '#fourth_photo')
 								}
@@ -114,7 +114,7 @@
 					<script>
 						$(document).ready(function() {
 							if (isCORS('<?php echo $product['main_photo'] ?>')) {
-								resizePicture('<?php echo $product['main_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#t_main_photo')
+								resizePicture('<?php echo $product['main_photo'] ?>', 2, 0, 0, .50, 'image/webp', renderImg, '#t_main_photo')
 							} else {
 								renderImg('<?php echo $product['main_photo'] ?>', '#t_main_photo')
 							}
@@ -129,7 +129,7 @@
 					<script>
 						$(document).ready(function() {
 							if (isCORS('<?php echo $product['second_photo'] ?>')) {
-								resizePicture('<?php echo $product['second_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#t_second_photo')
+								resizePicture('<?php echo $product['second_photo'] ?>', 2, 0, 0, .50, 'image/webp', renderImg, '#t_second_photo')
 							} else {
 								renderImg('<?php echo $product['second_photo'] ?>', '#t_second_photo')
 							}
@@ -145,7 +145,7 @@
 					<script>
 						$(document).ready(function() {
 							if (isCORS('<?php echo $product['third_photo'] ?>')) {
-								resizePicture('<?php echo $product['third_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#t_third_photo')
+								resizePicture('<?php echo $product['third_photo'] ?>', 2, 0, 0, .50, 'image/webp', renderImg, '#t_third_photo')
 							} else {
 								renderImg('<?php echo $product['third_photo'] ?>', '#t_third_photo')
 							}
@@ -161,7 +161,7 @@
 					<script>
 						$(document).ready(function() {
 							if (isCORS('<?php echo $product['fourth_photo'] ?>')) {
-								resizePicture('<?php echo $product['fourth_photo'] ?>', null, 533, 533, .50, 'image/webp', renderImg, '#t_fourth_photo')
+								resizePicture('<?php echo $product['fourth_photo'] ?>', 2, 0, 0, .50, 'image/webp', renderImg, '#t_fourth_photo')
 							} else {
 								renderImg('<?php echo $product['fourth_photo'] ?>', '#t_fourth_photo')
 							}

@@ -132,7 +132,7 @@
                         <div class="col col-12 col-sm-3">
                             <label for="inputMainPhoto" class="sr-only-rm"><?php echo lang('L_P_1_PHOTO');?></label>
                             <div class="custom-file">
-                              <input id="inputMainPhotoBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputMainPhotoBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#mainPhotoPreview|#inputMainPhoto', uploadPhoto)"/>
+                              <input id="inputMainPhotoBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputMainPhotoBlob', 2, 0, 0, 0.1, null, setPhotoPreview, '#mainPhotoPreview|#inputMainPhoto', uploadPhoto)"/>
                               <label class="custom-file-label"><?php echo lang('L_P_1_PHOTO') ;?></label>
                             </div>
                             <div class="text-center"><?php echo lang('L_P_OR_PHOTO');?></div>
@@ -153,7 +153,7 @@
                         <div class="col col-12 col-sm-3">
                             <label for="inputSecondPhoto" class="sr-only-rm"><?php echo lang('L_P_2_PHOTO');?></label>
                             <div class="custom-file">
-                              <input id="inputSecondPhotoBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputSecondPhotoBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#secondPhotoPreview|#inputSecondPhoto', uploadPhoto)"/>
+                              <input id="inputSecondPhotoBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputSecondPhotoBlob', 2, 0, 0, 0.1, null, setPhotoPreview, '#secondPhotoPreview|#inputSecondPhoto', uploadPhoto)"/>
                               <label class="custom-file-label"><?php echo lang('L_P_2_PHOTO') ;?></label>
                             </div>
                             <div class="text-center"><?php echo lang('L_P_OR_PHOTO');?></div>
@@ -174,7 +174,7 @@
                         <div class="col col-12 col-sm-3">
                             <label for="inputThirdPhoto" class="sr-only-rm"><?php echo lang('L_P_3_PHOTO');?></label>
                             <div class="custom-file">
-                              <input id="inputThirdPhotoBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputThirdPhotoBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#thirdPhotoPreview|#inputThirdPhoto', uploadPhoto)"/>
+                              <input id="inputThirdPhotoBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputThirdPhotoBlob', 2, 0, 0, 0.1, null, setPhotoPreview, '#thirdPhotoPreview|#inputThirdPhoto', uploadPhoto)"/>
                               <label class="custom-file-label"><?php echo lang('L_P_3_PHOTO') ;?></label>
                             </div>
                             <div class="text-center"><?php echo lang('L_P_OR_PHOTO');?></div>
@@ -195,7 +195,7 @@
                         <div class="col col-12 col-sm-3">
                             <label for="inputFourthPhoto" class="sr-only-rm"><?php echo lang('L_P_4_PHOTO');?></label>
                             <div class="custom-file">
-                              <input id="inputFourthPhotoBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputFourthPhotoBlob', null, 533, 533, 0.1, null, setPhotoPreview, '#fourthPhotoPreview|#inputFourthPhoto', uploadPhoto)"/>
+                              <input id="inputFourthPhotoBlob" type="file" accept="image/*" class="custom-file-input" onChange="resizePicture('inputFourthPhotoBlob', 2, 0, 0, 0.1, null, setPhotoPreview, '#fourthPhotoPreview|#inputFourthPhoto', uploadPhoto)"/>
                               <label class="custom-file-label"><?php echo lang('L_P_4_PHOTO') ;?></label>
                             </div>
                             <div class="text-center"><?php echo lang('L_P_OR_PHOTO');?></div>
