@@ -36,8 +36,6 @@ https://pwalitestore.herokuapp.com/authentication/ui_login
 - spotlight -> 1 | 0 |''
 - category -> id of /api/product/category
 
-##### Moderator
-
 *******************
 
 ### Server Requirements
