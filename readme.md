@@ -31,10 +31,11 @@ https://pwalitestore.herokuapp.com/authentication/ui_login
 ##### /api/product/category
 ##### /api/product/spotlight
 ##### /api/product/search?keyword=&category=&ordering=&spotlight=&page=
-- keyword -> string | ''
-- ordering -> created_at@desc | created_at@asc | price@desc | price@asc
-- spotlight -> 1 | 0 |''
-- category -> id of /api/product/category
+- keyword(omissible) -> string
+- ordering(omissible) -> created_at@desc | created_at@asc | price@desc | price@asc
+- spotlight(omissible) -> 1 | 0
+- category(omissible) -> id of /api/product/category
+- page(omissible) -> integer
 
 *******************
 
