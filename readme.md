@@ -25,6 +25,21 @@ https://pwalitestore.herokuapp.com/authentication/ui_login
 
 *******************
 
+### PUBLIC API
+
+##### /api/product/view/product-slug-here
+##### /api/product/category
+##### /api/product/spotlight
+##### /api/product/search?keyword=&category=&ordering=&spotlight=&page=
+- keyword -> string | ''
+- ordering -> created_at@desc | created_at@asc | price@desc | price@asc
+- spotlight -> 1 | 0 |''
+- category -> id of /api/product/category
+
+##### Moderator
+
+*******************
+
 ### Server Requirements
 
 PHP version 5.6 or newer is recommended.
