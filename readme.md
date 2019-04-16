@@ -25,9 +25,9 @@ https://pwalitestore.herokuapp.com/authentication/ui_login
 
 *******************
 
-### PUBLIC API
+### PUBLIC REST API
 
-##### /api/product/view/product-slug-here
+##### /api/product/view/{product-slug-here}
 ##### /api/product/category
 ##### /api/product/spotlight
 ##### /api/product/search?keyword=&category=&ordering=&spotlight=&page=
