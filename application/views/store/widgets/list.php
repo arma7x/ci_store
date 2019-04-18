@@ -92,7 +92,7 @@
 		</div>
 		<?php endif ?>
 		<?php foreach($list['result'] as $index => $item): ?>
-			<div class="col col-12 col-md-3 px-0 py-2 p-md-2">
+			<div class="col col-12 col-md-3 mt-2 px-0 py-2 p-md-2">
 				<div class="img-container" data-placement="top" title="<?php echo $item['brief_description'] ?>">
 					<a href="/store/<?php echo $item['slug'] ?>"><img id="product_<?php echo $item['id'] ?>" class="img img-fluid" src="/static/img/loading.gif"/>
 					<script>
@@ -105,9 +105,7 @@
 						})
 					</script>
 					<i class="material-icons stock<?php echo ($item['availability'] === '1') ? ' text-success' : ' text-danger' ?>">&#xe3fa;</i>
-<!--
-					<h4 class="title font-weight-bold"><?php echo $item['name'] ?></h4>
--->
+					<!-- <h4 class="title font-weight-bold"><?php echo $item['name'] ?></h4> -->
 					<h6 class="price font-weight-bold"><?php echo $this->container['currency_unit'].number_format((float) $item['price'], 2, '.', '') ?></h6>
 					<?php if ($item['spotlight'] === '1'): ?>
 					<i class="material-icons favourite text-primary">&#xe89a;</i>
@@ -115,7 +113,9 @@
 					<div class="overlay"></div>
 					</a>
 				</div>
-				<h6 class="title font-weight-bold text-center"><?php echo $item['name'] ?></h6>
+				<div style="height:50px;">
+					<h6 class="title font-weight-bold text-center"><?php echo $item['name'] ?></h6>
+				</div>
 			</div>
 		<?php endforeach ?>
 	<?php else: ?>
