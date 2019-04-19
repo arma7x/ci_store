@@ -66,4 +66,5 @@ $route['api/product/spotlight']['get'] = 'api/product/spotlight';
 $route['api/product/category']['get'] = 'api/product/category';
 $route['api/product/search']['get'] = 'api/product/search';
 $route['api/product/(:any)']['get'] = 'api/product/view';
+$route['api/other/essential_information/(:any)']['get'] = 'api/other/essential_information_content';
 $route['(:any)']['get'] = 'essential_information/slug';

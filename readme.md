@@ -37,6 +37,12 @@ https://pwalitestore.herokuapp.com/authentication/ui_login
 - category(omissible) -> id of /api/product/category
 - page(omissible) -> integer
 
+##### /api/other/general_information
+##### /api/other/essential_information
+##### /api/other/essential_information/{essential-information-slug-here}
+##### /api/other/social_channel
+##### /api/other/inbox_channel
+
 *******************
 
 ### Server Requirements
