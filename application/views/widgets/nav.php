@@ -47,7 +47,7 @@
           </li>
           -->
           <li class="nav-item<?php echo $this->uri->segment(1) == 'store' ? ' active' : ''?>">
-            <a class="nav-link<?php echo $this->uri->segment(1) == 'store' ? ' text-primary' : ''?>" onclick="navigate('/store')"><i class="material-icons text-primary">&#xe8d1;</i> <?php echo lang('H_STORE') ?></a>
+            <a class="nav-link<?php echo $this->uri->segment(1) == 'store' ? ' text-primary' : ''?>" onclick="navigate('/store')"><i class="material-icons text-primary">&#xe8c9;</i> <?php echo lang('H_STORE') ?></a>
           </li>
           <?php endif ?>
           <?php foreach($this->container['ei_link'] as $key => $value): ?>
