@@ -1,6 +1,5 @@
 .DS_Store
 
-litestore/
 application/cache/*
 !application/cache/index.html
 
