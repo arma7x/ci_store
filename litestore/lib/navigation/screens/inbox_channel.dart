@@ -5,14 +5,14 @@ import 'package:litestore/widgets/phone_number_link.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class InboxChannel extends StatelessWidget {
+//class InboxChannel extends StatelessWidget {
 
-  @override
-  Widget build(BuildContext context) {
-    return new InboxChannelPage(title: 'Kotak Pertanyaan');
-  }
+  //@override
+  //Widget build(BuildContext context) {
+    //return new InboxChannelPage(title: 'Kotak Pertanyaan');
+  //}
 
-}
+//}
 
 class InboxChannelPage extends StatefulWidget {
   InboxChannelPage({Key key, this.title}) : super(key: key);

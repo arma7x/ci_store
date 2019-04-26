@@ -1,30 +1,42 @@
 import 'package:flutter/material.dart';
 
-class Catalog extends StatelessWidget {
+//class Catalog extends StatelessWidget {
 
-  @override
-  Widget build(BuildContext context) {
-    return new CatalogPage(title: 'Catalog');
-  }
+  //@override
+  //Widget build(BuildContext context) {
+    //return new CatalogPage(title: 'Catalog');
+  //}
 
-}
+//}
 
 class CatalogPage extends StatefulWidget {
-  CatalogPage({Key key, this.title}) : super(key: key);
+  CatalogPage({Key key, this.title, this.category}) : super(key: key);
 
   final String title;
+  final String category;
 
   @override
   _CatalogPageState createState() => _CatalogPageState();
 }
 
 class _CatalogPageState extends State<CatalogPage> {
+
   int _counter = 0;
+  bool _ignoring = false;
+  String keyword = '';
+  String ordering = '';
+  String spotlight = '';
+  String category = '';
+  String page = '1';
 
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
+  }
+
+  void cb(bool status) {
+    // setState(() => _ignoring = status);
   }
 
   @override

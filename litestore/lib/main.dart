@@ -35,10 +35,10 @@ class MyHomePage extends StatefulWidget {
   ];
 
   final drawerScreens = [
-    new DrawerItem("Katalog", Icons.shop, () => new Catalog()),
-    new DrawerItem("Maklumat Penting", Icons.description, () => new EssentialInformation()),
-    new DrawerItem("Kotak Pertanyaan", Icons.email, () => new InboxChannel()),
-    new DrawerItem("Maklumat Umum", Icons.info, () => new GeneralInformation())
+    new DrawerItem("Katalog", Icons.shop, () => new CatalogPage(title: 'Katalog')),
+    new DrawerItem("Maklumat Penting", Icons.description, () =>  new EssentialInformationPage(title: 'Maklumat Penting')),
+    new DrawerItem("Kotak Pertanyaan", Icons.email, () => new InboxChannelPage(title: 'Kotak Pertanyaan')),
+    new DrawerItem("Maklumat Umum", Icons.info, () => new GeneralInformationPage(title: 'Maklumat Umum'))
   ];
 
   MyHomePage({Key key}) : super(key: key);

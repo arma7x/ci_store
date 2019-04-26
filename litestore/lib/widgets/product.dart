@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
 import 'package:litestore/navigation/screens.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:litestore/api.dart';
+import 'dart:convert';
 
 class Product extends StatelessWidget {
 
@@ -13,10 +15,11 @@ class Product extends StatelessWidget {
   final String spotlight;
   final String availability;
   final String mainPhoto;
+  final Function callback;
 
-  Product._({Key key, this.id, this.name, this.slug, this.price, this.briefDescription, this.spotlight, this.availability, this.mainPhoto});
+  Product._({Key key, this.id, this.name, this.slug, this.price, this.briefDescription, this.spotlight, this.availability, this.mainPhoto, this.callback});
 
-  factory Product.fromJson(Map<String, dynamic> json) {
+  factory Product.fromJson(Map<String, dynamic> json, Function cb) {
     return new Product._(
       id: json['id'],
       name: json['name'],
@@ -26,11 +29,37 @@ class Product extends StatelessWidget {
       spotlight: json['spotlight'],
       availability: json['availability'],
       mainPhoto: json['main_photo'],
+      callback: cb,
     );
   }
 
   @override
   Widget build(BuildContext context) {
+
+    void _viewProduct(String slug) async {
+      callback(true);
+      Map<String, dynamic> tempData = {};
+      try {
+        final request = await Api.viewProduct(slug);
+        final response = await request.close(); 
+        if (response.statusCode == 200) {
+          callback(false);
+          final responseBody = await response.transform(utf8.decoder).join();
+          tempData = json.decode(responseBody);
+          Navigator.push(
+            context,
+            CupertinoPageRoute(builder: (BuildContext context) => new ViewProduct.fromJson(tempData))
+          );
+        } else {
+          print('Failed to get product');
+          callback(false);
+        }
+      } on Exception {
+        print('Failed to get product');
+        callback(false);
+      }
+    }
+
     return new GestureDetector(
       child: new Container(
         decoration: new BoxDecoration(
@@ -103,7 +132,7 @@ class Product extends StatelessWidget {
                     new Icon(Icons.widgets, size: 12, color: Colors.grey),
                     SizedBox(width: 5),
                     new Text(
-                      this.availability == "1" ? "DALAM STOK" : "KEHABISAN STOK",
+                      this.availability == "1" ? "DALAM STOK" : "TIADA STOK",
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(color: this.availability == "1" ? Colors.green : Colors.red)
                     ),
@@ -115,10 +144,7 @@ class Product extends StatelessWidget {
         ),
       ),
       onTap: () {
-        Navigator.push(
-          context,
-          CupertinoPageRoute(builder: (BuildContext context) => new ProductData())
-        );
+        _viewProduct(this.slug);
       },
     );
   }

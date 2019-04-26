@@ -42,7 +42,7 @@ class Category extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          CupertinoPageRoute(builder: (BuildContext context) => new Catalog())
+          CupertinoPageRoute(builder: (BuildContext context) => new CatalogPage(title: 'Katalog', category: this.id))
         );
       },
       onLongPress: () {

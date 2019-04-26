@@ -27,7 +27,7 @@ class InfoButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    void _viewEiData(String slug) async {
+    void _viewEi(String slug) async {
       callback(true);
       Map<String, dynamic> tempData = {};
       try {
@@ -75,7 +75,7 @@ class InfoButton extends StatelessWidget {
         ),
       ),
       onTap: () {
-        _viewEiData(this.slug);
+        _viewEi(this.slug);
       },
       onLongPress: () {
         print(this.slug);
