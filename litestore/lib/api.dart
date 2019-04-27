@@ -31,7 +31,13 @@ class Api {
     return httpClient.getUrl(url);
   }
 
-  static Future searchProduct(Map<String, String> query) {
+  static Future searchProduct(Map<String, String> q) {
+    Map<String, String> query = {};
+    q.forEach((key, value) {
+      if (value != '') {
+        query[key] = value;
+      }
+    });
     final url = Uri.https(BASE_URL, PRODUCT_SEARCH, query);
     final httpClient = HttpClient();
     return httpClient.getUrl(url);
