@@ -109,7 +109,7 @@ class _CatalogPageState extends State<CatalogPage> {
     }
   }
 
-  void _triggerCategoryPopup(dynamic value) {
+  void _onSelectCategory(dynamic value) {
     Map<String, String> query = this._query;
     String initValueCategoryName = 'Pelbagai Kategori';
     for(var item in this._categoryFilter) {
@@ -124,15 +124,14 @@ class _CatalogPageState extends State<CatalogPage> {
       _initValueCategoryName = initValueCategoryName;
       _query = query;
     });
-    print(this._query);
+    Navigator.pop(context);
+    _showSearchFilter();
   }
 
-  @override
-  Widget build(BuildContext context) {
-
-     Widget _CategoryPopup() => PopupMenuButton(
+   Widget _CategoryPopup() {
+     return PopupMenuButton(
       initialValue: this._initValueCategory,
-      onSelected: _triggerCategoryPopup,
+      onSelected: _onSelectCategory,
       child: new Icon(Icons.arrow_drop_down),
       itemBuilder: (context) {
         List<PopupMenuItem> items = List();
@@ -142,45 +141,47 @@ class _CatalogPageState extends State<CatalogPage> {
         return items;
       }
     );
-    
-    void searchFilter() {
-      showModalBottomSheet<void>(context: context, builder: (BuildContext context) {
-        return Container(
-          child: Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Column(
-              children: <Widget>[
-                Row(
+  }
+  
+  void _showSearchFilter() {
+    showModalBottomSheet<void>(context: context, builder: (BuildContext context) {
+      return Container(
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Text('Kategori: ', style: TextStyle(color: Colors.grey)),
+                  SizedBox(width: 10),
+                  Text(this._initValueCategoryName),
+                  SizedBox(width: 5),
+                  _CategoryPopup(),
+                ]
+              ),
+              RaisedButton(
+                padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                onPressed: () {
+                  setState(() => _productLoaded = false);
+                  getProduct();
+                  Navigator.pop(context);
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text('Kategori: '),
-                    SizedBox(width: 10),
-                    Text(this._initValueCategoryName),
-                    SizedBox(width: 5),
-                    _CategoryPopup(),
+                    Text("CARI SEMULA"),
                   ]
-                ),
-                RaisedButton(
-                  padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                  onPressed: () {
-                    setState(() => _productLoaded = false);
-                    getProduct();
-                    Navigator.pop(context);
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      //Icon(Icons.search, size: 25, color: Colors.blue),
-                      //SizedBox(width: 10),
-                      Text("CARI SEMULA"),
-                    ]
-                  )
-                ),
-              ]
-            )
-          ),
-        );
-      });
-    }
+                )
+              ),
+            ]
+          )
+        ),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
 
     Widget body;
 
@@ -237,7 +238,7 @@ class _CatalogPageState extends State<CatalogPage> {
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.tune),
-              onPressed: searchFilter,
+              onPressed: _showSearchFilter,
             ),
           ],
       ),
