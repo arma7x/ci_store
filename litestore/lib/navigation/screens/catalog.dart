@@ -132,7 +132,12 @@ class _CatalogPageState extends State<CatalogPage> {
      return PopupMenuButton(
       initialValue: this._initValueCategory,
       onSelected: _onSelectCategory,
-      child: new Icon(Icons.arrow_drop_down),
+      child: new Container(child: new Row(
+        children: <Widget>[
+          new Expanded(child: Text(this._initValueCategoryName)),
+          new Icon(Icons.arrow_drop_down),
+        ]
+      ), height: 65.0,),
       itemBuilder: (context) {
         List<PopupMenuItem> items = List();
         for (var item in this._categoryFilter) {
@@ -150,13 +155,14 @@ class _CatalogPageState extends State<CatalogPage> {
           padding: const EdgeInsets.all(30.0),
           child: Column(
             children: <Widget>[
+              Text('Tapis Carian', style: TextStyle(color: Colors.black, fontSize: 18)),
               Row(
                 children: <Widget>[
                   Text('Kategori: ', style: TextStyle(color: Colors.grey)),
                   SizedBox(width: 10),
-                  Text(this._initValueCategoryName),
+                  //Text(this._initValueCategoryName),
                   SizedBox(width: 5),
-                  _CategoryPopup(),
+                  new Expanded(child: _CategoryPopup()),
                 ]
               ),
               RaisedButton(
