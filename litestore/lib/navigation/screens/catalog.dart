@@ -28,17 +28,12 @@ class CatalogPage extends StatefulWidget {
 class _CatalogPageState extends State<CatalogPage> {
 
   Map<String, dynamic> _searchResult = {};
-  final List<dynamic> _spotlightFilter = [
-    {'id': '', 'name': 'Papar Semua'},
-    {'id': '0', 'name': 'Bukan Spotlight'},
-    {'id': '1', 'name': 'Spotlight Sahaja'},
-  ];
-  final List<dynamic> _orderFilter = [
-    {'id': 'created_at@desc', 'name': 'Keluaran Terbaru'},
-    {'id': 'created_at@asc', 'name': 'Keluaran Terdahulu'},
-    {'id': 'price@desc', 'name': 'Mahal(Harga)'},
-    {'id': 'price@asc', 'name': 'Berpatutan(Harga)'},
-  ];
+  String _initValueSpotlight = '';
+  String _initValueSpotlightName = 'Papar Semua';
+  final List<dynamic> _spotlightFilter = [{'id': '', 'name': 'Papar Semua'}, {'id': '0', 'name': 'Bukan Spotlight'}, {'id': '1', 'name': 'Spotlight Sahaja'}];
+  String _initValueOrder = '';
+  String _initValueOrderName = 'Keluaran Terbaru';
+  final List<dynamic> _orderFilter = [{'id': 'created_at@desc', 'name': 'Keluaran Terbaru'}, {'id': 'created_at@asc', 'name': 'Keluaran Terdahulu'}, {'id': 'price@desc', 'name': 'Mahal(Harga)'}, {'id': 'price@asc', 'name': 'Berpatutan(Harga)'}];
   String _initValueCategory = '';
   String _initValueCategoryName = 'Pelbagai Kategori';
   List<dynamic> _categoryFilter = [{'id': '', 'name': 'Pelbagai Kategori'}];
@@ -47,21 +42,22 @@ class _CatalogPageState extends State<CatalogPage> {
   bool _productLoaded = false;
   bool _error = false;
   bool _ignoring = false;
+  bool _nextPageLoading = false;
   Map<String, String> _query = {'keyword': '', 'ordering': '', 'spotlight': '', 'category': '', 'page': ''};
 
   _CatalogPageState(String category, String name) {
     this._query['category'] = category;
     this._initValueCategory = category;
     this._initValueCategoryName = name;
-    getCategory();
-    getProduct();
+    _getCategory();
+    _getProduct();
   }
 
   void cb(bool status) {
     setState(() => _ignoring = status);
   }
 
-  void getCategory() async {
+  void _getCategory() async {
     List<dynamic> tempList = [];
     try {
       final request = await Api.getProductCategory();
@@ -82,7 +78,7 @@ class _CatalogPageState extends State<CatalogPage> {
     }
   }
 
-  void getProduct() async {
+  void _getProduct() async {
     Map<String, dynamic> _tempSearchResult = {};
     List<Widget> tempList = List();
     try {
@@ -106,7 +102,64 @@ class _CatalogPageState extends State<CatalogPage> {
       }
     } on Exception {
       setState(() => _error = true);
+      print('Failed to product');
     }
+  }
+
+  void _nextProduct() async {
+    Map<String, dynamic> _tempSearchResult = {};
+    List<Widget> tempList = List();
+    Map<String, String> query = this._query;
+    query['page'] = this._searchResult['next_page'].toString();
+    print(query);
+    setState(() {
+      _query = query;
+      _nextPageLoading = true;
+    });
+    try {
+      final request = await Api.searchProduct(this._query);
+      final response = await request.close(); 
+      if (response.statusCode == 200) {
+        final responseBody = await response.transform(utf8.decoder).join();
+        _tempSearchResult = json.decode(responseBody);
+        for (var item in _tempSearchResult['result']) {
+          tempList.add(Product.fromJson(item, cb));
+        }
+        var _mergedProductList = this._productList;
+        _mergedProductList.addAll(tempList);
+        setState(() {
+          _searchResult = _tempSearchResult;
+          _productList = _mergedProductList;
+          _nextPageLoading = false;
+        });
+      } else {
+        setState(() => _nextPageLoading = false);
+        print('Failed to product');
+      }
+    } on Exception {
+      setState(() => _nextPageLoading = false);
+      print('Failed to product');
+    }
+  }
+
+   Widget _categoryPopup() {
+     return PopupMenuButton(
+      initialValue: this._initValueCategory,
+      onSelected: _onSelectCategory,
+      child: new Container(child: new Row(
+        children: <Widget>[
+          new Expanded(child: Text(this._initValueCategoryName)),
+          new Icon(Icons.arrow_drop_down),
+        ]
+      ), height: 40.0,),
+      itemBuilder: (context) {
+        List<PopupMenuItem> items = List();
+        for (var item in this._categoryFilter) {
+          items.add(PopupMenuItem(value: item['id'], child: Text(item['name'])));
+        }
+        return items;
+      }
+    );
   }
 
   void _onSelectCategory(dynamic value) {
@@ -118,7 +171,7 @@ class _CatalogPageState extends State<CatalogPage> {
         break;
       }
     }
-    this._query['category'] = value;
+    query['category'] = value;
     setState(() {
       _initValueCategory = value;
       _initValueCategoryName = initValueCategoryName;
@@ -128,24 +181,82 @@ class _CatalogPageState extends State<CatalogPage> {
     _showSearchFilter();
   }
 
-   Widget _CategoryPopup() {
+   Widget _spotlightPopup() {
      return PopupMenuButton(
-      initialValue: this._initValueCategory,
-      onSelected: _onSelectCategory,
+      initialValue: this._initValueSpotlight,
+      onSelected: _onSelectSpotlight,
       child: new Container(child: new Row(
         children: <Widget>[
-          new Expanded(child: Text(this._initValueCategoryName)),
+          new Expanded(child: Text(this._initValueSpotlightName)),
           new Icon(Icons.arrow_drop_down),
         ]
-      ), height: 65.0,),
+      ), height: 40.0,),
       itemBuilder: (context) {
         List<PopupMenuItem> items = List();
-        for (var item in this._categoryFilter) {
+        for (var item in this._spotlightFilter) {
           items.add(PopupMenuItem(value: item['id'], child: Text(item['name'])));
         }
         return items;
       }
     );
+  }
+
+  void _onSelectSpotlight(dynamic value) {
+    Map<String, String> query = this._query;
+    String initValueSpotlightName = 'Papar Semua';
+    for(var item in this._spotlightFilter) {
+      if (item['id'] == value) {
+        initValueSpotlightName = item['name'];
+        break;
+      }
+    }
+    query['spotlight'] = value;
+    setState(() {
+      _initValueSpotlight = value;
+      _initValueSpotlightName = initValueSpotlightName;
+      _query = query;
+    });
+    Navigator.pop(context);
+    _showSearchFilter();
+  }
+
+   Widget _orderPopup() {
+     return PopupMenuButton(
+      initialValue: this._initValueSpotlight,
+      onSelected: _onSelectOrder,
+      child: new Container(child: new Row(
+        children: <Widget>[
+          new Expanded(child: Text(this._initValueOrderName)),
+          new Icon(Icons.arrow_drop_down),
+        ]
+      ), height: 40.0,),
+      itemBuilder: (context) {
+        List<PopupMenuItem> items = List();
+        for (var item in this._orderFilter) {
+          items.add(PopupMenuItem(value: item['id'], child: Text(item['name'])));
+        }
+        return items;
+      }
+    );
+  }
+
+  void _onSelectOrder(dynamic value) {
+    Map<String, String> query = this._query;
+    String initValueOrderName = 'Papar Semua';
+    for(var item in this._orderFilter) {
+      if (item['id'] == value) {
+        initValueOrderName = item['name'];
+        break;
+      }
+    }
+    query['ordering'] = value;
+    setState(() {
+      _initValueOrder = value;
+      _initValueOrderName = initValueOrderName;
+      _query = query;
+    });
+    Navigator.pop(context);
+    _showSearchFilter();
   }
   
   void _showSearchFilter() {
@@ -160,16 +271,28 @@ class _CatalogPageState extends State<CatalogPage> {
                 children: <Widget>[
                   Text('Kategori: ', style: TextStyle(color: Colors.grey)),
                   SizedBox(width: 10),
-                  //Text(this._initValueCategoryName),
-                  SizedBox(width: 5),
-                  new Expanded(child: _CategoryPopup()),
+                  new Expanded(child: _categoryPopup()),
+                ]
+              ),
+              Row(
+                children: <Widget>[
+                  Text('Spotlight: ', style: TextStyle(color: Colors.grey)),
+                  SizedBox(width: 10),
+                  new Expanded(child: _spotlightPopup()),
+                ]
+              ),
+              Row(
+                children: <Widget>[
+                  Text('Susunan: ', style: TextStyle(color: Colors.grey)),
+                  SizedBox(width: 10),
+                  new Expanded(child: _orderPopup()),
                 ]
               ),
               RaisedButton(
                 padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
                 onPressed: () {
                   setState(() => _productLoaded = false);
-                  getProduct();
+                  _getProduct();
                   Navigator.pop(context);
                 },
                 child: Row(
@@ -202,7 +325,7 @@ class _CatalogPageState extends State<CatalogPage> {
                 _error = false;
                 _productLoaded = false;
               });
-              getProduct();
+              _getProduct();
             },
             child: Row(
               children: <Widget>[
@@ -232,6 +355,18 @@ class _CatalogPageState extends State<CatalogPage> {
                   children: this._productList
                 )
               ),
+              SizedBox(height: 10),
+              this._nextPageLoading ? new CircularProgressIndicator() : SizedBox(height: 0, width: 0),
+              this._searchResult['next_page'] != null && this._nextPageLoading == false ? RaisedButton(
+                padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                onPressed: _nextProduct,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("SETERUSNYA"),
+                  ]
+                )
+              ) : SizedBox(height: 0, width: 0),
             ]
           )
         )

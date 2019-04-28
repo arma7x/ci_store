@@ -22,11 +22,11 @@ class _HomeState extends State<Home> {
   bool _ignoring = false;
 
   _HomeState() {
-    getCategory();
-    getProduct();
+    _getCategory();
+    _getProduct();
   }
 
-  void getCategory() async {
+  void _getCategory() async {
     List<Widget> tempList = List();
     final request = await Api.getProductCategory();
     final response = await request.close(); 
@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
     }
   }
 
-  void getProduct() async {
+  void _getProduct() async {
     List<Widget> tempList = List();
     try {
       final request = await Api.getProductSpotlight();
@@ -87,8 +87,8 @@ class _HomeState extends State<Home> {
                 _error = false;
                 _productLoaded = false;
               });
-              getCategory();
-              getProduct();
+              _getCategory();
+              _getProduct();
             },
             child: Row(
               children: <Widget>[
