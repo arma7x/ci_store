@@ -44,13 +44,15 @@ class _CatalogPageState extends State<CatalogPage> {
   bool _ignoring = false;
   bool _nextPageLoading = false;
   Map<String, String> _query = {'keyword': '', 'ordering': '', 'spotlight': '', 'category': '', 'page': ''};
+  Widget appBarTitle = new Text('Katalog');
+  Icon actionIcon = new Icon(Icons.search);
 
   _CatalogPageState(String category, String name) {
     this._query['category'] = category;
     this._initValueCategory = category;
     this._initValueCategoryName = name;
     _getCategory();
-    _getProduct();
+    _searchProduct();
   }
 
   void cb(bool status) {
@@ -64,8 +66,8 @@ class _CatalogPageState extends State<CatalogPage> {
       final response = await request.close(); 
       if (response.statusCode == 200) {
         final responseBody = await response.transform(utf8.decoder).join();
-        tempList.add(this._categoryFilter[0]);
-        tempList.addAll(json.decode(responseBody));
+        tempList..add(this._categoryFilter[0])
+                ..addAll(json.decode(responseBody));
         setState(() {
           _categoryLoaded = true;
           _categoryFilter = tempList;
@@ -78,9 +80,10 @@ class _CatalogPageState extends State<CatalogPage> {
     }
   }
 
-  void _getProduct() async {
+  void _searchProduct() async {
     Map<String, dynamic> _tempSearchResult = {};
     List<Widget> tempList = List();
+    this._query['page'] = '1';
     try {
       final request = await Api.searchProduct(this._query);
       final response = await request.close(); 
@@ -115,7 +118,6 @@ class _CatalogPageState extends State<CatalogPage> {
       _query = query;
       _nextPageLoading = true;
     });
-    List<Widget> _mergedProductList = this._productList;
     try {
       final request = await Api.searchProduct(this._query);
       final response = await request.close(); 
@@ -125,15 +127,10 @@ class _CatalogPageState extends State<CatalogPage> {
         for (var item in _tempSearchResult['result']) {
           tempList.add(Product.fromJson(item, cb));
         }
-        print(_productList.length);
-        print(_mergedProductList.length);
-        _mergedProductList.addAll(tempList);
-        print(_mergedProductList.length);
         setState(() {
           _searchResult = _tempSearchResult;
-          _productList = _mergedProductList;
+          _productList = List.from(_productList)..addAll(tempList);
           _nextPageLoading = false;
-        print(_productList.length);
         });
       } else {
         setState(() => _nextPageLoading = false);
@@ -295,7 +292,7 @@ class _CatalogPageState extends State<CatalogPage> {
                 padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
                 onPressed: () {
                   setState(() => _productLoaded = false);
-                  _getProduct();
+                  _searchProduct();
                   Navigator.pop(context);
                 },
                 child: Row(
@@ -315,8 +312,29 @@ class _CatalogPageState extends State<CatalogPage> {
   @override
   Widget build(BuildContext context) {
 
-    Widget body;
+    List<Widget> _productList = [];
+    _productList.addAll(this._productList);
+    if (this._nextPageLoading) {
+      _productList..add(SizedBox(height: 10))
+                  ..add(new Center(
+                      child: new CircularProgressIndicator()
+                  ))
+                  ..add(SizedBox(height: 10));
+    }
+    if (this._searchResult['next_page'] != null && this._nextPageLoading == false) {
+      _productList.add(FlatButton(
+        padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+        onPressed: _nextProduct,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('Ke Halaman Berikut', style: TextStyle(color: Colors.blue)),
+          ]
+        )
+      ));
+    }
 
+    Widget body;
     if (this._error == true) {
       body = new Center(
         child: Container(
@@ -328,7 +346,7 @@ class _CatalogPageState extends State<CatalogPage> {
                 _error = false;
                 _productLoaded = false;
               });
-              _getProduct();
+              _searchProduct();
             },
             child: Row(
               children: <Widget>[
@@ -355,36 +373,60 @@ class _CatalogPageState extends State<CatalogPage> {
                 child: new ListView(
                   scrollDirection: Axis.vertical,
                   //padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
-                  children: this._productList
+                  children: _productList
                 )
               ),
-              SizedBox(height: 10),
-              this._nextPageLoading ? new CircularProgressIndicator() : SizedBox(height: 0, width: 0),
-              this._searchResult['next_page'] != null && this._nextPageLoading == false ? RaisedButton(
-                padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                onPressed: _nextProduct,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("SETERUSNYA"),
-                  ]
-                )
-              ) : SizedBox(height: 0, width: 0),
             ]
           )
         )
       );
     }
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.tune),
-              onPressed: _showSearchFilter,
-            ),
-          ],
+        title: this.appBarTitle,
+        actions: <Widget>[
+          new IconButton(
+            icon: this.actionIcon,
+            onPressed: () {
+              setState(() {
+                if ( this.actionIcon.icon == Icons.search){
+                  this.actionIcon = new Icon(Icons.close);
+                  this.appBarTitle = new TextField(
+                    cursorColor: Colors.white,
+                    keyboardType: TextInputType.text,
+                    textInputAction: TextInputAction.search,
+                    onSubmitted: (String text) {
+                      _productLoaded = false;
+                      _searchProduct();
+                    },
+                    onChanged: (String text) {
+                      Map<String, String> query = this._query;
+                      query['keyword'] = text;
+                      _query = query;
+                    },
+                    autofocus: true,
+                    style: new TextStyle(color: Colors.white),
+                    decoration: new InputDecoration(
+                      hintText: "Carian...",
+                      border: InputBorder.none,
+                      hintStyle: new TextStyle(color: Colors.white)
+                    ),
+                  );
+                } else {
+                  this.actionIcon = new Icon(Icons.search);
+                  this.appBarTitle = new Text(widget.title);
+                  Map<String, String> query = this._query;
+                  query['keyword'] = '';
+                  _query = query;
+                }
+              });
+            }
+          ),
+          IconButton(
+            icon: Icon(Icons.tune),
+            onPressed: _showSearchFilter,
+          ),
+        ],
       ),
       body: body,
     );
