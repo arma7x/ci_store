@@ -111,11 +111,11 @@ class _CatalogPageState extends State<CatalogPage> {
     List<Widget> tempList = List();
     Map<String, String> query = this._query;
     query['page'] = this._searchResult['next_page'].toString();
-    print(query);
     setState(() {
       _query = query;
       _nextPageLoading = true;
     });
+    List<Widget> _mergedProductList = this._productList;
     try {
       final request = await Api.searchProduct(this._query);
       final response = await request.close(); 
@@ -125,12 +125,15 @@ class _CatalogPageState extends State<CatalogPage> {
         for (var item in _tempSearchResult['result']) {
           tempList.add(Product.fromJson(item, cb));
         }
-        var _mergedProductList = this._productList;
+        print(_productList.length);
+        print(_mergedProductList.length);
         _mergedProductList.addAll(tempList);
+        print(_mergedProductList.length);
         setState(() {
           _searchResult = _tempSearchResult;
           _productList = _mergedProductList;
           _nextPageLoading = false;
+        print(_productList.length);
         });
       } else {
         setState(() => _nextPageLoading = false);
