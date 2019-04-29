@@ -149,7 +149,7 @@ class _CatalogPageState extends State<CatalogPage> {
       child: new Container(child: new Row(
         children: <Widget>[
           new Expanded(child: Text(this._initValueCategoryName)),
-          new Icon(Icons.arrow_drop_down),
+          new Icon(Icons.arrow_drop_down, color: Colors.grey),
         ]
       ), height: 40.0,),
       itemBuilder: (context) {
@@ -188,7 +188,7 @@ class _CatalogPageState extends State<CatalogPage> {
       child: new Container(child: new Row(
         children: <Widget>[
           new Expanded(child: Text(this._initValueSpotlightName)),
-          new Icon(Icons.arrow_drop_down),
+          new Icon(Icons.arrow_drop_down, color: Colors.grey),
         ]
       ), height: 40.0,),
       itemBuilder: (context) {
@@ -227,7 +227,7 @@ class _CatalogPageState extends State<CatalogPage> {
       child: new Container(child: new Row(
         children: <Widget>[
           new Expanded(child: Text(this._initValueOrderName)),
-          new Icon(Icons.arrow_drop_down),
+          new Icon(Icons.arrow_drop_down, color: Colors.grey),
         ]
       ), height: 40.0,),
       itemBuilder: (context) {

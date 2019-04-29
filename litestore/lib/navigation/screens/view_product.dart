@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:litestore/widgets/slider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class ViewProduct extends StatelessWidget {
 
@@ -70,11 +71,59 @@ class ViewProduct extends StatelessWidget {
       appBar: AppBar(
         title: Text(this.name),
       ),
-      body: new Center(
+      body: new Container(
+        color: Colors.grey[50],
         child: new Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            new WidgetSlider(slides: availableImages()),
-            new Text(this.name),
+            new Expanded(
+              child: new ListView(
+                children: <Widget>[
+                  new WidgetSlider(slides: availableImages()),
+                  new Padding(
+                    padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
+                    child: new Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        new Text(
+                          "#" + this.id + "/RM" + double.parse(this.price).toStringAsFixed(2),
+                          style: TextStyle(color: Colors.blue, fontSize: 23, fontWeight: FontWeight.bold)
+                        ),
+                        SizedBox(height: 10),
+                        new Text(
+                          this.name,
+                          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)
+                        ),
+                        SizedBox(height: 10),
+                        new Row(
+                          children: <Widget>[
+                            new Icon(Icons.widgets, size: 12, color: Colors.grey),
+                            SizedBox(width: 5),
+                            new Text(
+                              this.availability == "1" ? "DALAM STOK" : "TIDALAM STOK",
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(color: this.availability == "1" ? Colors.green : Colors.red)
+                            ),
+                          ]
+                        ),
+                        SizedBox(height: 10),
+                        new Text(
+                          'ORDER SINI',
+                          style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.bold)
+                        ),
+                        SizedBox(height: 10),
+                        new Text(
+                          this.briefDescription,
+                          style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold)
+                        ),
+                        SizedBox(height: 20),
+                        Html(data: this.fullDescription)
+                      ]
+                    )
+                  )
+                ]
+              )
+            ),
           ]
         ),
       )

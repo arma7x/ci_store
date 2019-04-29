@@ -13,6 +13,18 @@ class _WidgetSliderState extends State<WidgetSlider> {
 
   int currentSlide = 0;
 
+  List<Widget> dotIndicator() {
+    List<Widget> indicator = [];
+    for(int x = 0;x < widget.slides.length;x++){
+      if (x == this.currentSlide) {
+        indicator.add(new Icon(Icons.brightness_1, size: 12, color: Colors.blue));
+      } else {
+        indicator.add(new Icon(Icons.brightness_1, size: 12, color: Colors.grey));
+      }
+    }
+    return indicator;
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Container(
@@ -21,8 +33,9 @@ class _WidgetSliderState extends State<WidgetSlider> {
         height: MediaQuery.of(context).size.width,
       ),
       alignment: Alignment.bottomLeft,
-      padding: new EdgeInsets.only(left: 10.0, bottom: (MediaQuery.of(context).size.width/2), right: 10.0),
+      padding: new EdgeInsets.only(left: 10.0, top: (MediaQuery.of(context).size.width/2), right: 10.0),
       decoration: new BoxDecoration(
+        color: Colors.white,
         image: new DecorationImage(
           image: widget.slides[this.currentSlide],
           fit: BoxFit.cover,
@@ -32,7 +45,7 @@ class _WidgetSliderState extends State<WidgetSlider> {
         children: <Widget>[
           new Positioned(
             left: 0.0,
-            bottom: 0.0,
+            top: 0.0,
             child: new GestureDetector(
               child: new Icon(Icons.navigate_before, size: 40, color: Colors.blue),
               onTap: () {
@@ -46,8 +59,20 @@ class _WidgetSliderState extends State<WidgetSlider> {
             ),
           ),
           new Positioned(
+            width: (MediaQuery.of(context).size.width - 40),
+            left: 10,
+            top: (MediaQuery.of(context).size.width/2) - 30,
+            child: new Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: dotIndicator(),
+                )
+              ),
+          ),
+          new Positioned(
             right: 0.0,
-            bottom: 0.0,
+            top: 0.0,
             child: new GestureDetector(
               child: new Icon(Icons.navigate_next, size: 40, color: Colors.blue),
               onTap: () {
