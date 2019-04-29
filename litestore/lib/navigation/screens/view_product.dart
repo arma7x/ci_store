@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:litestore/widgets/slider.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ViewProduct extends StatelessWidget {
 
@@ -42,12 +44,39 @@ class ViewProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    ImageProvider imageContainer(String url) {
+      return new CachedNetworkImageProvider(url);
+    }
+
+    List<ImageProvider> availableImages() {
+      List<ImageProvider> images = [];
+      if (this.mainPhoto != '') {
+        images.add(imageContainer(this.mainPhoto));
+      }
+      if (this.secondPhoto != '') {
+        images.add(imageContainer(this.secondPhoto));
+      }
+      if (this.thirdPhoto != '') {
+        images.add(imageContainer(this.thirdPhoto));
+      }
+      if (this.fourthPhoto != '') {
+        images.add(imageContainer(this.fourthPhoto));
+      }
+      return images;
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(this.name),
       ),
       body: new Center(
-        child: new Text(this.name),
+        child: new Column(
+          children: <Widget>[
+            new WidgetSlider(slides: availableImages()),
+            new Text(this.name),
+          ]
+        ),
       )
     );
   }
