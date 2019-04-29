@@ -132,7 +132,7 @@ class Product extends StatelessWidget {
                     new Icon(Icons.widgets, size: 12, color: Colors.grey),
                     SizedBox(width: 5),
                     new Text(
-                      this.availability == "1" ? "DALAM STOK" : "TIDALAM STOK",
+                      this.availability == "1" ? "DALAM STOK" : "TIADA STOK",
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(color: this.availability == "1" ? Colors.green : Colors.red)
                     ),

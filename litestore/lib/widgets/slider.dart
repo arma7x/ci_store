@@ -37,27 +37,12 @@ class _WidgetSliderState extends State<WidgetSlider> {
       decoration: new BoxDecoration(
         color: Colors.white,
         image: new DecorationImage(
-          image: widget.slides[this.currentSlide],
+          image: child,
           fit: BoxFit.cover,
         ),
       ),
       child: new Stack(
         children: <Widget>[
-          new Positioned(
-            left: 0.0,
-            top: 0.0,
-            child: new GestureDetector(
-              child: new Icon(Icons.navigate_before, size: 40, color: Colors.blue),
-              onTap: () {
-                final nextSlide = this.currentSlide - 1;
-                if (nextSlide < 0) {
-                  setState(() => currentSlide = (widget.slides.length - 1));
-                } else {
-                  setState(() => currentSlide = nextSlide);
-                }
-              },
-            ),
-          ),
           new Positioned(
             width: (MediaQuery.of(context).size.width - 40),
             left: 10,
@@ -69,21 +54,6 @@ class _WidgetSliderState extends State<WidgetSlider> {
                   children: dotIndicator(),
                 )
               ),
-          ),
-          new Positioned(
-            right: 0.0,
-            top: 0.0,
-            child: new GestureDetector(
-              child: new Icon(Icons.navigate_next, size: 40, color: Colors.blue),
-              onTap: () {
-                final nextSlide = this.currentSlide + 1;
-                if (nextSlide > (widget.slides.length - 1)) {
-                  setState(() => currentSlide = 0);
-                } else {
-                  setState(() => currentSlide = nextSlide);
-                }
-              },
-            ),
           ),
         ],
       )

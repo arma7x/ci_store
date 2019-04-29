@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:litestore/widgets/category.dart';
 import 'package:litestore/widgets/product.dart';
 import 'package:litestore/api.dart';
 import 'dart:convert';

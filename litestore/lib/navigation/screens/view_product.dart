@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:litestore/widgets/slider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
-class ViewProduct extends StatelessWidget {
+
+class ViewProduct extends StatefulWidget {
 
   final String id;
   final String name;
@@ -44,32 +45,69 @@ class ViewProduct extends StatelessWidget {
   }
 
   @override
+  _ViewProductState createState() => _ViewProductState();
+}
+
+class _ViewProductState extends State<ViewProduct> {
+
+  int _currentSlide = 0;
+
+  @override
   Widget build(BuildContext context) {
 
-    ImageProvider imageContainer(String url) {
-      return new CachedNetworkImageProvider(url);
+    Widget imageContainer(String url) {
+      return new CachedNetworkImage(
+        imageUrl: url,
+        fit: BoxFit.fill,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.width,
+        placeholder: (context, url) => new Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.width,
+          padding: EdgeInsets.all(40),
+          child: new CircularProgressIndicator()
+        ),
+        errorWidget: (context, url, error) => new Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.width,
+          padding: EdgeInsets.all(30),
+          child: new Icon(Icons.error)
+        ),
+      );
     }
 
-    List<ImageProvider> availableImages() {
-      List<ImageProvider> images = [];
-      if (this.mainPhoto != '') {
-        images.add(imageContainer(this.mainPhoto));
+    List<Widget> availableImages() {
+      List<Widget> images = [];
+      if (widget.mainPhoto != '') {
+        images.add(imageContainer(widget.mainPhoto));
       }
-      if (this.secondPhoto != '') {
-        images.add(imageContainer(this.secondPhoto));
+      if (widget.secondPhoto != '') {
+        images.add(imageContainer(widget.secondPhoto));
       }
-      if (this.thirdPhoto != '') {
-        images.add(imageContainer(this.thirdPhoto));
+      if (widget.thirdPhoto != '') {
+        images.add(imageContainer(widget.thirdPhoto));
       }
-      if (this.fourthPhoto != '') {
-        images.add(imageContainer(this.fourthPhoto));
+      if (widget.fourthPhoto != '') {
+        images.add(imageContainer(widget.fourthPhoto));
       }
       return images;
     }
 
+    List<Widget> dotIndicator() {
+      List<Widget> indicator = [];
+      for(int x = 0;x < availableImages().length;x++){
+        if (x == this._currentSlide) {
+          indicator.add(new Icon(Icons.brightness_1, size: 12, color: Colors.blue));
+        } else {
+          indicator.add(new Icon(Icons.brightness_1, size: 12, color: Colors.grey));
+        }
+      }
+      return indicator;
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(this.name),
+        title: Text(widget.name),
       ),
       body: new Container(
         color: Colors.grey[50],
@@ -79,19 +117,47 @@ class ViewProduct extends StatelessWidget {
             new Expanded(
               child: new ListView(
                 children: <Widget>[
-                  new WidgetSlider(slides: availableImages()),
+                  CarouselSlider(
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentSlide = index;
+                      });
+                    },
+                    height: MediaQuery.of(context).size.width,
+                    items: availableImages().map((child) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                              color: Colors.white
+                            ),
+                            child: child
+                          );
+                        },
+                      );
+                    }).toList(),
+                  ),
+                  new Container(
+                    color: Colors.white,
+                    child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: dotIndicator()
+                    )
+                  ),
                   new Padding(
-                    padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
+                    padding: const EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 0.0),
                     child: new Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         new Text(
-                          "#" + this.id + "/RM" + double.parse(this.price).toStringAsFixed(2),
+                          "#" + widget.id + "/RM" + double.parse(widget.price).toStringAsFixed(2),
                           style: TextStyle(color: Colors.blue, fontSize: 23, fontWeight: FontWeight.bold)
                         ),
                         SizedBox(height: 10),
                         new Text(
-                          this.name,
+                          widget.name,
                           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)
                         ),
                         SizedBox(height: 10),
@@ -100,24 +166,24 @@ class ViewProduct extends StatelessWidget {
                             new Icon(Icons.widgets, size: 12, color: Colors.grey),
                             SizedBox(width: 5),
                             new Text(
-                              this.availability == "1" ? "DALAM STOK" : "TIDALAM STOK",
+                              widget.availability == "1" ? "DALAM STOK" : "TIADA STOK",
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(color: this.availability == "1" ? Colors.green : Colors.red)
+                              style: TextStyle(color: widget.availability == "1" ? Colors.green : Colors.red)
                             ),
                           ]
                         ),
                         SizedBox(height: 10),
                         new Text(
-                          'ORDER SINI',
+                          "ORDER SINI!",
                           style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.bold)
                         ),
                         SizedBox(height: 10),
                         new Text(
-                          this.briefDescription,
+                          widget.briefDescription,
                           style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold)
                         ),
                         SizedBox(height: 20),
-                        Html(data: this.fullDescription)
+                        Html(data: widget.fullDescription)
                       ]
                     )
                   )
