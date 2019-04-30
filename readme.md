@@ -1,14 +1,13 @@
 ## CI STORE
-Simple product catalog built with Codeigniter 3 and also Flutter App(folder `litestore`)
-
+Simple product catalog built with Codeigniter 3 and also [Flutter App](https://github.com/arma7x/ci_store/tree/master/litestore)
 
 *******************
 
 ### Additional Setup 
 
-- `Development Config <https://github.com/arma7x/ci_store/blob/master/application/config/development/config.php#L4-L9>`_
-- `Production Config <https://github.com/arma7x/ci_store/blob/master/application/config/production/config.php#L4-L9>`_
-- `Demo Website <https://pwalitestore.herokuapp.com/>`_
+- [Development Config](https://github.com/arma7x/ci_store/blob/master/application/config/development/config.php#L4-L9)
+- [Production Config](https://github.com/arma7x/ci_store/blob/master/application/config/development/config.php#L4-L9)
+- [Demo Website](https://pwalitestore.herokuapp.com/)
 
 *******************
 
@@ -60,6 +59,6 @@ issues, as well as missing features.
 
 ### Installation
 
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
+Please see the [installation section](https://codeigniter.com/user_guide/installation/index.html)
 of the CodeIgniter User Guide.
 ************
