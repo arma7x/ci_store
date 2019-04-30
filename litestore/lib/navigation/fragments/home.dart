@@ -3,6 +3,7 @@ import 'package:litestore/api.dart';
 import 'package:litestore/widgets/category.dart';
 import 'package:litestore/widgets/product.dart';
 import 'dart:convert';
+import 'package:litestore/config.dart';
 
 class Home extends StatefulWidget {
 
@@ -92,7 +93,7 @@ class _HomeState extends State<Home> {
             },
             child: Row(
               children: <Widget>[
-                Icon(Icons.signal_wifi_off, size: 25, color: Colors.blue),
+                Icon(Icons.signal_wifi_off, size: 25, color: Config.THEME_COLOR),
                 SizedBox(width: 10),
                 Text("CUBA LAGI"),
               ]

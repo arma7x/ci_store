@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:convert';
+import 'package:litestore/config.dart';
 
 class SocialLink extends StatelessWidget {
 
@@ -33,24 +34,24 @@ class SocialLink extends StatelessWidget {
 
     return new GestureDetector(
       child: new Container(
-        margin: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
+        margin: const EdgeInsets.fromLTRB(0.0, 3, 0.0, 3),
         child: new Row(
           children: [
             ClipOval(
               child: Image.memory(
                 base64Decode(this.icon.split(",")[1]),
-                width: 30,
-                height: 30,
+                width: 38,
+                height: 38,
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(width: 5),
-            Expanded(
+            this.name != '' ? SizedBox(width: 5) : SizedBox(width: 0),
+            this.name != '' ? Expanded(
               child: new Text(
                 this.name.toUpperCase(),
-                style: TextStyle(color: Colors.blue, fontSize: 12)
+                style: TextStyle(color: Config.THEME_COLOR, fontSize: 12)
               )
-            )
+            ) : SizedBox(width: 0)
           ]
         ),
       ),

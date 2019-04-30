@@ -4,15 +4,6 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:litestore/widgets/info_button.dart';
 
-//class EssentialInformation extends StatelessWidget {
-
-  //@override
-  //Widget build(BuildContext context) {
-    //return new EssentialInformationPage(title: 'Maklumat Penting');
-  //}
-
-//}
-
 class EssentialInformationPage extends StatefulWidget {
   EssentialInformationPage({Key key, this.title}) : super(key: key);
 

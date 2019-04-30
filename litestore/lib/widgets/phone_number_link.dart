@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:litestore/config.dart';
 
 class PhoneNumberLink extends StatelessWidget {
 
@@ -36,13 +37,13 @@ class PhoneNumberLink extends StatelessWidget {
         child: new Row(
           children: [
             this.icon,
-            SizedBox(width: 5),
-            Expanded(
+            this.name != '' ? SizedBox(width: 5) : SizedBox(width: 0),
+            this.name != '' ? Expanded(
               child: new Text(
                 this.name,
-                style: TextStyle(color: Colors.blue, fontSize: 12)
+                style: TextStyle(color: Config.THEME_COLOR, fontSize: 12)
               )
-            )
+            ) : SizedBox(width: 0)
           ]
         ),
       ),

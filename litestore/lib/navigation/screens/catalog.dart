@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:litestore/widgets/product.dart';
 import 'package:litestore/api.dart';
 import 'dart:convert';
+import 'package:litestore/config.dart';
 
 
 //class Catalog extends StatelessWidget {
@@ -145,12 +146,15 @@ class _CatalogPageState extends State<CatalogPage> {
      return PopupMenuButton(
       initialValue: this._initValueCategory,
       onSelected: _onSelectCategory,
-      child: new Container(child: new Row(
-        children: <Widget>[
-          new Expanded(child: Text(this._initValueCategoryName)),
-          new Icon(Icons.arrow_drop_down, color: Colors.grey),
-        ]
-      ), height: 40.0,),
+      child: new Container(
+        child: new Row(
+          children: <Widget>[
+            new Expanded(child: Text(this._initValueCategoryName)),
+            new Icon(Icons.arrow_drop_down, color: Colors.grey),
+          ]
+        ),
+        height: 40.0,
+      ),
       itemBuilder: (context) {
         List<PopupMenuItem> items = List();
         for (var item in this._categoryFilter) {
@@ -184,12 +188,15 @@ class _CatalogPageState extends State<CatalogPage> {
      return PopupMenuButton(
       initialValue: this._initValueSpotlight,
       onSelected: _onSelectSpotlight,
-      child: new Container(child: new Row(
-        children: <Widget>[
-          new Expanded(child: Text(this._initValueSpotlightName)),
-          new Icon(Icons.arrow_drop_down, color: Colors.grey),
-        ]
-      ), height: 40.0,),
+      child: new Container(
+        child: new Row(
+          children: <Widget>[
+            new Expanded(child: Text(this._initValueSpotlightName)),
+            new Icon(Icons.arrow_drop_down, color: Colors.grey),
+          ]
+        ),
+        height: 40.0,
+      ),
       itemBuilder: (context) {
         List<PopupMenuItem> items = List();
         for (var item in this._spotlightFilter) {
@@ -223,12 +230,15 @@ class _CatalogPageState extends State<CatalogPage> {
      return PopupMenuButton(
       initialValue: this._initValueSpotlight,
       onSelected: _onSelectOrder,
-      child: new Container(child: new Row(
-        children: <Widget>[
-          new Expanded(child: Text(this._initValueOrderName)),
-          new Icon(Icons.arrow_drop_down, color: Colors.grey),
-        ]
-      ), height: 40.0,),
+      child: new Container(
+        child: new Row(
+          children: <Widget>[
+            new Expanded(child: Text(this._initValueOrderName)),
+            new Icon(Icons.arrow_drop_down, color: Colors.grey),
+          ]
+        ),
+        height: 40.0,
+      ),
       itemBuilder: (context) {
         List<PopupMenuItem> items = List();
         for (var item in this._orderFilter) {
@@ -261,6 +271,7 @@ class _CatalogPageState extends State<CatalogPage> {
   void _showSearchFilter() {
     showModalBottomSheet<void>(context: context, builder: (BuildContext context) {
       return Container(
+        height: 250,
         child: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Column(
@@ -327,7 +338,7 @@ class _CatalogPageState extends State<CatalogPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Ke Halaman Berikut', style: TextStyle(color: Colors.blue)),
+            Text('Halaman Berikut', style: TextStyle(color: Config.THEME_COLOR)),
           ]
         )
       ));
@@ -349,7 +360,7 @@ class _CatalogPageState extends State<CatalogPage> {
             },
             child: Row(
               children: <Widget>[
-                Icon(Icons.signal_wifi_off, size: 25, color: Colors.blue),
+                Icon(Icons.signal_wifi_off, size: 25, color: Config.THEME_COLOR),
                 SizedBox(width: 10),
                 Text("CUBA LAGI"),
               ]

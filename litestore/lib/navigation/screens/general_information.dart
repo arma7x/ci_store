@@ -6,15 +6,6 @@ import 'package:litestore/widgets/phone_number_link.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
-//class GeneralInformation extends StatelessWidget {
-
-  //@override
-  //Widget build(BuildContext context) {
-    //return new GeneralInformationPage(title: 'Maklumat Umum');
-  //}
-
-//}
-
 class GeneralInformationPage extends StatefulWidget {
   GeneralInformationPage({Key key, this.title}) : super(key: key);
 

@@ -4,15 +4,7 @@ import 'package:litestore/widgets/social_link.dart';
 import 'package:litestore/widgets/phone_number_link.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-
-//class InboxChannel extends StatelessWidget {
-
-  //@override
-  //Widget build(BuildContext context) {
-    //return new InboxChannelPage(title: 'Kotak Pertanyaan');
-  //}
-
-//}
+import 'package:litestore/config.dart';
 
 class InboxChannelPage extends StatefulWidget {
   InboxChannelPage({Key key, this.title}) : super(key: key);
@@ -139,6 +131,7 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
     ));
     tempList.add(SizedBox(height: 5));
     for (var item in this._icData) {
+      item['url'] = item['url'].replaceAll("%param", 'Hi ' + Config.APP_NAME);
       tempList.add(SocialLink.fromJson(item));
     }
     return tempList;

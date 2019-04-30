@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:litestore/config.dart';
+import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:litestore/api.dart';
+import 'package:litestore/widgets/social_link.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class ViewProduct extends StatefulWidget {
@@ -50,7 +56,125 @@ class ViewProduct extends StatefulWidget {
 
 class _ViewProductState extends State<ViewProduct> {
 
+  final jsonEncoder = JsonEncoder();
+  final jsonDecoder = JsonDecoder();
+  Map<String, dynamic> _giData = {};
+  List<dynamic> _icData = [];
   int _currentSlide = 0;
+
+  _ViewProductState() {
+    _getGiData();
+    _getIcData();
+  }
+
+  void _openApp(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      print ('Could not launch $url');
+    }
+  }
+
+  void _getGiData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    Map<String, dynamic> tempList = {};
+    try {
+      final request = await Api.getGeneralInformation();
+      final response = await request.close(); 
+      if (response.statusCode == 200) {
+        final responseBody = await response.transform(utf8.decoder).join();
+        tempList = json.decode(responseBody);
+        setState(() {
+          _giData = tempList;
+        });
+        await prefs.setString('_giData', this.jsonEncoder.convert(tempList));
+      } else {
+        print('Failed to get general information');
+      }
+    } on Exception {
+      tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
+      setState(() {
+        _giData = tempList;
+      });
+    }
+  }
+
+  void _getIcData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<dynamic> tempList = [];
+    try {
+      final request = await Api.getInboxChannel();
+      final response = await request.close(); 
+      if (response.statusCode == 200) {
+        final responseBody = await response.transform(utf8.decoder).join();
+        tempList = json.decode(responseBody);
+        setState(() => _icData = tempList);
+        await prefs.setString('_icData', this.jsonEncoder.convert(tempList));
+      } else {
+        print('Failed to get social channel');
+      }
+    } on Exception {
+      tempList = this.jsonDecoder.convert(await prefs.getString('_icData'));
+      setState(() {
+        _icData = tempList;
+      });
+    }
+  }
+
+  List<Widget> _renderOrderButton() {
+    List<Widget> tempList = List();
+    for (var item in this._icData) {
+      item['name'] = '';
+      item['url'] = item['url'].replaceAll("%param", widget.id + " - " + widget.name);
+      tempList.add(SocialLink.fromJson(item));
+      tempList.add(SizedBox(width: 5));
+    }
+    if (this._giData['mobile_number'] != null) {
+      tempList.add(
+        FloatingActionButton(
+          onPressed: () {
+            _openApp("sms:" + this._giData['mobile_number'] + "?body=" + widget.id + " - " + widget.name);
+          },
+          mini: true,
+          child: Icon(Icons.sms, size: 16),
+        )
+      );
+    }
+    if (this._giData['email'] != null) {
+      tempList.add(
+        FloatingActionButton(
+          onPressed: () {
+            _openApp("mailto:" + this._giData['email'] + "?subject=" + widget.id + " - " + widget.name + "&body=" + widget.id + " - " + widget.name);
+          },
+          mini: true,
+          child: Icon(Icons.email, size: 16),
+        )
+      );
+    }
+    if (this._giData['office_number'] != null) {
+      tempList.add(
+        FloatingActionButton(
+          onPressed: () {
+            _openApp("tel:" + this._giData['office_number']);
+          },
+          mini: true,
+          child: Icon(Icons.phone, size: 16),
+        )
+      );
+    }
+    if (this._giData['mobile_number'] != null) {
+      tempList.add(
+        FloatingActionButton(
+          onPressed: () {
+            _openApp("tel:" + this._giData['mobile_number']);
+          },
+          mini: true,
+          child: Icon(Icons.phone_android, size: 16),
+        )
+      );
+    }
+    return tempList;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,13 +189,13 @@ class _ViewProductState extends State<ViewProduct> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.width,
           padding: EdgeInsets.all(40),
-          child: new CircularProgressIndicator()
+          child: new Center(child: CircularProgressIndicator())
         ),
         errorWidget: (context, url, error) => new Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.width,
           padding: EdgeInsets.all(30),
-          child: new Icon(Icons.error)
+          child: new Center(child: new Icon(Icons.error))
         ),
       );
     }
@@ -97,7 +221,7 @@ class _ViewProductState extends State<ViewProduct> {
       List<Widget> indicator = [];
       for(int x = 0;x < availableImages().length;x++){
         if (x == this._currentSlide) {
-          indicator.add(new Icon(Icons.brightness_1, size: 12, color: Colors.blue));
+          indicator.add(new Icon(Icons.brightness_1, size: 12, color: Config.THEME_COLOR));
         } else {
           indicator.add(new Icon(Icons.brightness_1, size: 12, color: Colors.grey));
         }
@@ -147,13 +271,13 @@ class _ViewProductState extends State<ViewProduct> {
                     )
                   ),
                   new Padding(
-                    padding: const EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 0.0),
+                    padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
                     child: new Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         new Text(
-                          "#" + widget.id + "/RM" + double.parse(widget.price).toStringAsFixed(2),
-                          style: TextStyle(color: Colors.blue, fontSize: 23, fontWeight: FontWeight.bold)
+                          "#" + widget.id + "/" + Config.CURRENCY_UNIT + double.parse(widget.price).toStringAsFixed(2),
+                          style: TextStyle(color: Config.THEME_COLOR, fontSize: 23, fontWeight: FontWeight.bold)
                         ),
                         SizedBox(height: 10),
                         new Text(
@@ -176,6 +300,14 @@ class _ViewProductState extends State<ViewProduct> {
                         new Text(
                           "ORDER SINI!",
                           style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.bold)
+                        ),
+                        SizedBox(height: 5),
+                        new Container(
+                          height: 60,
+                          child: new ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: _renderOrderButton()
+                          )
                         ),
                         SizedBox(height: 10),
                         new Text(

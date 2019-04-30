@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
 import 'package:litestore/navigation/screens.dart';
 import 'dart:convert';
+import 'package:litestore/config.dart';
 
 class Category extends StatelessWidget {
 
@@ -34,7 +35,7 @@ class Category extends StatelessWidget {
             SizedBox(height: 5),
             new Text(
               this.name.toUpperCase(),
-              style: TextStyle(color: Colors.blue, fontSize: 12)
+              style: TextStyle(color: Config.THEME_COLOR, fontSize: 12)
             )
           ]
         ),

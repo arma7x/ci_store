@@ -1,7 +1,7 @@
 import 'package:litestore/navigation/fragments.dart';
 import 'package:litestore/navigation/screens.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:litestore/api.dart';
+import 'package:litestore/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
 
@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lite Store',
+      title: Config.APP_NAME,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Config.THEME_COLOR,
       ),
       home: MyHomePage(),
     );
@@ -111,17 +111,14 @@ class _MyHomePageState extends State<MyHomePage> {
           child: new Column(
             children: <Widget>[
               new UserAccountsDrawerHeader(
-                accountName: new Text("Lite Store", style: TextStyle(fontSize: 16)),
+                accountName: new Text(Config.APP_NAME, style: TextStyle(fontSize: 16)),
                 accountEmail: new Text(
-                  "REG0123456789MY",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold
-                  )
+                  Config.BUSINESS_ID,
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
                 ),
                 currentAccountPicture: CircleAvatar(
                   backgroundColor: Colors.white,
-                  backgroundImage: CachedNetworkImageProvider("https://" + Api.BASE_URL + "/static/img/android-chrome-512x512.png"),
+                  backgroundImage: CachedNetworkImageProvider(Config.APP_ICON),
                 ),
               ),
               new Column(children: drawerOptions)

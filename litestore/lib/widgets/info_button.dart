@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:litestore/navigation/screens.dart';
 import 'package:litestore/api.dart';
 import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
+import 'package:litestore/config.dart';
 
 class InfoButton extends StatelessWidget {
 
@@ -68,7 +69,7 @@ class InfoButton extends StatelessWidget {
             Expanded(
               child: new Text(
                 this.title.toUpperCase(),
-                style: TextStyle(color: Colors.blue, fontSize: 14)
+                style: TextStyle(color: Config.THEME_COLOR, fontSize: 14)
               )
             )
           ]

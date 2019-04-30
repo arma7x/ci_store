@@ -4,6 +4,7 @@ import 'package:litestore/navigation/screens.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:litestore/api.dart';
 import 'dart:convert';
+import 'package:litestore/config.dart';
 
 class Product extends StatelessWidget {
 
@@ -82,13 +83,13 @@ class Product extends StatelessWidget {
                 width: 100,
                 height: 100,
                 padding: EdgeInsets.all(40),
-                child: new CircularProgressIndicator()
+                child: new Center(child: CircularProgressIndicator())
               ),
               errorWidget: (context, url, error) => new Container(
                 width: 100,
                 height: 100,
-                padding: EdgeInsets.all(30),
-                child: new Icon(Icons.error)
+                padding: EdgeInsets.all(40),
+                child: new Center(child: new Icon(Icons.error))
               ),
             ),
             new Column(
@@ -120,9 +121,9 @@ class Product extends StatelessWidget {
                     new Icon(Icons.local_offer, size: 12, color: Colors.grey),
                     SizedBox(width: 5),
                     new Text(
-                      "RM" + double.parse(this.price).toStringAsFixed(2),
+                      Config.CURRENCY_UNIT + double.parse(this.price).toStringAsFixed(2),
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Colors.grey)
+                      style: TextStyle(color: Config.THEME_COLOR, fontWeight: FontWeight.bold)
                     ),
                   ]
                 ),
