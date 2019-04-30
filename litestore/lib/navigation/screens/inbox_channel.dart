@@ -45,7 +45,7 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
         await prefs.setString('_giData', this.jsonEncoder.convert(tempList));
       } else {
         setState(() => _loading = false);
-        Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
     } on Exception {
       tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
@@ -68,7 +68,7 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
         setState(() => _icData = tempList);
         await prefs.setString('_icData', this.jsonEncoder.convert(tempList));
       } else {
-        Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
     } on Exception {
       tempList = this.jsonDecoder.convert(await prefs.getString('_icData'));

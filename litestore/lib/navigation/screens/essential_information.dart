@@ -42,7 +42,7 @@ class _EssentialInformationPageState extends State<EssentialInformationPage> {
         await prefs.setString('_eiData', this.jsonEncoder.convert(tempList));
       } else {
         setState(() => _loading = false);
-        Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
     } on Exception {
       tempList = this.jsonDecoder.convert(await prefs.getString('_eiData'));

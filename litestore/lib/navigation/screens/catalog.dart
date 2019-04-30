@@ -64,10 +64,10 @@ class _CatalogPageState extends State<CatalogPage> {
           _categoryFilter = tempList;
         });
       } else {
-        Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
     } on Exception {
-      Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
     }
   }
 
@@ -92,11 +92,11 @@ class _CatalogPageState extends State<CatalogPage> {
         });
       } else {
         setState(() => _error = true);
-        Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
     } on Exception {
       setState(() => _error = true);
-      Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
     }
   }
 
@@ -125,11 +125,11 @@ class _CatalogPageState extends State<CatalogPage> {
         });
       } else {
         setState(() => _nextPageLoading = false);
-        Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
     } on Exception {
       setState(() => _nextPageLoading = false);
-      Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
     }
   }
 

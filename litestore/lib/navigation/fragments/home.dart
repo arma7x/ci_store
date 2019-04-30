@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
         _categoryList = tempList;
       });
     } else {
-      Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
     }
   }
 
@@ -63,11 +63,11 @@ class _HomeState extends State<Home> {
         });
       } else {
         setState(() => _error = true);
-        Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
     } on Exception {
       setState(() => _error = true);
-      Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
     }
   }
 

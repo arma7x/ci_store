@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:litestore/navigation/screens.dart';
 import 'package:litestore/api.dart';
 import 'package:litestore/config.dart';
@@ -43,11 +44,11 @@ class InfoButton extends StatelessWidget {
             CupertinoPageRoute(builder: (BuildContext context) => ViewEssentialInformation.fromJson(tempData))
           );
         } else {
-          print('Failed to get general information');
+          Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
           callback(false);
         }
       } on Exception {
-        print('Failed to get general information');
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
         callback(false);
       }
     }
