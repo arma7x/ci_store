@@ -130,11 +130,11 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
       'Hantar Pesanan:',
       style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)
     ));
-    tempList.add(SizedBox(height: 5));
+    tempList.add(SizedBox(height: 10));
     for (var item in this._icData) {
       item['url'] = item['url'].replaceAll("%param", 'Hi ' + Config.APP_NAME);
-      tempList.add(SizedBox(height: 5));
       tempList.add(SocialLink.fromJson(item));
+      tempList.add(SizedBox(height: 10));
     }
     return tempList;
   }

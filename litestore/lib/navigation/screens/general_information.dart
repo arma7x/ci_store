@@ -78,7 +78,7 @@ class _GeneralInformationPageState extends State<GeneralInformationPage> {
 
   List<Widget> _renderGiData() {
     List<Widget> tempList = List();
-    List<Widget> subTempList = List();
+    List<Widget> subContactList = List();
     tempList.addAll(<Widget>[
       Text(
         this._giData['name'],
@@ -96,43 +96,42 @@ class _GeneralInformationPageState extends State<GeneralInformationPage> {
       Text("Unit Matawang: " + this._giData['currency_unit']),
       SizedBox(height: 10),
     ]);
-    subTempList.add(Text(
+    subContactList.add(Text(
         "Hubungi Kami:",
         style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)
     ));
-    subTempList.add(SizedBox(height: 3));
     if (this._giData['email'] != null || this._giData['email'] != '') {
-      subTempList.add(
+      subContactList.add(
         PhoneNumberLink(
           name: this._giData['email'],
-          icon: new Icon(Icons.email, size: 20, color: Colors.black),
+          icon: new Icon(Icons.email, size: 20, color: Colors.white),
           url: "mailto:" + this._giData['email'],
         )
       );
     }
     if (this._giData['office_number'] != null || this._giData['office_number'] != '') {
-      subTempList.add(
+      subContactList.add(
         PhoneNumberLink(
           name: this._giData['office_number'],
-          icon: new Icon(Icons.phone, size: 20, color: Colors.black),
+          icon: new Icon(Icons.phone, size: 20, color: Colors.white),
           url: "tel:" + this._giData['office_number'],
         )
       );
     }
     if (this._giData['mobile_number'] != null || this._giData['mobile_number'] != '') {
-      subTempList.add(
+      subContactList.add(
         PhoneNumberLink(
           name: this._giData['mobile_number'],
-          icon: new Icon(Icons.phone_android, size: 20, color: Colors.black),
+          icon: new Icon(Icons.phone_android, size: 20, color: Colors.white),
           url: "tel:" + this._giData['mobile_number'],
         )
       );
     }
     if (this._giData['mobile_number'] != null || this._giData['mobile_number'] != '') {
-      subTempList.add(
+      subContactList.add(
         PhoneNumberLink(
           name: this._giData['mobile_number'],
-          icon: new Icon(Icons.sms, size: 20, color: Colors.black),
+          icon: new Icon(Icons.sms, size: 20, color: Colors.white),
           url: "sms:" + this._giData['mobile_number'],
         )
       );
@@ -145,14 +144,14 @@ class _GeneralInformationPageState extends State<GeneralInformationPage> {
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: subTempList
+            children: _renderScData()
           )
         ),
         new Expanded(
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: _renderScData()
+            children: subContactList
           )
         ),
       ]
@@ -168,8 +167,10 @@ class _GeneralInformationPageState extends State<GeneralInformationPage> {
         style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)
       )
     ];
+    tempList.add(SizedBox(height: 10));
     for (var item in this._scData) {
       tempList.add(SocialLink.fromJson(item));
+      tempList.add(SizedBox(height: 10));
     }
     return tempList;
   }

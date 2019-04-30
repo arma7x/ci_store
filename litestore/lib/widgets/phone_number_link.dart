@@ -31,34 +31,31 @@ class PhoneNumberLink extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return new GestureDetector(
-      child: new Container(
-        margin: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
-        child: new Row(
-          children: [
-            new FloatingActionButton(
-              onPressed: () {
-                _openApp(this.url);
-              },
-              mini: true,
-              child: this.icon,
-            ),
-            this.name != '' ? SizedBox(width: 5) : SizedBox(width: 0),
-            this.name != '' ? Expanded(
+    return new Container(
+      child: new Row(
+        children: [
+          new FloatingActionButton(
+            heroTag: this.name,
+            onPressed: () {
+              _openApp(this.url);
+            },
+            mini: true,
+            child: this.icon,
+          ),
+          this.name != '' ? SizedBox(width: 5) : SizedBox(width: 0),
+          this.name != '' ? Expanded(
+            child: new GestureDetector(
               child: new Text(
                 this.name,
                 style: TextStyle(color: Config.THEME_COLOR, fontSize: 12)
-              )
-            ) : SizedBox(width: 0)
-          ]
-        ),
+              ),
+              onTap: () {
+                _openApp(this.url);
+              }
+            )
+          ) : SizedBox(width: 0)
+        ]
       ),
-      onTap: () {
-        _openApp(this.url);
-      },
-      onLongPress: () {
-        print(this.name);
-      },
     );
   }
 }

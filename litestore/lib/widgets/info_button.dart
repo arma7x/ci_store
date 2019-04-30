@@ -59,28 +59,32 @@ class InfoButton extends StatelessWidget {
       icon = 0xe14b;
     }
 
-    return new GestureDetector(
-      child: new Container(
-        margin: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
-        child: new Row(
-          children: [
-            new Icon(IconData(icon, fontFamily: 'MaterialIcons'), size: 20, color: Colors.black),
-            SizedBox(width: 5),
-            Expanded(
+    return new Container(
+      margin: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
+      child: new Row(
+        children: <Widget>[
+          new FloatingActionButton(
+            heroTag: this.title,
+            onPressed: () {
+              _viewEi(this.slug);
+            },
+            mini: true,
+            child: Icon(IconData(icon, fontFamily: 'MaterialIcons'), size: 20, color: Colors.white),
+          ),
+          SizedBox(width: 5),
+          Expanded(
+            child: new GestureDetector(
               child: new Text(
                 this.title.toUpperCase(),
-                style: TextStyle(color: Config.THEME_COLOR, fontSize: 14)
-              )
+                style: TextStyle(fontSize: 14)
+              ),
+              onTap: () {
+                _viewEi(this.slug);
+              }
             )
-          ]
-        ),
+          )
+        ]
       ),
-      onTap: () {
-        _viewEi(this.slug);
-      },
-      onLongPress: () {
-        print(this.slug);
-      },
     );
   }
 }

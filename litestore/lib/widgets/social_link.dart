@@ -36,12 +36,27 @@ class SocialLink extends StatelessWidget {
       child: new Container(
         child: new Row(
           children: [
-            ClipOval(
-              child: Image.memory(
-                base64Decode(this.icon.split(",")[1]),
-                width: 38,
-                height: 38,
-                fit: BoxFit.cover,
+            new Container(
+              height: 38,
+              width: 38,
+              child: ClipOval(
+                child: Image.memory(
+                  base64Decode(this.icon.split(",")[1]),
+                  width: 38,
+                  height: 38,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 5.0,
+                      offset: Offset(1.5, 1.5),
+                      spreadRadius: 1.5)
+                ],
               ),
             ),
             this.name != '' ? SizedBox(width: 5) : SizedBox(width: 0),
@@ -56,9 +71,6 @@ class SocialLink extends StatelessWidget {
       ),
       onTap: () {
         _openApp(this.url);
-      },
-      onLongPress: () {
-        print(this.name);
       },
     );
   }
