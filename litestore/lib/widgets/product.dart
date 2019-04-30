@@ -61,92 +61,98 @@ class Product extends StatelessWidget {
       }
     }
 
-    return new GestureDetector(
-      child: new Container(
-        decoration: new BoxDecoration(
-          color: Colors.white,
-          border: new Border(
-            bottom: BorderSide(
-              color: Colors.grey[100],
-              width: 2,
-            )
+    return new Container(
+      child: new Material(
+        child: new InkWell(
+          onTap: () {
+            _viewProduct(this.slug);
+          },
+          child: new Container(
+            decoration: new BoxDecoration(
+              //color: Colors.white,
+              border: new Border(
+                bottom: BorderSide(
+                  color: Colors.grey[100],
+                  width: 2,
+                )
+              )
+            ),
+            child: new Row(
+              children: <Widget>[
+                new CachedNetworkImage(
+                  imageUrl: this.mainPhoto,
+                  fit: BoxFit.fill,
+                  width: 100,
+                  height: 100,
+                  placeholder: (context, url) => new Container(
+                    width: 100,
+                    height: 100,
+                    padding: EdgeInsets.all(40),
+                    child: new Center(child: CircularProgressIndicator())
+                  ),
+                  errorWidget: (context, url, error) => new Container(
+                    width: 100,
+                    height: 100,
+                    padding: EdgeInsets.all(40),
+                    child: new Center(child: new Icon(Icons.error))
+                  ),
+                ),
+                new Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    new Text(
+                      this.name,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14
+                      )
+                    ),
+                    SizedBox(height: 10),
+                    new Row(
+                      children: <Widget>[
+                        new Icon(Icons.fingerprint, size: 12, color: Colors.grey),
+                        SizedBox(width: 5),
+                        new Text(
+                          this.id,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(color: Colors.grey)
+                        ),
+                      ]
+                    ),
+                    SizedBox(height: 2),
+                    new Row(
+                      children: <Widget>[
+                        new Icon(Icons.local_offer, size: 12, color: Colors.grey),
+                        SizedBox(width: 5),
+                        new Text(
+                          Config.CURRENCY_UNIT + double.parse(this.price).toStringAsFixed(2),
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(color: Config.THEME_COLOR, fontWeight: FontWeight.bold)
+                        ),
+                      ]
+                    ),
+                    SizedBox(height: 2),
+                    new Row(
+                      children: <Widget>[
+                        new Icon(Icons.widgets, size: 12, color: Colors.grey),
+                        SizedBox(width: 5),
+                        new Text(
+                          this.availability == "1" ? "DALAM STOK" : "TIADA STOK",
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(color: this.availability == "1" ? Colors.green : Colors.red)
+                        ),
+                      ]
+                    ),
+                  ]
+                )
+              ]
+            ),
           )
         ),
-        child: new Row(
-          children: <Widget>[
-            new CachedNetworkImage(
-              imageUrl: this.mainPhoto,
-              fit: BoxFit.fill,
-              width: 100,
-              height: 100,
-              placeholder: (context, url) => new Container(
-                width: 100,
-                height: 100,
-                padding: EdgeInsets.all(40),
-                child: new Center(child: CircularProgressIndicator())
-              ),
-              errorWidget: (context, url, error) => new Container(
-                width: 100,
-                height: 100,
-                padding: EdgeInsets.all(40),
-                child: new Center(child: new Icon(Icons.error))
-              ),
-            ),
-            new Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                new Text(
-                  this.name,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14
-                  )
-                ),
-                SizedBox(height: 10),
-                new Row(
-                  children: <Widget>[
-                    new Icon(Icons.fingerprint, size: 12, color: Colors.grey),
-                    SizedBox(width: 5),
-                    new Text(
-                      this.id,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Colors.grey)
-                    ),
-                  ]
-                ),
-                SizedBox(height: 2),
-                new Row(
-                  children: <Widget>[
-                    new Icon(Icons.local_offer, size: 12, color: Colors.grey),
-                    SizedBox(width: 5),
-                    new Text(
-                      Config.CURRENCY_UNIT + double.parse(this.price).toStringAsFixed(2),
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Config.THEME_COLOR, fontWeight: FontWeight.bold)
-                    ),
-                  ]
-                ),
-                SizedBox(height: 2),
-                new Row(
-                  children: <Widget>[
-                    new Icon(Icons.widgets, size: 12, color: Colors.grey),
-                    SizedBox(width: 5),
-                    new Text(
-                      this.availability == "1" ? "DALAM STOK" : "TIADA STOK",
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: this.availability == "1" ? Colors.green : Colors.red)
-                    ),
-                  ]
-                ),
-              ]
-            )
-          ]
-        ),
+        color: Colors.transparent,
       ),
-      onTap: () {
-        _viewProduct(this.slug);
-      },
+      color: Colors.white,
     );
   }
 }

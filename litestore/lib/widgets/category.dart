@@ -22,33 +22,37 @@ class Category extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new GestureDetector(
-      child: new Container(
-        margin: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
-        child: new Column(
-          children: [
-            Image.memory(
-              base64Decode(this.icon.split(",")[1]),
-              width: 30,
-              height: 30 
+
+    return new Container(
+      child: new Material(
+        child: new InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              CupertinoPageRoute(builder: (BuildContext context) => new CatalogPage(title: 'Katalog', category: this.id, name: this.name))
+            );
+          },
+          child: new Container(
+            margin: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
+            child: new Column(
+              children: [
+                Image.memory(
+                  base64Decode(this.icon.split(",")[1]),
+                  width: 30,
+                  height: 30 
+                ),
+                SizedBox(height: 5),
+                new Text(
+                  this.name.toUpperCase(),
+                  style: TextStyle(color: Config.THEME_COLOR, fontSize: 12)
+                )
+              ]
             ),
-            SizedBox(height: 5),
-            new Text(
-              this.name.toUpperCase(),
-              style: TextStyle(color: Config.THEME_COLOR, fontSize: 12)
-            )
-          ]
+          ),
         ),
+        color: Colors.transparent,
       ),
-      onTap: () {
-        Navigator.push(
-          context,
-          CupertinoPageRoute(builder: (BuildContext context) => new CatalogPage(title: 'Katalog', category: this.id, name: this.name))
-        );
-      },
-      onLongPress: () {
-        print(this.name);
-      },
+      color: Colors.transparent,
     );
   }
 }
