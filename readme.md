@@ -1,5 +1,6 @@
 ## CI STORE
-Simple product catalog built with Codeigniter 3
+Simple product catalog built with Codeigniter 3 and also Flutter App(folder `litestore`)
+
 
 *******************
 
