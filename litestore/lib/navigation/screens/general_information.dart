@@ -100,6 +100,7 @@ class _GeneralInformationPageState extends State<GeneralInformationPage> {
         "Hubungi Kami:",
         style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)
     ));
+    subContactList.add(SizedBox(height: 6));
     if (this._giData['email'] != null || this._giData['email'] != '') {
       subContactList.add(
         PhoneNumberLink(
