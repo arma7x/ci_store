@@ -1,10 +1,11 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:litestore/api.dart';
 import 'package:litestore/widgets/social_link.dart';
-import 'package:litestore/widgets/phone_number_link.dart';
-import 'dart:convert';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:litestore/config.dart';
+import 'package:litestore/widgets/phone_number_link.dart';
 
 class InboxChannelPage extends StatefulWidget {
   InboxChannelPage({Key key, this.title}) : super(key: key);
@@ -44,7 +45,7 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
         await prefs.setString('_giData', this.jsonEncoder.convert(tempList));
       } else {
         setState(() => _loading = false);
-        print('Failed to get general information');
+        Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
     } on Exception {
       tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
@@ -67,7 +68,7 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
         setState(() => _icData = tempList);
         await prefs.setString('_icData', this.jsonEncoder.convert(tempList));
       } else {
-        print('Failed to get social channel');
+        Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
     } on Exception {
       tempList = this.jsonDecoder.convert(await prefs.getString('_icData'));
@@ -88,7 +89,7 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
       tempList.add(
         PhoneNumberLink(
           name: this._giData['email'],
-          icon: new Icon(Icons.email, size: 20, color: Colors.black),
+          icon: new Icon(Icons.email, size: 20, color: Colors.white),
           url: "mailto:" + this._giData['email'],
         )
       );
@@ -97,7 +98,7 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
       tempList.add(
         PhoneNumberLink(
           name: this._giData['office_number'],
-          icon: new Icon(Icons.phone, size: 20, color: Colors.black),
+          icon: new Icon(Icons.phone, size: 20, color: Colors.white),
           url: "tel:" + this._giData['office_number'],
         )
       );
@@ -106,7 +107,7 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
       tempList.add(
         PhoneNumberLink(
           name: this._giData['mobile_number'],
-          icon: new Icon(Icons.phone_android, size: 20, color: Colors.black),
+          icon: new Icon(Icons.phone_android, size: 20, color: Colors.white),
           url: "tel:" + this._giData['mobile_number'],
         )
       );
@@ -115,7 +116,7 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
       tempList.add(
         PhoneNumberLink(
           name: this._giData['mobile_number'],
-          icon: new Icon(Icons.sms, size: 20, color: Colors.black),
+          icon: new Icon(Icons.sms, size: 20, color: Colors.white),
           url: "sms:" + this._giData['mobile_number'],
         )
       );
@@ -132,6 +133,7 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
     tempList.add(SizedBox(height: 5));
     for (var item in this._icData) {
       item['url'] = item['url'].replaceAll("%param", 'Hi ' + Config.APP_NAME);
+      tempList.add(SizedBox(height: 5));
       tempList.add(SocialLink.fromJson(item));
     }
     return tempList;

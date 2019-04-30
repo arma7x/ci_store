@@ -1,9 +1,10 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:litestore/api.dart';
+import 'package:litestore/config.dart';
 import 'package:litestore/widgets/category.dart';
 import 'package:litestore/widgets/product.dart';
-import 'dart:convert';
-import 'package:litestore/config.dart';
 
 class Home extends StatefulWidget {
 
@@ -41,7 +42,7 @@ class _HomeState extends State<Home> {
         _categoryList = tempList;
       });
     } else {
-      print('Failed to category');
+      Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
     }
   }
 
@@ -53,7 +54,7 @@ class _HomeState extends State<Home> {
       if (response.statusCode == 200) {
         final responseBody = await response.transform(utf8.decoder).join();
         for (var item in json.decode(responseBody)) {
-          tempList.add(Product.fromJson(item, cb));
+          tempList.add(Product.fromJson(item, _ignoringCb));
         }
         setState(() {
           _productLoaded = true;
@@ -62,17 +63,17 @@ class _HomeState extends State<Home> {
         });
       } else {
         setState(() => _error = true);
-        print('Failed to product');
+        Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
     } on Exception {
       setState(() => _error = true);
+      Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
     }
   }
 
-  void cb(bool status) {
+  void _ignoringCb(bool status) {
     setState(() => _ignoring = status);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +127,6 @@ class _HomeState extends State<Home> {
             new Expanded(
               child: new ListView(
                 scrollDirection: Axis.vertical,
-                //padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
                 children: this._productList
               )
             ),

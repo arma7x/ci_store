@@ -36,7 +36,13 @@ class PhoneNumberLink extends StatelessWidget {
         margin: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
         child: new Row(
           children: [
-            this.icon,
+            new FloatingActionButton(
+              onPressed: () {
+                _openApp(this.url);
+              },
+              mini: true,
+              child: this.icon,
+            ),
             this.name != '' ? SizedBox(width: 5) : SizedBox(width: 0),
             this.name != '' ? Expanded(
               child: new Text(

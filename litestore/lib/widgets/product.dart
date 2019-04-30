@@ -1,10 +1,10 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
-import 'package:litestore/navigation/screens.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:litestore/api.dart';
-import 'dart:convert';
 import 'package:litestore/config.dart';
+import 'package:litestore/navigation/screens.dart';
 
 class Product extends StatelessWidget {
 

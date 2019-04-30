@@ -1,10 +1,11 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:litestore/api.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:litestore/api.dart';
 import 'package:litestore/widgets/social_link.dart';
 import 'package:litestore/widgets/phone_number_link.dart';
-import 'dart:convert';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class GeneralInformationPage extends StatefulWidget {
   GeneralInformationPage({Key key, this.title}) : super(key: key);
@@ -44,7 +45,7 @@ class _GeneralInformationPageState extends State<GeneralInformationPage> {
         await prefs.setString('_giData', this.jsonEncoder.convert(tempList));
       } else {
         setState(() => _loading = false);
-        print('Failed to get general information');
+        Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
     } on Exception {
       tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
@@ -67,7 +68,7 @@ class _GeneralInformationPageState extends State<GeneralInformationPage> {
         setState(() => _scData = tempList);
         await prefs.setString('_scData', this.jsonEncoder.convert(tempList));
       } else {
-        print('Failed to get social channel');
+        Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
     } on Exception {
       tempList = this.jsonDecoder.convert(await prefs.getString('_scData'));

@@ -1,7 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
 import 'package:litestore/navigation/screens.dart';
-import 'dart:convert';
 import 'package:litestore/config.dart';
 
 class Category extends StatelessWidget {

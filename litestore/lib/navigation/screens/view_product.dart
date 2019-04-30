@@ -1,13 +1,13 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:litestore/config.dart';
-import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:litestore/api.dart';
+import 'package:litestore/config.dart';
 import 'package:litestore/widgets/social_link.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:litestore/widgets/phone_number_link.dart';
 
 
 class ViewProduct extends StatefulWidget {
@@ -67,14 +67,6 @@ class _ViewProductState extends State<ViewProduct> {
     _getIcData();
   }
 
-  void _openApp(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      print ('Could not launch $url');
-    }
-  }
-
   void _getGiData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Map<String, dynamic> tempList = {};
@@ -131,45 +123,37 @@ class _ViewProductState extends State<ViewProduct> {
     }
     if (this._giData['mobile_number'] != null) {
       tempList.add(
-        FloatingActionButton(
-          onPressed: () {
-            _openApp("sms:" + this._giData['mobile_number'] + "?body=" + widget.id + " - " + widget.name);
-          },
-          mini: true,
-          child: Icon(Icons.sms, size: 16),
+        PhoneNumberLink(
+          name: '',
+          icon: new Icon(Icons.sms, size: 20, color: Colors.white),
+          url: "mailto:" + this._giData['email'],
         )
       );
     }
     if (this._giData['email'] != null) {
       tempList.add(
-        FloatingActionButton(
-          onPressed: () {
-            _openApp("mailto:" + this._giData['email'] + "?subject=" + widget.id + " - " + widget.name + "&body=" + widget.id + " - " + widget.name);
-          },
-          mini: true,
-          child: Icon(Icons.email, size: 16),
+        PhoneNumberLink(
+          name: '',
+          icon: new Icon(Icons.email, size: 20, color: Colors.white),
+          url: "mailto:" + this._giData['email'] + "?subject=" + widget.id + " - " + widget.name + "&body=" + widget.id + " - " + widget.name,
         )
       );
     }
     if (this._giData['office_number'] != null) {
       tempList.add(
-        FloatingActionButton(
-          onPressed: () {
-            _openApp("tel:" + this._giData['office_number']);
-          },
-          mini: true,
-          child: Icon(Icons.phone, size: 16),
+        PhoneNumberLink(
+          name: '',
+          icon: new Icon(Icons.phone, size: 20, color: Colors.white),
+          url: "tel:" + this._giData['office_number'],
         )
       );
     }
     if (this._giData['mobile_number'] != null) {
       tempList.add(
-        FloatingActionButton(
-          onPressed: () {
-            _openApp("tel:" + this._giData['mobile_number']);
-          },
-          mini: true,
-          child: Icon(Icons.phone_android, size: 16),
+        PhoneNumberLink(
+          name: '',
+          icon: new Icon(Icons.phone_android, size: 20, color: Colors.white),
+          url: "tel:" + this._giData['mobile_number'],
         )
       );
     }
@@ -303,7 +287,7 @@ class _ViewProductState extends State<ViewProduct> {
                         ),
                         SizedBox(height: 5),
                         new Container(
-                          height: 60,
+                          height: 65,
                           child: new ListView(
                             scrollDirection: Axis.horizontal,
                             children: _renderOrderButton()
@@ -315,6 +299,7 @@ class _ViewProductState extends State<ViewProduct> {
                           style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold)
                         ),
                         SizedBox(height: 20),
+                        new Center(child: new Container(color:Config.THEME_COLOR, height: 4, width: 180)),
                         Html(data: widget.fullDescription)
                       ]
                     )

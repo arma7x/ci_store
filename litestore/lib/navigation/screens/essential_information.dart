@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:litestore/api.dart';
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:litestore/api.dart';
 import 'package:litestore/widgets/info_button.dart';
 
 class EssentialInformationPage extends StatefulWidget {
@@ -41,7 +42,7 @@ class _EssentialInformationPageState extends State<EssentialInformationPage> {
         await prefs.setString('_eiData', this.jsonEncoder.convert(tempList));
       } else {
         setState(() => _loading = false);
-        print('Failed to get general information');
+        Fluttertoast.showToast( msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
     } on Exception {
       tempList = this.jsonDecoder.convert(await prefs.getString('_eiData'));
@@ -52,14 +53,14 @@ class _EssentialInformationPageState extends State<EssentialInformationPage> {
     }
   }
 
-  void cb(bool status) {
+  void _ignoringCb(bool status) {
     setState(() => _ignoring = status);
   }
 
   List<Widget> _renderEiData() {
     List<Widget> tempList = List();
     for (var item in this._eiData) {
-      tempList.add(InfoButton.fromJson(item, cb));
+      tempList.add(InfoButton.fromJson(item, _ignoringCb));
     }
     return tempList;
   }

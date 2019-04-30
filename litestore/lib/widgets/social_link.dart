@@ -1,6 +1,6 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:convert';
 import 'package:litestore/config.dart';
 
 class SocialLink extends StatelessWidget {
@@ -34,7 +34,6 @@ class SocialLink extends StatelessWidget {
 
     return new GestureDetector(
       child: new Container(
-        margin: const EdgeInsets.fromLTRB(0.0, 3, 0.0, 3),
         child: new Row(
           children: [
             ClipOval(
