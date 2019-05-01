@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:litestore/api.dart';
 import 'package:litestore/config.dart';
@@ -52,11 +53,11 @@ class Product extends StatelessWidget {
             CupertinoPageRoute(builder: (BuildContext context) => new ViewProduct.fromJson(tempData))
           );
         } else {
-          print('Failed to get product');
+          Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
           callback(false);
         }
       } on Exception {
-        print('Failed to get product');
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
         callback(false);
       }
     }
@@ -64,12 +65,14 @@ class Product extends StatelessWidget {
     return new Container(
       child: new Material(
         child: new InkWell(
+          onLongPress: () {
+            Fluttertoast.showToast(msg: this.name, toastLength: Toast.LENGTH_SHORT);
+          },
           onTap: () {
             _viewProduct(this.slug);
           },
           child: new Container(
             decoration: new BoxDecoration(
-              //color: Colors.white,
               border: new Border(
                 bottom: BorderSide(
                   color: Colors.grey[100],
@@ -135,10 +138,10 @@ class Product extends StatelessWidget {
                     SizedBox(height: 2),
                     new Row(
                       children: <Widget>[
-                        new Icon(Icons.widgets, size: 12, color: Colors.grey),
+                        new Icon(Icons.local_grocery_store, size: 12, color: Colors.grey),
                         SizedBox(width: 5),
                         new Text(
-                          this.availability == "1" ? "DALAM STOK" : "TIADA STOK",
+                          this.availability == "1" ? "STOK TERSEDIA" : "KEHABISAN STOK",
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(color: this.availability == "1" ? Colors.green : Colors.red)
                         ),

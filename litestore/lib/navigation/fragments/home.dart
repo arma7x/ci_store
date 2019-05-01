@@ -18,6 +18,7 @@ class _HomeState extends State<Home> {
 
   List<Widget> _categoryList = [];
   bool _categoryLoaded = false;
+  bool _categoryLoading = true;
   List<Widget> _productList = [];
   bool _productLoaded = false;
   bool _error = false;
@@ -30,19 +31,31 @@ class _HomeState extends State<Home> {
 
   void _getCategory() async {
     List<Widget> tempList = List();
-    final request = await Api.getProductCategory();
-    final response = await request.close(); 
-    if (response.statusCode == 200) {
-      final responseBody = await response.transform(utf8.decoder).join();
-      for (var item in json.decode(responseBody)) {
-        tempList.add(Category.fromJson(item));
+    try {
+      final request = await Api.getProductCategory();
+      final response = await request.close(); 
+      if (response.statusCode == 200) {
+        final responseBody = await response.transform(utf8.decoder).join();
+        for (var item in json.decode(responseBody)) {
+          tempList.add(Category.fromJson(item));
+        }
+        setState(() {
+          _categoryList = tempList;
+          _categoryLoaded = true;
+          _categoryLoading = false;
+        });
+      } else {
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        setState(() {
+          _categoryLoaded = false;
+          _categoryLoading = false;
+        });
       }
+    } on Exception {
       setState(() {
-        _categoryLoaded = true;
-        _categoryList = tempList;
+        _categoryLoaded = false;
+        _categoryLoading = false;
       });
-    } else {
-      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
     }
   }
 
@@ -120,10 +133,28 @@ class _HomeState extends State<Home> {
               height: 65.0,
               child: new ListView(
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 0.0),
+                padding: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
                 children: this._categoryList
               )
-            ) : SizedBox(height: 0, width: 0),
+            ) : new Center(
+              child: this._categoryLoading == false ? Container(
+                width: 160,
+                child: RaisedButton(
+                  padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                  onPressed: () {
+                    setState(() => _categoryLoading = true);
+                    _getCategory();
+                  },
+                  child: Row(
+                    children: <Widget>[
+                      Icon(Icons.signal_wifi_off, size: 25, color: Config.THEME_COLOR),
+                      SizedBox(width: 10),
+                      Text("CUBA LAGI"),
+                    ]
+                  )
+                ),
+              ) : new LinearProgressIndicator()
+            ),
             new Expanded(
               child: new ListView(
                 scrollDirection: Axis.vertical,

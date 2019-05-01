@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:litestore/navigation/screens.dart';
 import 'package:litestore/config.dart';
 
@@ -26,6 +27,9 @@ class Category extends StatelessWidget {
     return new Container(
       child: new Material(
         child: new InkWell(
+          onLongPress: () {
+            Fluttertoast.showToast(msg: this.name, toastLength: Toast.LENGTH_SHORT);
+          },
           onTap: () {
             Navigator.push(
               context,
@@ -33,7 +37,7 @@ class Category extends StatelessWidget {
             );
           },
           child: new Container(
-            margin: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
+            margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 5.0),
             child: new Column(
               children: [
                 Image.memory(

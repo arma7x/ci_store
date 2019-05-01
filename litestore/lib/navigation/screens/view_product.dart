@@ -61,6 +61,7 @@ class _ViewProductState extends State<ViewProduct> {
   Map<String, dynamic> _giData = {};
   List<dynamic> _icData = [];
   int _currentSlide = 0;
+  bool _orderButtonReady = false;
 
   _ViewProductState() {
     _getGiData();
@@ -77,15 +78,18 @@ class _ViewProductState extends State<ViewProduct> {
         final responseBody = await response.transform(utf8.decoder).join();
         tempList = json.decode(responseBody);
         setState(() {
+          _orderButtonReady = true;
           _giData = tempList;
         });
         await prefs.setString('_giData', this.jsonEncoder.convert(tempList));
       } else {
         print('Failed to get general information');
+        setState(() => _orderButtonReady = true);
       }
     } on Exception {
       tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
       setState(() {
+        _orderButtonReady = true;
         _giData = tempList;
       });
     }
@@ -100,14 +104,19 @@ class _ViewProductState extends State<ViewProduct> {
       if (response.statusCode == 200) {
         final responseBody = await response.transform(utf8.decoder).join();
         tempList = json.decode(responseBody);
-        setState(() => _icData = tempList);
+        setState(() {
+          _orderButtonReady = true;
+          _icData = tempList;
+        });
         await prefs.setString('_icData', this.jsonEncoder.convert(tempList));
       } else {
         print('Failed to get social channel');
+        setState(() => _orderButtonReady = true);
       }
     } on Exception {
       tempList = this.jsonDecoder.convert(await prefs.getString('_icData'));
       setState(() {
+        _orderButtonReady = true;
         _icData = tempList;
       });
     }
@@ -271,10 +280,10 @@ class _ViewProductState extends State<ViewProduct> {
                         SizedBox(height: 10),
                         new Row(
                           children: <Widget>[
-                            new Icon(Icons.widgets, size: 12, color: Colors.grey),
+                            new Icon(Icons.local_grocery_store, size: 12, color: Colors.grey),
                             SizedBox(width: 5),
                             new Text(
-                              widget.availability == "1" ? "DALAM STOK" : "TIADA STOK",
+                              widget.availability == "1" ? "STOK TERSEDIA" : "KEHABISAN STOK",
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(color: widget.availability == "1" ? Colors.green : Colors.red)
                             ),
@@ -288,10 +297,10 @@ class _ViewProductState extends State<ViewProduct> {
                         SizedBox(height: 5),
                         new Container(
                           height: 65,
-                          child: new ListView(
+                          child: this._orderButtonReady ? new ListView(
                             scrollDirection: Axis.horizontal,
                             children: _renderOrderButton()
-                          )
+                          ) : new Center(child: new LinearProgressIndicator())
                         ),
                         SizedBox(height: 10),
                         new Text(
