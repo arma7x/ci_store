@@ -268,9 +268,18 @@ class _ViewProductState extends State<ViewProduct> {
                     child: new Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        new Text(
-                          "#" + widget.id + "/" + Config.CURRENCY_UNIT + double.parse(widget.price).toStringAsFixed(2),
-                          style: TextStyle(color: Config.THEME_COLOR, fontSize: 23, fontWeight: FontWeight.bold)
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              Config.CURRENCY_UNIT + double.parse(widget.price).toStringAsFixed(2),
+                              style: TextStyle(color: Config.THEME_COLOR, fontSize: 23, fontWeight: FontWeight.bold)
+                            ),
+                            Text(
+                              "#" + widget.id,
+                              style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold)
+                            ),
+                          ]
                         ),
                         SizedBox(height: 10),
                         new Text(
