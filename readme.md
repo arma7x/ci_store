@@ -8,6 +8,7 @@ Simple product catalog built with Codeigniter 3 and also [Flutter App](https://g
 - [Development Config](https://github.com/arma7x/ci_store/blob/master/application/config/development/config.php#L4-L9)
 - [Production Config](https://github.com/arma7x/ci_store/blob/master/application/config/development/config.php#L4-L9)
 - [Demo Website](https://pwalitestore.herokuapp.com/)
+- [Flutter App Demo](https://youtu.be/Y24RRfi0fGM)
 
 *******************
 
