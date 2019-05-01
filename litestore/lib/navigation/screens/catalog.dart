@@ -461,14 +461,14 @@ class _CatalogPageState extends State<CatalogPage> {
       body: new Container(
         child: new Column(
           children: <Widget>[
-            new Container(
+            this._categoryList.length > 0 ? new Container(
               height: 65.0,
               child: new ListView(
                 scrollDirection: Axis.horizontal,
                 padding: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
                 children: this._categoryList
               )
-            ),
+            ) : SizedBox(height: 0, width: 0),
             new Expanded(child: body)
           ]
         )
