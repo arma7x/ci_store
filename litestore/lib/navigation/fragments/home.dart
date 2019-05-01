@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
       if (response.statusCode == 200) {
         final responseBody = await response.transform(utf8.decoder).join();
         for (var item in json.decode(responseBody)) {
-          tempList.add(Category.fromJson(item));
+          tempList.add(Category.fromJson(item, null));
         }
         setState(() {
           _categoryList = tempList;

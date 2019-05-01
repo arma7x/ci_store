@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:litestore/widgets/product.dart';
+import 'package:litestore/widgets/category.dart';
 import 'package:litestore/api.dart';
 import 'package:litestore/config.dart';
 
@@ -28,6 +29,7 @@ class _CatalogPageState extends State<CatalogPage> {
   String _initValueCategory = '';
   String _initValueCategoryName = 'Pelbagai Kategori';
   List<dynamic> _categoryFilter = [{'id': '', 'name': 'Pelbagai Kategori'}];
+  List<Widget> _categoryList = [];
   bool _categoryLoaded = false;
   List<Widget> _productList = [];
   bool _productLoaded = false;
@@ -52,6 +54,7 @@ class _CatalogPageState extends State<CatalogPage> {
 
   void _getCategory() async {
     List<dynamic> tempList = [];
+    List<Widget> tempListTop = [];
     try {
       final request = await Api.getProductCategory();
       final response = await request.close(); 
@@ -59,9 +62,13 @@ class _CatalogPageState extends State<CatalogPage> {
         final responseBody = await response.transform(utf8.decoder).join();
         tempList..add(this._categoryFilter[0])
                 ..addAll(json.decode(responseBody));
+        for (var item in json.decode(responseBody)) {
+          tempListTop.add(Category.fromJson(item, _categoryCallback));
+        }
         setState(() {
-          _categoryLoaded = true;
+          _categoryList = tempListTop;
           _categoryFilter = tempList;
+          _categoryLoaded = true;
         });
       } else {
         Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
@@ -69,6 +76,18 @@ class _CatalogPageState extends State<CatalogPage> {
     } on Exception {
       Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
     }
+  }
+
+  void _categoryCallback(id, name) {
+    Map<String, String> query = this._query;
+    query['category'] = id;
+    setState(() {
+      _initValueCategory = id;
+      _initValueCategoryName = name;
+      _query = query;
+      _productLoaded = false;
+    });
+    this._searchProduct();
   }
 
   void _searchProduct() async {
@@ -363,6 +382,17 @@ class _CatalogPageState extends State<CatalogPage> {
       body = new Center(
         child: new CircularProgressIndicator(),
       );
+    } else if(_productList.length == 0) {
+      body = new Center(
+        child: new Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(Icons.sentiment_neutral, size: 60, color: Config.THEME_COLOR),
+            SizedBox(height: 5),
+            Text("CARIAN TIDAK DIJUMPAI"),
+          ]
+        )
+      );
     } else {
       body = new Container(
         child: IgnorePointer(
@@ -428,7 +458,21 @@ class _CatalogPageState extends State<CatalogPage> {
           ),
         ],
       ),
-      body: body,
+      body: new Container(
+        child: new Column(
+          children: <Widget>[
+            new Container(
+              height: 65.0,
+              child: new ListView(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
+                children: this._categoryList
+              )
+            ),
+            new Expanded(child: body)
+          ]
+        )
+      )
     );
   }
 }
