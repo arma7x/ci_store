@@ -135,7 +135,7 @@ class _ViewProductState extends State<ViewProduct> {
         PhoneNumberLink(
           name: '',
           icon: new Icon(Icons.sms, size: 20, color: Colors.white),
-          url: "sms:" + this._giData['mobile_number'] + "?body=" + + widget.id + " - " + widget.name;
+          url: "sms:" + this._giData['mobile_number'] + "?body=" + widget.id + " - " + widget.name,
         )
       );
     }
