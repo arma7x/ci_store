@@ -22,6 +22,7 @@ class _GeneralInformationPageState extends State<GeneralInformationPage> {
   final jsonDecoder = JsonDecoder();
   Map<String, dynamic> _giData = {};
   List<dynamic> _scData = [];
+  bool _loading = true;
 
   _GeneralInformationPageState() {
     _getGiData();
@@ -31,15 +32,49 @@ class _GeneralInformationPageState extends State<GeneralInformationPage> {
   void _getGiData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Map<String, dynamic> tempList = {};
-    tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
-    setState(() => _giData = tempList);
+    try {
+      final request = await Api.getGeneralInformation();
+      final response = await request.close(); 
+      if (response.statusCode == 200) {
+        final responseBody = await response.transform(utf8.decoder).join();
+        tempList = json.decode(responseBody);
+        setState(() {
+          _giData = tempList;
+          _loading = false;
+        });
+        await prefs.setString('_giData', this.jsonEncoder.convert(tempList));
+      } else {
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        setState(() => _loading = false);
+      }
+    } on Exception {
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
+      setState(() {
+        _giData = tempList;
+        _loading = false;
+      });
+    }
   }
 
   void _getScData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<dynamic> tempList = [];
-    tempList = this.jsonDecoder.convert(await prefs.getString('_scData'));
-    setState(() => _scData = tempList);
+    try {
+      final request = await Api.getSocialChannel();
+      final response = await request.close(); 
+      if (response.statusCode == 200) {
+        final responseBody = await response.transform(utf8.decoder).join();
+        tempList.addAll(json.decode(responseBody));
+        await prefs.setString('_scData', this.jsonEncoder.convert(tempList));
+        setState(() => _scData = tempList);
+      } else {
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      }
+    } on Exception {
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      setState(() => _scData = tempList);
+    }
   }
 
   List<Widget> _renderGiData() {
@@ -168,7 +203,9 @@ class _GeneralInformationPageState extends State<GeneralInformationPage> {
           child: new Column(
             children: <Widget>[
               new Expanded(
-                child: new ListView(
+                child: this._loading
+                ? new Center(child: new CircularProgressIndicator())
+                : new ListView(
                   scrollDirection: Axis.vertical,
                   padding: EdgeInsets.all(30.0),
                   children: <Widget>[

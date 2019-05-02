@@ -72,9 +72,11 @@ class _CatalogPageState extends State<CatalogPage> {
         });
       } else {
         Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        setState(() => _categoryLoaded = false);
       }
     } on Exception {
       Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      setState(() => _categoryLoaded = false);
     }
   }
 
@@ -238,7 +240,7 @@ class _CatalogPageState extends State<CatalogPage> {
 
    Widget _orderPopup() {
      return PopupMenuButton(
-      initialValue: this._initValueSpotlight,
+      initialValue: this._initValueOrder,
       onSelected: _onSelectOrder,
       child: new Container(
         child: new Row(
@@ -461,7 +463,7 @@ class _CatalogPageState extends State<CatalogPage> {
         child: new Column(
           children: <Widget>[
             this._ignoring ? new LinearProgressIndicator() : SizedBox(height: 0, width: 0),
-            this._categoryList.length > 0 ? new Container(
+            this._categoryLoaded == true && this._categoryList.length > 0 ? new Container(
               height: 65.0,
               child: new ListView(
                 scrollDirection: Axis.horizontal,

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:litestore/api.dart';
@@ -61,6 +62,7 @@ class _ViewProductState extends State<ViewProduct> {
   Map<String, dynamic> _giData = {};
   List<dynamic> _icData = [];
   int _currentSlide = 0;
+  bool _loading = true;
 
   _ViewProductState() {
     _getGiData();
@@ -70,15 +72,56 @@ class _ViewProductState extends State<ViewProduct> {
   void _getGiData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Map<String, dynamic> tempList = {};
-    tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
-    setState(() => _giData = tempList);
+    try {
+      final request = await Api.getGeneralInformation();
+      final response = await request.close(); 
+      if (response.statusCode == 200) {
+        final responseBody = await response.transform(utf8.decoder).join();
+        tempList = json.decode(responseBody);
+        setState(() {
+          _giData = tempList;
+          _loading = false;
+        });
+        await prefs.setString('_giData', this.jsonEncoder.convert(tempList));
+      } else {
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        setState(() => _loading = false);
+      }
+    } on Exception {
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
+      setState(() {
+        _giData = tempList;
+        _loading = false;
+      });
+    }
   }
 
   void _getIcData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<dynamic> tempList = [];
-    tempList = this.jsonDecoder.convert(await prefs.getString('_icData'));
-    setState(() => _icData = tempList);
+    try {
+      final request = await Api.getInboxChannel();
+      final response = await request.close(); 
+      if (response.statusCode == 200) {
+        final responseBody = await response.transform(utf8.decoder).join();
+        tempList = json.decode(responseBody);
+        setState(() {
+          _icData = tempList;
+          _loading = false;
+        });
+        await prefs.setString('_icData', this.jsonEncoder.convert(tempList));
+      } else {
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        setState(() => _loading = false);
+      }
+    } on Exception {
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      setState(() {
+        _icData = tempList;
+        _loading = false;
+      });
+    }
   }
 
   List<Widget> _renderOrderButton() {
@@ -263,7 +306,9 @@ class _ViewProductState extends State<ViewProduct> {
                           style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.bold)
                         ),
                         SizedBox(height: 5),
-                        new Container(
+                        this._loading
+                        ? new LinearProgressIndicator()
+                        : new Container(
                           height: 65,
                           child: new ListView(
                             scrollDirection: Axis.horizontal,

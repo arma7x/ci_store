@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:litestore/navigation/screens.dart';
 import 'package:litestore/api.dart';
-import 'package:litestore/config.dart';
 
 class InfoButton extends StatelessWidget {
 

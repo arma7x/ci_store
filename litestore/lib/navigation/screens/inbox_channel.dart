@@ -22,6 +22,7 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
   final jsonDecoder = JsonDecoder();
   Map<String, dynamic> _giData = {};
   List<dynamic> _icData = [];
+  bool _loading = true;
 
   _InboxChannelPageState() {
     _getGiData();
@@ -31,15 +32,49 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
   void _getGiData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Map<String, dynamic> tempList = {};
-    tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
-    setState(() => _giData = tempList);
+    try {
+      final request = await Api.getGeneralInformation();
+      final response = await request.close(); 
+      if (response.statusCode == 200) {
+        final responseBody = await response.transform(utf8.decoder).join();
+        tempList = json.decode(responseBody);
+        setState(() {
+          _giData = tempList;
+          _loading = false;
+        });
+        await prefs.setString('_giData', this.jsonEncoder.convert(tempList));
+      } else {
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        setState(() => _loading = false);
+      }
+    } on Exception {
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
+      setState(() {
+        _giData = tempList;
+        _loading = false;
+      });
+    }
   }
 
   void _getIcData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<dynamic> tempList = [];
-    tempList = this.jsonDecoder.convert(await prefs.getString('_icData'));
-    setState(() => _icData = tempList);
+    try {
+      final request = await Api.getInboxChannel();
+      final response = await request.close(); 
+      if (response.statusCode == 200) {
+        final responseBody = await response.transform(utf8.decoder).join();
+        tempList = json.decode(responseBody);
+        setState(() => _icData = tempList);
+        await prefs.setString('_icData', this.jsonEncoder.convert(tempList));
+      } else {
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      }
+    } on Exception {
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      setState(() => _icData = tempList);
+    }
   }
 
   List<Widget> _renderGiData() {
@@ -113,7 +148,9 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
         ),
         body: new Container(
           color: Colors.grey[100],
-          child: new Row(
+          child: this._loading
+          ? new Center(child: new CircularProgressIndicator())
+          : new Row(
             children: <Widget>[
               new Expanded(
                 child: new ListView(
