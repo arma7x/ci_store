@@ -91,8 +91,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
 
+    Widget body;
     if (this._error == true) {
-      return new Center(
+      body = new Center(
         child: Container(
           width: 160,
           child: RaisedButton(
@@ -115,11 +116,14 @@ class _HomeState extends State<Home> {
           ),
         )
       );
-    }
-
-    if (this._productLoaded == false) {
-      return new Center(
+    } else if (this._productLoaded == false) {
+      body = new Center(
         child: new CircularProgressIndicator(),
+      );
+    } else {
+      body =  new ListView(
+        scrollDirection: Axis.vertical,
+        children: this._productList
       );
     }
 
@@ -155,12 +159,7 @@ class _HomeState extends State<Home> {
                 ),
               ) : new LinearProgressIndicator()
             ),
-            new Expanded(
-              child: new ListView(
-                scrollDirection: Axis.vertical,
-                children: this._productList
-              )
-            ),
+            new Expanded(child: body)
           ]
         )
       )

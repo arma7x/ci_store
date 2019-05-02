@@ -399,7 +399,6 @@ class _CatalogPageState extends State<CatalogPage> {
           ignoring: this._ignoring,
           child: new Column(
             children: <Widget>[
-              this._ignoring ? new LinearProgressIndicator() : SizedBox(height: 0, width: 0),
               new Expanded(
                 child: new ListView(
                   scrollDirection: Axis.vertical,
@@ -461,6 +460,7 @@ class _CatalogPageState extends State<CatalogPage> {
       body: new Container(
         child: new Column(
           children: <Widget>[
+            this._ignoring ? new LinearProgressIndicator() : SizedBox(height: 0, width: 0),
             this._categoryList.length > 0 ? new Container(
               height: 65.0,
               child: new ListView(
