@@ -1,13 +1,25 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:litestore/navigation/fragments.dart';
 import 'package:litestore/navigation/screens.dart';
+import 'package:litestore/api.dart';
 import 'package:litestore/config.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+
+  final jsonEncoder = JsonEncoder();
+  final jsonDecoder = JsonDecoder();
+
+  MyApp() {
+    _getGeneralInformationData();
+    _getInboxChannelData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +31,43 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(),
     );
   }
+
+  void _getGeneralInformationData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    Map<String, dynamic> tempList = {};
+    try {
+      final request = await Api.getGeneralInformation();
+      final response = await request.close(); 
+      if (response.statusCode == 200) {
+        final responseBody = await response.transform(utf8.decoder).join();
+        tempList = json.decode(responseBody);
+        await prefs.setString('_giData', this.jsonEncoder.convert(tempList));
+      } else {
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      }
+    } on Exception {
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+    }
+  }
+
+  void _getInboxChannelData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<dynamic> tempList = [];
+    try {
+      final request = await Api.getInboxChannel();
+      final response = await request.close(); 
+      if (response.statusCode == 200) {
+        final responseBody = await response.transform(utf8.decoder).join();
+        tempList = json.decode(responseBody);
+        await prefs.setString('_icData', this.jsonEncoder.convert(tempList));
+      } else {
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      }
+    } on Exception {
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+    }
+  }
+
 }
 
 class DrawerItem {

@@ -61,7 +61,6 @@ class _ViewProductState extends State<ViewProduct> {
   Map<String, dynamic> _giData = {};
   List<dynamic> _icData = [];
   int _currentSlide = 0;
-  bool _orderButtonReady = false;
 
   _ViewProductState() {
     _getGiData();
@@ -71,55 +70,15 @@ class _ViewProductState extends State<ViewProduct> {
   void _getGiData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Map<String, dynamic> tempList = {};
-    try {
-      final request = await Api.getGeneralInformation();
-      final response = await request.close(); 
-      if (response.statusCode == 200) {
-        final responseBody = await response.transform(utf8.decoder).join();
-        tempList = json.decode(responseBody);
-        setState(() {
-          _orderButtonReady = true;
-          _giData = tempList;
-        });
-        await prefs.setString('_giData', this.jsonEncoder.convert(tempList));
-      } else {
-        print('Failed to get general information');
-        setState(() => _orderButtonReady = true);
-      }
-    } on Exception {
-      tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
-      setState(() {
-        _orderButtonReady = true;
-        _giData = tempList;
-      });
-    }
+    tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
+    setState(() => _giData = tempList);
   }
 
   void _getIcData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<dynamic> tempList = [];
-    try {
-      final request = await Api.getInboxChannel();
-      final response = await request.close(); 
-      if (response.statusCode == 200) {
-        final responseBody = await response.transform(utf8.decoder).join();
-        tempList = json.decode(responseBody);
-        setState(() {
-          _orderButtonReady = true;
-          _icData = tempList;
-        });
-        await prefs.setString('_icData', this.jsonEncoder.convert(tempList));
-      } else {
-        print('Failed to get social channel');
-        setState(() => _orderButtonReady = true);
-      }
-    } on Exception {
-      tempList = this.jsonDecoder.convert(await prefs.getString('_icData'));
-      setState(() {
-        _orderButtonReady = true;
-        _icData = tempList;
-      });
-    }
+    tempList = this.jsonDecoder.convert(await prefs.getString('_icData'));
+    setState(() => _icData = tempList);
   }
 
   List<Widget> _renderOrderButton() {
@@ -306,10 +265,10 @@ class _ViewProductState extends State<ViewProduct> {
                         SizedBox(height: 5),
                         new Container(
                           height: 65,
-                          child: this._orderButtonReady ? new ListView(
+                          child: new ListView(
                             scrollDirection: Axis.horizontal,
                             children: _renderOrderButton()
-                          ) : new Center(child: new LinearProgressIndicator())
+                          )
                         ),
                         SizedBox(height: 10),
                         new Text(
