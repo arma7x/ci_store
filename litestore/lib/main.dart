@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
   MyApp() {
     _getGeneralInformationData();
     _getInboxChannelData();
+    _getSocialChannelData();
   }
 
   @override
@@ -60,6 +61,24 @@ class MyApp extends StatelessWidget {
         final responseBody = await response.transform(utf8.decoder).join();
         tempList = json.decode(responseBody);
         await prefs.setString('_icData', this.jsonEncoder.convert(tempList));
+      } else {
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      }
+    } on Exception {
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+    }
+  }
+
+  void _getSocialChannelData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<dynamic> tempList = [];
+    try {
+      final request = await Api.getSocialChannel();
+      final response = await request.close(); 
+      if (response.statusCode == 200) {
+        final responseBody = await response.transform(utf8.decoder).join();
+        tempList.addAll(json.decode(responseBody));
+        await prefs.setString('_scData', this.jsonEncoder.convert(tempList));
       } else {
         Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
       }
