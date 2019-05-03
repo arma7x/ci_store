@@ -73,6 +73,7 @@ class _GeneralInformationPageState extends State<GeneralInformationPage> {
       }
     } on Exception {
       Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      tempList = this.jsonDecoder.convert(await prefs.getString('_scData'));
       setState(() => _scData = tempList);
     }
   }

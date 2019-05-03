@@ -73,6 +73,7 @@ class _InboxChannelPageState extends State<InboxChannelPage> {
       }
     } on Exception {
       Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      tempList = this.jsonDecoder.convert(await prefs.getString('_icData'));
       setState(() => _icData = tempList);
     }
   }
