@@ -22,7 +22,7 @@ class _CatalogPageState extends State<CatalogPage> {
   Map<String, dynamic> _searchResult = {};
   String _initValueSpotlight = '';
   String _initValueSpotlightName = 'Papar Semua';
-  final List<dynamic> _spotlightFilter = [{'id': '', 'name': 'Papar Semua'}, {'id': '0', 'name': 'Bukan Spotlight'}, {'id': '1', 'name': 'Spotlight Sahaja'}];
+  final List<dynamic> _spotlightFilter = [{'id': '', 'name': 'Papar Semua'}, {'id': '0', 'name': 'Bukan Utama'}, {'id': '1', 'name': 'Utama Sahaja'}];
   String _initValueOrder = '';
   String _initValueOrderName = 'Keluaran Terbaru';
   final List<dynamic> _orderFilter = [{'id': 'created_at@desc', 'name': 'Keluaran Terbaru'}, {'id': 'created_at@asc', 'name': 'Keluaran Terdahulu'}, {'id': 'price@desc', 'name': 'Mahal(Harga)'}, {'id': 'price@asc', 'name': 'Berpatutan(Harga)'}];
@@ -298,7 +298,7 @@ class _CatalogPageState extends State<CatalogPage> {
               ),
               Row(
                 children: <Widget>[
-                  Text('Spotlight: ', style: TextStyle(color: Colors.grey)),
+                  Text('Utama:   ', style: TextStyle(color: Colors.grey)),
                   SizedBox(width: 10),
                   new Expanded(child: _spotlightPopup()),
                 ]
