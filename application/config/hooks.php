@@ -45,7 +45,6 @@ $hook['post_controller_constructor'][] = function() {
 
 $hook['post_controller_constructor'][] = function() {
 	$CI = &get_instance();
-	$CI->container['app_name'] = APP_NAME;
 	if ($CI->jwt->token->hasClaim('uid')) {
 		$user = $CI->authenticator->get_user_by_index(array('id' => $CI->jwt->token->getClaim('uid')), 'id, username, email, role, access_level, status, avatar');
 		if ($user !== NULL) {
