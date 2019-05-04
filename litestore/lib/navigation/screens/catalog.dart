@@ -19,6 +19,7 @@ class CatalogPage extends StatefulWidget {
 
 class _CatalogPageState extends State<CatalogPage> {
 
+  var _scaffoldKey = new GlobalKey<ScaffoldState>();
   Map<String, dynamic> _searchResult = {};
   String _initValueSpotlight = '';
   String _initValueSpotlightName = 'Papar Semua';
@@ -192,8 +193,6 @@ class _CatalogPageState extends State<CatalogPage> {
       _initValueCategoryName = initValueCategoryName;
       _query = query;
     });
-    Navigator.pop(context);
-    _showSearchFilter();
   }
 
    Widget _spotlightPopup() {
@@ -234,8 +233,6 @@ class _CatalogPageState extends State<CatalogPage> {
       _initValueSpotlightName = initValueSpotlightName;
       _query = query;
     });
-    Navigator.pop(context);
-    _showSearchFilter();
   }
 
    Widget _orderPopup() {
@@ -275,59 +272,6 @@ class _CatalogPageState extends State<CatalogPage> {
       _initValueOrder = value;
       _initValueOrderName = initValueOrderName;
       _query = query;
-    });
-    Navigator.pop(context);
-    _showSearchFilter();
-  }
-  
-  void _showSearchFilter() {
-    showModalBottomSheet<void>(context: context, builder: (BuildContext context) {
-      return Container(
-        height: 250,
-        child: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: Column(
-            children: <Widget>[
-              Text('Tapis Carian', style: TextStyle(color: Colors.black, fontSize: 18)),
-              Row(
-                children: <Widget>[
-                  Text('Kategori: ', style: TextStyle(color: Colors.grey)),
-                  SizedBox(width: 10),
-                  new Expanded(child: _categoryPopup()),
-                ]
-              ),
-              Row(
-                children: <Widget>[
-                  Text('Utama:   ', style: TextStyle(color: Colors.grey)),
-                  SizedBox(width: 10),
-                  new Expanded(child: _spotlightPopup()),
-                ]
-              ),
-              Row(
-                children: <Widget>[
-                  Text('Susunan: ', style: TextStyle(color: Colors.grey)),
-                  SizedBox(width: 10),
-                  new Expanded(child: _orderPopup()),
-                ]
-              ),
-              RaisedButton(
-                padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                onPressed: () {
-                  setState(() => _productLoaded = false);
-                  _searchProduct();
-                  Navigator.pop(context);
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("CARI SEMULA"),
-                  ]
-                )
-              ),
-            ]
-          )
-        ),
-      );
     });
   }
 
@@ -413,6 +357,7 @@ class _CatalogPageState extends State<CatalogPage> {
       );
     }
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: this.appBarTitle,
         actions: <Widget>[
@@ -455,9 +400,57 @@ class _CatalogPageState extends State<CatalogPage> {
           ),
           IconButton(
             icon: Icon(Icons.tune),
-            onPressed: _showSearchFilter,
+            onPressed: () => _scaffoldKey.currentState.openEndDrawer()//_showSearchFilter,
           ),
         ],
+      ),
+      endDrawer: new Drawer(
+        child: new Container(
+          padding: const EdgeInsets.fromLTRB(5.0, 30.0, 5.0, 0.0),
+          child: Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Column(
+              children: <Widget>[
+                Text('Tapis Carian', style: TextStyle(color: Colors.black, fontSize: 25)),
+                Row(
+                  children: <Widget>[
+                    Text('Kategori: ', style: TextStyle(color: Colors.grey)),
+                    SizedBox(width: 10),
+                    new Expanded(child: _categoryPopup()),
+                  ]
+                ),
+                Row(
+                  children: <Widget>[
+                    Text('Utama:    ', style: TextStyle(color: Colors.grey)),
+                    SizedBox(width: 10),
+                    new Expanded(child: _spotlightPopup()),
+                  ]
+                ),
+                Row(
+                  children: <Widget>[
+                    Text('Susunan:', style: TextStyle(color: Colors.grey)),
+                    SizedBox(width: 10),
+                    new Expanded(child: _orderPopup()),
+                  ]
+                ),
+                RaisedButton(
+                  padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                  onPressed: () {
+                    setState(() => _productLoaded = false);
+                    _searchProduct();
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text("CARI SEMULA"),
+                    ]
+                  )
+                ),
+              ]
+            )
+          ),
+        ),
       ),
       body: new Container(
         child: new Column(
