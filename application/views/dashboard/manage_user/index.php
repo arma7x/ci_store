@@ -44,10 +44,10 @@
 				</select>
 			</div>
 			<div class="input-group mr-sm-1 mb-2">
-				<button type="submit" onclick="searchUser()" class="btn btn-block btn-outline-primary btn-sm"><i class="material-icons">&#xe8b6;</i> <?php echo lang('BTN_SEARCH'); ?></button>
+				<button type="submit" onclick="searchUser()" class="btn btn-block btn-primary btn-sm"><i class="material-icons">&#xe8b6;</i> <?php echo lang('BTN_SEARCH'); ?></button>
 			</div>
 			<div class="input-group mr-sm-1 mb-2">
-				<button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#addModal">
+				<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#addModal">
 				  <?php echo lang('H_ADD_USER') ?>
 				</button>
 			</div>

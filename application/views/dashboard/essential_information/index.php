@@ -5,7 +5,7 @@
 	<div class="col col-12">
 		<h2 class="text-center text-primary"><?php echo isset($page_name) ? strtoupper($page_name) : strtoupper('Codeigniter') ;?></h2>
 		<div class="row mb-1">
-			<button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#addModal">
+			<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addModal">
 			  <?php echo lang('BTN_ADD_E_INFORMATION') ?>
 			</button>
 		</div>
@@ -44,7 +44,7 @@
 											<input id="inputOrdering<?php echo $item['id'] ?>" value="<?php echo $item['ordering'] ?>" type="number" class="form-control" placeholder="<?php echo lang('L_E_ORDERING');?>">
 										</div>
 									</div>
-									<button class="btn btn-block btn-sm btn-outline-success" onclick="updateOrderEI('<?php echo $item['id'] ;?>', '<?php echo $item['title'] ;?>')">
+									<button class="btn btn-block btn-sm btn-success" onclick="updateOrderEI('<?php echo $item['id'] ;?>', '<?php echo $item['title'] ;?>')">
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
@@ -65,7 +65,7 @@
 											<input id="inputMaterialIcon<?php echo $item['id'] ?>" value="<?php echo htmlentities($item['material_icon']) ?>" type="text" class="form-control" placeholder="<?php echo lang('L_E_MATERIAL_ICON');?>" onInput="renderIcon('#inputMaterialIcon<?php echo $item['id'] ?>', '#edit_mi<?php echo $item['id'] ?>')" >
 										</div>
 									</div>
-									<button class="btn btn-block btn-sm btn-outline-success" onclick="updateIconEI('<?php echo $item['id'] ;?>', '<?php echo $item['title'] ;?>')">
+									<button class="btn btn-block btn-sm btn-success" onclick="updateIconEI('<?php echo $item['id'] ;?>', '<?php echo $item['title'] ;?>')">
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
@@ -85,7 +85,7 @@
 											</select>
 										</div>
 									</div>
-									<button class="btn btn-block btn-sm btn-outline-success" onclick="updatePositionEI('<?php echo $item['id'] ;?>', '<?php echo $item['title'] ;?>')">
+									<button class="btn btn-block btn-sm btn-success" onclick="updatePositionEI('<?php echo $item['id'] ;?>', '<?php echo $item['title'] ;?>')">
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
@@ -102,7 +102,7 @@
 											</select>
 										</div>
 									</div>
-									<button class="btn btn-block btn-sm btn-outline-success" onclick="updateVisibilityEI('<?php echo $item['id'] ;?>', '<?php echo $item['title'] ;?>')">
+									<button class="btn btn-block btn-sm btn-success" onclick="updateVisibilityEI('<?php echo $item['id'] ;?>', '<?php echo $item['title'] ;?>')">
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
@@ -119,10 +119,10 @@
 								</span>
 							</td>
 							<td>
-								<button class="btn btn-block btn-sm btn-outline-info" onclick="findEI('<?php echo $item['id'] ;?>')">
+								<button class="btn btn-block btn-sm btn-info" onclick="findEI('<?php echo $item['id'] ;?>')">
 									<?php echo lang('BTN_EDIT') ?>
 								</button>
-								<button class="btn btn-block btn-sm btn-outline-danger" onclick="deleteEI('<?php echo $item['id'] ;?>', '<?php echo $item['title'] ;?>')">
+								<button class="btn btn-block btn-sm btn-danger" onclick="deleteEI('<?php echo $item['id'] ;?>', '<?php echo $item['title'] ;?>')">
 									<?php echo lang('BTN_REMOVE') ?>
 								</button>
 							</td>

@@ -3,7 +3,7 @@
 <div class="mt-3">
 	<div class="row">
 		<div class="col col-12">
-			<button type="button" class="btn btn-sm btn-outline-primary mb-1" data-toggle="modal" data-target="#addSocialModal">
+			<button type="button" class="btn btn-sm btn-primary mb-1" data-toggle="modal" data-target="#addSocialModal">
 			  <?php echo lang('BTN_ADD_SOCIAL_CHANNEL') ?>
 			</button>
 			<div class="table-responsive">
@@ -40,17 +40,17 @@
 										</div>
 									</div>
 									<div class="col col-12 p-0">
-										<button class="btn btn-block btn-sm btn-outline-success" onclick="updateOrderSocialChannel('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+										<button class="btn btn-block btn-sm btn-success" onclick="updateOrderSocialChannel('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
 											<?php echo lang('BTN_SORT_E_INFORMATION') ?>
 										</button>
 									</div>
 								</form>
 							</td>
 							<td>
-								<button class="btn btn-block btn-sm btn-outline-info" onclick="findSocialChannel('<?php echo $item['id'] ;?>')">
+								<button class="btn btn-block btn-sm btn-info" onclick="findSocialChannel('<?php echo $item['id'] ;?>')">
 									<?php echo lang('BTN_EDIT') ?>
 								</button>
-								<button class="btn btn-block btn-sm btn-outline-danger" onclick="deleteSocialChannel('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+								<button class="btn btn-block btn-sm btn-danger" onclick="deleteSocialChannel('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
 									<?php echo lang('BTN_REMOVE') ?>
 								</button>
 							</td>

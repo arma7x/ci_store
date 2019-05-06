@@ -88,7 +88,7 @@
 			</div>
 
 			<div class="input-group mr-sm-1 mb-2">
-				<button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#addModal">
+				<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addModal">
 					<?php echo lang('BTN_ADD_PRODUCT') ?>
 				</button>
 			</div>
@@ -171,7 +171,7 @@
 											</select>
 										</div>
 									</div>
-									<button class="btn btn-block btn-sm btn-outline-success" onclick="updateVisibility('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+									<button class="btn btn-block btn-sm btn-success" onclick="updateVisibility('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
@@ -190,7 +190,7 @@
 											</select>
 										</div>
 									</div>
-									<button class="btn btn-block btn-sm btn-outline-success" onclick="updateSpotlight('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+									<button class="btn btn-block btn-sm btn-success" onclick="updateSpotlight('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
@@ -209,7 +209,7 @@
 											</select>
 										</div>
 									</div>
-									<button class="btn btn-block btn-sm btn-outline-success" onclick="updateAvailability('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+									<button class="btn btn-block btn-sm btn-success" onclick="updateAvailability('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
@@ -225,10 +225,10 @@
 								</span>
 							</td>
 							<td>
-								<button class="btn btn-block btn-sm btn-outline-info" onclick="findProduct('<?php echo $item['id'] ;?>')">
+								<button class="btn btn-block btn-sm btn-info" onclick="findProduct('<?php echo $item['id'] ;?>')">
 									<?php echo lang('BTN_EDIT') ?>
 								</button>
-								<button class="btn btn-block btn-sm btn-outline-danger" onclick="deleteProduct('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+								<button class="btn btn-block btn-sm btn-danger" onclick="deleteProduct('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
 									<?php echo lang('BTN_REMOVE') ?>
 								</button>
 							</td>

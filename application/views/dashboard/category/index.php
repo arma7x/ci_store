@@ -5,7 +5,7 @@
 	<div class="col col-12">
 		<h2 class="text-center text-primary"><?php echo isset($page_name) ? strtoupper($page_name) : strtoupper('Codeigniter') ;?></h2>
 		<div class="row mb-1">
-			<button type="button" class="btn btn-sm btn-outline-primary mb-1" data-toggle="modal" data-target="#addInboxModal">
+			<button type="button" class="btn btn-sm btn-primary mb-1" data-toggle="modal" data-target="#addInboxModal">
 			  <?php echo lang('BTN_ADD_CATEGORY') ?>
 			</button>
 		</div>
@@ -42,17 +42,17 @@
 										</div>
 									</div>
 									<div class="col col-12 p-0">
-										<button class="btn btn-block btn-sm btn-outline-success" onclick="updateOrderCategory('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+										<button class="btn btn-block btn-sm btn-success" onclick="updateOrderCategory('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
 											<?php echo lang('BTN_SORT_E_INFORMATION') ?>
 										</button>
 									</div>
 								</form>
 							</td>
 							<td>
-								<button class="btn btn-block btn-sm btn-outline-info" onclick="findCategory('<?php echo $item['id'] ;?>')">
+								<button class="btn btn-block btn-sm btn-info" onclick="findCategory('<?php echo $item['id'] ;?>')">
 									<?php echo lang('BTN_EDIT') ?>
 								</button>
-								<button class="btn btn-block btn-sm btn-outline-danger" onclick="deleteCategory('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+								<button class="btn btn-block btn-sm btn-danger" onclick="deleteCategory('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
 									<?php echo lang('BTN_REMOVE') ?>
 								</button>
 							</td>
