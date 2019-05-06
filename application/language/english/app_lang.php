@@ -163,6 +163,7 @@ $lang['L_E_VISIBILITY'] = 'Visibiliy';
 $lang['L_E_VISIBILITY_HIDE'] = 'Hide';
 $lang['L_E_VISIBILITY_SHOW'] = 'Show';
 $lang['L_E_POSITION'] = 'Position';
+$lang['L_E_POSITION_BOTH'] = 'Top & Bottom';
 $lang['L_E_POSITION_NAV'] = 'Top Only';
 $lang['L_E_POSITION_BOTTOM'] = 'Bottom Only';
 $lang['L_E_MATERIAL_ICON'] = 'Material Icon';

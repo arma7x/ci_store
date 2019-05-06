@@ -163,6 +163,7 @@ $lang['L_E_VISIBILITY'] = 'Penglihatan';
 $lang['L_E_VISIBILITY_HIDE'] = 'Sembunyi';
 $lang['L_E_VISIBILITY_SHOW'] = 'Papar';
 $lang['L_E_POSITION'] = 'Posisi';
+$lang['L_E_POSITION_BOTH'] = 'Atas & Bawah';
 $lang['L_E_POSITION_NAV'] = 'Atas Sahaja';
 $lang['L_E_POSITION_BOTTOM'] = 'Bawah Sahaja';
 $lang['L_E_MATERIAL_ICON'] = 'Material Icon';

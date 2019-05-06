@@ -53,6 +53,9 @@
 										<label class="sr-only-rm m-0">
 											<a href="https://material.io/tools/icons/?style=baseline" target="_blank">
 												<?php echo lang('L_E_MATERIAL_ICON');?>
+											</a> / 
+											<a href="https://raw.githubusercontent.com/google/material-design-icons/master/iconfont/codepoints" target="_blank">
+												Unicode
 											</a>
 										</label>
 										<div class="input-group input-group-sm border rounded">
@@ -76,7 +79,7 @@
 												<div class="input-group-text"><i class="material-icons">&#xe051;</i></div>
 											</div>
 											<select type="text" id="inputPosition<?php echo $item['id'] ?>" class="form-control" placeholder="<?php echo lang('L_E_POSITION');?>" required>
-												<option value="-1"<?php echo (int) $item['position'] === -1 ? ' selected' : '' ;?>><?php echo lang('L_E_POSITION_NAV').' & '.lang('L_E_POSITION_BOTTOM');?></option>
+												<option value="-1"<?php echo (int) $item['position'] === -1 ? ' selected' : '' ;?>><?php echo lang('L_E_POSITION_BOTH');?></option>
 												<option value="0"<?php echo (int) $item['position'] === 0 ? ' selected' : '' ;?>><?php echo lang('L_E_POSITION_NAV');?></option>
 												<option value="1"<?php echo (int) $item['position'] === 1 ? ' selected' : '' ;?>><?php echo lang('L_E_POSITION_BOTTOM');?></option>
 											</select>
