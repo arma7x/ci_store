@@ -53,11 +53,11 @@ class Product extends StatelessWidget {
             CupertinoPageRoute(builder: (BuildContext context) => new ViewProduct.fromJson(tempData))
           );
         } else {
-          Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+          Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
           callback(false);
         }
       } on Exception {
-        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
         callback(false);
       }
     }

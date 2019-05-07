@@ -43,11 +43,11 @@ class InfoButton extends StatelessWidget {
             CupertinoPageRoute(builder: (BuildContext context) => ViewEssentialInformation.fromJson(tempData))
           );
         } else {
-          Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+          Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
           callback(false);
         }
       } on Exception {
-        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
         callback(false);
       }
     }

@@ -44,11 +44,11 @@ class _GeneralInformationPageState extends State<GeneralInformationPage> {
         });
         await prefs.setString('_giData', this.jsonEncoder.convert(tempList));
       } else {
-        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
         setState(() => _loading = false);
       }
     } on Exception {
-      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
       tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
       setState(() {
         _giData = tempList;
@@ -69,10 +69,10 @@ class _GeneralInformationPageState extends State<GeneralInformationPage> {
         await prefs.setString('_scData', this.jsonEncoder.convert(tempList));
         setState(() => _scData = tempList);
       } else {
-        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+        Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
       }
     } on Exception {
-      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_LONG);
+      Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
       tempList = this.jsonDecoder.convert(await prefs.getString('_scData'));
       setState(() => _scData = tempList);
     }
