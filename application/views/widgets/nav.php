@@ -11,7 +11,7 @@
       </button>
       -->
       <button onclick="goBack()" class="navbar-toggler" type="button" style="border:0;padding-left:5px;padding-right:5px;">
-        <i class="material-icons text-dark" style="font-size:1.5em;">arrow_back</i>
+        <i class="material-icons text-dark" style="font-size:1.5em;">&#xe5c4;</i>
       </button>
       <?php endif; ?>
       <a onclick="goHome()" class="navbar-brand" data-turbolinks="false">
@@ -19,7 +19,7 @@
         <img class="logo" src="/static/img/android-chrome-192x192.png" alt="logo"/>
       </a>
       <button id="navbar-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCollapsed" aria-controls="navCollapsed" aria-expanded="false" aria-label="Toggle navigation" style="border:0;">
-        <i id="navmenu_icon" class="material-icons text-dark" style="font-size:1.4em;">menu</i>
+        <i id="navmenu_icon" class="material-icons text-dark" style="font-size:1.4em;">&#xe5d2;</i>
       </button>
       <div class="collapse navbar-collapse" id="navCollapsed">
         <ul class="navbar-nav ml-auto text-uppercase" style="font-size:0.8em!important;">
@@ -28,7 +28,7 @@
             <a onclick="goHome()" class="nav-link d-none d-md-block" data-turbolinks="false"><i class="material-icons">home</i> <?php echo lang('H_HOMEPAGE');?></a>
           </li>
           <li class="nav-item">
-            <a onclick="goBack()" class="nav-link d-none d-md-block" data-turbolinks="false"><i class="material-icons">arrow_back</i> <?php echo lang('H_BACK');?></a>
+            <a onclick="goBack()" class="nav-link d-none d-md-block" data-turbolinks="false"><i class="material-icons">&#xe5c4;</i> <?php echo lang('H_BACK');?></a>
           </li>
           <?php endif; ?>
           <?php if ($this->container['sw_offline_cache'] !== NULL): ?>
