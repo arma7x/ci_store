@@ -45,7 +45,7 @@ class Store extends MY_Controller {
 		$this->data['cat_list'] = $this->Category->get_all();
 		$this->widgets['add_modal'] = 'dashboard/store/widgets/add_modal';
 		$this->widgets['update_modal'] = 'dashboard/store/widgets/update_modal';
-		$this->widgets['ei_js'] = 'dashboard/store/widgets/js';
+		$this->widgets['js'] = 'dashboard/store/widgets/js';
 		$this->widgets['content'] = 'dashboard/store/index';
 		$this->_renderLayout();
 	}

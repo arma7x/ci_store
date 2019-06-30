@@ -241,7 +241,7 @@
 		<script>$.trumbowyg.svgPath = '/static/img/icons.svg';</script>
 		<?php echo isset($add_modal) ? $add_modal :null ?>
 		<?php echo isset($update_modal) ? $update_modal :null ?>
-		<?php echo isset($ei_js) ? $ei_js :null ?>
+		<?php echo isset($js) ? $js :null ?>
 	</div>
 	</div>
 	<div class="row justify-content-sm-center align-items-center" >

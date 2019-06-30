@@ -33,7 +33,7 @@
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/essential_information' ? ' active' : ''?>" onclick="navigate('/dashboard/essential_information')"><i class="material-icons">&#xe873;</i> <?php echo lang('H_ESSENTIAL_INFORMATION');?></a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/category' ? ' active' : ''?>" onclick="navigate('/dashboard/category')"><i class="material-icons">&#xe54e;</i> <?php echo lang('H_CATEGORY');?></a>
+                      <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/category' ? ' active' : ''?>" onclick="navigate('/dashboard/category')"><i class="material-icons">&#xe574;</i> <?php echo lang('H_CATEGORY');?></a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item p-2<?php echo '/'.$this->uri->uri_string() == '/dashboard/store' ? ' active' : ''?>" onclick="navigate('/dashboard/store')"><i class="material-icons">&#xe8c9;</i> <?php echo lang('H_STORE') ?></a>
                       <div class="dropdown-divider d-lg-none"></div>
