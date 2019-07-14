@@ -174,15 +174,6 @@
 		<div>
 			<p><?php echo $product['brief_description'] ?></p>
 		</div>
-		<script>
-			$('.carousel').carousel({
-				interval: 10000
-			})
-			$('#carouselSlider').on('slide.bs.carousel', function (e) {
-				$('#thumb_'+e.from).removeClass('border border-primary')
-				$('#thumb_'+e.to).addClass('border border-primary')
-			})
-		</script>
 	</div>
 	<div class="col col-12 p-1 pt-0 px-md-4">
 		<hr class="star-primary" style="margin-top:8px;margin-bottom:25px;">
@@ -190,20 +181,5 @@
 			<?php echo $product['full_description'] ?>
 		</div>
 	</div>
-	<script>
-		function removeCache(id) {
-			if (window.localStorage) {
-				window.localStorage.removeItem(id)
-				goHome()
-			}
-		}
-
-		$(document).ready(function() {
-			var product = <?php echo json_encode($product) ?>;
-			delete product['full_description'];
-			if (window.localStorage) {
-				window.localStorage.setItem(product.id, JSON.stringify(product))
-			}
-		})
-	</script>
 </div>
+<?php echo isset($view_js) ? $view_js : null ?>

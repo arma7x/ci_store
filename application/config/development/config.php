@@ -6,7 +6,7 @@ $DATABASE_URL = 'mysqli://root:root@localhost/ci_store';
 $ENCRYPTION_KEY = '09FA7BE0A09C30D0050B05C6EE9974938094E5FF1C0FC59A3A6776242D0787D4';
 $EMAIL_URL = 'smtp://username@yahoo.com:password@smtp.mail.yahoo.com:587/tls';
 $APP_NAME = 'CI Store';
-$APP_URL = 'http://127.0.0.1:2000/';
+$APP_URL = 'http://127.0.0.1:1001/';
 $APP_ADMIN_EMAIL = 'zeon_msi@yahoo.com';
 $ENABLE_REGISTRATION = FALSE;
 // CONFIG END HERE

@@ -111,7 +111,6 @@ a:hover .img-container .favourite {
   opacity: 1;
   z-index: 2;
 }
-
 </style>
 <div id="product_list" class="row mb-5">
 <?php if ($this->container['sw_offline_cache'] === NULL): ?>

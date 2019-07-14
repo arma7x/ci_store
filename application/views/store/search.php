@@ -1,46 +1,4 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
-<style>
-	.pagination {
-		position: relative;
-		z-index: 1;
-		justify-content: flex-end !important;
-	}
-	.pagination .page-item .page-link,
-	.pagination .page-item .page-link a {
-		width: 40px;
-		height: 40px;
-		border: none;
-		font-size: 16px;
-		font-weight: 400;
-		line-height: 40px;
-		padding: 0;
-		text-align: center;
-		color: #242424;
-	}
-	.pagination .page-item .page-link:hover,
-	.pagination .page-item .page-link:focus,
-	.pagination .page-item .page-link:hover a,
-	.pagination .page-item .page-link:focus a {
-		color: #fff;
-		box-shadow: none;
-		background-color: var(--pink)!important;
-	}
-	.pagination .page-item.active .page-link {
-		color: #fff;
-		box-shadow: none;
-		background-color: var(--pink)!important;
-	}
-	.pagination .page-item:first-child .page-link {
-		margin-left: 0;
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
-	}
-	.pagination .page-item:last-child .page-link {
-		margin-left: 0;
-		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;
-	}
-</style>
 <div class="row starter-template mb-0 pb-0">
 	<div class="col col-12 px-0 p-md-2" style="padding:0!important;">
 		<form class="form-inline text-md-right mt-2">
@@ -94,33 +52,6 @@
 					<i class="material-icons">&#xe8b6;</i>
 				</button>
 			</div>
-			<script>
-				$(document).ready(function() {
-					$('#search_keyword').attr('value', getQueryStringValue('keyword'))
-					$('#search_category option[value="'+getQueryStringValue('category')+'"]').attr('selected','selected')
-					$('#search_ordering option[value="'+getQueryStringValue('ordering')+'"]').attr('selected','selected')
-					$('#search_spotlight option[value="'+getQueryStringValue('spotlight')+'"]').attr('selected','selected')
-				})
-				function searchStore() {
-					var data = {
-						'keyword': $("#search_keyword").val(),
-						'category': $("#search_category").val(),
-						'ordering': $("#search_ordering").val(),
-						'spotlight': $("#search_spotlight").val(),
-					}
-					var query = []
-					for (key in data) {
-						if (data[key] != '') {
-							query.push(key+'='+data[key])
-						}
-					}
-					if (query.length > 0) {
-						Turbolinks.visit(document.location.pathname+'?'+query.join('&'), { action: "replace" })
-					} else {
-						Turbolinks.visit(document.location.pathname, { action: "replace" })
-					}
-				}
-			</script>
 		</form>
 	</div>
 	<div class="col col-12 py-2 p-md-2">
@@ -134,3 +65,5 @@
 		</div>
 	</div>
 </div>
+<?php echo isset($search_css) ? $search_css : null ?>
+<?php echo isset($search_js) ? $search_js : null ?>

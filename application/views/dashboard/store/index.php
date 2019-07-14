@@ -88,7 +88,7 @@
 			</div>
 
 			<div class="input-group mr-sm-1 mb-2">
-				<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addModal">
+				<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#addModal">
 					<?php echo lang('BTN_ADD_PRODUCT') ?>
 				</button>
 			</div>
@@ -160,7 +160,7 @@
 							<td>
 								<form>
 									<div class="form-group mb-1">
-										<label class="sr-only-rm m-0"><?php echo lang('L_P_VISIBILITY');?></label>
+										<label class="sr-only m-0"><?php echo lang('L_P_VISIBILITY');?></label>
 										<div class="input-group input-group-sm border rounded">
 											<div class="input-group-prepend">
 												<div class="input-group-text"><i class="material-icons">&#xe8f4;</i></div>
@@ -171,7 +171,7 @@
 											</select>
 										</div>
 									</div>
-									<button class="btn btn-block btn-sm btn-success" onclick="updateVisibility('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+									<button class="btn btn-block btn-sm btn-primary" onclick="updateVisibility('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
@@ -179,7 +179,7 @@
 							<td>
 								<form>
 									<div class="form-group mb-1">
-										<label class="sr-only-rm m-0"><?php echo lang('L_P_SPOTLIGHT');?></label>
+										<label class="sr-only m-0"><?php echo lang('L_P_SPOTLIGHT');?></label>
 										<div class="input-group input-group-sm border rounded">
 											<div class="input-group-prepend">
 												<div class="input-group-text"><i class="material-icons">&#xe89a;</i></div>
@@ -190,7 +190,7 @@
 											</select>
 										</div>
 									</div>
-									<button class="btn btn-block btn-sm btn-success" onclick="updateSpotlight('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+									<button class="btn btn-block btn-sm btn-primary" onclick="updateSpotlight('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>
@@ -198,7 +198,7 @@
 							<td>
 								<form>
 									<div class="form-group mb-1">
-										<label class="sr-only-rm m-0"><?php echo lang('L_P_AVAILABILITY');?></label>
+										<label class="sr-only m-0"><?php echo lang('L_P_AVAILABILITY');?></label>
 										<div class="input-group input-group-sm border rounded">
 											<div class="input-group-prepend">
 												<div class="input-group-text"><i class="material-icons">&#xe614;</i></div>
@@ -209,7 +209,7 @@
 											</select>
 										</div>
 									</div>
-									<button class="btn btn-block btn-sm btn-success" onclick="updateAvailability('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
+									<button class="btn btn-block btn-sm btn-primary" onclick="updateAvailability('<?php echo $item['id'] ;?>', '<?php echo $item['name'] ;?>')">
 										<?php echo lang('BTN_EDIT') ?>
 									</button>
 								</form>

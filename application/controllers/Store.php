@@ -21,6 +21,7 @@ class Store extends MY_Controller {
 			show_404();
 		}
 		$this->data['description'] = $this->data['product']['brief_description'];
+		$this->widgets['view_js'] = 'store/widgets/view_js.php';
 		$this->widgets['content'] = 'store/view';
 		$this->_renderLayout();
 	}
@@ -48,6 +49,8 @@ class Store extends MY_Controller {
 		$this->data['list'] = $this->PM->get_product_list($this->PM::PUBLIC_SEARCH_FIELD, $this->PM::PUBLIC_SEARCH_FIELD_JOIN, $category, $filters, $order_by, current_url(), 12, (int) $this->input->get('page'), TRUE);
 		$this->data['cat_link'] = $this->Category->get_all_cache();
 		$this->widgets['category_nav'] = 'widgets/category_nav';
+		$this->widgets['search_js'] = 'store/widgets/search_js.php';
+		$this->widgets['search_css'] = 'store/widgets/search_css.php';
 		$this->widgets['products'] = 'store/widgets/list';
 		$this->widgets['content'] = 'store/search';
 		$this->_renderLayout();
