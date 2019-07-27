@@ -76,7 +76,7 @@ class _ViewProductState extends State<ViewProduct> {
       final request = await Api.getGeneralInformation();
       final response = await request.close(); 
       if (response.statusCode == 200) {
-        final responseBody = await response.transform(utf8.decoder).join();
+        final responseBody = await response.cast<List<int>>().transform(utf8.decoder).join();
         tempList = json.decode(responseBody);
         setState(() {
           _giData = tempList;
@@ -87,7 +87,7 @@ class _ViewProductState extends State<ViewProduct> {
         Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
         setState(() => _loading = false);
       }
-    } on Exception {
+    } catch (exception) {
       Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
       tempList = this.jsonDecoder.convert(await prefs.getString('_giData'));
       setState(() {
@@ -104,7 +104,7 @@ class _ViewProductState extends State<ViewProduct> {
       final request = await Api.getInboxChannel();
       final response = await request.close(); 
       if (response.statusCode == 200) {
-        final responseBody = await response.transform(utf8.decoder).join();
+        final responseBody = await response.cast<List<int>>().transform(utf8.decoder).join();
         tempList = json.decode(responseBody);
         setState(() {
           _icData = tempList;
@@ -115,7 +115,7 @@ class _ViewProductState extends State<ViewProduct> {
         Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
         setState(() => _loading = false);
       }
-    } on Exception {
+    } catch (exception) {
       Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
       tempList = this.jsonDecoder.convert(await prefs.getString('_icData'));
       setState(() {

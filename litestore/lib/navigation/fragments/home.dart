@@ -33,9 +33,9 @@ class _HomeState extends State<Home> {
     List<Widget> tempList = List();
     try {
       final request = await Api.getProductCategory();
-      final response = await request.close(); 
+      final response = await request.close();
       if (response.statusCode == 200) {
-        final responseBody = await response.transform(utf8.decoder).join();
+        final responseBody = await response.cast<List<int>>().transform(utf8.decoder).join();
         for (var item in json.decode(responseBody)) {
           tempList.add(Category.fromJson(item, null));
         }
@@ -51,7 +51,7 @@ class _HomeState extends State<Home> {
           _categoryLoading = false;
         });
       }
-    } on Exception {
+    } catch (exception) {
       setState(() {
         _categoryLoaded = false;
         _categoryLoading = false;
@@ -65,7 +65,7 @@ class _HomeState extends State<Home> {
       final request = await Api.getProductSpotlight();
       final response = await request.close(); 
       if (response.statusCode == 200) {
-        final responseBody = await response.transform(utf8.decoder).join();
+        final responseBody = await response.cast<List<int>>().transform(utf8.decoder).join();
         for (var item in json.decode(responseBody)) {
           tempList.add(Product.fromJson(item, _ignoringCb));
         }
@@ -78,7 +78,7 @@ class _HomeState extends State<Home> {
         setState(() => _error = true);
         Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
       }
-    } on Exception {
+    } catch (exception) {
       setState(() => _error = true);
       Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
     }

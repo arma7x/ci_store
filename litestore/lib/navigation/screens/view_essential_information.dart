@@ -34,7 +34,7 @@ class ViewEssentialInformation extends StatelessWidget {
     int icon;
     try {
       icon = int.parse(this.materialIcon.replaceAll("&#", '0').replaceAll(";", ''));
-    } on Exception {
+    } catch (exception) {
       icon = 0xe14b;
     }
 

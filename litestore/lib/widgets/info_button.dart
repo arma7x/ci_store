@@ -36,7 +36,7 @@ class InfoButton extends StatelessWidget {
         final response = await request.close(); 
         if (response.statusCode == 200) {
           callback(false);
-          final responseBody = await response.transform(utf8.decoder).join();
+          final responseBody = await response.cast<List<int>>().transform(utf8.decoder).join();
           tempData = json.decode(responseBody);
           Navigator.push(
             context,
@@ -46,7 +46,7 @@ class InfoButton extends StatelessWidget {
           Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
           callback(false);
         }
-      } on Exception {
+      } catch (exception) {
         Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
         callback(false);
       }
@@ -55,7 +55,7 @@ class InfoButton extends StatelessWidget {
     int icon;
     try {
       icon = int.parse(this.materialIcon.replaceAll("&#", '0').replaceAll(";", ''));
-    } on Exception {
+    } catch (exception) {
       icon = 0xe14b;
     }
 

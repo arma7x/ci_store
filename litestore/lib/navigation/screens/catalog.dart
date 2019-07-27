@@ -60,7 +60,7 @@ class _CatalogPageState extends State<CatalogPage> {
       final request = await Api.getProductCategory();
       final response = await request.close(); 
       if (response.statusCode == 200) {
-        final responseBody = await response.transform(utf8.decoder).join();
+        final responseBody = await response.cast<List<int>>().transform(utf8.decoder).join();
         tempList..add(this._categoryFilter[0])
                 ..addAll(json.decode(responseBody));
         for (var item in json.decode(responseBody)) {
@@ -75,7 +75,7 @@ class _CatalogPageState extends State<CatalogPage> {
         Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
         setState(() => _categoryLoaded = false);
       }
-    } on Exception {
+    } catch (exception) {
       Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
       setState(() => _categoryLoaded = false);
     }
@@ -101,7 +101,7 @@ class _CatalogPageState extends State<CatalogPage> {
       final request = await Api.searchProduct(this._query);
       final response = await request.close(); 
       if (response.statusCode == 200) {
-        final responseBody = await response.transform(utf8.decoder).join();
+        final responseBody = await response.cast<List<int>>().transform(utf8.decoder).join();
         _tempSearchResult = json.decode(responseBody);
         for (var item in _tempSearchResult['result']) {
           tempList.add(Product.fromJson(item, _ignoringCb));
@@ -116,7 +116,7 @@ class _CatalogPageState extends State<CatalogPage> {
         setState(() => _error = true);
         Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
       }
-    } on Exception {
+    } catch (exception) {
       setState(() => _error = true);
       Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
     }
@@ -135,7 +135,7 @@ class _CatalogPageState extends State<CatalogPage> {
       final request = await Api.searchProduct(this._query);
       final response = await request.close(); 
       if (response.statusCode == 200) {
-        final responseBody = await response.transform(utf8.decoder).join();
+        final responseBody = await response.cast<List<int>>().transform(utf8.decoder).join();
         _tempSearchResult = json.decode(responseBody);
         for (var item in _tempSearchResult['result']) {
           tempList.add(Product.fromJson(item, _ignoringCb));
@@ -149,7 +149,7 @@ class _CatalogPageState extends State<CatalogPage> {
         setState(() => _nextPageLoading = false);
         Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
       }
-    } on Exception {
+    } catch (exception) {
       setState(() => _nextPageLoading = false);
       Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
     }

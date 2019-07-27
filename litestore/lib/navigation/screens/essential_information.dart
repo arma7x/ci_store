@@ -33,7 +33,7 @@ class _EssentialInformationPageState extends State<EssentialInformationPage> {
       final request = await Api.getEssentialInformation();
       final response = await request.close(); 
       if (response.statusCode == 200) {
-        final responseBody = await response.transform(utf8.decoder).join();
+        final responseBody = await response.cast<List<int>>().transform(utf8.decoder).join();
         tempList = json.decode(responseBody);
         setState(() {
           _eiData = tempList;
@@ -44,7 +44,7 @@ class _EssentialInformationPageState extends State<EssentialInformationPage> {
         setState(() => _loading = false);
         Fluttertoast.showToast(msg: "Network Error", toastLength: Toast.LENGTH_SHORT);
       }
-    } on Exception {
+    } catch (exception) {
       tempList = this.jsonDecoder.convert(await prefs.getString('_eiData'));
       setState(() {
         _eiData = tempList;
