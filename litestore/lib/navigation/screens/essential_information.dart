@@ -78,7 +78,7 @@ class _EssentialInformationPageState extends State<EssentialInformationPage> {
         : IgnorePointer(
           ignoring: this._ignoring,
           child: new Container(
-            color: Colors.grey[100],
+            color: Colors.blue[100],
             child: new Column(
               children: <Widget>[
                 this._ignoring ? new LinearProgressIndicator() : SizedBox(height: 0, width: 0),
