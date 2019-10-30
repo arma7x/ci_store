@@ -19,8 +19,6 @@ class General_information extends MY_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->template = 'widgets/dashboard/template';
-		$this->widgets['nav'] = 'widgets/dashboard/nav';
-		$this->widgets['menu'] = 'widgets/dashboard/menu';
 		$this->load->model('General_Information_Model', 'GI');
 		$this->load->model('Social_Channel_Model', 'SC');
 		$this->load->model('Inbox_Channel_Model', 'IC');

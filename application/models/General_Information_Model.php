@@ -3,17 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class General_Information_Model extends MY_Model {
 
-	public CONST CACHE_PREFIX = 'GI_';
-	public CONST ALL_CACHE = 'CACHE_GI';
+	public static $CACHE_PREFIX = 'GI_';
+	public static $ALL_CACHE = 'CACHE_GI';
 	public $table = 'general_informations';
 
 	public function set_all_cache() {
-		$this->cache->save(SELF::CACHE_PREFIX.SELF::ALL_CACHE, $this->get_all(), 18144000);
+		$this->cache->save(SELF::$CACHE_PREFIX.SELF::$ALL_CACHE, $this->get_all(), 18144000);
 		return $this->get_all_cache();
 	}
 
 	public function get_all_cache() {
-		$cached = $this->cache->get(SELF::CACHE_PREFIX.SELF::ALL_CACHE);
+		$cached = $this->cache->get(SELF::$CACHE_PREFIX.SELF::$ALL_CACHE);
 		if ($cached === FALSE) {
 			return $this->set_all_cache();
 		}

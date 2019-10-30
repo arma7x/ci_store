@@ -33,6 +33,8 @@ class Authentication extends MY_Controller {
 
 	public function ui_login() {
 		$this->AllowGetRequest();
+		$this->load->model('Category_Model', 'Category');
+		$this->data['cat_link'] = $this->Category->get_all_cache();
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_LOGIN');
 		$this->data['page_name'] = lang('H_LOGIN');
 		$this->widgets['content'] = 'auth/login';
@@ -86,6 +88,8 @@ class Authentication extends MY_Controller {
 
 	public function ui_register() {
 		$this->AllowGetRequest();
+		$this->load->model('Category_Model', 'Category');
+		$this->data['cat_link'] = $this->Category->get_all_cache();
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_REGISTER');
 		$this->data['page_name'] = lang('H_REGISTER');
 		$this->widgets['content'] = 'auth/register';
@@ -132,6 +136,8 @@ class Authentication extends MY_Controller {
 
 	public function ui_activate_account() {
 		$this->AllowGetRequest();
+		$this->load->model('Category_Model', 'Category');
+		$this->data['cat_link'] = $this->Category->get_all_cache();
 		if ($this->input->post_get('token', TRUE) !== NULL) {
 			$this->load->helper('url');
 			$result = $this->authenticator->validate_activation_token($this->input->post_get('token', TRUE));
@@ -179,6 +185,8 @@ class Authentication extends MY_Controller {
 
 	public function ui_forgot_password() {
 		$this->AllowGetRequest();
+		$this->load->model('Category_Model', 'Category');
+		$this->data['cat_link'] = $this->Category->get_all_cache();
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_FORGOT_PASSWORD');
 		$this->data['page_name'] = lang('H_FORGOT_PASSWORD');
 		$this->widgets['content'] = 'auth/forgot_password';
@@ -218,6 +226,8 @@ class Authentication extends MY_Controller {
 	public function ui_reset_password() {
 		$this->AllowGetRequest();
 		$this->load->helper('url');
+		$this->load->model('Category_Model', 'Category');
+		$this->data['cat_link'] = $this->Category->get_all_cache();
 		if ($this->input->post_get('token', TRUE) !== NULL) {
 			$result = $this->authenticator->verify_reset_token($this->input->post_get('token', TRUE));
 			if ($result === FALSE) {
@@ -271,6 +281,8 @@ class Authentication extends MY_Controller {
 
 	public function ui_update_password() {
 		$this->AllowGetRequest();
+		$this->load->model('Category_Model', 'Category');
+		$this->data['cat_link'] = $this->Category->get_all_cache();
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_UPDATE_PASSWORD');
 		$this->data['page_name'] = lang('H_UPDATE_PASSWORD');
 		$this->widgets['content'] = 'auth/update_password';
@@ -343,6 +355,8 @@ class Authentication extends MY_Controller {
 
 	public function manage_token() {
 		$this->AllowGetRequest();
+		$this->load->model('Category_Model', 'Category');
+		$this->data['cat_link'] = $this->Category->get_all_cache();
 		$this->data['title'] = $this->container['app_name'].' | '.lang('H_LOG_IN_DEVICES');
 		$this->data['page_name'] = lang('H_LOG_IN_DEVICES');
 		$this->data['token_list'] = $this->authenticator->get_remember_token(array('user' => $this->container['user']['id']));

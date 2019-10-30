@@ -13,8 +13,6 @@ class Category extends MY_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->template = 'widgets/dashboard/template';
-		$this->widgets['nav'] = 'widgets/dashboard/nav';
-		$this->widgets['menu'] = 'widgets/dashboard/menu';
 		$this->load->model('Category_Model', 'Category');
 	}
 

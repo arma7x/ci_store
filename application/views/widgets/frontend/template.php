@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <meta name="turbolinks-cache-control" content="no-cache">
     <title><?php echo isset($title) ? $title : 'Codeigniter' ?></title>
-    <?php echo isset($header) ? $header : null ?>
+    <?php echo $this->load->view('widgets/common/header', $this, TRUE) ?>
   </head>
   <body class="p-0">
     <style>
@@ -65,25 +65,25 @@
             box-shadow: none;
         }
     </style>
-    <?php echo isset($nav) ? $nav : null ?>
+    <?php echo $this->load->view('widgets/frontend/nav', $this, TRUE) ?>
     <main id="main" class="col pt-5 pt-lg-0" role="main">
         <?php if($this->container['user'] !== NULL): ?>
         <input id="upload-avatar" class="sr-only" type="file" accept="image/*" onChange="resizePicture('upload-avatar', null, 100, 100, .50, 'image/webp', uploadAvatar, null)"/>
         <?php endif; ?>
         <div class="mt-0">
-        <?php echo isset($notification) ? $notification : null ?>
-        <?php echo isset($menu) ? $menu : null ?>
+        <?php echo $this->load->view('widgets/common/notification', $this, TRUE) ?>
+        <?php echo $this->load->view('widgets/frontend/menu', $this, TRUE) ?>
         <?php if ($this->container['sw_offline_cache'] === NULL): ?>
-        <?php echo isset($category_nav) ? $category_nav : null ?>
+        <?php echo $this->load->view('widgets/frontend/category_nav', $this, TRUE) ?>
         <?php endif ?>
         <div class="p-0 col col-12 col-lg-10 offset-lg-1">
         <?php echo isset($content) ? $content : null ?>
         </div>
         </div>
     </main>
-    <?php echo isset($spinner) ? $spinner : null ?>
+    <?php echo $this->load->view('widgets/common/spinner', $this, TRUE) ?>
     <footer class="footer border-top border-primary">
-      <?php echo isset($bottom) ? $bottom : null ?>
+      <?php echo $this->load->view('widgets/frontend/bottom', $this, TRUE) ?>
       <div class="container text-md-right small text-muted">
         <!--
         <span class="text-dark small"><?php echo str_replace('%s', $this->benchmark->elapsed_time(), lang('L_F_RENDER_ELAPSED')).'|'.$this->benchmark->memory_usage().'|'.strtoupper(ENVIRONMENT) ?></span>
@@ -91,6 +91,6 @@
         <i class="material-icons" style="font-size:1.1em;">&#xe90c;</i> <a onclick="navigate('/authentication/ui_login')"><?php echo date("Y").' '.$this->container['app_name'] ?></a> | Made By <a href="mailto:arma7x@live.com" class="text-primary">arma7x</a>
       </div>
     </footer>
-    <?php echo isset($footer) ? $footer : null ?>
+    <?php echo $this->load->view('widgets/common/footer', $this, TRUE) ?>
   </body>
 </html>

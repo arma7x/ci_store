@@ -44,7 +44,7 @@ class Product extends MY_Controller {
 			}
 		}
 		$filters['visibility'] = '1';
-		$data = $this->PM->get_product_list($this->PM::PUBLIC_SEARCH_FIELD, $this->PM::PUBLIC_SEARCH_FIELD_JOIN, $category, $filters, $order_by, current_url(), 12, (int) $this->input->get('page'), TRUE);
+		$data = $this->PM->get_product_list($this->PM->PUBLIC_SEARCH_FIELD_JOIN(), $this->PM->PUBLIC_SEARCH_FIELD_JOIN(), $category, $filters, $order_by, current_url(), 12, (int) $this->input->get('page'), TRUE);
 		$this->_renderJSON(200, $data);
 	}
 

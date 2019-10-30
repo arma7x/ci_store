@@ -9,6 +9,8 @@ class Essential_information extends MY_Controller {
 	}
 
 	public function slug() {
+		$this->load->model('Category_Model', 'Category');
+		$this->data['cat_link'] = $this->Category->get_all_cache();
 		$this->load->model('Essential_Information_Model', 'EI');
 		$cached = $this->EI->get_slug_cache($this->uri->segment(1));
 		if ($cached === FALSE) {

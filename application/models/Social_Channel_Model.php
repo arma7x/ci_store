@@ -3,20 +3,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Social_Channel_Model extends MY_Model {
 
-	private CONST PUBLIC_FIELD = 'id, icon, name, url';
-	public CONST CACHE_PREFIX = 'SC_';
-	public CONST ALL_CACHE = 'CACHE_SC';
+	public static $PUBLIC_FIELD = 'id, icon, name, url';
+	public static $CACHE_PREFIX = 'SC_';
+	public static $ALL_CACHE = 'CACHE_SC';
 	public $table = 'social_channels';
 
 	public function set_all_cache() {
-		$this->db->select(SELF::PUBLIC_FIELD);
+		$this->db->select(SELF::$PUBLIC_FIELD);
 		$this->db->order_by('ordering', 'ASC');
-		$this->cache->save(SELF::CACHE_PREFIX.SELF::ALL_CACHE, $this->db->get($this->table)->result_array(), 18144000);
+		$this->cache->save(SELF::$CACHE_PREFIX.SELF::$ALL_CACHE, $this->db->get($this->table)->result_array(), 18144000);
 		return $this->get_all_cache();
 	}
 
 	public function get_all_cache() {
-		$cached = $this->cache->get(SELF::CACHE_PREFIX.SELF::ALL_CACHE);
+		$cached = $this->cache->get(SELF::$CACHE_PREFIX.SELF::$ALL_CACHE);
 		if ($cached === FALSE) {
 			return $this->set_all_cache();
 		}

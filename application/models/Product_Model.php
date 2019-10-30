@@ -3,21 +3,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Product_Model extends MY_Model {
 
-	public CONST PUBLIC_VIEW_FIELD = '*';
-	public CONST PUBLIC_SEARCH_FIELD = 'id, name, slug, price, brief_description, spotlight, availability, main_photo';
-	public CONST PUBLIC_SEARCH_FIELD_JOIN = 'products.id, products.name, products.slug, products.price, products.brief_description, products.spotlight, products.availability, products.main_photo';
-	public CONST ADMIN_SEARCH_FIELD = 'id, name, slug, price, visibility, spotlight, availability, main_photo, created_at, updated_at';
-	public CONST ADMIN_SEARCH_FIELD_JOIN = 'products.id, products.name, products.slug, products.price, products.visibility, products.spotlight, products.availability, products.main_photo, products.created_at, products.updated_at';
-	public CONST CACHE_PREFIX = 'PM_';
-	public CONST SPOTLIGHT_PREFIX = 'SPOTLIGHT';
+	public static $PUBLIC_VIEW_FIELD = '*';
+	public static $PUBLIC_SEARCH_FIELD = 'id, name, slug, price, brief_description, spotlight, availability, main_photo';
+	public static $PUBLIC_SEARCH_FIELD_JOIN = 'products.id, products.name, products.slug, products.price, products.brief_description, products.spotlight, products.availability, products.main_photo';
+	public static $ADMIN_SEARCH_FIELD = 'id, name, slug, price, visibility, spotlight, availability, main_photo, created_at, updated_at';
+	public static $ADMIN_SEARCH_FIELD_JOIN = 'products.id, products.name, products.slug, products.price, products.visibility, products.spotlight, products.availability, products.main_photo, products.created_at, products.updated_at';
+	public static $CACHE_PREFIX = 'PM_';
+	public static $SPOTLIGHT_PREFIX = 'SPOTLIGHT';
 	public $table = 'products';
 
+	public static function PUBLIC_VIEW_FIELD() {
+		return SELF::$PUBLIC_SEARCH_FIELD;
+	}
+
+	public static function PUBLIC_SEARCH_FIELD_JOIN() {
+		return SELF::$PUBLIC_SEARCH_FIELD_JOIN;
+	}
+
+	public static function ADMIN_SEARCH_FIELD() {
+		return SELF::$ADMIN_SEARCH_FIELD;
+	}
+
+	public static function ADMIN_SEARCH_FIELD_JOIN() {
+		return SELF::$ADMIN_SEARCH_FIELD_JOIN;
+	}
+
 	public function get_product_cache($slug) {
-		$cached = $this->cache->get(SELF::CACHE_PREFIX.$slug);
+		$cached = $this->cache->get(SELF::$CACHE_PREFIX.$slug);
 		if ($cached !== FALSE) {
 			return $cached;
 		} else {
-			$exist = $this->find_product(SELF::PUBLIC_VIEW_FIELD, array('slug' => $slug, 'visibility' => 1));
+			$exist = $this->find_product(SELF::$PUBLIC_VIEW_FIELD, array('slug' => $slug, 'visibility' => 1));
 			if ($exist !== NULL) {
 				$this->set_product_cache($exist['slug'], $exist);
 				$this->set_spotlight_cache();
@@ -33,15 +49,15 @@ class Product_Model extends MY_Model {
 			$this->remove_product_cache($slug);
 			return NULL;
 		}
-		return $this->cache->save(SELF::CACHE_PREFIX.$slug, $cache, 18144000);
+		return $this->cache->save(SELF::$CACHE_PREFIX.$slug, $cache, 18144000);
 	}
 
 	public function remove_product_cache($slug) {
-		return $this->cache->delete(SELF::CACHE_PREFIX.$slug);
+		return $this->cache->delete(SELF::$CACHE_PREFIX.$slug);
 	}
 
 	public function get_spotlight_cache() {
-		$cached = $this->cache->get(SELF::CACHE_PREFIX.SELF::SPOTLIGHT_PREFIX);
+		$cached = $this->cache->get(SELF::$CACHE_PREFIX.SELF::$SPOTLIGHT_PREFIX);
 		if ($cached === FALSE || COUNT($cached) <= 0) {
 			return $this->set_spotlight_cache();
 		}
@@ -49,12 +65,12 @@ class Product_Model extends MY_Model {
 	}
 
 	public function set_spotlight_cache() {
-		$result = $this->db->select(SELF::PUBLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('spotlight' => 1, 'visibility' => 1))->result_array();
+		$result = $this->db->select(SELF::$PUBLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('spotlight' => 1, 'visibility' => 1))->result_array();
 		if (COUNT($result) <= 0) {
-			$result = $this->db->select(SELF::PUBLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('visibility' => 1), 12)->result_array();
+			$result = $this->db->select(SELF::$PUBLIC_SEARCH_FIELD)->order_by('created_at', 'desc')->get_where($this->table, array('visibility' => 1), 12)->result_array();
 			return $result;
 		}
-		$this->cache->save(SELF::CACHE_PREFIX.SELF::SPOTLIGHT_PREFIX, $result, 18144000);
+		$this->cache->save(SELF::$CACHE_PREFIX.SELF::$SPOTLIGHT_PREFIX, $result, 18144000);
 		return $this->get_spotlight_cache();
 	}
 
@@ -168,7 +184,7 @@ class Product_Model extends MY_Model {
 
 	public function add_product($data) {
 		$result = $this->db->insert($this->table, $data);
-		$exist = $this->find_product(SELF::PUBLIC_VIEW_FIELD, array('id' => $data['id']));
+		$exist = $this->find_product(SELF::$PUBLIC_VIEW_FIELD, array('id' => $data['id']));
 		if ($exist !== NULL) {
 			$this->set_product_cache($exist['slug'], $exist);
 			$this->set_spotlight_cache();
@@ -178,7 +194,7 @@ class Product_Model extends MY_Model {
 
 	public function update_product($data, $index) {
 		$result = $this->db->update($this->table, $data, $index);
-		$exist = $this->find_product(SELF::PUBLIC_VIEW_FIELD, $index);
+		$exist = $this->find_product(SELF::$PUBLIC_VIEW_FIELD, $index);
 		if ($exist !== NULL) {
 			$this->set_product_cache($exist['slug'], $exist);
 			$this->set_spotlight_cache();

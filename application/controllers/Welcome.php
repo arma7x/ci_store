@@ -74,7 +74,6 @@ class Welcome extends MY_Controller {
 		$this->data['list']['result'] = $this->PM->get_spotlight_cache();
 		$this->data['cat_link'] = $this->Category->get_all_cache();
 		$this->data['description'] = isset($this->container['gi_link']['description']) ? $this->container['gi_link']['description'] : '';
-		$this->widgets['category_nav'] = 'widgets/category_nav';
 		$this->widgets['products'] = 'store/widgets/list';
 		$this->widgets['content'] = 'welcome';
 		$this->_renderLayout();
