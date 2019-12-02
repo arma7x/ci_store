@@ -30,7 +30,7 @@ class Product extends StatelessWidget {
       briefDescription: json['brief_description'],
       spotlight: json['spotlight'],
       availability: json['availability'],
-      mainPhoto: json['main_photo'],
+      mainPhoto: Api.getURLPath(json['main_photo']),
       callback: cb,
     );
   }

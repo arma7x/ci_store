@@ -13,6 +13,13 @@ class Api {
   static const String SOCIAL_CHANNEL = 'api/other/social_channel';
   static const String INBOX_CHANNEL = 'api/other/inbox_channel';
 
+  static String getURLPath(String path) {
+    if (path.startsWith('http')) {
+      return path;
+    }
+    return Uri.https(BASE_URL, path).toString();
+  }
+
   static Future getProductCategory() {
     final url = Uri.https(BASE_URL, PRODUCT_CATEGORY);
     final httpClient = HttpClient();
